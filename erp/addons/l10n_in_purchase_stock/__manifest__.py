@@ -16,7 +16,7 @@
     """,
 
     'author': "Odoo",
-    'website': "https://www.odoo.com",
+    'website': "https://www.jtstorm.com",
     'category': 'Accounting/Localizations/Purchase',
     'version': '1.0',
 

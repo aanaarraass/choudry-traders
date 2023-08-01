@@ -71,7 +71,7 @@ class GoogleSync(models.AbstractModel):
         result = super().write(vals)
         for record in self.filtered('need_sync'):
             if record.google_id:
-                record.with_user(record._get_event_user())._google_patch(google_service, record.google_id, record._google_values(), timeout=3)
+                record._google_patch(google_service, record.google_id, record._google_values(), timeout=3)
 
         return result
 
@@ -87,7 +87,7 @@ class GoogleSync(models.AbstractModel):
         google_service = GoogleCalendarService(self.env['google.service'])
         records_to_sync = records.filtered(lambda r: r.need_sync and r.active)
         for record in records_to_sync:
-            record.with_user(record._get_event_user())._google_insert(google_service, record._google_values(), timeout=3)
+            record._google_insert(google_service, record._google_values(), timeout=3)
         return records
 
     def unlink(self):
@@ -129,11 +129,11 @@ class GoogleSync(models.AbstractModel):
         updated_records = records_to_sync.filtered('google_id')
         new_records = records_to_sync - updated_records
         for record in cancelled_records.filtered(lambda e: e.google_id and e.need_sync):
-            record.with_user(record._get_event_user())._google_delete(google_service, record.google_id)
+            record._google_delete(google_service, record.google_id)
         for record in new_records:
-            record.with_user(record._get_event_user())._google_insert(google_service, record._google_values())
+            record._google_insert(google_service, record._google_values())
         for record in updated_records:
-            record.with_user(record._get_event_user())._google_patch(google_service, record.google_id, record._google_values())
+            record._google_patch(google_service, record.google_id, record._google_values())
 
     def _cancel(self):
         self.google_id = False
@@ -208,7 +208,7 @@ class GoogleSync(models.AbstractModel):
             error_log += "The event (%(id)s - %(name)s at %(start)s) could not be synced. It will not be synced while " \
                          "it is not updated. Reason: %(reason)s" % {'id': event_ids, 'start': start, 'name': name,
                                                                     'reason': reason}
-            _logger.warning(error_log)
+            _logger.error(error_log)
 
             body = _(
                 "The following event could not be synced with Google Calendar. </br>"
@@ -320,13 +320,5 @@ class GoogleSync(models.AbstractModel):
     def _restart_google_sync(self):
         """ Turns on the google synchronization for all the events of
         a given user.
-        """
-        raise NotImplementedError()
-
-    def _get_event_user(self):
-        """ Return the correct user to send the request to Google.
-        It's possible that a user creates an event and sets another user as the organizer. Using self.env.user will
-        cause some issues, and It might not be possible to use this user for sending the request, so this method gets
-        the appropriate user accordingly.
         """
         raise NotImplementedError()

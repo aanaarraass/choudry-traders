@@ -71,15 +71,14 @@ models.Order = models.Order.extend({
 var orderline_super = models.Orderline.prototype;
 models.Orderline = models.Orderline.extend({
     can_be_merged_with: function(orderline) {
-        if (this.pos.is_french_country()) {
-            const order = this.pos.get_order();
-            const lastId = order.orderlines.last().cid;
-            if ((order.orderlines._byId[lastId].product.id !== orderline.product.id || order.orderlines._byId[lastId].quantity < 0)) {
-                return false;
-            }
+        let order = this.pos.get_order();
+        let lastId = order.orderlines.last().cid;
+
+        if(this.pos.is_french_country() && (order.orderlines._byId[lastId].product.id !== orderline.product.id || order.orderlines._byId[lastId].quantity < 0)) {
+            return false;
+        } else {
             return orderline_super.can_be_merged_with.apply(this, arguments);
         }
-        return orderline_super.can_be_merged_with.apply(this, arguments);
     }
 });
 

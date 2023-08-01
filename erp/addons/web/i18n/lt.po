@@ -32,7 +32,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
 "Last-Translator: Jonas Zinkevicius <jozi@odoo.com>, 2022\n"
-"Language-Team: Lithuanian (https://app.transifex.com/odoo/teams/41243/lt/)\n"
+"Language-Team: Lithuanian (https://www.transifex.com/odoo/teams/41243/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -2900,7 +2900,7 @@ msgstr "\"Odoo\" programos bus pasiekiamos greitai"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Client Error"
+msgid "ERP Client Error"
 msgstr "Odoo programos klaida"
 
 #. module: web
@@ -2914,7 +2914,7 @@ msgstr "Odoo Enterprise"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Error"
+msgid "ERP Error"
 msgstr "Odoo klaida"
 
 #. module: web
@@ -2922,14 +2922,14 @@ msgstr "Odoo klaida"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Network Error"
+msgid "ERP Network Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Server Error"
+msgid "ERP Server Error"
 msgstr "Odoo serverio klaida"
 
 #. module: web
@@ -2937,7 +2937,7 @@ msgstr "Odoo serverio klaida"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Odoo Session Expired"
+msgid "ERP Session Expired"
 msgstr "Odoo sesija pasibaigė"
 
 #. module: web
@@ -2945,7 +2945,7 @@ msgstr "Odoo sesija pasibaigė"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Warning"
+msgid "ERP Warning"
 msgstr "Odoo įspėjimas"
 
 #. module: web
@@ -4939,7 +4939,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your ERP session expired. The current page is about to be refreshed."
 msgstr ""
 
 #. module: web

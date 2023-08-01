@@ -34,7 +34,7 @@ publicWidget.registry.ProductWishlist.include({
         const iconEl = targetEl.querySelector('i');
         const currentNotify = targetEl.dataset.notify === 'True';
         this._rpc({
-            route: `/shop/wishlist/notify/${encodeURIComponent(wishID)}`,
+            route: `/shop/wishlist/notify/${wishID}`,
             params: {
                 notify: !currentNotify,
             }

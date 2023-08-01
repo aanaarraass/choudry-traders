@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import contextlib
 import difflib
 import logging
 import re
 from contextlib import contextmanager
-from pathlib import PurePath
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -125,14 +123,12 @@ class TestRunnerLoggingCommon(TransactionCase):
         self.test_result.addError(self, (AssertionError, AssertionError(message), None))
 
     def _clean_message(self, message):
-        root_path = PurePath(__file__).parents[4]  # removes /odoo/addons/base/tests/test_test_suite.py
-        python_path = PurePath(contextlib.__file__).parent  # /usr/lib/pythonx.x, C:\\python\\Lib, ...
+        root_path = __file__.replace('/odoo/addons/base/tests/test_test_suite.py', '')
         message = re.sub(r'line \d+', 'line $line', message)
         message = re.sub(r'py:\d+', 'py:$line', message)
         message = re.sub(r'decorator-gen-\d+', 'decorator-gen-xxx', message)
-        message = message.replace(f'"{root_path}', '"/root_path/odoo')
-        message = message.replace(f'"{python_path}', '"/usr/lib/python')
-        message = message.replace('\\', '/')
+        message = re.sub(r'python[\d\.]+', 'python', message)
+        message = message.replace(f'{root_path}', '/root_path/odoo')
         return message
 
 

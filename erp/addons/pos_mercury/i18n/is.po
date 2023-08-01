@@ -333,7 +333,7 @@ msgstr ""
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:423
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:577
 #, python-format
-msgid "Odoo error while processing transaction."
+msgid "ERP Error while processing transaction."
 msgstr ""
 
 #. module: pos_mercury

@@ -2318,7 +2318,7 @@ msgstr "Upravljaj putem email-a"
 
 #. module: mail
 #: selection:res.users,notification_type:0
-msgid "Handle in Odoo"
+msgid "Handle In ERP"
 msgstr "Upravljaj u Odoo"
 
 #. module: mail
@@ -4190,7 +4190,7 @@ msgstr "Molimo, pričekajte dok se datoteka ne učita"
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle in Odoo: notifications appear in your Odoo Inbox"
+"- Handle In ERP: notifications appear in your Inbox"
 msgstr ""
 
 #. module: mail

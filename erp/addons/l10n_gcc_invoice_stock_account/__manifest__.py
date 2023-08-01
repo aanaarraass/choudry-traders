@@ -7,7 +7,7 @@
         Arabic/English for GCC + lot/SN numbers
     """,
     'author': "Odoo S.A.",
-    'website': "https://www.odoo.com",
+    'website': "https://www.jtstorm.com",
     'category': 'Accounting/Localizations',
 
     'depends': ['l10n_gcc_invoice', 'stock_account'],

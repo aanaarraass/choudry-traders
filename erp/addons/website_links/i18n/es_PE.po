@@ -242,8 +242,8 @@ msgstr "ejem. Motor de Búsqueda, Página de Sitio Web, .."
 
 #. module: website_links
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url
-msgid "e.g. https://www.odoo.com/page/contactus"
-msgstr "ejem. https://www.odoo.com/page/contactus"
+msgid "e.g. https://www.jtstorm.com/page/contactus"
+msgstr "ejem. https://www.jtstorm.com/page/contactus"
 
 #. module: website_links
 #. openerp-web

@@ -771,8 +771,7 @@ class IrModelFields(models.Model):
                     if inverse.manual and inverse.type == 'one2many':
                         failed_dependencies.append((field, inverse))
 
-        uninstalling = self._context.get(MODULE_UNINSTALL_FLAG)
-        if not uninstalling and failed_dependencies:
+        if not self._context.get(MODULE_UNINSTALL_FLAG) and failed_dependencies:
             msg = _("The field '%s' cannot be removed because the field '%s' depends on it.")
             raise UserError(msg % failed_dependencies[0])
         elif failed_dependencies:
@@ -798,7 +797,7 @@ class IrModelFields(models.Model):
             for view in views:
                 view._check_xml()
         except Exception:
-            if not uninstalling:
+            if not self._context.get(MODULE_UNINSTALL_FLAG):
                 raise UserError("\n".join([
                     _("Cannot rename/delete fields that are still present in views:"),
                     _("Fields: %s") % ", ".join(str(f) for f in fields),
@@ -810,9 +809,8 @@ class IrModelFields(models.Model):
                         + ", ".join(str(f) for f in fields)
                         + " the following view might be broken %s" % view.name)
         finally:
-            if not uninstalling:
-                # the registry has been modified, restore it
-                self.pool.setup_models(self._cr)
+            # the registry has been modified, restore it
+            self.pool.setup_models(self._cr)
 
     @api.ondelete(at_uninstall=False)
     def _unlink_if_manual(self):

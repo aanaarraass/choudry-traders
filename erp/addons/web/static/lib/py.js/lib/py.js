@@ -263,12 +263,8 @@ var py = {};
 
         var DecNumber = '\\d+(L|l)?';
         var IntNumber = DecNumber;
-
-        var Exponent = '[eE][+-]?\\d+';
-        var PointFloat = group(`\\d+\\.\\d*(${Exponent})?`, `\\.\\d+(${Exponent})?`);
-        // Exponent not optional when no decimal point
-        var FloatNumber = group(PointFloat, `\\d+${Exponent}`);
-
+        var PointFloat = group('\\d+\\.\\d*', '\\.\\d+');
+        var FloatNumber = PointFloat;
         var Number = group(FloatNumber, IntNumber);
 
         var Operator = group("\\*\\*=?", ">>=?", "<<=?", "<>", "!=",

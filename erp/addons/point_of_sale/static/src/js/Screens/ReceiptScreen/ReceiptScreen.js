@@ -79,9 +79,8 @@ odoo.define('point_of_sale.ReceiptScreen', function (require) {
              */
             async handleAutoPrint() {
                 if (this._shouldAutoPrint()) {
-                    const currentOrder = this.currentOrder;
                     await this.printReceipt();
-                    if (this.currentOrder && this.currentOrder === currentOrder && currentOrder._printed && this._shouldCloseImmediately()) {
+                    if (this.currentOrder._printed && this._shouldCloseImmediately()) {
                         this.whenClosing();
                     }
                 }
@@ -95,10 +94,9 @@ odoo.define('point_of_sale.ReceiptScreen', function (require) {
                 }
             }
             async printReceipt() {
-                const currentOrder = this.currentOrder;
                 const isPrinted = await this._printReceipt();
                 if (isPrinted) {
-                    currentOrder._printed = true;
+                    this.currentOrder._printed = true;
                 }
             }
             _shouldAutoPrint() {
@@ -117,13 +115,6 @@ odoo.define('point_of_sale.ReceiptScreen', function (require) {
                 const orderName = order.get_name();
                 const orderClient = { email: this.orderUiState.inputEmail, name: client ? client.name : this.orderUiState.inputEmail };
                 const order_server_id = this.env.pos.validated_orders_name_server_id_map[orderName];
-                if (!order_server_id) {
-                    this.showPopup('ErrorPopup', {
-                        title: this.env._t('Unsynced order'),
-                        body: this.env._t('This order is not yet synced to server. Make sure it is synced then try again.'),
-                    });
-                    return Promise.reject();
-                }
                 await this.rpc({
                     model: 'pos.order',
                     method: 'action_receipt_to_customer',

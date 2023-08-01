@@ -3884,17 +3884,16 @@ See https://github.com/odoo/owl/blob/master/doc/reference/config.md#mode for mor
                         continue;
                     }
                 }
-                let whyInvalid;
+                let isValid;
                 try {
-                    whyInvalid = whyInvalidProp(props[propName], propsDef[propName]);
+                    isValid = isValidProp(props[propName], propsDef[propName]);
                 }
                 catch (e) {
                     e.message = `Invalid prop '${propName}' in component ${Widget.name} (${e.message})`;
                     throw e;
                 }
-                if (whyInvalid !== null) {
-                    whyInvalid = whyInvalid.replace(/\${propName}/g, propName);
-                    throw new Error(`Invalid Prop '${propName}' in component '${Widget.name}': ${whyInvalid}`);
+                if (!isValid) {
+                    throw new Error(`Invalid Prop '${propName}' in component '${Widget.name}'`);
                 }
             }
             for (let propName in props) {
@@ -3905,11 +3904,11 @@ See https://github.com/odoo/owl/blob/master/doc/reference/config.md#mode for mor
         }
     };
     /**
-     * Check why an invidual prop value doesn't match its (static) prop definition
+     * Check if an invidual prop value matches its (static) prop definition
      */
-    function whyInvalidProp(prop, propDef) {
+    function isValidProp(prop, propDef) {
         if (propDef === true) {
-            return null;
+            return true;
         }
         if (typeof propDef === "function") {
             // Check if a value is constructed by some Constructor.  Note that there is a
@@ -3918,70 +3917,46 @@ See https://github.com/odoo/owl/blob/master/doc/reference/config.md#mode for mor
             // So, even though 1 is not an instance of Number, we want to consider that
             // it is valid.
             if (typeof prop === "object") {
-                if (prop instanceof propDef) {
-                    return null;
-                }
-                return `\${propName} is not an instance of ${propDef.name}`;
+                return prop instanceof propDef;
             }
-            if (typeof prop === propDef.name.toLowerCase()) {
-                return null;
-            }
-            return `type of \${propName} is not ${propDef.name}`;
+            return typeof prop === propDef.name.toLowerCase();
         }
         else if (propDef instanceof Array) {
             // If this code is executed, this means that we want to check if a prop
             // matches at least one of its descriptor.
-            let reasons = [];
+            let result = false;
             for (let i = 0, iLen = propDef.length; i < iLen; i++) {
-                const why = whyInvalidProp(prop, propDef[i]);
-                if (why === null) {
-                    return null;
-                }
-                reasons.push(why);
+                result = result || isValidProp(prop, propDef[i]);
             }
-            if (reasons.length > 1) {
-                return reasons.slice(0, -1).join(", ") + " and " + reasons[reasons.length - 1];
-            }
-            else {
-                return reasons[0];
-            }
+            return result;
         }
         // propsDef is an object
         if (propDef.optional && prop === undefined) {
-            return null;
+            return true;
         }
-        if (propDef.type) {
-            const why = whyInvalidProp(prop, propDef.type);
-            if (why !== null) {
-                return why;
-            }
-        }
-        if (propDef.validate && !propDef.validate(prop)) {
-            return "${propName} could not be validated by `validate` function";
+        let result = propDef.type ? isValidProp(prop, propDef.type) : true;
+        if (propDef.validate) {
+            result = result && propDef.validate(prop);
         }
         if (propDef.type === Array && propDef.element) {
             for (let i = 0, iLen = prop.length; i < iLen; i++) {
-                const why = whyInvalidProp(prop[i], propDef.element);
-                if (why !== null) {
-                    return why.replace(/\${propName}/g, `\${propName}[${i}]`);
-                }
+                result = result && isValidProp(prop[i], propDef.element);
             }
         }
         if (propDef.type === Object && propDef.shape) {
             const shape = propDef.shape;
             for (let key in shape) {
-                const why = whyInvalidProp(prop[key], shape[key]);
-                if (why !== null) {
-                    return why.replace(/\${propName}/g, `\${propName}['${key}']`);
-                }
+                result = result && isValidProp(prop[key], shape[key]);
             }
-            for (let propName in prop) {
-                if (!(propName in shape)) {
-                    return `unknown prop \${propName}['${propName}']`;
+            if (result) {
+                for (let propName in prop) {
+                    if (!(propName in shape)) {
+                        throw new Error(`unknown prop '${propName}'`);
+                    }
                 }
             }
         }
-        return null;
+        return result;
     }
 
     /**
@@ -4890,20 +4865,12 @@ See https://github.com/odoo/owl/blob/master/doc/reference/config.md#mode for mor
         const __owl__ = Component.current.__owl__;
         return {
             get el() {
-                var _a, _b;
                 const val = __owl__.refs && __owl__.refs[name];
-                if (val instanceof Component) {
-                    return val.el;
-                }
                 if (val instanceof HTMLElement) {
                     return val;
                 }
-                // Extra check in case the app was created outside an iframe but mounted into one
-                // on Firefox 109+, the prototype of the element changes to use the iframe window's HTMLElement
-                // see https://bugzilla.mozilla.org/show_bug.cgi?id=1813499
-                const ownerWindow = (_b = (_a = val) === null || _a === void 0 ? void 0 : _a.ownerDocument) === null || _b === void 0 ? void 0 : _b.defaultView;
-                if (ownerWindow && val instanceof ownerWindow.HTMLElement) {
-                    return val;
+                else if (val instanceof Component) {
+                    return val.el;
                 }
                 return null;
             },
@@ -5601,10 +5568,10 @@ See https://github.com/odoo/owl/blob/master/doc/reference/config.md#mode for mor
     Object.defineProperty(exports, '__esModule', { value: true });
 
 
-    __info__.version = '1.4.11';
-    __info__.date = '2023-01-30T13:09:39.141Z';
-    __info__.hash = 'a38c534';
+    __info__.version = '1.4.10';
+    __info__.date = '2022-04-27T09:54:49.146Z';
+    __info__.hash = 'c060490';
     __info__.url = 'https://github.com/odoo/owl';
 
 
-}(this.owl = this.owl || {}));
+})(this.owl = this.owl || {});

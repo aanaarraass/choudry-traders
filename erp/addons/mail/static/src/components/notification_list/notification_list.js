@@ -95,8 +95,8 @@ export class NotificationList extends Component {
         // native notification request
         if (this.props.filter === 'all' && this.messaging.isNotificationPermissionDefault) {
             notifications.unshift({
-                type: 'odoobotRequest',
-                uniqueId: 'odoobotRequest',
+                type: 'ERPbotRequest',
+                uniqueId: 'ERPbotRequest',
             });
         }
         return notifications;

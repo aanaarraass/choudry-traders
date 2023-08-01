@@ -205,3 +205,90 @@ return {
 };
 
 });
+document.addEventListener("keydown", function(e) {
+    //var current_url = window.location.href  ;
+    //
+    //   if (e.altKey && e.code === "KeyC"){
+    ////    if (e.Key === "F1"){
+    //        $(document).find("button.set-customer").trigger("click-customer");
+    //        alert('Shortcut f1 is trgogger');
+    //    }
+    if(!$($(document).find(".product-screen")[0]).hasClass('oe_hidden')){
+                    if(event.which == 113) {      // click on "F2" button
+                       element =document.getElementById("testingclick");
+
+                    element.click();
+                    }
+                    if(event.altKey && event.key === 'i') {      // click on "alt + i" button
+                       element1 =document.getElementById("infoclick");
+                        element1.click();
+                    }
+                    if(event.altKey && event.key === 'p') {      // click on "alt + p" button
+                       element2 =document.getElementById("payclick");
+
+                    element2.click();
+                    }
+                    if(event.key === 'f') {     // click on "f" button
+
+                       element3 =document.getElementById("searchclick");
+
+                       element3.focus();
+
+                    }
+                     if(event.altKey && event.key === 'r') {     // click on "alt + f" button
+
+                       refund =document.getElementById("refundclick");
+                       refund.click();
+
+                    }
+
+                }
+                if(!$($(document).find(".payment-screen")[0]).hasClass('oe_hidden')){
+                     if(event.ctrlKey && event.key === 'v') {     // click on "ctrl + v" button
+
+                               element4 = document.getElementById("validateclick");
+                               element4.click();
+
+                     }
+                     if(event.altKey && event.key === 'o') {     // click on "alt + o" button
+
+                               element5 = document.getElementById("neworderclick");
+                               element5.click();
+
+                     }
+                     if(event.altKey && event.key === '1') {     // click on "alt + 1" button
+
+                               element6 = document.getElementById("printclick");
+                               element6.click();
+
+                     }
+
+                }
+                 if(!$($(document).find(".clientlist-screen")[0]).hasClass('oe_hidden')){
+                if(event.altKey && event.key === 'm') {     // click on "alt + m" button
+                       search =document.getElementById("searchcustomer");
+                       search.focus();
+
+                    }
+                if(event.altKey && event.key === '+') {     // click on "alt + '+'" button
+                       customers =document.getElementById("newcustomerclick");
+                       customers.click();
+
+                    }
+                if(event.which == 8) {     // click on "backspace" button
+                       back =document.getElementById("discardclick");
+                       if (back){
+                         back.click();                       	
+                       }
+
+
+                    }
+                if(event.altKey && event.key === 'l') {     // click on "alt + l" button
+                       alert('working');
+                       load =document.getElementById("customerloadclick");
+                       load.click();
+
+                    }
+
+                }
+});

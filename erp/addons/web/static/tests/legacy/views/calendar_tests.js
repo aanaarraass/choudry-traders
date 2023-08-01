@@ -594,7 +594,7 @@ QUnit.module('Views', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "ERP Server Error",
                         },
                         event: event
                     });
@@ -1500,36 +1500,6 @@ QUnit.module('Views', {
         assert.strictEqual(calendar.$('.fc-axis:contains(8am)').length, 1, "calendar should show according to timeformat");
         assert.strictEqual(calendar.$('.fc-axis:contains(11pm)').length, 1,
             "event time format should 12 hour");
-
-        calendar.destroy();
-    });
-
-    QUnit.test("all day event attribute", async function (assert) {
-        assert.expect(5);
-
-        this.data.event.fields.boolfield = { string: "boolean field", type: "boolean" };
-        this.data.event.records[0].boolfield = true;
-        const calendar = await createCalendarView({
-            View: CalendarView,
-            model: 'event',
-            data: this.data,
-            arch: `
-                <calendar date_start="start" date_stop="stop" all_day="boolfield" mode="month">
-                    <field name="name"/>
-                </calendar>
-            `,
-            archs: archs,
-            viewOptions: { initialDate },
-            session: { getTZOffset: () => 120 },
-        });
-
-        assert.containsOnce(calendar, ".fc-event[data-event-id=1]");
-        assert.containsNone(calendar, ".fc-event[data-event-id=1].o_cw_nobg", "first event is an all day event");
-
-        assert.containsOnce(calendar, ".fc-event[data-event-id=2].o_cw_nobg", "second event is not an all day event");
-
-        assert.containsN(calendar, ".fc-event[data-event-id=5]", 2);
-        assert.containsNone(calendar, ".fc-event[data-event-id=5].o_cw_nobg", 2, "fifth event is an all day event");
 
         calendar.destroy();
     });

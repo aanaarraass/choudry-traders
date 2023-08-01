@@ -33,7 +33,7 @@ odoo.define('web.sample_server_tests', function (require) {
         }
     }
 
-    QUnit.module("Sample Server (legacy)", {
+    QUnit.module("Sample Server", {
         beforeEach() {
             this.fields = {
                 'res.users': {

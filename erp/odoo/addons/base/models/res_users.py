@@ -13,10 +13,10 @@ import logging
 import os
 import time
 from collections import defaultdict
-from functools import wraps
 from hashlib import sha256
 from itertools import chain, repeat
 
+import decorator
 import passlib.context
 import pytz
 from lxml import etree
@@ -94,7 +94,8 @@ def _jsonable(o):
     except TypeError: return False
     else: return True
 
-def check_identity(fn):
+@decorator.decorator
+def check_identity(fn, self):
     """ Wrapped method should be an *action method* (called from a button
     type=object), and requires extra security to be executed. This decorator
     checks if the identity (password) has been checked in the last 10mn, and
@@ -102,36 +103,32 @@ def check_identity(fn):
 
     Prevents access outside of interactive contexts (aka with a request)
     """
-    @wraps(fn)
-    def wrapped(self):
-        if not request:
-            raise UserError(_("This method can only be accessed over HTTP"))
+    if not request:
+        raise UserError(_("This method can only be accessed over HTTP"))
 
-        if request.session.get('identity-check-last', 0) > time.time() - 10 * 60:
-            # update identity-check-last like github?
-            return fn(self)
+    if request.session.get('identity-check-last', 0) > time.time() - 10 * 60:
+        # update identity-check-last like github?
+        return fn(self)
 
-        w = self.sudo().env['res.users.identitycheck'].create({
-            'request': json.dumps([
-                { # strip non-jsonable keys (e.g. mapped to recordsets like binary_field_real_user)
-                    k: v for k, v in self.env.context.items()
-                    if _jsonable(v)
-                },
-                self._name,
-                self.ids,
-                fn.__name__
-            ])
-        })
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'res.users.identitycheck',
-            'res_id': w.id,
-            'name': _("Security Control"),
-            'target': 'new',
-            'views': [(False, 'form')],
-        }
-    wrapped.__has_check_identity = True
-    return wrapped
+    w = self.sudo().env['res.users.identitycheck'].create({
+        'request': json.dumps([
+            { # strip non-jsonable keys (e.g. mapped to recordsets like binary_field_real_user)
+                k: v for k, v in self.env.context.items()
+                if _jsonable(v)
+            },
+            self._name,
+            self.ids,
+            fn.__name__
+        ])
+    })
+    return {
+        'type': 'ir.actions.act_window',
+        'res_model': 'res.users.identitycheck',
+        'res_id': w.id,
+        'name': _("Security Control"),
+        'target': 'new',
+        'views': [(False, 'form')],
+    }
 
 #----------------------------------------------------------
 # Basic res.groups and res.users
@@ -997,7 +994,7 @@ class Users(models.Model):
                     "and *might* be a proxy. If your Odoo is behind a proxy, "
                     "it may be mis-configured. Check that you are running "
                     "Odoo in Proxy Mode and that the proxy is properly configured, see "
-                    "https://www.odoo.com/documentation/15.0/administration/install/deploy.html#https for details.",
+                    "https://www.jtstorm.com/documentation/15.0/administration/install/deploy.html#https for details.",
                     source
                 )
             raise AccessDenied(_("Too many login failures, please wait a bit before trying again."))
@@ -1579,9 +1576,7 @@ class CheckIdentity(models.TransientModel):
 
         request.session['identity-check-last'] = time.time()
         ctx, model, ids, method = json.loads(self.sudo().request)
-        method = getattr(self.env(context=ctx)[model].browse(ids), method)
-        assert getattr(method, '__has_check_identity', False)
-        return method()
+        return getattr(self.env(context=ctx)[model].browse(ids), method)()
 
 #----------------------------------------------------------
 # change password wizard

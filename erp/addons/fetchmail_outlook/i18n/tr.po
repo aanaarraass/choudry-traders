@@ -5,7 +5,6 @@
 # Translators:
 # Ediz Duman <neps1192@gmail.com>, 2022
 # Tugay Hatıl <tugayh@projetgrup.com>, 2022
-# Halil, 2023
 # 
 msgid ""
 msgstr ""
@@ -13,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-03-30 10:59+0000\n"
 "PO-Revision-Date: 2022-05-17 12:41+0000\n"
-"Last-Translator: Halil, 2023\n"
-"Language-Team: Turkish (https://app.transifex.com/odoo/teams/41243/tr/)\n"
+"Last-Translator: Tugay Hatıl <tugayh@projetgrup.com>, 2022\n"
+"Language-Team: Turkish (https://www.transifex.com/odoo/teams/41243/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -27,8 +26,6 @@ msgid ""
 "<i class=\"fa fa-arrow-right\"/>\n"
 "                        Connect your Outlook account"
 msgstr ""
-"<i class=\"fa fa-arrow-right\"/>\n"
-"                        Outlook hesabınızı bağlayın"
 
 #. module: fetchmail_outlook
 #: model_terms:ir.ui.view,arch_db:fetchmail_outlook.fetchmail_server_view_form
@@ -48,7 +45,7 @@ msgstr ""
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__microsoft_outlook_uri
 msgid "Authentication URI"
-msgstr "Kimlik doğrulama URI'si"
+msgstr ""
 
 #. module: fetchmail_outlook
 #: model:ir.model,name:fetchmail_outlook.model_fetchmail_server
@@ -58,7 +55,7 @@ msgstr "Gelen Posta Sunucusu"
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__is_microsoft_outlook_configured
 msgid "Is Outlook Credential Configured"
-msgstr "Outlook Kimlik Bilgileri Yapılandırılmış mı?"
+msgstr ""
 
 #. module: fetchmail_outlook
 #: model_terms:ir.ui.view,arch_db:fetchmail_outlook.fetchmail_server_view_form
@@ -68,12 +65,12 @@ msgstr "Outlook"
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__microsoft_outlook_access_token
 msgid "Outlook Access Token"
-msgstr "Outlook Access Belirteci"
+msgstr ""
 
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__microsoft_outlook_access_token_expiration
 msgid "Outlook Access Token Expiration Timestamp"
-msgstr "Outlook Access belirteci süre sonu zaman damgası"
+msgstr ""
 
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__use_microsoft_outlook_service
@@ -83,7 +80,7 @@ msgstr ""
 #. module: fetchmail_outlook
 #: model:ir.model.fields,field_description:fetchmail_outlook.field_fetchmail_server__microsoft_outlook_refresh_token
 msgid "Outlook Refresh Token"
-msgstr "Outlook Yenileme Belirteci"
+msgstr ""
 
 #. module: fetchmail_outlook
 #: code:addons/fetchmail_outlook/models/fetchmail_server.py:0
@@ -98,8 +95,6 @@ msgid ""
 "Please leave the password field empty for Outlook mail server %r. The OAuth "
 "process does not require it"
 msgstr ""
-"Lütfen Outlook posta sunucusu %r için parola alanını boş bırakın. OAuth "
-"işlemi bunu gerektirmez"
 
 #. module: fetchmail_outlook
 #: code:addons/fetchmail_outlook/models/fetchmail_server.py:0
@@ -113,10 +108,8 @@ msgid ""
 "Setup your Outlook API credentials in the general settings to link a Outlook"
 " account."
 msgstr ""
-"Outlook hesabını bağlamak için genel ayarlarda Outlook API kimlik "
-"bilgilerinizi ayarlayın."
 
 #. module: fetchmail_outlook
 #: model:ir.model.fields,help:fetchmail_outlook.field_fetchmail_server__microsoft_outlook_uri
 msgid "The URL to generate the authorization code from Outlook"
-msgstr "Outlook'tan yetkilendirme kodu oluşturmak için URL"
+msgstr ""

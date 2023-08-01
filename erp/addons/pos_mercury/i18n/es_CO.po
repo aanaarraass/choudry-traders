@@ -637,8 +637,8 @@ msgstr "No hay respuesta del servidor (¿está conectado a la red?)"
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:414
 #: code:addons/pos_mercury/static/src/js/pos_mercury.js:562
 #, python-format
-msgid "Odoo error while processing transaction."
-msgstr "Odoo error al procesar la transacción."
+msgid "ERP Error while processing transaction."
+msgstr "ERP Error al procesar la transacción."
 
 #. module: pos_mercury
 #. openerp-web

@@ -1,7 +1,5 @@
 /** @odoo-module **/
 
-const BREAKPOINT_SIZES = ['sm', 'md', 'lg', 'xl'];
-
 /**
  * Creates an automatic 'more' dropdown-menu for a set of navbar items.
  *
@@ -21,18 +19,10 @@ export async function initAutoMoreMenu(el, options) {
     if (!el) {
         return;
     }
-    const navbar = el.closest('.navbar');
-    const computedStyles = window.getComputedStyle(el);
-    // Get breakpoint related information from the navbar to correctly handle
-    // the "auto-hide" on mobile menu.
-    const [breakpoint = 'md'] = navbar ? BREAKPOINT_SIZES
-        .filter(suffix => navbar.classList.contains(`navbar-expand-${suffix}`)) : [];
-    const isNoHamburgerMenu = !!navbar && navbar.classList.contains('navbar-expand');
-
     options = Object.assign({
         unfoldable: 'none',
         maxWidth: false,
-        minSize: computedStyles.getPropertyValue(`--breakpoint-${breakpoint}`),
+        minSize: '767',
         images: [],
         loadingStyleClasses: [],
     }, options || {});
@@ -104,7 +94,7 @@ export async function initAutoMoreMenu(el, options) {
 
         // Ignore invisible/toggleable top menu element & small viewports.
         if (!el.getClientRects().length || el.closest('.show')
-            || (window.matchMedia(`(max-width: ${options.minSize})`).matches && !isNoHamburgerMenu)) {
+            || window.matchMedia(`(max-width: ${options.minSize}px)`).matches) {
             return _endAutoMoreMenu();
         }
 

@@ -365,8 +365,6 @@ class HrExpense(models.Model):
                 raise UserError(_('You cannot delete a posted or approved expense.'))
 
     def write(self, vals):
-        if 'sheet_id' in vals:
-            self.env['hr.expense.sheet'].browse(vals['sheet_id']).check_access_rule('write')
         if 'tax_ids' in vals or 'analytic_account_id' in vals or 'account_id' in vals:
             if any(not expense.is_editable for expense in self):
                 raise UserError(_('You are not authorized to edit this expense report.'))
@@ -1137,11 +1135,7 @@ class HrExpenseSheet(models.Model):
         if not filtered_sheet:
             return notification
         for sheet in filtered_sheet:
-            sheet.write({
-                'state': 'approve',
-                'user_id': sheet.user_id.id or self.env.user.id,
-                'approval_date': fields.Date.context_today(sheet),
-            })
+            sheet.write({'state': 'approve', 'user_id': sheet.user_id.id or self.env.user.id})
         notification['params'].update({
             'title': _('The expense reports were successfully approved.'),
             'type': 'success',

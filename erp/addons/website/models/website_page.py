@@ -284,29 +284,19 @@ class Page(models.Model):
     @api.model
     def _search_fetch(self, search_detail, search, limit, order):
         with_description = 'description' in search_detail['mapping']
-        # Cannot rely on the super's _search_fetch because the search must be
-        # performed among the most specific pages only.
-        fields = search_detail['search_fields']
-        base_domain = search_detail['base_domain']
-        domain = self._search_build_domain(base_domain, search, fields, search_detail.get('search_extra'))
-        # TODO In 16.0 do not rely on _filter_duplicate_pages.
-        most_specific_pages = self.env['website'].with_context(_filter_duplicate_pages='url' not in order)._get_website_pages(
-            domain=expression.AND(base_domain), order=order
-        )
-        results = most_specific_pages.filtered_domain(domain)  # already sudo
-
+        results, count = super()._search_fetch(search_detail, search, limit, order)
         if with_description and search:
             # Perform search in translations
             # TODO Remove when domains will support xml_translate fields
             query = sql.SQL("""
-                SELECT DISTINCT {table}.{id}
+                SELECT {table}.{id}
                 FROM {table}
-                LEFT JOIN ir_translation t ON {table}.{view_id} = t.{res_id}
+                LEFT JOIN ir_ui_view v ON {table}.{view_id} = v.{id}
+                LEFT JOIN ir_translation t ON v.{id} = t.{res_id}
                 WHERE t.lang = {lang}
                 AND t.name = ANY({names})
                 AND t.type = 'model_terms'
                 AND t.value ilike {search}
-                AND {table}.{id} IN {ids}
                 LIMIT {limit}
             """).format(
                 table=sql.Identifier(self._table),
@@ -316,28 +306,26 @@ class Page(models.Model):
                 lang=sql.Placeholder('lang'),
                 names=sql.Placeholder('names'),
                 search=sql.Placeholder('search'),
-                ids=sql.Placeholder('ids'),
                 limit=sql.Placeholder('limit'),
             )
             self.env.cr.execute(query, {
                 'lang': self.env.lang,
                 'names': ['ir.ui.view,arch_db', 'ir.ui.view,name'],
                 'search': '%%%s%%' % escape_psql(search),
-                'ids': tuple(most_specific_pages.ids),
-                'limit': len(most_specific_pages.ids),
+                'limit': limit,
             })
             ids = {row[0] for row in self.env.cr.fetchall()}
-            if ids:
-                ids.update(results.ids)
-                domains = search_detail['base_domain'].copy()
-                domains.append([('id', 'in', list(ids))])
-                domain = expression.AND(domains)
-                model = self.sudo() if search_detail.get('requires_sudo') else self
-                results = model.search(
-                    domain,
-                    limit=len(ids),
-                    order=search_detail.get('order', order)
-                )
+            ids.update(results.ids)
+            domains = search_detail['base_domain'].copy()
+            domains.append([('id', 'in', list(ids))])
+            domain = expression.AND(domains)
+            model = self.sudo() if search_detail.get('requires_sudo') else self
+            results = model.search(
+                domain,
+                limit=limit,
+                order=search_detail.get('order', order)
+            )
+            count = max(count, len(results))
 
         def filter_page(search, page, all_pages):
             # Search might have matched words in the xml tags and parameters therefore we make
@@ -345,9 +333,11 @@ class Page(models.Model):
             text = '%s %s %s' % (page.name, page.url, text_from_html(page.arch))
             pattern = '|'.join([re.escape(search_term) for search_term in search.split()])
             return re.findall('(%s)' % pattern, text, flags=re.I) if pattern else False
+        if 'url' not in order:
+            results = results._get_most_specific_pages()
         if search and with_description:
             results = results.filtered(lambda result: filter_page(search, result, results))
-        return results[:limit], len(results)
+        return results, count
 
 
 # this is just a dummy function to be used as ormcache key

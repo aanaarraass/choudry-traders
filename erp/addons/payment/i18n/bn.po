@@ -5,7 +5,6 @@
 # Translators:
 # Martin Trigaux, 2022
 # Abu Zafar <azmikbal@gmail.com>, 2022
-# Noor E Alam Siddique, 2023
 # 
 msgid ""
 msgstr ""
@@ -13,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-10 14:27+0000\n"
 "PO-Revision-Date: 2021-09-14 12:24+0000\n"
-"Last-Translator: Noor E Alam Siddique, 2023\n"
-"Language-Team: Bengali (https://app.transifex.com/odoo/teams/41243/bn/)\n"
+"Last-Translator: Abu Zafar <azmikbal@gmail.com>, 2022\n"
+"Language-Team: Bengali (https://www.transifex.com/odoo/teams/41243/bn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -178,7 +177,7 @@ msgstr "অ্যাক্সেস টোকন"
 #: code:addons/payment/wizards/payment_acquirer_onboarding_wizard.py:0
 #, python-format
 msgid "Account"
-msgstr "হিসাব"
+msgstr ""
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__acc_number
@@ -241,7 +240,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_address
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form
 msgid "Address"
-msgstr "ঠিকানা"
+msgstr ""
 
 #. module: payment
 #: model:payment.acquirer,name:payment.payment_acquirer_adyen
@@ -446,7 +445,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__partner_city
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form
 msgid "City"
-msgstr "শহর"
+msgstr ""
 
 #. module: payment
 #. openerp-web
@@ -1256,7 +1255,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:payment.field_payment_refund_wizard__payment_id
 #: model:ir.model.fields,field_description:payment.field_payment_transaction__payment_id
 msgid "Payment"
-msgstr "মূল্যপরিশোধ"
+msgstr ""
 
 #. module: payment
 #: model:ir.model,name:payment.model_payment_acquirer
@@ -1322,12 +1321,12 @@ msgstr ""
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_acquirer_onboarding_wizard__payment_method
 msgid "Payment Method"
-msgstr "মূল্যপরিশোধ পদ্ধতি"
+msgstr ""
 
 #. module: payment
 #: model:ir.model,name:payment.model_account_payment_method_line
 msgid "Payment Methods"
-msgstr "মূল্যপরিশোধ পদ্ধতি"
+msgstr ""
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_link_wizard__description
@@ -1398,7 +1397,7 @@ msgstr ""
 #: model:ir.model,name:payment.model_account_payment
 #: model_terms:ir.ui.view,arch_db:payment.payment_token_form
 msgid "Payments"
-msgstr "মূল্যপরিশোধ "
+msgstr ""
 
 #. module: payment
 #. openerp-web
@@ -1528,7 +1527,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:payment.view_account_payment_form_inherit_payment
 #, python-format
 msgid "Refund"
-msgstr "ফেরত"
+msgstr ""
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_payment_refund_wizard__amount_to_refund
@@ -1544,7 +1543,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:payment.payment_transaction_form
 #: model_terms:ir.ui.view,arch_db:payment.view_account_payment_form_inherit_payment
 msgid "Refunds"
-msgstr "ফেরত"
+msgstr ""
 
 #. module: payment
 #: model:ir.model.fields,field_description:payment.field_account_payment__refunds_count

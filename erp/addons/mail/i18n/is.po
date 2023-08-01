@@ -2272,7 +2272,7 @@ msgstr ""
 
 #. module: mail
 #: selection:res.users,notification_type:0
-msgid "Handle in Odoo"
+msgid "Handle In ERP"
 msgstr ""
 
 #. module: mail
@@ -4129,7 +4129,7 @@ msgstr ""
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle in Odoo: notifications appear in your Odoo Inbox"
+"- Handle In ERP: notifications appear in your Inbox"
 msgstr ""
 
 #. module: mail

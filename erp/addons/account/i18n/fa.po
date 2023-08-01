@@ -27,8 +27,8 @@
 # Hamed Mohammadi <hamed@dehongi.com>, 2022
 # Mostafa Barmshory <mostafa.barmshory@gmail.com>, 2023
 # rahim agh <rahim.aghareb@gmail.com>, 2023
-# Ali Reza Feizi Derakhshi, 2023
 # fardin mardani, 2023
+# Ali Reza Feizi Derakhshi, 2023
 # 
 msgid ""
 msgstr ""
@@ -36,8 +36,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-18 09:52+0000\n"
 "PO-Revision-Date: 2021-09-14 12:18+0000\n"
-"Last-Translator: fardin mardani, 2023\n"
-"Language-Team: Persian (https://app.transifex.com/odoo/teams/41243/fa/)\n"
+"Last-Translator: Ali Reza Feizi Derakhshi, 2023\n"
+"Language-Team: Persian (https://www.transifex.com/odoo/teams/41243/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -10187,15 +10187,6 @@ msgstr "لطفا بررسی کنید که فیلد \"حساب انتقال\" د�
 #: code:addons/account/models/chart_template.py:0
 #, python-format
 msgid ""
-"Please check the fiscal country of company %s. (Settings > Accounting > "
-"Fiscal Country)Taxes can only be updated if they are in the company's fiscal"
-" country (%s) or the localization's country (%s)."
-msgstr ""
-
-#. module: account
-#: code:addons/account/models/chart_template.py:0
-#, python-format
-msgid ""
 "Please check these taxes. They might be outdated. We did not update them. "
 "Indeed, they do not exactly match the taxes of the original version of the "
 "localization module.<br/>You might want to archive or adapt them.<br/><ul>"
@@ -16126,7 +16117,6 @@ msgstr ""
 #, python-format
 msgid "You cannot post an entry in an archived journal (%(journal)s)"
 msgstr ""
-"شما نمی توانید یک ورودی در یک مجله بایگانی شده ارسال کنید (%(journal)s)"
 
 #. module: account
 #: code:addons/account/wizard/pos_box.py:0
@@ -16325,7 +16315,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
 msgid "You should update this document to reflect your T&amp;C."
-msgstr "شما باید این سند را به‌روزرسانی کنید تا T&C شما را منعکس کند."
+msgstr ""
 
 #. module: account
 #: code:addons/account/models/chart_template.py:0
@@ -16353,12 +16343,12 @@ msgstr "دامنه زیپ تا"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.bill_preview
 msgid "[FURN_8220] Four Person Desk"
-msgstr "[FURN_8220] میز چهار نفره"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.bill_preview
 msgid "[FURN_8999] Three-Seat Sofa"
-msgstr "[FURN_8999] مبل سه نفره"
+msgstr ""
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -16398,7 +16388,6 @@ msgid ""
 "become involved in costs related to a country's legislation. The amount of "
 "the invoice will therefore be due to"
 msgstr ""
-"درگیر هزینه های مربوط به قوانین یک کشور شوند. بنابراین مبلغ فاکتور به دلیل"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
@@ -16407,8 +16396,6 @@ msgid ""
 "third party in the context of any claim for damages filed against the client"
 " by an end consumer."
 msgstr ""
-"تحت هیچ شرایطی نمی تواند توسط مشتری ملزم به حضور به عنوان شخص ثالث در زمینه "
-"هرگونه ادعای خسارتی است که توسط مصرف کننده نهایی علیه مشتری ارائه شده است."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_invoice_error
@@ -16464,7 +16451,7 @@ msgstr "برای مثال دارایی های جاری"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
 msgid "e.g. Customer Invoices"
-msgstr "به عنوان مثال، فاکتورهای مشتری"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_group_form
@@ -16479,15 +16466,13 @@ msgstr "به عنوان مثال، یک تماس تلفنی بکیرید، با 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
 msgid "e.g. INV"
-msgstr "به عنوان مثال، INV"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid ""
 "for this customer. You can allocate them to mark this credit note as paid."
 msgstr ""
-"برای این مشتری می‌توانید آن‌ها را برای علامت‌گذاری این یادداشت اعتباری "
-"به‌عنوان پرداخت شده اختصاص دهید."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -16508,8 +16493,6 @@ msgstr ""
 msgid ""
 "for this vendor. You can allocate them to mark this credit note as paid."
 msgstr ""
-"برای این فروشنده می‌توانید آن‌ها را برای علامت‌گذاری این یادداشت اعتباری "
-"به‌عنوان پرداخت شده اختصاص دهید."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
@@ -16520,7 +16503,7 @@ msgstr "اینجا"
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model__payment_tolerance_type__fixed_amount
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model_template__payment_tolerance_type__fixed_amount
 msgid "in amount"
-msgstr "در مقدار"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
@@ -16528,14 +16511,12 @@ msgid ""
 "in its entirety and does not include any costs relating to the legislation "
 "of the country in which the client is located."
 msgstr ""
-"به طور کامل و شامل هیچ گونه هزینه های مربوط به قوانین کشوری که مشتری در آن "
-"واقع شده است نمی شود."
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model__payment_tolerance_type__percentage
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model_template__payment_tolerance_type__percentage
 msgid "in percentage"
-msgstr "در درصد"
+msgstr ""
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__invoice_without_email
@@ -16545,12 +16526,12 @@ msgstr "فاکتور (ها)یی که ارسال نخواهند شد"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__account_enabled_tax_country_ids
 msgid "l10n-used countries"
-msgstr "کشورهای مورد استفاده-l10n"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
 msgid "law."
-msgstr "قانون."
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
@@ -16559,8 +16540,6 @@ msgid ""
 " to its registered office within 8 days of the delivery of the goods or the "
 "provision of the services."
 msgstr ""
-"باید از طریق نامه ای که با تحویل ضبط شده به دفتر ثبت آن ارسال می شود، از "
-"هرگونه ادعای ظرف 8 روز پس از تحویل کالا یا ارائه خدمات مطلع شود."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_tax_view_tree
@@ -16591,7 +16570,7 @@ msgstr "در"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "outstanding credits"
-msgstr "اعتبارات برجسته"
+msgstr ""
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -16609,8 +16588,6 @@ msgid ""
 "reserves the right to call on the services of a debt recovery company. All "
 "legal expenses will be payable by the client."
 msgstr ""
-"این حق را برای خود محفوظ می دارد که از خدمات یک شرکت بازپرداخت بدهی استفاده "
-"کند. کلیه هزینه های قانونی به عهده مشتری خواهد بود."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
@@ -16618,14 +16595,12 @@ msgid ""
 "reserves the right to request a fixed interest payment amounting to 10% of "
 "the sum remaining due."
 msgstr ""
-"این حق را برای خود محفوظ می دارد که سود ثابتی به میزان 10% از مبلغ باقی "
-"مانده را درخواست کند."
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
 #, python-format
 msgid "tax"
-msgstr "مالیات"
+msgstr ""
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_move_line__tax_group_id

@@ -19,13 +19,12 @@ odoo.define('point_of_sale.ProductInfoButton', function(require) {
             this.env.pos.get('orders').off('add remove change', null, this);
             this.env.pos.off('change:selectedOrder', null, this);
         }
-        async onClick() {
+        onClick() {
             const orderline = this.env.pos.get_order().get_selected_orderline();
             if (orderline) {
                 const product = orderline.get_product();
                 const quantity = orderline.get_quantity();
-                const info = await this.env.pos.getProductInfo(product, quantity);
-                this.showPopup('ProductInfoPopup', { info: info , product: product });
+                this.showPopup('ProductInfoPopup', { product, quantity });
             }
         }
     }

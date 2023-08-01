@@ -44,7 +44,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:25+0000\n"
 "Last-Translator: Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023\n"
-"Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
+"Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -89,7 +89,7 @@ msgstr "\"Tänään\""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__collaborator_count
 msgid "# Collaborators"
-msgstr "# Yhteistyökumppanit"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_count
@@ -137,17 +137,17 @@ msgstr "(+ 1 tehtävä)"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.milestone_deadline
 msgid "(due"
-msgstr "(määräaika"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "(last project update),"
-msgstr "(projektin viimeinen päivitys),"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.milestone_deadline
 msgid "- reached on"
-msgstr "- saavutettu"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_day__10
@@ -286,7 +286,7 @@ msgstr "31"
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "<b>Drag &amp; drop</b> the card to change your task from stage."
-msgstr "Vaihda tehtäväsi vaiheesta <b>vetämällä ja pudottamalla</b> kortti."
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -297,9 +297,6 @@ msgid ""
 "    of the note you are logging unless you specifically tag them)</i>. Use @ <b>mentions</b> to ping a colleague \n"
 "    or # <b>mentions</b> to reach an entire team."
 msgstr ""
-"<b>Kirjaa muistiinpanot</b> sisäistä viestintää varten ( <i>tätä tehtävää seuraaville henkilöille ei ilmoiteta \n"
-"    kirjaamastasi muistiinpanosta, ellet erityisesti merkitse heitä)</i>. Käytä <b>@-mainintoja</b> kollegalle lähettämiseen \n"
-"    tai <b>#-mainintoja</b> koko tiimin tavoittamiseksi."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
@@ -391,18 +388,6 @@ msgid ""
 "</div>\n"
 "        "
 msgstr ""
-"<div>\n"
-"    Hyvä <t t-out=\"object.partner_id.name or 'customer'\">Brandon Freeman</t>,<br/>\n"
-"    Kiitos tiedustelustanne.<br/>\n"
-"    Jos sinulla on kysyttävää, kerro meille.\n"
-"   <br/><br/>\n"
-"    Kiitos,\n"
-"    <t t-if=\"user.signature\">\n"
-"        <br/>\n"
-"        <t t-out=\"user.signature or ''\">--<br/>Mitchell Admin</t>\n"
-"    </t>\n"
-"</div>\n"
-"        "
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
@@ -415,8 +400,6 @@ msgid ""
 "<i class=\"fa fa-long-arrow-right mx-2 oe_edit_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>\n"
 "                                <i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\" attrs=\"{'invisible': [('date_start', '=', False), ('date', '=', False)]}\"/>"
 msgstr ""
-"<i class=\"fa fa-long-arrow-right mx-2 oe_edit_only\" aria-label=\"Nuolen kuvake\" title=\"Nuoli\"/>\n"
-"                                <i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Nuolen kuvake\" title=\"Nuoli\" attrs=\"{'invisible': [('date_start', '=', False), ('date', '=', False)]}\"/>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
@@ -433,9 +416,6 @@ msgid ""
 "<i class=\"fa fa-warning\" title=\"Customer disabled on projects\"/><b> "
 "Customer Ratings</b> are disabled on the following project(s) : <br/>"
 msgstr ""
-"<i class=\"fa fa-warning\" title=\"Customer disabled on projects\"/><b> "
-"Asiakasarviot</b> on poistettu käytöstä seuraavassa projektissa "
-"(projekteissa) : <br/>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
@@ -448,7 +428,7 @@ msgstr ""
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "<p><em>Number of tasks: %(tasks_count)s</em></p>"
-msgstr "<p><em>Tehtävien määrä: %(tasks_count)s</em></p>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_task
@@ -488,9 +468,6 @@ msgid ""
 "                                    Collaborators\n"
 "                                </span>"
 msgstr ""
-"<span class=\"o_stat_text\">\n"
-"                                    Yhteistyökumppanit\n"
-"                                </span>"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -519,7 +496,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "<span class=\"o_stat_text\">Blocking</span>"
-msgstr "<span class=\"o_stat_text\">Estetty</span>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -529,7 +506,7 @@ msgstr "<span class=\"o_stat_text\">Käyttökate</span>"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "<span class=\"o_stat_text\">in Recurrence</span>"
-msgstr "<span class=\"o_stat_text\">toistuvuudessa</span>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -628,8 +605,6 @@ msgid ""
 "A collaborator cannot be selected more than once in the project sharing "
 "access. Please remove duplicate(s) and try again."
 msgstr ""
-"Yhteistyökumppania ei voi valita useammin kuin kerran projektin "
-"jakamiskäytössä. Poista kaksoiskappaleet ja yritä uudelleen."
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -638,13 +613,11 @@ msgid ""
 "A personal stage cannot be linked to a project because it is only visible to"
 " its corresponding user."
 msgstr ""
-"Henkilökohtaista vaihetta ei voi yhdistää projektiin, koska se näkyy vain "
-"vastaavalle käyttäjälle."
 
 #. module: project
 #: model:ir.model.constraint,message:project.constraint_project_task_user_rel_project_personal_stage_unique
 msgid "A task can only have a single personal stage per user."
-msgstr "Tehtävällä voi olla vain yksi henkilökohtainen vaihe käyttäjää kohti."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -741,13 +714,11 @@ msgid ""
 "Add columns to organize your tasks into <b>stages</b> <i>e.g. New - In "
 "Progress - Done</i>."
 msgstr ""
-"Lisää sarakkeita, joilla voit järjestää tehtävät <b>vaiheisiin</b>, esim. "
-"<i>Uusi - Keskeneräinen - Valmis</i>."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_share_wizard_view_form
 msgid "Add contacts to share the project..."
-msgstr "Lisää yhteystietoja projektin jakamiseksi..."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_share_wizard__note
@@ -759,7 +730,7 @@ msgstr "Lisää sisältöä joka näytetään sähköpostissa"
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "Add your task once it is ready."
-msgstr "Lisää tehtävä, kun se on valmis."
+msgstr ""
 
 #. module: project
 #: model:res.groups,name:project.group_project_manager
@@ -796,7 +767,7 @@ msgstr "Alias domain"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_value
 msgid "Alias email"
-msgstr "Alias-sähköposti"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_model_id
@@ -920,19 +891,19 @@ msgstr "Haluatko varmasti poistaa nämä vaiheet?"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
 msgid "Arrow"
-msgstr "Nuoli"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
 msgid "Arrow icon"
-msgstr "Nuolen kuvake"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Assembling"
-msgstr "Kokoonpano"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_project_task_view_form
@@ -1007,8 +978,6 @@ msgid ""
 "At each stage, employees can block tasks or mark them as ready for the next step.\n"
 "                                    You can customize here the labels for each state."
 msgstr ""
-"Kussakin vaiheessa työntekijät voivat estää tehtäviä tai merkitä ne valmiiksi seuraavaa vaihetta varten.\n"
-"                                    Voit mukauttaa tässä kunkin vaiheen merkintöjä."
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__message_attachment_count
@@ -1021,7 +990,7 @@ msgstr "Liitteiden määrä"
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__attachment_ids
 msgid "Attachments that don't come from a message."
-msgstr "Liitteet, jotka eivät ole peräisin viestistä."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_month__august
@@ -1038,7 +1007,7 @@ msgstr "Tekijä"
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
 msgid "Auto-generate tasks for regular activities"
-msgstr "Automaattinen tehtävien luominen säännöllisiä toimintoja varten"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__auto_validation_kanban_state
@@ -1052,9 +1021,6 @@ msgid ""
 " * Good feedback from the customer will update the kanban state to 'ready for the new stage' (green bullet).\n"
 " * Neutral or bad feedback will set the kanban state to 'blocked' (red bullet).\n"
 msgstr ""
-"Muokkaa kanban-tilaa automaattisesti, kun asiakas vastaa tämän vaiheen palautteeseen.\n"
-" * Asiakkaan antama hyvä palaute päivittää kanban-tilan muotoon \"valmis uutta vaihetta varten\" (vihreä piste).\n"
-" * Neutraali tai huono palaute muuttaa kanban-tilan tilaksi \"estetty\" (punainen pallo).\n"
 
 #. module: project
 #. openerp-web
@@ -1117,14 +1083,14 @@ msgstr "Estetty"
 #: model:ir.model.fields,field_description:project.field_project_task__depend_on_ids
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "Blocked By"
-msgstr "Estäjä"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Brainstorm"
-msgstr "Aivoriihi"
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -1187,7 +1153,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__child_text
 msgid "Child Text"
-msgstr "Alemman tason teksti"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -1197,8 +1163,6 @@ msgid ""
 "Choose a <b>name</b> for your project. <i>It can be anything you want: the name of a customer,\n"
 "     of a product, of a team, of a construction site, etc.</i>"
 msgstr ""
-"Valitse projektillesi <b>nimi</b>. <i>Se voi olla mitä tahansa: asiakkaan nimi,\n"
-"     tuotteen, tiimin, rakennustyömaan jne. nimi.</i>"
 
 #. module: project
 #. openerp-web
@@ -1207,8 +1171,6 @@ msgstr ""
 msgid ""
 "Choose a task <b>name</b> <i>(e.g. Website Design, Purchase Goods...)</i>"
 msgstr ""
-"Valitse tehtävän <b>nimi</b> <i>(esim. Verkkosivuston suunnittelu, "
-"Tavaroiden osto.</i>..)"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__partner_city
@@ -1220,31 +1182,31 @@ msgstr "Kaupunki"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Client Review"
-msgstr "Asiakkaan arvostelu"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__is_closed
 #: model:ir.model.fields,field_description:project.field_project_task_type__is_closed
 msgid "Closing Stage"
-msgstr "Päätösvaihe"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator__partner_id
 #: model_terms:ir.ui.view,arch_db:project.project_collaborator_view_search
 msgid "Collaborator"
-msgstr "Yhteistyökumppani"
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
 #: model:ir.model.fields,field_description:project.field_project_project__collaborator_ids
 #, python-format
 msgid "Collaborators"
-msgstr "Yhteistyökumppanit"
+msgstr ""
 
 #. module: project
 #: model:ir.model,name:project.model_project_collaborator
 msgid "Collaborators in project shared"
-msgstr "Yhteistyökumppanit jaetussa hankkeessa"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_tags__color
@@ -1332,14 +1294,14 @@ msgstr "Kontakti"
 #: code:addons/project/static/src/js/project_list.js:0
 #, python-format
 msgid "Continue Recurrence"
-msgstr "Jatka uusiutumista"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Copywriting"
-msgstr "Haamukirjoitus"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__displayed_image_id
@@ -1364,12 +1326,12 @@ msgstr "Luo projekti"
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.open_task_type_form_domain
 msgid "Create a new stage in the task pipeline"
-msgstr "Luo uusi vaihe tehtäväketjuun"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified
 msgid "Create tasks by sending an email to"
-msgstr "Luo tehtäviä lähettämällä sähköpostia osoitteeseen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__create_date
@@ -1423,7 +1385,7 @@ msgstr "Valuutta"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_tasks_list
 msgid "Current project of the task"
-msgstr "Tehtävän nykyinen hanke"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_tasks_list
@@ -1487,7 +1449,7 @@ msgstr "Asiakasarviot"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_status
 msgid "Customer Ratings Status"
-msgstr "Asiakkaiden arvostelujen tila"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.rating_rating_action_task
@@ -1517,9 +1479,6 @@ msgid ""
 "made status messages for each step of the workflow. It helps to document "
 "your workflow: what should be done at which step."
 msgstr ""
-"Mukauta tehtävien nimeämistä projektin mukaan ja luo räätälöityjä "
-"tilaviestejä työnkulun jokaista vaihetta varten. Se auttaa dokumentoimaan "
-"työnkulun: mitä missäkin vaiheessa pitäisi tehdä."
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__rating_status_period__daily
@@ -1544,13 +1503,13 @@ msgstr ""
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_on_month__date
 #: model:ir.model.fields.selection,name:project.selection__project_task_recurrence__repeat_on_month__date
 msgid "Date of the Month"
-msgstr "Kuukauden päivämäärä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_on_year__date
 #: model:ir.model.fields.selection,name:project.selection__project_task_recurrence__repeat_on_year__date
 msgid "Date of the Year"
-msgstr "Vuoden päivämäärä"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -1561,19 +1520,19 @@ msgstr "Päivämäärät"
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_weekday
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_weekday
 msgid "Day Of The Week"
-msgstr "Viikon päivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_on_month__day
 #: model:ir.model.fields.selection,name:project.selection__project_task_recurrence__repeat_on_month__day
 msgid "Day of the Month"
-msgstr "Kuukauden päivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_on_year__day
 #: model:ir.model.fields.selection,name:project.selection__project_task_recurrence__repeat_on_year__day
 msgid "Day of the Year"
-msgstr "Vuoden päivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_unit__day
@@ -1585,7 +1544,7 @@ msgstr "Päivää"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__delay_endings_days
 msgid "Days to Deadline"
-msgstr "Päiviä määräaikaan"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -1624,10 +1583,6 @@ msgid ""
 "                You will use these stages in order to track the progress in\n"
 "                solving a task or an issue."
 msgstr ""
-"Määrittele projektissa käytettävät vaiheet projektin alusta\n"
-"                tehtävän luomisesta aina tehtävän tai ongelman sulkemiseen asti.\n"
-"                Näitä vaiheita käytetään edistymisen seuraamiseen seuraavissa vaiheissa\n"
-"                tehtävän tai ongelman ratkaisemisen edistymistä."
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__privacy_visibility
@@ -1648,20 +1603,6 @@ msgid ""
 "\n"
 "In any case, an internal user with no project access rights can still access a task, provided that they are given the corresponding URL (and that they are part of the followers if the project is private)."
 msgstr ""
-"Henkilöt, joille tämä projekti ja sen tehtävät näkyvät.\n"
-"\n"
-"- Kutsutut sisäiset käyttäjät: Kun projektia seurataan, sisäiset käyttäjät saavat pääsyn kaikkiin sen tehtäviin erottelematta. Muussa tapauksessa he saavat pääsyn vain tiettyihin tehtäviin, joita he seuraavat.\n"
-" Käyttäjä, jolla on projektin > ylläpitäjän käyttöoikeustaso, voi silti käyttää tätä projektia ja sen tehtäviä, vaikka hän ei nimenomaisesti kuuluisi seuraajiin.\n"
-"\n"
-"- Kaikki sisäiset käyttäjät: Kaikki sisäiset käyttäjät voivat käyttää projektia ja kaikkia sen tehtäviä erottelematta.\n"
-"\n"
-"- Kutsutut portaalikäyttäjät ja kaikki sisäiset käyttäjät: Kaikki sisäiset käyttäjät voivat käyttää projektia ja kaikkia sen tehtäviä erottelematta.\n"
-"Kun projektia seurataan, portaalikäyttäjät pääsevät käsiksi kaikkiin sen tehtäviin erottelematta. Muussa tapauksessa he saavat pääsyn vain tiettyihin tehtäviin, joita he seuraavat.\n"
-"\n"
-"Kun projekti on jaettu vain lukuoikeudella, portaalikäyttäjä ohjataan portaaliinsa. Hän voi tarkastella tehtäviä, mutta ei muokata niitä.\n"
-"Kun projekti on jaettu muokattavana, portaalin käyttäjä ohjataan tehtävien kanban- ja luettelonäkymiin. Hän voi muokata valittua määrää tehtävien kenttiä.\n"
-"\n"
-"Joka tapauksessa sisäinen käyttäjä, jolla ei ole projektin käyttöoikeuksia, voi silti käyttää tehtävää, jos hänelle annetaan vastaava URL-osoite (ja jos hän kuuluu seuraajiin, jos projekti on yksityinen)."
 
 #. module: project
 #: model:ir.actions.server,name:project.unlink_project_action
@@ -1703,7 +1644,7 @@ msgstr "Toimitettu"
 #: model:ir.model.fields,field_description:project.field_project_task__dependent_tasks_count
 #, python-format
 msgid "Dependent Tasks"
-msgstr "Riippuvat tehtävät"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__description
@@ -1730,7 +1671,7 @@ msgstr "Suunnittelu"
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
 msgid "Determine the order in which to perform tasks"
-msgstr "Tehtävien suoritusjärjestyksen määrittäminen"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -1749,12 +1690,12 @@ msgstr "Yhteenveto"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Digital Marketing"
-msgstr "Digitaalinen markkinointi"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__disabled_rating_warning
 msgid "Disabled Rating Warning"
-msgstr "Luokitusvaroitus poistettu käytöstä"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -1771,7 +1712,7 @@ msgstr "Hylkää"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_share_wizard__display_access_mode
 msgid "Display Access Mode"
-msgstr "Näytön käyttötapa"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator__display_name
@@ -1796,7 +1737,7 @@ msgstr "Näyttönimi"
 #: model:ir.model.fields,field_description:project.field_project_task__display_project_id
 #: model:ir.model.fields,field_description:project.field_project_task_burndown_chart_report__display_project_id
 msgid "Display Project"
-msgstr "Näyttä projekti"
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/digest.py:0
@@ -1858,12 +1799,12 @@ msgstr "Muokkaa"
 #: code:addons/project/static/src/js/project_kanban.js:0
 #, python-format
 msgid "Edit Personal Stage"
-msgstr "Muokkaa henkilökohtaista vaihetta"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "Edit recurring task"
-msgstr "Muokkaa toistuvaa tehtävää"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
@@ -1880,7 +1821,7 @@ msgstr ""
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Editing"
-msgstr "Muokkaus"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__partner_email
@@ -1891,7 +1832,7 @@ msgstr "Sähköposti"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__email_from
 msgid "Email From"
-msgstr "Sähköpostin lähettäjä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project_stage__mail_template_id
@@ -1929,7 +1870,7 @@ msgstr ""
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "Error! You cannot create a recursive hierarchy of tasks."
-msgstr "Virhe! Et voi luoda rekursiivista tehtävien hierarkiaa."
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -1978,7 +1919,7 @@ msgstr ""
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Final Document"
-msgstr "Lopullinen asiakirja"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_week__first
@@ -2069,13 +2010,11 @@ msgid ""
 "Get a snapshot of the status of your project and share its progress with key"
 " stakeholders."
 msgstr ""
-"Saat tilannekuvan projektin tilasta ja voit jakaa sen edistymisen "
-"tärkeimpien sidosryhmien kanssa."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 msgid "Get customer feedback"
-msgstr "Hanki asiakaspalautetta"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2137,12 +2076,12 @@ msgstr ""
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Handoff"
-msgstr "Anna toiselle"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Happy face"
-msgstr "Iloiset kasvot"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__has_message
@@ -2175,7 +2114,13 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "How’s this project going?"
-msgstr "Miten projekti etenee?"
+msgstr ""
+
+#. module: project
+#: code:addons/project/models/project.py:0
+#, python-format
+msgid "I take it"
+msgstr "Ota itselle"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator__id
@@ -2385,14 +2330,11 @@ msgid ""
 "automatically synchronized with Tasks (or optionally Issues if the Issue "
 "Tracker module is installed)."
 msgstr ""
-"Tähän projektiin liittyvä sisäinen sähköposti. Saapuvat sähköpostit "
-"synkronoidaan automaattisesti Tehtävien kanssa (tai valinnaisesti Asioiden "
-"kanssa, jos Issue Tracker -moduuli on asennettu)."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_share_wizard_view_form
 msgid "Invite People"
-msgstr "Kutsu henkilöitä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__privacy_visibility__followers
@@ -2407,12 +2349,12 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__is_deadline_exceeded
 msgid "Is Deadline Exceeded"
-msgstr "Onko määräaika ylitetty"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__is_deadline_future
 msgid "Is Deadline Future"
-msgstr "Onko määräaika tulevaisuudessa"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__message_is_follower
@@ -2425,7 +2367,7 @@ msgstr "On seuraaja"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__is_private
 msgid "Is Private"
-msgstr "Onko yksityinen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__partner_is_company
@@ -2442,7 +2384,7 @@ msgstr "Tapauksen versio"
 #: code:addons/project/static/src/js/project_list.js:0
 #, python-format
 msgid "It seems that some tasks are part of a recurrence."
-msgstr "Näyttää siltä, että jotkin tehtävät ovat osa toistuvaa toimintaa."
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2450,7 +2392,7 @@ msgstr "Näyttää siltä, että jotkin tehtävät ovat osa toistuvaa toimintaa.
 #: code:addons/project/static/src/js/project_list.js:0
 #, python-format
 msgid "It seems that this task is part of a recurrence."
-msgstr "Vaikuttaa siltä, että tämä tehtävä on osa toistuvaa toimintaa."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_month__january
@@ -2500,7 +2442,7 @@ msgstr "Kanbanin Valmis-tilan selitysteksti"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_digest_digest__kpi_project_task_opened_value
 msgid "Kpi Project Task Opened Value"
-msgstr "KPI Projektin tehtävän avattu arvo"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__label_tasks
@@ -2558,12 +2500,12 @@ msgstr "Viimeinen päivitys"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__last_update_color
 msgid "Last Update Color"
-msgstr "Viimeisin päivitysväri"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__last_update_status
 msgid "Last Update Status"
-msgstr "Viimeisin päivitystila"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__write_date
@@ -2625,17 +2567,17 @@ msgstr "Myöhemmin"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Latest Rating: Dissatisfied"
-msgstr "Viimeisin luokitus: Tyytymätön"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Latest Rating: Okay"
-msgstr "Viimeisin luokitus: Okay"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Latest Rating: Satisfied"
-msgstr "Viimeisin luokitus: Tyytyväinen"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2643,14 +2585,14 @@ msgstr "Viimeisin luokitus: Tyytyväinen"
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "Let's create your first <b>project</b>."
-msgstr "Luodaan ensimmäinen <b>projekti</b>."
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "Let's create your first <b>task</b>."
-msgstr "Luodaan ensimmäinen <b>tehtävä</b>."
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2660,21 +2602,19 @@ msgid ""
 "Let's go back to the <b>kanban view</b> to have an overview of your next "
 "tasks."
 msgstr ""
-"Palataan <b>kanban-näkymään</b>, jotta saat yleiskuvan seuraavista "
-"tehtävistä."
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "Let's start working on your task."
-msgstr "Aloitetaan tehtäväsi työstäminen."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.rating_rating_action_project_report
 #: model_terms:ir.actions.act_window,help:project.rating_rating_action_task
 msgid "Let's wait for your customers to manifest themselves."
-msgstr "Odotetaan, että asiakkaasi ilmoittautuvat."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_share_wizard__share_link
@@ -2692,14 +2632,14 @@ msgstr "Saapuvien sähköpostien kopio-vastaanottajat"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Live"
-msgstr "Live"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Logo Design"
-msgstr "Logon suunnittelu"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2724,7 +2664,7 @@ msgstr "Pääliite"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__attachment_ids
 msgid "Main Attachments"
-msgstr "Tärkeimmät liitteet"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2755,7 +2695,7 @@ msgstr "Maaliskuu"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Material Sourcing"
-msgstr "Materiaalin hankinta"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_month__may
@@ -2800,7 +2740,7 @@ msgstr "Virstanpylväs"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__milestone_count
 msgid "Milestone Count"
-msgstr "Virstanpylväiden määrä"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2815,7 +2755,7 @@ msgstr "Virstanpylväät"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Mixing"
-msgstr "Sekoittaminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__mon
@@ -2884,7 +2824,7 @@ msgstr "Nimi"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_update__name_cropped
 msgid "Name Cropped"
-msgstr "Nimi leikattu"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -2914,7 +2854,7 @@ msgstr "Toiminnallista tai teknistä tukea tarvitaan"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Neutral face"
-msgstr "Neutraali naama"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -2939,7 +2879,7 @@ msgstr "Uusi virstanpylväs"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "New Orders"
-msgstr "Uudet tilaukset"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -3004,12 +2944,12 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__next_recurrence_date
 msgid "Next Recurrence Date"
-msgstr "Seuraava toistumispäivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__recurrence_message
 msgid "Next Recurrencies"
-msgstr "Seuraava Valuutat"
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -3021,7 +2961,7 @@ msgstr "Ei aihetta"
 #: model_terms:ir.actions.act_window,help:project.rating_rating_action_project_report
 #: model_terms:ir.actions.act_window,help:project.rating_rating_action_task
 msgid "No customer ratings yet"
-msgstr "Ei vielä asiakkaiden arvioita"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.action_project_task_user_tree
@@ -3062,7 +3002,7 @@ msgstr "Ei tehtäviä. Luodaan uusi tehtävä!"
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.project_update_all_action
 msgid "No updates found. Let's create one!"
-msgstr "Päivityksiä ei löytynyt. Luodaan sellainen!"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -3099,17 +3039,17 @@ msgstr "Toimenpiteiden määrä"
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_type__after
 #: model:ir.model.fields.selection,name:project.selection__project_task_recurrence__repeat_type__after
 msgid "Number of Repetitions"
-msgstr "Toistojen määrä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type_delete_wizard__tasks_count
 msgid "Number of Tasks"
-msgstr "Tehtävien määrä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__recurrence_left
 msgid "Number of Tasks Left to Create"
-msgstr "Luotavia tehtäviä jäljellä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_report_project_task_user__working_days_close
@@ -3178,12 +3118,12 @@ msgstr "Lokakuu"
 #: model:ir.model.fields.selection,name:project.selection__project_project__last_update_status__off_track
 #: model:ir.model.fields.selection,name:project.selection__project_update__status__off_track
 msgid "Off Track"
-msgstr "Ei seuraa suunnitelmaa"
+msgstr ""
 
 #. module: project
 #: model:project.project,name:project.project_project_1
 msgid "Office Design"
-msgstr "Toimiston suunnittelu"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_delete_wizard_form
@@ -3195,7 +3135,7 @@ msgstr "OK"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Old Completed Sprint"
-msgstr "Vanha päättynyt sprintti"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__last_update_status__on_hold
@@ -3207,7 +3147,7 @@ msgstr "Pidossa"
 #: model:ir.model.fields.selection,name:project.selection__project_project__last_update_status__on_track
 #: model:ir.model.fields.selection,name:project.selection__project_update__status__on_track
 msgid "On Track"
-msgstr "Oikealla tiellä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__rating_status_period__monthly
@@ -3228,7 +3168,7 @@ msgstr "Avoimet tehtävät"
 #: model_terms:ir.ui.view,arch_db:project.project_task_burndown_chart_report_view_search
 #: model_terms:ir.ui.view,arch_db:project.view_task_project_user_search
 msgid "Open tasks"
-msgstr "Avoimet tehtävät"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__alias_force_thread_id
@@ -3286,7 +3226,7 @@ msgstr "Omistaja"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Page Ideas"
-msgstr "Sivun ideat"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_parent_model_id
@@ -3321,7 +3261,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__rating_percentage_satisfaction
 msgid "Percentage of happy ratings"
-msgstr "Tyytyväisten arvioiden prosenttiosuus"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_kanban
@@ -3331,7 +3271,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__rating_status__periodic
 msgid "Periodic rating"
-msgstr "Jaksoittainen luokitus"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__personal_stage_type_ids
@@ -3342,17 +3282,17 @@ msgstr "Henkilökohtainen vaiheistus"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__personal_stage_id
 msgid "Personal Stage State"
-msgstr "Henkilökohtaisen vaiheen tila"
+msgstr ""
 
 #. module: project
 #: model:ir.model,name:project.model_project_task_stage_personal
 msgid "Personal Task Stage"
-msgstr "Henkilökohtainen tehtävävaihe"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__personal_stage_type_id
 msgid "Personal User Stage"
-msgstr "Henkilökohtainen käyttäjävaihe"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__partner_phone
@@ -3378,14 +3318,14 @@ msgstr "Suunnittelu"
 msgid ""
 "Please remove existing tasks in the project linked to the accounts you want "
 "to delete."
-msgstr "Poista poistettaviin tileihin liittyvät projektin nykyiset tehtävät."
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Podcast and Video Production"
-msgstr "Podcast ja videotuotanto"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__alias_contact
@@ -3409,7 +3349,7 @@ msgstr "Portaalin osoite"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__portal_user_names
 msgid "Portal User Names"
-msgstr "Portaalin käyttäjätunnukset"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -3460,7 +3400,7 @@ msgstr "Edistyminen"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_update__progress_percentage
 msgid "Progress Percentage"
-msgstr "Edistymisen prosenttiosuus"
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -3498,7 +3438,7 @@ msgstr "Projektit"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__project_analytic_account_id
 msgid "Project Analytic Account"
-msgstr "Projektin analyyttinen tili"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_collaborator_view_form
@@ -3509,7 +3449,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:project.project_collaborator_action
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_access_view_tree
 msgid "Project Collaborators"
-msgstr "Projektin yhteistyökumppanit"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_account_analytic_account__project_count
@@ -3534,7 +3474,7 @@ msgstr "Projektipäällikkö"
 #. module: project
 #: model:ir.model,name:project.model_project_milestone
 msgid "Project Milestone"
-msgstr "Projektin virstanpylväs"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -3546,33 +3486,33 @@ msgstr "Projektin nimi"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator__project_id
 msgid "Project Shared"
-msgstr "Jaettu projekti"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_sharing_project_task_action
 #: model:ir.model,name:project.model_project_share_wizard
 msgid "Project Sharing"
-msgstr "Projektin jakaminen"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_project_task_view_form
 msgid "Project Sharing: Task"
-msgstr "Projektin jakaminen: Tehtävä"
+msgstr ""
 
 #. module: project
 #: model:ir.model,name:project.model_project_project_stage
 msgid "Project Stage"
-msgstr "Projektin vaihe"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,name:project.mt_project_stage_change
 msgid "Project Stage Changed"
-msgstr "Projektin vaihe muuttui"
+msgstr ""
 
 #. module: project
 #: model:ir.model,name:project.model_project_task_type_delete_wizard
 msgid "Project Stage Delete Wizard"
-msgstr "Ohjattu projektivaiheen poisto"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_project_stage_configure
@@ -3584,7 +3524,7 @@ msgstr "Projektin vaiheet"
 #. module: project
 #: model:ir.model,name:project.model_project_tags
 msgid "Project Tags"
-msgstr "Projektin tunnisteet"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_task_view_activity
@@ -3595,7 +3535,7 @@ msgstr "Projektin tehtävät"
 #: model:ir.model,name:project.model_project_update
 #: model_terms:ir.ui.view,arch_db:project.project_update_view_form
 msgid "Project Update"
-msgstr "Projektin päivitys"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_update_all_action
@@ -3606,7 +3546,7 @@ msgstr "Projektien päivitykset"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__project_privacy_visibility
 msgid "Project Visibility"
-msgstr "Projektin näkyvyys"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.dblc_proj
@@ -3618,14 +3558,14 @@ msgstr "Projektin tehtävät"
 #: model:ir.cron,cron_name:project.ir_cron_recurring_tasks
 #: model:ir.cron,name:project.ir_cron_recurring_tasks
 msgid "Project: Create Recurring Tasks"
-msgstr "Projekti: Luo toistuvia tehtäviä"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.server,name:project.ir_cron_rating_project_ir_actions_server
 #: model:ir.cron,cron_name:project.ir_cron_rating_project
 #: model:ir.cron,name:project.ir_cron_rating_project
 msgid "Project: Send rating"
-msgstr "Projekti: Lähetä luokitus"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.open_view_project_all
@@ -3673,7 +3613,7 @@ msgstr "Julkaistu"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Publishing"
-msgstr "Julkaiseminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__rating_status_period__quarterly
@@ -3697,7 +3637,7 @@ msgstr "Arvostelu"
 #: model_terms:ir.ui.view,arch_db:project.view_project_task_graph
 #: model_terms:ir.ui.view,arch_db:project.view_project_task_pivot
 msgid "Rating (/5)"
-msgstr "Luokitus (/5)"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_avg
@@ -3707,7 +3647,7 @@ msgstr "Keskimääräinen arvio"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__rating_template_id
 msgid "Rating Email Template"
-msgstr "Arvostelun sähköpostimalli"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_status_period
@@ -3732,7 +3672,7 @@ msgstr "Arvion viimeisin arvo"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_request_deadline
 msgid "Rating Request Deadline"
-msgstr "Luokituspyynnön määräaika"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_percentage_satisfaction
@@ -3746,7 +3686,7 @@ msgstr "Arvion tyytyväisyys"
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__rating_last_value
 #, python-format
 msgid "Rating Value (/5)"
-msgstr "Luokitusarvo (/5)"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_count
@@ -3777,7 +3717,7 @@ msgstr "Saavutettu"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_milestone__reached_date
 msgid "Reached Date"
-msgstr "Saavutettu päivämäärä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_share_wizard__access_mode__read
@@ -3839,7 +3779,7 @@ msgstr "Syy arviolle"
 #. module: project
 #: model:mail.template,subject:project.mail_template_data_project_task
 msgid "Reception of {{ object.name }}"
-msgstr "Vastaanotto {{ object.name }}"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_share_wizard__partner_ids
@@ -3856,7 +3796,7 @@ msgstr "Tietueen keskustelun ID"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Recording"
-msgstr "Tallenne"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__recurrence_id
@@ -3867,7 +3807,7 @@ msgstr "Toistuvuus"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__recurrence_update
 msgid "Recurrence Update"
-msgstr "Uusiutumisen päivitys"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__recurring_task
@@ -3916,13 +3856,13 @@ msgstr "Liittyvä dokumenttimalli"
 #. module: project
 #: model:project.project,name:project.project_project_3
 msgid "Renovations"
-msgstr "Uusimiset"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_day
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_day
 msgid "Repeat Day"
-msgstr "Toistopäivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_interval
@@ -3934,62 +3874,62 @@ msgstr "Toista joka"
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_month
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_month
 msgid "Repeat Month"
-msgstr "Toistokuukausi"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "Repeat On"
-msgstr "Toista"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_on_month
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_on_month
 msgid "Repeat On Month"
-msgstr "Toista kuukaudessa"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_on_year
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_on_year
 msgid "Repeat On Year"
-msgstr "Toista vuodessa"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_day
 msgid "Repeat Show Day"
-msgstr "Toista näytä päivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_dow
 msgid "Repeat Show Dow"
-msgstr "Toista näytä viikonpäivä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_month
 msgid "Repeat Show Month"
-msgstr "Toista näytä kuukausi"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_show_week
 msgid "Repeat Show Week"
-msgstr "Toista näytä viikko"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_unit
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_unit
 msgid "Repeat Unit"
-msgstr "Toistoyksikkö"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_week
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_week
 msgid "Repeat Week"
-msgstr "Toista viikko"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__repeat_number
 #: model:ir.model.fields,field_description:project.field_project_task_recurrence__repeat_number
 msgid "Repetitions"
-msgstr "Toistot"
+msgstr ""
 
 #. module: project
 #: model:ir.ui.menu,name:project.menu_project_report
@@ -4007,28 +3947,28 @@ msgstr "Tutkimus"
 #. module: project
 #: model:project.project,name:project.project_project_2
 msgid "Research & Development"
-msgstr "Tutkimus ja tuotekehitys"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Research Project"
-msgstr "Tutkimusprojekti"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Researching"
-msgstr "Tutkimus"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Resources Allocation"
-msgstr "Resurssien jakaminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__activity_user_id
@@ -4048,7 +3988,7 @@ msgstr "Tekstiviestin toimitusvirhe"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_kanban
 msgid "Sad face"
-msgstr "Surulliset kasvot"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__sat
@@ -4073,7 +4013,7 @@ msgstr "Skripti"
 #: code:addons/project/controllers/portal.py:0
 #, python-format
 msgid "Search <span class=\"nolabel\"> (in Content)</span>"
-msgstr "Haku ( <span class=\"nolabel\"> sisällössä)</span>"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_project_filter
@@ -4083,7 +4023,7 @@ msgstr "Hae projekti"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_view_search
 msgid "Search Update"
-msgstr "Etsi päivitystä"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -4107,7 +4047,7 @@ msgstr "Etsi viesteistä"
 #: code:addons/project/controllers/portal.py:0
 #, python-format
 msgid "Search in Priority"
-msgstr "Etsi prioriteetista"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -4119,7 +4059,7 @@ msgstr "Hae projektia"
 #: code:addons/project/controllers/portal.py:0
 #, python-format
 msgid "Search in Ref"
-msgstr "Etsi viitteistä"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -4131,7 +4071,7 @@ msgstr "Etsi vaiheista"
 #: code:addons/project/controllers/portal.py:0
 #, python-format
 msgid "Search in Status"
-msgstr "Etsi statuksesta"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__repeat_week__second
@@ -4174,7 +4114,7 @@ msgstr "Aseta kansikuva"
 #: model_terms:ir.ui.view,arch_db:project.edit_project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
 msgid "Set a Rating Email Template on Stages"
-msgstr "Aseta Luokitus-sähköpostimalli vaiheisiin"
+msgstr ""
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_config_settings_action
@@ -4209,7 +4149,7 @@ msgstr "Jaa luettavaksi"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__is_favorite
 msgid "Show Project on Dashboard"
-msgstr "Näytä projekti kojelaudalla"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_search_form
@@ -4219,27 +4159,27 @@ msgstr "Näytä kaikki tietueet joissa on toimenpide myöhässä."
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "Since"
-msgstr "Alkaen"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Software Development"
-msgstr "Ohjelmistokehitys"
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "Sorry. You can't set a task as its parent task."
-msgstr "Olen pahoillani. Et voi asettaa tehtävää ylätason tehtäväksi."
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Specifications"
-msgstr "Määrittelyt"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -4254,14 +4194,14 @@ msgstr ""
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Sprint Backlog"
-msgstr "Sprint backlog"
+msgstr ""
 
 #. module: project
 #. openerp-web
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Sprint Complete"
-msgstr "Sprintti valmis"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
@@ -4273,7 +4213,7 @@ msgstr ""
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Sprint in Progress"
-msgstr "Sprintti käynnissä"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -4306,7 +4246,7 @@ msgstr "Vaiheen kuvaus ja työkaluvihjeet"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type__user_id
 msgid "Stage Owner"
-msgstr "Vaiheen omistaja"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,description:project.mt_task_stage
@@ -4316,12 +4256,12 @@ msgstr "Vaihe muutettu"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type_delete_wizard__stages_active
 msgid "Stages Active"
-msgstr "Aktiiviset vaiheet"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_type_delete_wizard__stage_ids
 msgid "Stages To Delete"
-msgstr "Poistettavat vaiheet"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__priority
@@ -4370,12 +4310,12 @@ msgstr ""
 #: code:addons/project/static/src/js/project_list.js:0
 #, python-format
 msgid "Stop Recurrence"
-msgstr "Pysäytä uusiutuminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__subtask_count
 msgid "Sub-task Count"
-msgstr "Osatehtävien määrä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__allow_subtasks
@@ -4415,7 +4355,7 @@ msgstr "Sunnuntai"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "T-shirt Printing"
-msgstr "T-paitojen tulostus"
+msgstr ""
 
 #. module: project
 #: model:ir.model.constraint,message:project.constraint_project_tags_name_uniq
@@ -4466,43 +4406,43 @@ msgstr "Tehtävä estetty"
 #: model:ir.model.fields,field_description:project.field_project_delete_wizard__task_count
 #: model:ir.model.fields,field_description:project.field_project_project__task_count
 msgid "Task Count"
-msgstr "Tehtävien määrä"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__task_count_with_subtasks
 msgid "Task Count With Subtasks"
-msgstr "Tehtävien laskenta alatehtävien kanssa"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,description:project.mt_task_new
 #: model:mail.message.subtype,name:project.mt_project_task_new
 #: model:mail.message.subtype,name:project.mt_task_new
 msgid "Task Created"
-msgstr "Tehtävä luotu"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__allow_task_dependencies
 #: model:ir.model.fields,field_description:project.field_project_task__allow_task_dependencies
 #: model:ir.model.fields,field_description:project.field_res_config_settings__group_project_task_dependencies
 msgid "Task Dependencies"
-msgstr "Tehtävän riippuvuudet"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,name:project.mt_project_task_dependency_change
 #: model:mail.message.subtype,name:project.mt_task_dependency_change
 msgid "Task Dependency Changes"
-msgstr "Tehtäväriippuvuuden muutokset"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_res_config_settings__module_hr_timesheet
 msgid "Task Logs"
-msgstr "Tehtävien lokikirjaukset"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,name:project.mt_project_task_rating
 #: model:mail.message.subtype,name:project.mt_task_rating
 msgid "Task Rating"
-msgstr "Tehtävän luokitus"
+msgstr ""
 
 #. module: project
 #: model:mail.message.subtype,name:project.mt_project_task_ready
@@ -4513,7 +4453,7 @@ msgstr "Tehtävä valmis"
 #. module: project
 #: model:ir.model,name:project.model_project_task_recurrence
 msgid "Task Recurrence"
-msgstr "Tehtävän toistuvuus"
+msgstr ""
 
 #. module: project
 #: model:ir.model,name:project.model_project_task_type
@@ -4533,7 +4473,7 @@ msgstr "Tehtävän vaihe on muutettu"
 #: model:ir.actions.act_window,name:project.open_task_type_form_domain
 #: model:ir.ui.menu,name:project.menu_project_config_project
 msgid "Task Stages"
-msgstr "Tehtävän vaiheet"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_quick_create_task_form
@@ -4556,14 +4496,11 @@ msgstr "Tehtävä estetty"
 #: model_terms:ir.ui.view,arch_db:project.task_type_edit
 msgid "Task in progress. Click to block or set as done."
 msgstr ""
-"Tehtävä on käynnissä. Napsauta estääksesi tai asettaaksesi tehtävän "
-"tehdyksi."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.task_type_edit
 msgid "Task is blocked. Click to unblock or set as done."
 msgstr ""
-"Tehtävä on estetty. Poista esto napsauttamalla tai aseta tehtävä valmiiksi."
 
 #. module: project
 #: model:mail.message.subtype,description:project.mt_task_ready
@@ -4573,7 +4510,7 @@ msgstr "Tehtävä on valmis seuraavaan vaiheeseen"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.task_track_depending_tasks
 msgid "Task:"
-msgstr "Tehtävä:"
+msgstr ""
 
 #. module: project
 #: model:mail.template,name:project.rating_project_request_email_template
@@ -4641,7 +4578,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
 msgid "Tasks Management"
-msgstr "Tehtävien hallinta"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__type_ids
@@ -4652,7 +4589,7 @@ msgstr "Tehtävien vaiheet"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__recurring_count
 msgid "Tasks in Recurrence"
-msgstr "Toistuvat tehtävät"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__is_closed
@@ -4670,17 +4607,17 @@ msgstr "Testit"
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__personal_stage_id
 msgid "The current user's personal stage."
-msgstr "Nykyisen käyttäjän henkilökohtainen vaihe."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task__personal_stage_type_id
 msgid "The current user's personal task stage."
-msgstr "Nykyisen käyttäjän henkilökohtainen tehtävävaihe."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "The following milestone has been added:"
-msgstr "Seuraava virstanpylväs on lisätty:"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
@@ -4729,10 +4666,6 @@ msgid ""
 "the project is too restricted. Set the privacy to 'Visible by following "
 "customers' in order to make it accessible by the recipient(s)."
 msgstr ""
-"Projektia ei voida jakaa vastaanottajan (vastaanottajien) kanssa, koska "
-"hankkeen yksityisyys on liian rajoitettu. Aseta yksityisyyden suojaus arvoon"
-" 'Seuraavat asiakkaat näkevät', jotta vastaanottaja(t) pääsevät siihen "
-"käsiksi."
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -4742,16 +4675,12 @@ msgid ""
 "project is too restricted. Set the privacy of the project to 'Visible by "
 "following customers' in order to make it accessible by the recipient(s)."
 msgstr ""
-"Tehtävää ei voida jakaa vastaanottajan (vastaanottajien) kanssa, koska "
-"projektin yksityisyys on liian rajoitettu. Aseta projektin yksityisyyden "
-"suojaksi \"Seuraavien asiakkaiden nähtävissä\", jotta vastaanottaja(t) "
-"pääsevät siihen käsiksi."
 
 #. module: project
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "There are no more occurrences."
-msgstr "Enää ei tapahdu mitään."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_projects
@@ -4761,7 +4690,7 @@ msgstr "Ei projekteja."
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.rating_rating_action_view_project_rating
 msgid "There are no ratings for this project at the moment"
-msgstr "Tällä hetkellä tälle projektille ei ole luokituksia"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_my_project
@@ -4803,7 +4732,7 @@ msgstr "Tällä viikolla"
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__recurrence_update__subsequent
 msgid "This and following tasks"
-msgstr "Tämä ja seuraavat tehtävät"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_task_type__fold
@@ -4822,7 +4751,7 @@ msgstr ""
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.task_type_edit
 msgid "This step is done. Click to block or set in progress."
-msgstr "Tämä vaihe on valmis. Napsauta estääksesi tai asettaaksesi käynnissä."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__recurrence_update__this
@@ -4835,8 +4764,6 @@ msgid ""
 "This will archive the stages and all the tasks they contain from the "
 "following projects:"
 msgstr ""
-"Tämä arkistoi vaiheet ja kaikki niiden sisältämät tehtävät seuraavista "
-"projekteista:"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__thu
@@ -4864,7 +4791,7 @@ msgstr ""
 #: model:digest.tip,name:project.digest_tip_project_0
 #: model_terms:digest.tip,tip_description:project.digest_tip_project_0
 msgid "Tip: Customize tasks and stages according to the project"
-msgstr "Vinkki: Mukauta tehtäviä ja vaiheita projektin mukaan"
+msgstr ""
 
 #. module: project
 #: code:addons/project/controllers/portal.py:0
@@ -4889,7 +4816,7 @@ msgstr "Tehtävät"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "To Print"
-msgstr "Tulostettava"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.act_project_project_2_project_task_all
@@ -4939,8 +4866,6 @@ msgstr "Seuraa asiakkaiden tyytyväisyyttä tehtävissä"
 #, python-format
 msgid "Track major progress points that must be reached to achieve success."
 msgstr ""
-"Seuraa tärkeimpiä edistysaskelia, jotka on saavutettava menestyksen "
-"saavuttamiseksi."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
@@ -4961,7 +4886,7 @@ msgstr "Seuraa projektiesi edistymistä luonnista valmistumiseen."
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.open_task_type_form
 msgid "Track the progress of your tasks from their creation to their closing."
-msgstr "Seuraa tehtävien edistymistä niiden luomisesta niiden päättämiseen."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.res_config_settings_view_form
@@ -5003,7 +4928,7 @@ msgstr "Palauta arkistosta"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_project_task_view_form
 msgid "Unassign Me"
-msgstr "Poista oma vastuuni"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_project_task_view_search
@@ -5062,12 +4987,12 @@ msgstr ""
 #: code:addons/project/static/src/js/tours/project.js:0
 #, python-format
 msgid "Use <b>activities</b> to organize your daily work."
-msgstr "Järjestä päivittäinen työsi <b>toimintojen</b> avulla."
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__alias_enabled
 msgid "Use Email Alias"
-msgstr "Käytä sähköpostin aliasta"
+msgstr ""
 
 #. module: project
 #: model:res.groups,name:project.group_project_rating
@@ -5082,7 +5007,7 @@ msgstr "Käytä toistuvia tehtäviä"
 #. module: project
 #: model:res.groups,name:project.group_project_stages
 msgid "Use Stages on Project"
-msgstr "Käytä vaiheita projektissa"
+msgstr ""
 
 #. module: project
 #: model:res.groups,name:project.group_subtask_project
@@ -5092,7 +5017,7 @@ msgstr "Käytä alitehtäviä projektille"
 #. module: project
 #: model:res.groups,name:project.group_project_task_dependencies
 msgid "Use Task Dependencies"
-msgstr "Käytä tehtävän riippuvuuksia"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__label_tasks
@@ -5104,12 +5029,12 @@ msgstr "Käytä tehtäviä"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Use This For My Project"
-msgstr "Käytä tätä omalle projektini"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.project_tags_action
 msgid "Use tags to categorize your tasks."
-msgstr "Käytä tunnisteita tehtävien luokitteluun."
+msgstr ""
 
 #. module: project
 #. openerp-web
@@ -5119,8 +5044,6 @@ msgid ""
 "Use the chatter to <b>send emails</b> and communicate efficiently with your customers. \n"
 "    Add new people to the followers' list to make them aware of the main changes about this task."
 msgstr ""
-"Käytä keskustelua <b>sähköpostien lähettämiseen</b> ja tehokkaaseen viestintään asiakkaidesi kanssa. \n"
-"    Lisää uusia henkilöitä seuraajien listalle, jotta he tietävät tärkeimmistä muutoksista tähän tehtävään liittyen."
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task_stage_personal__user_id
@@ -5167,7 +5090,7 @@ msgstr "Verkkosivun ilmoitukset"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Website Redesign"
-msgstr "Verkkosivuston uudistaminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_milestone__website_message_ids
@@ -5209,25 +5132,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:project.field_project_task__working_days_open
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__working_days_open
 msgid "Working Days to Assign"
-msgstr "Työpäivät vastuuttamiseen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__working_days_close
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__working_days_close
 msgid "Working Days to Close"
-msgstr "Työpäiviä sulkemiseen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__working_hours_open
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__working_hours_open
 msgid "Working Hours to Assign"
-msgstr "Määritettävät työtunnit"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__working_hours_close
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__working_hours_close
 msgid "Working Hours to Close"
-msgstr "Työtunteja sulkemiseen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__resource_calendar_id
@@ -5250,7 +5173,7 @@ msgstr "Työaikaa sulkemiseen"
 #: code:addons/project/static/src/js/project_task_kanban_examples.js:0
 #, python-format
 msgid "Writing"
-msgstr "Kirjoittaminen"
+msgstr ""
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__rating_status_period__yearly
@@ -5286,13 +5209,12 @@ msgid ""
 "You cannot change the company of an analytic account if it is related to a "
 "project."
 msgstr ""
-"Et voi vaihtaa analyyttisen tilin yritystä, jos se liittyy projektiin."
 
 #. module: project
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "You cannot create cyclic dependency."
-msgstr "Et voi luoda syklistä riippuvuutta."
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -5307,7 +5229,7 @@ msgstr ""
 #, python-format
 msgid ""
 "You cannot delete recurring tasks. Please disable the recurrence first."
-msgstr "Et voi poistaa toistuvia tehtäviä. Poista toistuvuus ensin käytöstä."
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_project_task_type_delete_wizard
@@ -5324,22 +5246,20 @@ msgid ""
 "You cannot delete stages containing tasks. You should first delete all of "
 "their tasks."
 msgstr ""
-"Tehtäviä sisältäviä vaiheita ei voi poistaa. Sinun on ensin poistettava "
-"kaikki niiden tehtävät."
 
 #. module: project
 #. odoo-python
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "You cannot read %s fields in task."
-msgstr "Tehtävän %s-kenttiä ei voi lukea."
+msgstr ""
 
 #. module: project
 #. odoo-python
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "You cannot write on %s fields in task."
-msgstr "Tehtävän %s-kenttiin ei voi kirjoittaa."
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -5356,7 +5276,7 @@ msgstr "Olet merkattu vastuulliseksi"
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "You have not write access of %s field."
-msgstr "Sinulla ei ole kirjoitusoikeutta kenttään %s."
+msgstr ""
 
 #. module: project
 #: code:addons/project/models/project.py:0
@@ -5365,8 +5285,6 @@ msgid ""
 "You should at least have one personal stage. Create a new stage to which the"
 " tasks can be transferred after this one is deleted."
 msgstr ""
-"Sinulla pitäisi olla ainakin yksi henkilökohtainen vaihe. Luo uusi vaihe, "
-"johon tehtävät voidaan siirtää sen jälkeen, kun tämä vaihe on poistettu."
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_sharing_quick_create_task_form
@@ -5382,7 +5300,7 @@ msgstr "esim. Toimistobileet"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_project_view_form_simplified
 msgid "e.g. office-party"
-msgstr "esim. Toimiston bileet"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.portal_tasks_list
@@ -5413,7 +5331,7 @@ msgstr ""
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "task"
-msgstr "tehtävä"
+msgstr ""
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
@@ -5435,4 +5353,4 @@ msgstr "tosi"
 #. module: project
 #: model:mail.template,subject:project.rating_project_request_email_template
 msgid "{{ object.project_id.company_id.name }}: Satisfaction Survey"
-msgstr "{{ object.project_id.company_id.name }}: Tyytyväisyyskysely"
+msgstr ""

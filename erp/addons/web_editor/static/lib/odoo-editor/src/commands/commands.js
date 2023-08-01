@@ -401,7 +401,7 @@ export const editorCommands = {
         const changedElements = [];
         const defaultDirection = editor.options.direction;
         const shouldApplyStyle = !isSelectionFormat(editor.editable, 'switchDirection');
-        for (const block of new Set(selectedTextNodes.map(textNode => closestElement(textNode, 'ul,ol') || closestBlock(textNode)))) {
+        for (const block of new Set(selectedTextNodes.map(textNode => closestBlock(textNode)))) {
             if (!shouldApplyStyle) {
                 block.removeAttribute('dir');
             } else {
@@ -583,7 +583,7 @@ export const editorCommands = {
                     font = [];
                 }
             } else if ((node.nodeType === Node.TEXT_NODE && isVisibleStr(node))
-                    || (isEmptyBlock(node.parentNode))
+                    || node.nodeName === "BR"
                     || (node.nodeType === Node.ELEMENT_NODE &&
                         ['inline', 'inline-block'].includes(getComputedStyle(node).display) &&
                         isVisibleStr(node.textContent) &&
@@ -620,15 +620,13 @@ export const editorCommands = {
             return font;
         });
         // Color the selected <font>s and remove uncolored fonts.
-        const fontsSet = new Set(fonts);
-        for (const font of fontsSet) {
+        for (const font of new Set(fonts)) {
             colorElement(font, color, mode);
             if (!hasColor(font, mode) && !font.hasAttribute('style')) {
                 for (const child of [...font.childNodes]) {
                     font.parentNode.insertBefore(child, font);
                 }
                 font.parentNode.removeChild(font);
-                fontsSet.delete(font);
             }
         }
         restoreCursor();
@@ -640,7 +638,7 @@ export const editorCommands = {
             newSelection.removeAllRanges();
             newSelection.addRange(range);
         }
-        return [...fontsSet];
+        return fonts;
     },
     // Table
     insertTable: (editor, { rowNumber = 2, colNumber = 2 } = {}) => {

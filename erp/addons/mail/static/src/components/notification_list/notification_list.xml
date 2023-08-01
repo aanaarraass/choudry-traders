@@ -30,7 +30,7 @@
                             notificationGroupLocalId="notification.notificationGroup.localId"
                         />
                     </t>
-                    <t t-if="notification.type === 'odoobotRequest'">
+                    <t t-if="notification.type === 'ERPbotRequest'">
                         <NotificationRequest
                             class="o_NotificationList_notificationRequest"
                             t-att-class="{ 'o-mobile': messaging.device.isMobile }"

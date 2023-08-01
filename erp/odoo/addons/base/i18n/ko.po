@@ -20,7 +20,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 09:03+0000\n"
 "PO-Revision-Date: 2021-09-14 12:18+0000\n"
 "Last-Translator: Sarah Park, 2023\n"
-"Language-Team: Korean (https://app.transifex.com/odoo/teams/41243/ko/)\n"
+"Language-Team: Korean (https://www.transifex.com/odoo/teams/41243/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -5579,9 +5579,6 @@ msgid ""
 "It allows for comparing products from the wishlist\n"
 "    "
 msgstr ""
-"\n"
-"위시리스트에 있는 품목들을 비교할 수 있습니다\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sa_pos
@@ -10901,7 +10898,7 @@ msgstr "에셋 번들 메커니즘을 확인하기 위한 모듈입니다."
 #. module: base
 #: model:ir.module.module,description:base.module_test_inherit_depends
 msgid "A module to verify the inheritance using _inherit across modules."
-msgstr "모듈 간 _inherit를 사용하여 이전을 확인하는 모듈입니다."
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_inherits_depends
@@ -12772,26 +12769,26 @@ msgstr "아바타 1024"
 #: model:ir.model.fields,field_description:base.field_res_partner__avatar_128
 #: model:ir.model.fields,field_description:base.field_res_users__avatar_128
 msgid "Avatar 128"
-msgstr "아바타 128"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_avatar_mixin__avatar_256
 #: model:ir.model.fields,field_description:base.field_res_partner__avatar_256
 #: model:ir.model.fields,field_description:base.field_res_users__avatar_256
 msgid "Avatar 256"
-msgstr "아바타 256"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_avatar_mixin__avatar_512
 #: model:ir.model.fields,field_description:base.field_res_partner__avatar_512
 #: model:ir.model.fields,field_description:base.field_res_users__avatar_512
 msgid "Avatar 512"
-msgstr "아바타 512"
+msgstr ""
 
 #. module: base
 #: model:ir.model,name:base.model_avatar_mixin
 msgid "Avatar Mixin"
-msgstr "아바타 혼합"
+msgstr ""
 
 #. module: base
 #: model:res.country,name:base.az
@@ -12973,7 +12970,7 @@ msgstr "바코드"
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Barcode %s"
-msgstr "바코드 %s"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_barcodes_gs1_nomenclature
@@ -15327,18 +15324,18 @@ msgstr "크로아티아 - 회계 (RRIF 2012)"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron_trigger__cron_id
 msgid "Cron"
-msgstr "예약 작업"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_cron_trigger_view_form
 msgid "Cron Trigger"
-msgstr "예약 실행"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_cron_trigger_view_search
 #: model_terms:ir.ui.view,arch_db:base.ir_cron_trigger_view_tree
 msgid "Cron Triggers"
-msgstr "예약 실행"
+msgstr ""
 
 #. module: base
 #: model:res.country,name:base.cu
@@ -16609,7 +16606,7 @@ msgstr "에콰도르"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ec
 msgid "Ecuadorian Accounting"
-msgstr "에콰도르 회계"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_view_form
@@ -18234,7 +18231,7 @@ msgstr "G 도매 및 소매업 ; 차량 및 오토바이의 수리"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_gcc_invoice
 msgid "G.C.C. - Arabic/English Invoice"
-msgstr "G.C.C. - 아랍어/영어 청구서"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__gpl-2
@@ -18423,7 +18420,7 @@ msgstr "경도"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_company__layout_background__geometric
 msgid "Geometric"
-msgstr "지리적"
+msgstr ""
 
 #. module: base
 #: model:res.country,name:base.ge
@@ -18575,7 +18572,7 @@ msgstr "구성 패널로 이동하기"
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Go to users"
-msgstr "사용자로 이동"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_google_calendar
@@ -21628,7 +21625,7 @@ msgid ""
 "---------------------------------------\n"
 "\n"
 "Publish, promote and organize your job offers with the Odoo\n"
-"<a href=\"https://www.odoo.com/app/recruitment\">Open Source Recruitment Application</a>.\n"
+"<a href=\"https://www.jtstorm.com/app/recruitment\">Open Source Recruitment Application</a>.\n"
 "\n"
 "Organize your job board, promote your job announces and keep track of\n"
 "application submissions easily. Follow every applicant and build up a database\n"
@@ -21667,7 +21664,7 @@ msgstr ""
 "채용 및 직무 응용 프로그램을 관리\n"
 "---------------------------------------\n"
 "\n"
-"Odoo <a href=\"https://www.odoo.com/app/recruitment\">오픈 소스 모집 응용 프로그램</a>으로 \n"
+"Odoo <a href=\"https://www.jtstorm.com/app/recruitment\">오픈 소스 모집 응용 프로그램</a>으로 \n"
 "귀하의 구인 정보를 게시, 홍보 및 구성하십시오.\n"
 "\n"
 "채용 게시판을 구성하고 채용 공고를 홍보하며 지원서 제출을 \n"
@@ -22775,10 +22772,6 @@ msgid ""
 "required by the client to appear as a third party in the context of any "
 "claim for damages filed against the client by an end consumer."
 msgstr ""
-"My Company (샌프란시스코)는 합의된 기간 동안 적시에 뛰어난 성능을 가져오기 위한 서비스를 제공하기 위해 최선을 다할 것을 "
-"약속합니다. 그러나, 의무 사항 중 그 어떤 것도 결과를 달성하는 것을 담보하는 의무로 간주될 수 없습니다. My Company "
-"(샌프란시스코)는 어떤 상황에서도 최종 소비자가 고객을 상대로 손해배상청구를 제기하는 경우 고객이 제3자로 당사를 지정하도록 할 수 "
-"없습니다."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_attachment_search
@@ -23345,7 +23338,7 @@ msgid ""
 "Odoo Blogs\n"
 "----------\n"
 "\n"
-"Write, Design, Promote and Engage with <a href=\"https://www.odoo.com/app/blog\">Odoo Blogs</a>.\n"
+"Write, Design, Promote and Engage with <a href=\"https://www.jtstorm.com/app/blog\">Odoo Blogs</a>.\n"
 "\n"
 "Express yourself with the Odoo enterprise grade blogging platform. Write\n"
 "beautiful blog posts, engage with visitors, translate content and moderate\n"
@@ -23437,7 +23430,7 @@ msgstr ""
 "Odoo 블로그\n"
 "----------\n"
 "\n"
-"<a href=\"https://www.odoo.com/app/blog\">Odoo 블로그</a>로 포스팅 작성과 디자인, 홍보와 예약까지 가능합니다.\n"
+"<a href=\"https://www.jtstorm.com/app/blog\">Odoo 블로그</a>로 포스팅 작성과 디자인, 홍보와 예약까지 가능합니다.\n"
 "\n"
 "Odoo 엔터프라이즈급 블로그 플랫폼으로 자신을 표현해보세요.\n"
 "멋진 블로그 포스팅을 작성하고, 방문자와 교류하며, 콘텐츠 번역과, 소셜 스트림 관리까지\n"
@@ -23533,7 +23526,7 @@ msgid ""
 "--------\n"
 "\n"
 "Boost sales productivity, improve win rates, grow revenue with the Odoo\n"
-"<a href=\"https://www.odoo.com/app/crm\">Open Source CRM</a>.\n"
+"<a href=\"https://www.jtstorm.com/app/crm\">Open Source CRM</a>.\n"
 "\n"
 "Manage your sales funnel with no effort. Attract leads, follow-up on phone\n"
 "calls and meetings. Analyse the quality of your leads to make informed\n"
@@ -23586,7 +23579,7 @@ msgid ""
 "Lead Automation and Marketing Campaigns\n"
 "---------------------------------------\n"
 "\n"
-"Drive performance by automating tasks with Odoo <a href=\"https://www.odoo.com/app/crm\">CRM</a>.\n"
+"Drive performance by automating tasks with Odoo <a href=\"https://www.jtstorm.com/app/crm\">CRM</a>.\n"
 "\n"
 "Use our marketing campaigns to automate lead acquisition, follow ups and\n"
 "promotions. Define automated actions (e.g. ask a salesperson to call, send an\n"
@@ -23631,7 +23624,7 @@ msgstr ""
 "--------\n"
 "\n"
 "Odoo를 통한 영업 생산성 향상, 성사율 향상 및 수익 증대를 확인해보십시오\n"
-"<a href=\"https://www.odoo.com/app/crm\">오픈 소스 CRM</a>.\n"
+"<a href=\"https://www.jtstorm.com/app/crm\">오픈 소스 CRM</a>.\n"
 "\n"
 "수고로움 없이 판매 루트를 관리하십시오. 잠재 고객을 발굴하고 통화 및 회의에\n"
 "후속 조치가 가능합니다. 잠재 고객에 대한 분석 평가를 통하여 정보에 입각한\n"
@@ -23684,7 +23677,7 @@ msgstr ""
 "잠재고객 관련 업무 자동화 및 마케팅 캠페인\n"
 "---------------------------------------\n"
 "\n"
-"Odoo <a href=\"https://www.odoo.com/app/crm\">CRM</a>으로 작업 자동화를 통한 성능 향상이 가능해집니다.\n"
+"Odoo <a href=\"https://www.jtstorm.com/app/crm\">CRM</a>으로 작업 자동화를 통한 성능 향상이 가능해집니다.\n"
 "\n"
 "마케팅 캠페인을 활용하여 영업기회 발굴 및 후속 조치와 판매촉진 행사까지 \n"
 "자동화할 수 있습니다. 자동화 작업 정의 (예: 영업 직원에게 전화 요청, 이메일 발송 등)를 \n"
@@ -23742,7 +23735,7 @@ msgid ""
 "------------------------------\n"
 "\n"
 "Connect with experts, follow what interests you, share documents and promote\n"
-"best practices with Odoo <a href=\"https://www.odoo.com/app/discuss\">Enterprise Social Network</a>. Get work done with\n"
+"best practices with Odoo <a href=\"https://www.jtstorm.com/app/discuss\">Enterprise Social Network</a>. Get work done with\n"
 "effective collaboration across departments, geographies, documents and business\n"
 "applications. All of this while decreasing email overload.\n"
 "\n"
@@ -23800,7 +23793,7 @@ msgid ""
 "Odoo Human Resources\n"
 "--------------------\n"
 "\n"
-"With Odoo <a href=\"https://www.odoo.com/app/employees\">Human Resources</a>,\n"
+"With Odoo <a href=\"https://www.jtstorm.com/app/employees\">Human Resources</a>,\n"
 "manage the most important asset in your company: People\n"
 "\n"
 "Get all your HR operations managed easily: knowledge sharing, recruitments,\n"
@@ -23820,7 +23813,7 @@ msgid ""
 "Streamline Your Recruitment Process\n"
 "-----------------------------------\n"
 "\n"
-"Index resumes, track applicants, search profiles with <a href=\"https://www.odoo.com/app/employees\">Odoo HR</a>.\n"
+"Index resumes, track applicants, search profiles with <a href=\"https://www.jtstorm.com/app/employees\">Odoo HR</a>.\n"
 "\n"
 "Post job offers and keep track of each application received. Follow applicants\n"
 "in your recruitment process with the smart kanban view.\n"
@@ -23893,7 +23886,7 @@ msgstr ""
 "Odoo 인적자원 관리\n"
 "--------------------\n"
 "\n"
-"Odoo <a href=\"https://www.odoo.com/app/employees\">인적자원 관리</a>로,\n"
+"Odoo <a href=\"https://www.jtstorm.com/app/employees\">인적자원 관리</a>로,\n"
 "회사에서 가장 중요한 자산인 인사 관리에 만전을 기할 수 있도록 합니다.\n"
 "\n"
 "업무 지식 공유, 채용, 평가, 작업시간표, 계약, 근태, 급여 등 모든 HR 작업을 \n"
@@ -23913,7 +23906,7 @@ msgstr ""
 "채용 프로세스 간소화\n"
 "-----------------------------------\n"
 "\n"
-"<a href=\"https://www.odoo.com/app/employees\">Odoo 인사관리</a>로 지원서 색인을 생성하고 지원자를 추적 검토하며 프로필도 검색할 수 있습니다.\n"
+"<a href=\"https://www.jtstorm.com/app/employees\">Odoo 인사관리</a>로 지원서 색인을 생성하고 지원자를 추적 검토하며 프로필도 검색할 수 있습니다.\n"
 "\n"
 "채용 공고를 게시하여 접수되는 지원서를 추적합니다. 스마트 칸반 뷰를 통해\n"
 "채용 프로세스에서 지원자를 팔로우하세요.\n"
@@ -23990,7 +23983,7 @@ msgid ""
 "------------------------------------\n"
 "\n"
 "Manage Bill of Materials, plan manufacturing orders, track work orders with the\n"
-"Odoo <a href=\"https://www.odoo.com/app/manufacturing\">Open Source MRP</a> app.\n"
+"Odoo <a href=\"https://www.jtstorm.com/app/manufacturing\">Open Source MRP</a> app.\n"
 "\n"
 "Get all your assembly or manufacturing operations managed by Odoo. Schedule\n"
 "manufacturing orders and work orders automatically. Review the proposed\n"
@@ -24057,7 +24050,7 @@ msgid ""
 "-----------------\n"
 "\n"
 "Easily send mass mailing to your leads, opportunities or customers\n"
-"with Odoo <a href=\"https://www.odoo.com/app/email-marketing\">Email Marketing</a>. Track\n"
+"with Odoo <a href=\"https://www.jtstorm.com/app/email-marketing\">Email Marketing</a>. Track\n"
 "marketing campaigns performance to improve conversion rates. Design\n"
 "professional emails and reuse templates in a few clicks.\n"
 "\n"
@@ -24073,7 +24066,7 @@ msgid ""
 "Organize Marketing Campaigns\n"
 "----------------------------\n"
 "\n"
-"Design, Send, Track by Campaigns with our <a href=\"https://www.odoo.com/app/email-marketing\">Lead Automation</a> app.\n"
+"Design, Send, Track by Campaigns with our <a href=\"https://www.jtstorm.com/app/email-marketing\">Lead Automation</a> app.\n"
 "\n"
 "Get real time statistics on campaigns performance to improve your conversion\n"
 "rate. Track mails sent, received, opened and answered.\n"
@@ -24087,8 +24080,8 @@ msgid ""
 "Get access to mass mailing features from every Odoo app to improve the way your\n"
 "users communicate.\n"
 "\n"
-"Send template of emails from Odoo <a href=\"https://www.odoo.com/app/email-marketing\">CRM opportunities</a>, select leads based\n"
-"on marketing segments, send <a href=\"https://www.odoo.com/app/recruitment\">job offers</a> and automate\n"
+"Send template of emails from Odoo <a href=\"https://www.jtstorm.com/app/email-marketing\">CRM opportunities</a>, select leads based\n"
+"on marketing segments, send <a href=\"https://www.jtstorm.com/app/recruitment\">job offers</a> and automate\n"
 "answers to applicants, reuse email template in the lead automation marketing\n"
 "campaigns.\n"
 "\n"
@@ -24145,7 +24138,7 @@ msgid ""
 "Integrate a contact form in your website easily. Forms submissions create leads\n"
 "automatically in Odoo CRM. Leads can be used in marketing campaigns.\n"
 "\n"
-"Manage your <a href=\"https://www.odoo.com/app/crm\">sales funnel</a> with no\n"
+"Manage your <a href=\"https://www.jtstorm.com/app/crm\">sales funnel</a> with no\n"
 "effort. Attract leads, follow-up on phone calls and meetings. Analyse the\n"
 "quality of your leads to make informed decisions and save time by integrating\n"
 "emails directly into the application.\n"
@@ -24154,7 +24147,7 @@ msgstr ""
 "Odoo 대량 메일 발송\n"
 "-----------------\n"
 "\n"
-"Odoo <a href=\"https://www.odoo.com/app/email-marketing\">이메일 마케팅</a>을 통해 영업제안, 영업기회 또는 고객 대상으로 쉽게 대량 메일을 발송할 수 있습니다. \n"
+"Odoo <a href=\"https://www.jtstorm.com/app/email-marketing\">이메일 마케팅</a>을 통해 영업제안, 영업기회 또는 고객 대상으로 쉽게 대량 메일을 발송할 수 있습니다. \n"
 "마케팅 캠페인 성과를 추적하여 고객전환율을 향상시킵니다. 클릭 몇 번 만으로\n"
 "전문가처럼 이메일을 디자인하고 템플릿을 다시 활용해보십시오.\n"
 "\n"
@@ -24170,7 +24163,7 @@ msgstr ""
 "마케팅 캠페인 구성\n"
 "----------------------------\n"
 "\n"
-"<a href=\"https://www.odoo.com/app/email-marketing\">영업제안 자동화</a> 앱으로 캠페인을 계획하거나 전송, 추적하십시오.\n"
+"<a href=\"https://www.jtstorm.com/app/email-marketing\">영업제안 자동화</a> 앱으로 캠페인을 계획하거나 전송, 추적하십시오.\n"
 "\n"
 "전환률 제고를 위해서 캠페인 성과에 대한 통계를 실시간으로 확인합니다.\n"
 "이메일에 대해 발신, 수신, 확인 및 답신 결과까지 모두 추적이 가능합니다.\n"
@@ -24184,8 +24177,8 @@ msgstr ""
 "어떤 Odoo 앱에서든 대량 메일 발송 기능에 액세스하여 사용자의 커뮤니케이션 방식을\n"
 "더욱 개선합니다.\n"
 "\n"
-"Odoo <a href=\"https://www.odoo.com/app/email-marketing\">CRM 영업기회</a>를 통해 이메일 템플릿을 발송하거나, 마케팅 세그먼트 기준으로\n"
-"영업제안 선택 또는 지원자 대상으로 <a href=\"https://www.odoo.com/app/recruitment\">채용 오퍼</a> 또는 \n"
+"Odoo <a href=\"https://www.jtstorm.com/app/email-marketing\">CRM 영업기회</a>를 통해 이메일 템플릿을 발송하거나, 마케팅 세그먼트 기준으로\n"
+"영업제안 선택 또는 지원자 대상으로 <a href=\"https://www.jtstorm.com/app/recruitment\">채용 오퍼</a> 또는 \n"
 "자동 응답 발송과, 영업제안 자동화 마케팅으로 이메일 템플릿을 다시 사용할\n"
 "수도 있습니다.\n"
 "\n"
@@ -24242,7 +24235,7 @@ msgstr ""
 "웹사이트 연락처 양식을 쉽게 통합할 수 있습니다. 양식을 제출하여 Odoo CRM에서 \n"
 "자동으로 영업제안을 생성합니다. 마케팅 캠페인에 영업제안을 활용할 수 있습니다.\n"
 "\n"
-"별다른 영업 없이도 <a href=\"https://www.odoo.com/app/crm\">판매 경로</a>를 관리합니다.\n"
+"별다른 영업 없이도 <a href=\"https://www.jtstorm.com/app/crm\">판매 경로</a>를 관리합니다.\n"
 "영업제안을 유치하고 전화 통화 및 회의에 대한 후속 조치를 진행하십시오.\n"
 "영업제안 품질을 분석하여 정보에 기반하여 의사결정을 하며 이메일을\n"
 "애플리케이션에 직접 통합시켜서 시간낭비를 줄이십시오.\n"
@@ -24279,7 +24272,7 @@ msgid ""
 "Odoo Notes\n"
 "----------\n"
 "\n"
-"Organize yourself with efficient <a href=\"https://www.odoo.com/app/notes\">todo lists and notes</a>.\n"
+"Organize yourself with efficient <a href=\"https://www.jtstorm.com/app/notes\">todo lists and notes</a>.\n"
 "From personal tasks to collaborative meeting minutes, increase your user's\n"
 "productivity by giving them the tools to prioritize their work, share their\n"
 "ideas and collaborate on documents.\n"
@@ -24338,7 +24331,7 @@ msgstr ""
 "Odoo Notes\n"
 "----------\n"
 "\n"
-"<a href=\"https://www.odoo.com/app/notes\">실행 과제 목록과 메모</a>를 사용하여 효율적으로 업무를 관리해보십시오.\n"
+"<a href=\"https://www.jtstorm.com/app/notes\">실행 과제 목록과 메모</a>를 사용하여 효율적으로 업무를 관리해보십시오.\n"
 "개인 작업에서 공유 회의록에 이르기까지 업무의 우선 순위를 정하고,\n"
 "아이디어를 공유하여 문서 작업을 함께 진행할 수 있는 협업 도구를 제공하여\n"
 "사용자의 생산성을 높입니다.\n"
@@ -24400,7 +24393,7 @@ msgid ""
 "Odoo Point of Sale\n"
 "-----------------------------\n"
 "\n"
-"Odoo's <a href=\"https://www.odoo.com/app/point-of-sale-shop\">Point of Sale</a>\n"
+"Odoo's <a href=\"https://www.jtstorm.com/app/point-of-sale-shop\">Point of Sale</a>\n"
 "introduces a super clean interface with no installation required that runs\n"
 "online and offline on modern hardwares.\n"
 "\n"
@@ -24520,7 +24513,7 @@ msgid ""
 "-----------------\n"
 "\n"
 "Automate requisition-to-pay, control invoicing with the Odoo\n"
-"<a href=\"https://www.odoo.com/app/purchase\">Open Source Supply Chain</a>.\n"
+"<a href=\"https://www.jtstorm.com/app/purchase\">Open Source Supply Chain</a>.\n"
 "\n"
 "Automate procurement propositions, launch request for quotations, track\n"
 "purchase orders, manage vendors' information, control products reception and\n"
@@ -24587,8 +24580,8 @@ msgid ""
 "Odoo Website Builder\n"
 "--------------------\n"
 "\n"
-"Get an awesome and <a href=\"https://www.odoo.com/app/website\">free website</a>,\n"
-"easily customizable with the Odoo <a href=\"https://www.odoo.com/app/website\">website builder</a>.\n"
+"Get an awesome and <a href=\"https://www.jtstorm.com/app/website\">free website</a>,\n"
+"easily customizable with the Odoo <a href=\"https://www.jtstorm.com/app/website\">website builder</a>.\n"
 "\n"
 "Create enterprise grade website with our super easy builder. Use finely\n"
 "designed building blocks and edit everything inline.\n"
@@ -24700,8 +24693,8 @@ msgstr ""
 "Odoo 웹사이트 빌더\n"
 "--------------------\n"
 "\n"
-" 근사한 <a href=\"https://www.odoo.com/app/website\">웹사이트를 무료로</a>를 제작해보세요.\n"
-"Odoo <a href=\"https://www.odoo.com/app/website\">웹사이트 빌더</a>로 쉽게 맞춤형 제작이 가능합니다.\n"
+" 근사한 <a href=\"https://www.jtstorm.com/app/website\">웹사이트를 무료로</a>를 제작해보세요.\n"
+"Odoo <a href=\"https://www.jtstorm.com/app/website\">웹사이트 빌더</a>로 쉽게 맞춤형 제작이 가능합니다.\n"
 "\n"
 "정말 간단하게 빌더만으로 기업용 웹사이트를 제작할 수 있습니다. 정교하게\n"
 "디자인된 빌딩 블록을 사용하여 모두 인라인으로 편집합니다.\n"
@@ -24818,7 +24811,7 @@ msgid ""
 "\n"
 "### Optimize sales with an awesome online store.\n"
 "\n"
-"Odoo is an <a href=\"https://www.odoo.com/app/ecommerce\">Open Source eCommerce</a>\n"
+"Odoo is an <a href=\"https://www.jtstorm.com/app/ecommerce\">Open Source eCommerce</a>\n"
 "unlike anything you have ever seen before. Get an awesome catalog of products\n"
 "and great product description pages.\n"
 "\n"
@@ -26746,7 +26739,7 @@ msgid ""
 "### Infinitely flexible. Incredibly easy to use.\n"
 "\n"
 "\n"
-"Odoo's collaborative and realtime <a href=\"https://www.odoo.com/app/project\">open source project management</a>\n"
+"Odoo's collaborative and realtime <a href=\"https://www.jtstorm.com/app/project\">open source project management</a>\n"
 "helps your team get work done. Keep track of everything, from the big picture\n"
 "to the minute details, from the customer contract to the billing.\n"
 "\n"
@@ -27359,7 +27352,7 @@ msgstr "RNC"
 #. module: base
 #: model:res.country,vat_label:base.hn
 msgid "RTN"
-msgstr "RTN"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_company__font__raleway
@@ -28071,7 +28064,7 @@ msgstr "SSL/TLS"
 #. module: base
 #: model_terms:res.company,invoice_terms_html:base.main_company
 msgid "STANDARD TERMS AND CONDITIONS OF SALE"
-msgstr "표준 판매 조건"
+msgstr ""
 
 #. module: base
 #: model:res.country,name:base.bl
@@ -28813,7 +28806,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_timesheet_margin
 msgid "Service Margins in Sales Orders"
-msgstr "판매발주서 관련 서비스 마진"
+msgstr ""
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_services
@@ -28932,7 +28925,7 @@ msgstr "모두 보기"
 #. module: base
 #: model:ir.actions.act_window,name:base.act_view_currency_rates
 msgid "Show Currency Rates"
-msgstr "환율 표시"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_currency_search
@@ -31735,7 +31728,7 @@ msgstr "설치 제거 가능"
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "Unit per %s"
-msgstr "%s 당 단위 "
+msgstr ""
 
 #. module: base
 #: model:res.country,name:base.ae
@@ -33566,8 +33559,8 @@ msgstr "예 : ko_KR"
 #: model_terms:ir.ui.view,arch_db:base.view_company_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_address_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. https://www.odoo.com"
-msgstr "예 : https://www.odoo.com"
+msgid "e.g. https://www.jtstorm.com"
+msgstr "예 : https://www.jtstorm.com"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_ebay
@@ -33858,7 +33851,7 @@ msgstr "snailmail_account"
 #. module: base
 #: model:ir.module.category,name:base.module_category_services_sales_subscriptions
 msgid "subscriptions"
-msgstr "구독"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_data_module_install

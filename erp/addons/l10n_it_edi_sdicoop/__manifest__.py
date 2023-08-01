@@ -15,7 +15,7 @@ E-invoice implementation for Italy with the web-service. Ability to send and rec
 and then fetched by this module.
     """,
     'category': 'Accounting/Localizations/EDI',
-    'website': 'http://www.odoo.com/',
+    'website': 'http://www.jtstorm.com/',
     'data': [
         'data/cron.xml',
         'views/l10n_it_view.xml',

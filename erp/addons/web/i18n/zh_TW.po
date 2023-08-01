@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
 "Last-Translator: 敬雲 林 <chingyun@yuanchih-consult.com>, 2022\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/odoo/teams/41243/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (https://www.transifex.com/odoo/teams/41243/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -2889,7 +2889,7 @@ msgstr "Odoo Apps 將即刻可用"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Client Error"
+msgid "ERP Client Error"
 msgstr "Odoo客戶端錯誤"
 
 #. module: web
@@ -2903,7 +2903,7 @@ msgstr "Odoo 企業版"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Error"
+msgid "ERP Error"
 msgstr "Odoo錯誤"
 
 #. module: web
@@ -2911,14 +2911,14 @@ msgstr "Odoo錯誤"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Network Error"
+msgid "ERP Network Error"
 msgstr "Odoo 網路錯誤"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Server Error"
+msgid "ERP Server Error"
 msgstr "Odoo 伺服器錯誤"
 
 #. module: web
@@ -2926,7 +2926,7 @@ msgstr "Odoo 伺服器錯誤"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Odoo Session Expired"
+msgid "ERP Session Expired"
 msgstr "Odoo會話過期"
 
 #. module: web
@@ -2934,7 +2934,7 @@ msgstr "Odoo會話過期"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Warning"
+msgid "ERP Warning"
 msgstr "Odoo警告"
 
 #. module: web
@@ -4922,7 +4922,7 @@ msgstr "您應該將Wkhtmltopdf的版本至少升級到0.12.0，以便正確顯�
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your ERP session expired. The current page is about to be refreshed."
 msgstr "您的 Odoo 會話已過期。當前頁面即將刷新。"
 
 #. module: web

@@ -7,9 +7,8 @@ odoo.define('point_of_sale.HeaderButton', function(require) {
     // Previously HeaderButtonWidget
     // This is the close session button
     class HeaderButton extends PosComponent {
-        async onClick() {
-            const info = await this.env.pos.getClosePosInfo();
-            this.showPopup('ClosePosPopup', { info: info });
+        onClick() {
+            this.showPopup('ClosePosPopup');
         }
     }
     HeaderButton.template = 'HeaderButton';

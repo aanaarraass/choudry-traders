@@ -8,7 +8,7 @@
     'sequence': 35,
     'summary': 'Purchase orders, tenders and agreements',
     'description': "",
-    'website': 'https://www.odoo.com/app/purchase',
+    'website': 'https://www.jtstorm.com/app/purchase',
     'depends': ['account'],
     'data': [
         'security/purchase_security.xml',

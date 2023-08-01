@@ -1434,9 +1434,8 @@ export class OdooEditor extends EventTarget {
         let end = range.endContainer;
         // Let the DOM split and delete the range.
         const doJoin =
-            (closestBlock(start) !== closestBlock(range.commonAncestorContainer) ||
-            closestBlock(end) !== closestBlock(range.commonAncestorContainer))
-            && (closestBlock(start).tagName !== 'TD' && closestBlock(end).tagName !== 'TD');
+            closestBlock(start) !== closestBlock(range.commonAncestorContainer) ||
+            closestBlock(end) !== closestBlock(range.commonAncestorContainer) ;
         let next = nextLeaf(end, this.editable);
         const splitEndTd = closestElement(end, 'td') && end.nextSibling;
         const contents = range.extractContents();
@@ -1455,7 +1454,7 @@ export class OdooEditor extends EventTarget {
             const parentFragmentTr = closestElement(td, 'tr');
             // Skip the first and the last partially selected TD.
             if (i && !(splitEndTd && i === tds.length - 1)) {
-                if (parentFragmentTr && parentFragmentTr !== currentFragmentTr && currentTr && [...parentFragmentTr.querySelectorAll('td')].every(td => tds.includes(td))) {
+                if (parentFragmentTr !== currentFragmentTr && currentTr && [...parentFragmentTr.querySelectorAll('td')].every(td => tds.includes(td))) {
                     currentTr.after(parentFragmentTr);
                     currentTr = parentFragmentTr;
                     parentFragmentTr.textContent = '';
@@ -2013,8 +2012,10 @@ export class OdooEditor extends EventTarget {
                 this.historyRevertUntil(this._beforeCommandbarStepIndex);
                 this.historyStep(true);
                 this._historyStepsStates.set(peek(this._historySteps).id, 'consumed');
-                this.editable.focus();
-                getDeepRange(this.editable, { select: true });
+                setTimeout(() => {
+                    this.editable.focus();
+                    getDeepRange(this.editable, { select: true });
+                });
             },
             postValidate: () => {
                 this.historyStep(true);
@@ -2906,16 +2907,16 @@ export class OdooEditor extends EventTarget {
      */
     _handleCommandHint() {
         const selectors = {
-            BLOCKQUOTE: this.options._t('Empty quote'),
-            H1: this.options._t('Heading 1'),
-            H2: this.options._t('Heading 2'),
-            H3: this.options._t('Heading 3'),
-            H4: this.options._t('Heading 4'),
-            H5: this.options._t('Heading 5'),
-            H6: this.options._t('Heading 6'),
-            'UL LI': this.options._t('List'),
-            'OL LI': this.options._t('List'),
-            'CL LI': this.options._t('To-do'),
+            BLOCKQUOTE: 'Empty quote',
+            H1: 'Heading 1',
+            H2: 'Heading 2',
+            H3: 'Heading 3',
+            H4: 'Heading 4',
+            H5: 'Heading 5',
+            H6: 'Heading 6',
+            'UL LI': 'List',
+            'OL LI': 'List',
+            'CL LI': 'To-do',
         };
 
         for (const hint of this.editable.querySelectorAll('.oe-hint')) {
@@ -3226,15 +3227,10 @@ export class OdooEditor extends EventTarget {
             link.remove();
             setSelection(...start, ...start, false);
         }
-        if ((files.length || clipboardHtml) && targetSupportsHtmlContent) {
-            // Differentiate or choose between images and html
-            const clipboardElem = document.createElement('template');
-            clipboardElem.innerHTML = this._prepareClipboardData(clipboardHtml);
-            if (files.length && !clipboardElem.content.querySelector('table')) {
-                this.addImagesFiles(files).then(html => this._applyCommand('insertHTML', this._prepareClipboardData(html)));
-            } else {
-                this._applyCommand('insertHTML', clipboardElem.content);
-            }
+        if (files.length && targetSupportsHtmlContent) {
+            this.addImagesFiles(files).then(html => this._applyCommand('insertHTML', this._prepareClipboardData(html)));
+        } else if (clipboardHtml && targetSupportsHtmlContent) {
+            this._applyCommand('insertHTML', this._prepareClipboardData(clipboardHtml));
         } else {
             const text = ev.clipboardData.getData('text/plain');
             const splitAroundUrl = text.split(URL_REGEX);
@@ -3308,7 +3304,7 @@ export class OdooEditor extends EventTarget {
                                     videoElement.setAttribute('height', '315');
                                     videoElement.setAttribute(
                                         'src',
-                                        `https://www.youtube.com/embed/${encodeURIComponent(youtubeUrl[1])}`,
+                                        `https://www.youtube.com/embed/${youtubeUrl[1]}`,
                                     );
                                     videoElement.setAttribute('title', 'YouTube video player');
                                     videoElement.setAttribute('frameborder', '0');

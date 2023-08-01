@@ -126,10 +126,10 @@ function factory(dependencies) {
             if (this.isPdf) {
                 const pdf_lib = `/web/static/lib/pdfjs/web/viewer.html?file=`
                 if (!this.accessToken && this.originThread && this.originThread.model === 'mail.channel') {
-                    return `${pdf_lib}/mail/channel/${this.originThread.id}/attachment/${this.id}#pagemode=none`;
+                    return `${pdf_lib}/mail/channel/${this.originThread.id}/attachment/${this.id}`;
                 }
                 const accessToken = this.accessToken ? `?access_token%3D${this.accessToken}` : '';
-                return `${pdf_lib}/web/content/${this.id}${accessToken}#pagemode=none`;
+                return `${pdf_lib}/web/content/${this.id}${accessToken}`;
             }
             if (this.isUrlYoutube) {
                 const urlArr = this.url.split('/');

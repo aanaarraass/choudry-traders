@@ -5,7 +5,6 @@ from odoo.tools import float_repr
 from odoo.tests.common import Form
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools.float_utils import float_round
-from odoo.tools.misc import formatLang
 
 from zeep import Client
 
@@ -320,10 +319,10 @@ class AccountEdiCommon(models.AbstractModel):
         return invoice
 
     def _import_retrieve_and_fill_partner(self, invoice, name, phone, mail, vat):
-        """ Retrieve the partner, if no matching partner is found, create it (only if he has a vat and a name)
+        """ Retrieve the partner, if no matching partner is found, create it
         """
         invoice.partner_id = self.env['account.edi.format']._retrieve_partner(name=name, phone=phone, mail=mail, vat=vat)
-        if not invoice.partner_id and name and vat:
+        if not invoice.partner_id and name:
             invoice.partner_id = self.env['res.partner'].create({'name': name, 'email': mail, 'phone': phone})
             country_code = invoice.partner_id.commercial_partner_id.country_code
             if vat and self.env['res.partner']._run_vat_test(vat, country_code, invoice.partner_id.is_company):
@@ -395,7 +394,6 @@ class AccountEdiCommon(models.AbstractModel):
 
     def _import_fill_invoice_down_payment(self, invoice_form, prepaid_node, qty_factor):
         """
-        DEPRECATED: removed in master
         Creates a down payment line on the invoice at import if prepaid_node (TotalPrepaidAmount in CII,
         PrepaidAmount in UBL) exists.
         qty_factor -1 if the xml is labelled as an invoice but has negative amounts -> conversion into a credit note
@@ -417,19 +415,6 @@ class AccountEdiCommon(models.AbstractModel):
                 invoice_line_form.price_unit = float(prepaid_node.text)
                 invoice_line_form.quantity = qty_factor * -1
                 invoice_line_form.tax_ids.clear()
-
-    def _import_log_prepaid_amount(self, invoice_form, prepaid_node, qty_factor):
-        """
-        Log a message in the chatter at import if prepaid_node (TotalPrepaidAmount in CII, PrepaidAmount in UBL) exists.
-        """
-        prepaid_amount = float(prepaid_node.text) if prepaid_node is not None else 0.0
-        if not invoice_form.currency_id.is_zero(prepaid_amount):
-            amount = prepaid_amount * qty_factor
-            formatted_amount = formatLang(self.env, amount, currency_obj=invoice_form.currency_id)
-            return [
-                _("A payment of %s was detected.", formatted_amount)
-            ]
-        return []
 
     def _import_fill_invoice_line_values(self, tree, xpath_dict, invoice_line_form, qty_factor):
         """

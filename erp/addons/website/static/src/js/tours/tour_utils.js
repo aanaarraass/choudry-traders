@@ -113,8 +113,7 @@ function changePaddingSize(direction) {
 
 /**
  * Click on the top right edit button
- *
- * @deprecated use `clickOnEditAndWaitEditMode` instead to avoid race condition
+ * @param {*} position Where the purple arrow will show up
  */
 function clickOnEdit(position = "bottom") {
     return {
@@ -123,23 +122,6 @@ function clickOnEdit(position = "bottom") {
         extra_trigger: ".homepage",
         position: position,
     };
-}
-
-/**
- * Click on the top right edit button and wait for the edit mode
- *
- * @param {string} position Where the purple arrow will show up
- */
-function clickOnEditAndWaitEditMode(position = "bottom") {
-    return [{
-        content: _t("<b>Click Edit</b> to start designing your homepage."),
-        trigger: "a[data-action=edit]",
-        position: position,
-    }, {
-        content: "Check that we are in edit mode",
-        trigger: '#oe_snippets.o_loaded',
-        run: () => null, // it's a check
-    }];
 }
 
 /**
@@ -292,7 +274,6 @@ return {
     changeOption,
     changePaddingSize,
     clickOnEdit,
-    clickOnEditAndWaitEditMode,
     clickOnSave,
     clickOnSnippet,
     clickOnText,

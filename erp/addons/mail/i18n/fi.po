@@ -28,13 +28,13 @@
 # Mikko Virtanen <mikko.virtanen2013@gmail.com>, 2021
 # Kim Asplund <kim.asplund@gmail.com>, 2021
 # Antti Oksman <antti.oksman@web-veistamo.fi>, 2021
+# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2021
 # Miika Nissi <miika.nissi@tawasta.fi>, 2022
 # Martin Trigaux, 2022
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2022
 # Joakim Weckman, 2022
 # Konsta Aavaranta, 2023
 # Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
-# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2023
 # 
 msgid ""
 msgstr ""
@@ -42,8 +42,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:23+0000\n"
-"Last-Translator: Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2023\n"
-"Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
+"Last-Translator: Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023\n"
+"Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -835,7 +835,7 @@ msgstr "Lisää liite"
 #: code:addons/mail/static/src/components/attachment_box/attachment_box.xml:0
 #, python-format
 msgid "Add attachments"
-msgstr "Lisää liitteitä"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
@@ -1465,7 +1465,7 @@ msgstr "Muuta asettelu"
 #: code:addons/mail/static/src/components/rtc_option_list/rtc_option_list.xml:0
 #, python-format
 msgid "Change layout"
-msgstr "Muuta asettelua"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_activity__activity_decoration
@@ -2228,7 +2228,6 @@ msgstr "RTC-yhteys katkennut palvelimelta"
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/thread_view_topbar/thread_view_topbar.xml:0
-#: code:addons/mail/static/src/models/discuss/discuss.js:0
 #: model:ir.actions.client,name:mail.action_discuss
 #: model:ir.ui.menu,name:mail.mail_menu_technical
 #: model:ir.ui.menu,name:mail.menu_root_discuss
@@ -2762,7 +2761,7 @@ msgstr ""
 #: code:addons/mail/static/src/components/rtc_option_list/rtc_option_list.xml:0
 #, python-format
 msgid "Exit full screen"
-msgstr "Poistu koko näytöstä"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_search
@@ -3139,7 +3138,7 @@ msgstr "Hallitse sähköpostissa"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "Handle in Odoo"
+msgid "Handle In ERP"
 msgstr "Hallitse Odoossa"
 
 #. module: mail
@@ -4967,10 +4966,10 @@ msgstr "Odoo"
 #: code:addons/mail/static/src/components/notification_alert/notification_alert.xml:0
 #, python-format
 msgid ""
-"Odoo Push notifications have been blocked. Go to your browser settings to "
+"ERP Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
-"Odoo Push -ilmoitukset on estetty. Siirry selaimesi asetuksiin salliaksesi "
+"ERP Push -ilmoitukset on estetty. Siirry selaimesi asetuksiin salliaksesi "
 "ne."
 
 #. module: mail
@@ -5329,9 +5328,6 @@ msgid ""
 " named. For example on a project, the parent_id of project subtypes refers "
 "to task-related subtypes."
 msgstr ""
-"Vanhempaa alatyyppiä, jota käytetään automaattisessa tilauksessa, ei ole "
-"oikea. Esimerkiksi projektissa projektin alatyyppien parent_id viittaa "
-"tehtäviin liittyviin alatyyppeihin."
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel_rtc_session__partner_id
@@ -5349,13 +5345,12 @@ msgstr "Kumppaniprofiili"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_resend_message__partner_readonly
 msgid "Partner Readonly"
-msgstr "Kumppani Vain luku"
+msgstr ""
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_resend_partner
 msgid "Partner with additional information for mail resend"
 msgstr ""
-"Yhteistyökumppani, jolla on lisätietoja postin uudelleenlähetystä varten"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_mail__notified_partner_ids
@@ -5371,16 +5366,13 @@ msgid ""
 "Pay attention: The followers of this document who were notified by email "
 "will still be able to read the content of this message and reply to it."
 msgstr ""
-"Ole tarkkana: Tämän asiakirjan seuraajat, jotka saivat ilmoituksen "
-"sähköpostitse, voivat edelleen lukea tämän viestin sisällön ja vastata "
-"siihen."
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/notification_request/notification_request.js:0
 #, python-format
 msgid "Permission denied"
-msgstr "Lupa evätty"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_partner__phone
@@ -5391,7 +5383,7 @@ msgstr "Puhelin"
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__category__phonecall
 msgid "Phonecall"
-msgstr "Puhelinsoitto"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__copyvalue
@@ -5428,12 +5420,12 @@ msgstr "Suunniteltu viive"
 #: code:addons/mail/static/src/components/composer_suggested_recipient/composer_suggested_recipient.js:0
 #, python-format
 msgid "Please complete customer's information"
-msgstr "Täytä asiakkaan tiedot"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_bounce_catchall
 msgid "Please contact us instead using"
-msgstr "Ota sen sijaan yhteyttä meihin käyttämällä"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5441,7 +5433,7 @@ msgstr "Ota sen sijaan yhteyttä meihin käyttämällä"
 #: code:addons/mail/static/src/models/composer_view/composer_view.js:0
 #, python-format
 msgid "Please wait while the file is uploading."
-msgstr "Odota, tiedosto ladataan."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5457,11 +5449,8 @@ msgstr "Odota..."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle in Odoo: notifications appear in your Odoo Inbox"
+"- Handle In ERP: notifications appear in your Inbox"
 msgstr ""
-"Käytäntö siitä, miten Chatter-ilmoituksia käsitellään:\n"
-"- Ilmoitukset lähetetään sähköpostiosoitteeseesi\n"
-"- Käsittele Odoossa: ilmoitukset näkyvät Odoon Saapuneet-kansiossasi"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_contact
@@ -5481,23 +5470,23 @@ msgstr ""
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Portal Access Granted"
-msgstr "Portaalin käyttöoikeus myönnetty"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Portal Access Revoked"
-msgstr "Portaalin käyttöoikeus peruutettu"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_compose_message__composition_mode__mass_post
 msgid "Post on Multiple Documents"
-msgstr "Lähetä useita asiakirjoja"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_compose_message__composition_mode__comment
 msgid "Post on a document"
-msgstr "Lähetä asiakirjaan"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -5513,8 +5502,6 @@ msgid ""
 "Posting a message should be done on a business document. Use message_notify "
 "to send a notification to an user."
 msgstr ""
-"Viestin lähettäminen on tehtävä työasiakirjalla. Lähetä ilmoitus käyttäjälle"
-" message_notify-ohjelmalla."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -5523,8 +5510,6 @@ msgid ""
 "Posting a message with channels as listeners is not supported since Odoo "
 "14.3+. Please update code accordingly."
 msgstr ""
-"Viestin lähettämistä kanavilla kuuntelijoina ei tueta Odoo 14.3+:n jälkeen. "
-"Päivitä koodi vastaavasti."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_borders
@@ -5983,12 +5968,12 @@ msgstr "Raportin tiedostonnimi"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity__request_partner_id
 msgid "Requesting Partner"
-msgstr "Pyynnön esittänyt kumppani"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_users__res_users_settings_ids
 msgid "Res Users Settings"
-msgstr "Res Users -asetukset"
+msgstr ""
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.mail_resend_message_action
@@ -6036,7 +6021,7 @@ msgstr "Vastuuhenkilö"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_config_settings__restrict_template_rendering
 msgid "Restrict Template Rendering"
-msgstr "Rajoita mallin renderöintiä"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
@@ -6047,7 +6032,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
 msgid "Restrict mail templates edition and QWEB placeholders usage."
 msgstr ""
-"Rajoita sähköpostimallien muokkauksen ja QWEB-paikanvaraajien käyttöä."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
@@ -6185,7 +6169,7 @@ msgstr "Hakuryhmät"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_rtc_session_view_search
 msgid "Search RTC session"
-msgstr "Etsi RTC-istunto"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7473,7 +7457,7 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_config_settings__use_twilio_rtc_servers
 msgid "Use Twilio ICE servers"
-msgstr "Käytä Twilio ICE -palvelimia"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__use_active_domain
@@ -7488,12 +7472,12 @@ msgstr "Käytä mallia"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_users_settings__use_push_to_talk
 msgid "Use the push to talk feature"
-msgstr "Puhu tangentia painamalla"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_value__currency_id
 msgid "Used to display the currency when tracking monetary values"
-msgstr "Käytetään valuutan näyttämiseen, kun seurataan raha-arvoja"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_message_subtype__sequence
@@ -7516,7 +7500,7 @@ msgstr "Käyttäjän läsnäolo"
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_users_settings_volumes__user_setting_id
 msgid "User Setting"
-msgstr "Käyttäjän asetus"
+msgstr ""
 
 #. module: mail
 #: model:ir.actions.act_window,name:mail.mail_guest_action
@@ -7526,12 +7510,12 @@ msgstr "Käyttäjän asetus"
 #: model_terms:ir.ui.view,arch_db:mail.res_users_settings_view_form
 #: model_terms:ir.ui.view,arch_db:mail.res_users_settings_view_tree
 msgid "User Settings"
-msgstr "Käyttäjäasetukset"
+msgstr ""
 
 #. module: mail
 #: model:ir.model,name:mail.model_res_users_settings_volumes
 msgid "User Settings Volumes"
-msgstr "Käyttäjän asetukset: äänenvoimakkuudet"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_message__message_type__user_notification
@@ -7550,7 +7534,7 @@ msgstr "Käyttäjäkentän nimi"
 #: code:addons/mail/static/src/widgets/common.xml:0
 #, python-format
 msgid "User is a bot"
-msgstr "Käyttäjä on robotti"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7597,7 +7581,7 @@ msgstr "Käyttäjät"
 #: code:addons/mail/models/mail_channel.py:0
 #, python-format
 msgid "Users in this channel: %(members)s %(dots)s and you."
-msgstr "Tämän kanavan käyttäjät: %(members)s %(dots)s ja sinä."
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__restrict_template_rendering
@@ -7605,8 +7589,6 @@ msgid ""
 "Users will still be able to render templates.\n"
 "However only Mail Template Editors will be able to create new dynamic templates or modify existing ones."
 msgstr ""
-"Käyttäjät voivat edelleen renderöidä malleja.\n"
-"Kuitenkin vain sähköpostimallien muokkaajat voivat luoda uusia dynaamisia malleja tai muokata olemassa olevia malleja."
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
@@ -7615,9 +7597,6 @@ msgid ""
 "and Enterprise versions. Online users already benefit from a ready-to-use "
 "email server (@mycompany.odoo.com)."
 msgstr ""
-"Sähköpostien lähettäminen/vastaanottaminen Community- ja Enterprise-"
-"versioissa edellyttää oman sähköpostipalvelimen käyttöä. Online-käyttäjät "
-"hyötyvät jo valmiista sähköpostipalvelimesta (@mycompany.odoo.com)."
 
 #. module: mail
 #. openerp-web
@@ -7655,14 +7634,14 @@ msgstr "Näkymän tyyppi"
 #: code:addons/mail/static/src/components/attachment_image/attachment_image.xml:0
 #, python-format
 msgid "View image"
-msgstr "Näytä kuva"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/discuss_sidebar_category/discuss_sidebar_category.xml:0
 #, python-format
 msgid "View or join channels"
-msgstr "Kanavien katselu tai niihin liittyminen"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7675,7 +7654,7 @@ msgstr "Lukija"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_users_settings_view_form
 msgid "Voice"
-msgstr "Ääni"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_users_settings_volumes__volume
@@ -7685,12 +7664,12 @@ msgstr "Tilavuus"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_users_settings_view_form
 msgid "Volume per partner"
-msgstr "Volyymi kumppania kohti"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_res_users_settings__volume_settings_ids
 msgid "Volumes of other partners"
-msgstr "Muiden kumppaneiden volyymit"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7709,7 +7688,7 @@ msgstr "Viikot"
 #: code:addons/mail/static/src/components/welcome_view/welcome_view.xml:0
 #, python-format
 msgid "What's your name?"
-msgstr "Mikä sinun nimesi on?"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_compose_message__sub_model_object_field
@@ -7845,21 +7824,19 @@ msgstr "Olet tämän kanavan ylläpitäjä. Oletko varma, että haluat poistua?"
 msgid ""
 "You can mark any message as 'starred', and it shows up in this mailbox."
 msgstr ""
-"Voit merkitä minkä tahansa viestin tähdellä, jolloin se näkyy tässä "
-"postilaatikossa."
 
 #. module: mail
 #: code:addons/mail/models/mail_channel_partner.py:0
 #, python-format
 msgid "You can not write on %(field_name)s."
-msgstr "Et voi kirjoittaa kohtaan %(field_name)s."
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/user/user.js:0
 #, python-format
 msgid "You can only chat with existing users."
-msgstr "Voit keskustella vain olemassa olevien käyttäjien kanssa."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7867,21 +7844,20 @@ msgstr "Voit keskustella vain olemassa olevien käyttäjien kanssa."
 #, python-format
 msgid "You can only chat with partners that have a dedicated user."
 msgstr ""
-"Voit keskustella vain sellaisten kumppanien kanssa, joilla on oma käyttäjä."
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/messaging/messaging.js:0
 #, python-format
 msgid "You can only open the profile of existing channels."
-msgstr "Voit avata vain olemassa olevien kanavien profiileja."
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/user/user.js:0
 #, python-format
 msgid "You can only open the profile of existing users."
-msgstr "Voit avata vain olemassa olevien käyttäjien profiilin."
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/res_users.py:0
@@ -7890,8 +7866,6 @@ msgid ""
 "You cannot create a new user from here.\n"
 " To create new user please go to configuration panel."
 msgstr ""
-"Et voi luoda uutta käyttäjää täältä.\n"
-" Voit luoda uuden käyttäjän menemällä asetuksiin."
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:0
@@ -7900,8 +7874,6 @@ msgid ""
 "You cannot delete those groups, as the Whole Company group is required by "
 "other modules."
 msgstr ""
-"Näitä ryhmiä ei voi poistaa, koska muut moduulit tarvitsevat Koko yritys "
-"-ryhmää."
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:0
@@ -7910,8 +7882,6 @@ msgid ""
 "You cannot use anything else than unaccented latin characters in the alias "
 "address (%s)."
 msgstr ""
-"Alias-osoitteessa (%s) ei voi käyttää muita kuin korostamattomia "
-"latinalaisia merkkejä."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread_blacklist.py:0
@@ -7920,8 +7890,6 @@ msgid ""
 "You do not have the access right to unblacklist emails. Please contact your "
 "administrator."
 msgstr ""
-"Sinulla ei ole oikeutta poistaa sähköpostien mustaa listaa. Ota yhteyttä "
-"järjestelmänvalvojaan."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -7955,14 +7923,14 @@ msgstr ""
 #: code:addons/mail/static/src/models/messaging_notification_handler/messaging_notification_handler.js:0
 #, python-format
 msgid "You unpinned your conversation with %s."
-msgstr "Poistit viestisi kiinnityksen %s."
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/messaging_notification_handler/messaging_notification_handler.js:0
 #, python-format
 msgid "You unsubscribed from %s."
-msgstr "Poistuit tilauksesta %s."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -7996,21 +7964,21 @@ msgstr "Sinun"
 #: code:addons/mail/static/src/components/media_preview/media_preview.xml:0
 #, python-format
 msgid "Your browser does not support videoconference"
-msgstr "Selaimesi ei tue videoneuvottelua"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/rtc/rtc.js:0
 #, python-format
 msgid "Your browser does not support voice activation"
-msgstr "Selaimesi ei tue ääniaktivointia"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/models/thread/thread.js:0
 #, python-format
 msgid "Your browser does not support webRTC."
-msgstr "Selaimesi ei tue webRTC:tä."
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -8027,9 +7995,6 @@ msgid ""
 " users it is important to change it immediately for security reasons. I will"
 " keep nagging you about it!"
 msgstr ""
-"Salasanasi on oletussalasana (admin)! Jos tämä järjestelmä on alttiina "
-"epäluotettaville käyttäjille, on tärkeää vaihtaa se välittömästi "
-"turvallisuussyistä. Jatkan siitä nalkuttamista!"
 
 #. module: mail
 #. openerp-web
@@ -8044,7 +8009,7 @@ msgstr "Lähennä"
 #: code:addons/mail/static/src/components/attachment_viewer/attachment_viewer.xml:0
 #, python-format
 msgid "Zoom In (+)"
-msgstr "Lähennä"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -8059,18 +8024,18 @@ msgstr "Loitonna"
 #: code:addons/mail/static/src/components/attachment_viewer/attachment_viewer.xml:0
 #, python-format
 msgid "Zoom Out (-)"
-msgstr "Loitonna"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "addresses linked to registered partners"
-msgstr "rekisteröityihin kumppaneihin liittyvät osoitteet"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__delay_from__current_date
 msgid "after completion date"
-msgstr "valmistumispäivän jälkeen"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__delay_from__previous_activity
@@ -8081,7 +8046,7 @@ msgstr "edellisen toimenpiteen määräajan jälkeen"
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "alias %(name)s: %(error)s"
-msgstr "alias %(name)s: %(error)s"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_activity_assigned
@@ -8097,7 +8062,7 @@ msgstr "johtokunnan tapaamiset"
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "bounce"
-msgstr "pomppaus"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_notification_email
@@ -8118,21 +8083,19 @@ msgid ""
 "cannot be processed. This address\n"
 "    is used to collect replies and should not be used to directly contact"
 msgstr ""
-"ei voida käsitellä. Tätä osoitetta\n"
-"    käytetään vastausten keräämiseen, eikä sitä voi käyttää suoraan yhteydenottoihin"
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "catchall"
-msgstr "catchall"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/message/message.xml:0
 #, python-format
 msgid "channel"
-msgstr "kanava"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__delay_unit__days
@@ -8145,7 +8108,7 @@ msgstr "päivää"
 #: code:addons/mail/static/src/components/rtc_call_participant_card/rtc_call_participant_card.xml:0
 #, python-format
 msgid "deaf"
-msgstr "kuurot"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -8163,17 +8126,17 @@ msgstr "valmis"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
 msgid "e.g. \"mycompany.com\""
-msgstr "esim. \"mycompany.com\""
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
 msgid "e.g. 65ea4f9e948b693N5156F350256bd152"
-msgstr "e.g. 65ea4f9e948b693N5156F350256bd152"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
 msgid "e.g. ACd5543a0b450ar4c7t95f1b6e8a39t543"
-msgstr "e.g. ACd5543a0b450ar4c7t95f1b6e8a39t543"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
@@ -8189,7 +8152,7 @@ msgstr "esim. keskustele tarjouksesta"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_type_view_form
 msgid "e.g. Schedule a meeting"
-msgstr "esim. Aikatauluta kokous"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
@@ -8199,26 +8162,26 @@ msgstr ""
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_channel_view_form
 msgid "e.g. support"
-msgstr "esim. tuki"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.res_users_settings_view_form
 msgid "e.g. true.true..f"
-msgstr "esim. true.true..f"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/composer/composer.xml:0
 #, python-format
 msgid "escape to"
-msgstr "paeta"
+msgstr ""
 
 #. module: mail
 #. openerp-web
 #: code:addons/mail/static/src/components/activity/activity.js:0
 #, python-format
 msgid "for %s"
-msgstr "kohteelle %s"
+msgstr ""
 
 #. module: mail
 #: model:mail.channel,name:mail.channel_all_employees
@@ -8228,12 +8191,12 @@ msgstr "yleinen"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_origin_link
 msgid "has been created from:"
-msgstr "on luotu lähteestä:"
+msgstr ""
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.message_origin_link
 msgid "has been modified from:"
-msgstr "on muutettu:"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/models.py:0
@@ -8260,7 +8223,7 @@ msgstr "live"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_blacklist_remove_view_form
 msgid "mail_blacklist_removal"
-msgstr "mail_blacklist_removal"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -8269,8 +8232,6 @@ msgid ""
 "message_post does not support model and res_id parameters anymore. Please "
 "call message_post on record."
 msgstr ""
-"message_post ei enää tue model- ja res_id-parametreja. Kutsu message_post "
-"tietueella."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -8279,15 +8240,12 @@ msgid ""
 "message_post does not support subtype parameter anymore. Please give a valid"
 " subtype_id or subtype_xmlid value instead."
 msgstr ""
-"message_post ei enää tue subtype-parametria. Anna sen sijaan voimassa oleva "
-"subtype_id- tai subtype_xmlid-arvo."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "message_post partner_ids and must be integer list, not commands."
 msgstr ""
-"message_post ja partner_ids on oltava kokonaislukuluettelo, ei komentoja."
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -8336,7 +8294,7 @@ msgstr "päiväyksellä"
 #: code:addons/mail/static/src/components/composer/composer.xml:0
 #, python-format
 msgid "on:"
-msgstr "jossa:"
+msgstr ""
 
 #. module: mail
 #. openerp-web
@@ -8351,7 +8309,7 @@ msgstr "tai"
 #: code:addons/mail/static/src/components/channel_member_list/channel_member_list.xml:0
 #, python-format
 msgid "other members."
-msgstr "muut jäsenet."
+msgstr ""
 
 #. module: mail
 #: model:mail.channel,name:mail.channel_3
@@ -8384,8 +8342,6 @@ msgid ""
 "reply to missing document (%(model)s,%(thread)s), fall back on document "
 "creation"
 msgstr ""
-"vastaus puuttuvaan asiakirjaan (%(model)s,%(thread)s), palaa asiakirjan "
-"luomiseen"
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -8394,8 +8350,6 @@ msgid ""
 "reply to model %s that does not accept document update, fall back on "
 "document creation"
 msgstr ""
-"vastaus malliin %s, ei hyväksy asiakirjan päivitystä, palaa asiakirjan "
-"luomiseen"
 
 #. module: mail
 #: code:addons/mail/models/mail_channel.py:0
@@ -8420,7 +8374,7 @@ msgstr "rajoitettu tunnetuille kirjoittajille"
 #: code:addons/mail/static/src/components/channel_invitation_form/channel_invitation_form.xml:0
 #, python-format
 msgid "results out of"
-msgstr "tulokset"
+msgstr ""
 
 #. module: mail
 #: model:mail.channel,name:mail.channel_1
@@ -8432,18 +8386,18 @@ msgstr "myynnit"
 #: code:addons/mail/static/src/components/composer/composer.xml:0
 #, python-format
 msgid "save"
-msgstr "tallenna"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "some specific addresses"
-msgstr "joitakin erityisiä osoitteita"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_ice_server__server_type__stun
 msgid "stun:"
-msgstr "tainnuttaa:"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0
@@ -8474,12 +8428,12 @@ msgstr ""
 #: code:addons/mail/static/src/components/rtc_configuration_menu/rtc_configuration_menu.xml:0
 #, python-format
 msgid "toggle push-to-talk"
-msgstr "vaihda tangettitilaa"
+msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_ice_server__server_type__turn
 msgid "turn:"
-msgstr "käännä:"
+msgstr ""
 
 #. module: mail
 #: code:addons/mail/models/mail_thread.py:0

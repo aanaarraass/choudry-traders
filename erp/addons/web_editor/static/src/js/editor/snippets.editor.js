@@ -153,15 +153,7 @@ var SnippetEditor = Widget.extend({
     init: function (parent, target, templateOptions, $editable, options) {
         this._super.apply(this, arguments);
         this.options = options;
-        // This is possible to have a snippet editor not inside an editable area
-        // (data-no-check="true") and it is possible to not have editable areas
-        // at all (restricted editor), in that case we just suppose this is the
-        // body so related code can still be executed without crash (as we still
-        // need to instantiate instances of editors even if nothing is really
-        // editable (data-no-check="true" / navigation options / ...)).
-        // TODO this should probably be reviewed in master: do we need a
-        // reference to the editable area? There should be workarounds.
-        this.$editable = $editable && $editable.length ? $editable : $(document.body);
+        this.$editable = $editable;
         this.ownerDocument = this.$editable[0].ownerDocument;
         this.$body = $(this.ownerDocument.body);
         this.$target = $(target);
@@ -2157,7 +2149,7 @@ var SnippetsMenu = Widget.extend({
         // environment where editing is not normally possible. This should be
         // reviewed if we are to handle more hierarchy of editable nodes being
         // editable despite their non editable environment.
-        exclude += `${exclude && ', '}.o_snippet_not_selectable, .o_not_editable :not([contenteditable="true"])`;
+        exclude += `${exclude && ', '}.o_snippet_not_selectable, .o_not_editable, .o_not_editable :not([contenteditable="true"])`;
 
         let filterFunc = function () {
             return !$(this).is(exclude);
@@ -2243,8 +2235,6 @@ var SnippetsMenu = Widget.extend({
         var selectors = [];
         var $styles = $html.find('[data-selector]');
         const snippetAdditionDropIn = $styles.filter('#so_snippet_addition').data('drop-in');
-        const oldFooterSnippetsSelector = 'footer .oe_structure > *';
-        const newFooterSnippetsSelector = 'footer #footer.oe_structure > *:not(.s_popup)';
         $styles.each(function () {
             var $style = $(this);
             var selector = $style.data('selector');
@@ -2259,23 +2249,6 @@ var SnippetsMenu = Widget.extend({
                 let dropInPatch = $style[0].dataset.dropIn.split(', ');
                 dropInPatch = dropInPatch.map(selector => selector === '.content' ? '.content:not(.row)' : selector);
                 $style[0].dataset.dropIn = dropInPatch.join(', ');
-            }
-
-            // Fix in stable: we have removed the option for setting the
-            // background color for snippets in the footer. However, this should
-            // not affect the snippets in the "All pages" popup which is also
-            // located in the footer.
-            if (($style[0].dataset.js === 'ColoredLevelBackground') && exclude) {
-                exclude = exclude
-                    .split(', ')
-                    .map(selector => selector === oldFooterSnippetsSelector ? newFooterSnippetsSelector : selector)
-                    .join(', ');
-            }
-            if (($style[0].dataset.js === 'BackgroundToggler')) {
-                selector = selector
-                    .split(', ')
-                    .map(selector => selector === oldFooterSnippetsSelector ? newFooterSnippetsSelector : selector)
-                    .join(', ');
             }
 
             var target = $style.data('target');
@@ -2639,7 +2612,6 @@ var SnippetsMenu = Widget.extend({
         const smoothScrollOptions = this._getScrollOptions({
             jQueryDraggableOptions: {
                 handle: '.oe_snippet_thumbnail:not(.o_we_already_dragging)',
-                cancel: '.oe_snippet.o_disabled',
                 helper: function () {
                     const dragSnip = this.cloneNode(true);
                     dragSnip.querySelectorAll('.o_delete_btn, .o_rename_btn').forEach(
@@ -3164,7 +3136,7 @@ var SnippetsMenu = Widget.extend({
             $content: $('<div/>', {text: _.str.sprintf(_t("Do you want to install the %s App?"), name)}).append(
                 $('<a/>', {
                     target: '_blank',
-                    href: '/web#id=' + encodeURIComponent(moduleID) + '&view_type=form&model=ir.module.module&action=base.open_module_tree',
+                    href: '/web#id=' + moduleID + '&view_type=form&model=ir.module.module&action=base.open_module_tree',
                     text: _t("More info about this app."),
                     class: 'ml4',
                 })

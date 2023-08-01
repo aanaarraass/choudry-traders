@@ -20,7 +20,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
 "Last-Translator: Sarah Park, 2023\n"
-"Language-Team: Korean (https://app.transifex.com/odoo/teams/41243/ko/)\n"
+"Language-Team: Korean (https://www.transifex.com/odoo/teams/41243/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -86,14 +86,14 @@ msgstr "%d년 전"
 #: code:addons/web/static/src/legacy/js/views/file_upload_mixin.js:0
 #, python-format
 msgid "%s Files"
-msgstr "%s 파일"
+msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/legacy/js/fields/basic_fields.js:0
 #, python-format
 msgid "%s days ago"
-msgstr "%s 일 전"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -107,7 +107,7 @@ msgstr "'%s' 은(는) 올바른 날짜가 아닙니다"
 #: code:addons/web/static/src/core/l10n/dates.js:0
 #, python-format
 msgid "'%s' is not a correct date or datetime"
-msgstr "'%s' 은(는) 올바른 날짜나 시간이 아닙니다"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -156,7 +156,7 @@ msgstr "'%s'은(는) 날짜, 일시 또는 시간으로 변환할 수 없습니�
 #: code:addons/web/static/src/legacy/js/views/basic/basic_model.js:0
 #, python-format
 msgid "'%s' is unsynchronized with '%s'."
-msgstr "'%s' 이(가) '%s' 와(과) 동기화되지 않았습니다."
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -185,7 +185,7 @@ msgstr "(횟수)"
 #: code:addons/web/static/src/search/search_bar/search_bar.js:0
 #, python-format
 msgid "(no result)"
-msgstr "(결과 없음)"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -204,12 +204,12 @@ msgstr "(꼬리표 없음)"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "07/08/2020"
-msgstr "07/08/2020"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "08/07/2020"
-msgstr "08/07/2020"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -221,7 +221,7 @@ msgstr "1 레코드"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span class=\"text-nowrap\">$ 2,887.50</span>"
-msgstr "<span class=\"text-nowrap\">$ 2,887.50</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -229,8 +229,6 @@ msgid ""
 "<span class=\"text-nowrap\">$ <span class=\"oe_currency_value\">\n"
 "                                                       22,137.50</span></span>"
 msgstr ""
-"<span class=\"text-nowrap\">$ <span class=\"oe_currency_value\">\n"
-"                                                       22,137.50</span></span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -263,7 +261,7 @@ msgstr "<span class=\"text-nowrap\">2,350.00</span>"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span class=\"text-nowrap\">Tax 15%</span>"
-msgstr "<span class=\"text-nowrap\">세율 15%</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -271,18 +269,16 @@ msgid ""
 "<span class=\"w-100 o_force_ltr\" itemprop=\"streetAddress\">77 Santa Barbara\n"
 "                                                   Rd<br/>Pleasant Hill CA 94523<br/>United States</span>"
 msgstr ""
-"<span class=\"w-100 o_force_ltr\" itemprop=\"streetAddress\">77 Santa Barbara\n"
-"                                                   Rd<br/>Pleasant Hill CA 94523<br/>United States</span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span id=\"line_tax_ids\">15.00%</span>"
-msgstr "<span id=\"line_tax_ids\">15.00%</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span itemprop=\"name\">Deco Addict</span>"
-msgstr "<span itemprop=\"name\">Deco Addict</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -292,7 +288,7 @@ msgstr "<span>$ <span class=\"oe_currency_value\">19,250.00</span></span>"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span>5.000</span>"
-msgstr "<span>5.000</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -310,13 +306,11 @@ msgid ""
 "<span>Invoice</span>\n"
 "                           <span>INV/2020/07/0003</span>"
 msgstr ""
-"<span>청구서</span>\n"
-"                           <span>INV/2020/07/0003</span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span>Payment terms: 30 Days</span>"
-msgstr "<span>지불 조건: 30 일</span>"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -339,8 +333,6 @@ msgid ""
 "<span>[FURN_8220] Four Person Desk<br/>\n"
 "                                       Four person modern office workstation</span>"
 msgstr ""
-"<span>[FURN_8220] 4인용 책상<br/>\n"
-"                                       4인용 모던 오피스 워크스테이션</span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -348,8 +340,6 @@ msgid ""
 "<span>[FURN_8999] Three-Seat Sofa<br/>\n"
 "                                       Three Seater Sofa with Lounger in Steel Grey Colour</span>"
 msgstr ""
-"<span>[FURN_8999] 3인용 소파<br/>\n"
-"                                       안락 의자가 포함된 스틸 그레이 색상 3인용 소파</span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -376,7 +366,7 @@ msgstr "<strong>합계</strong>"
 #: code:addons/web/static/src/search/favorite_menu/custom_favorite_item.js:0
 #, python-format
 msgid "A filter with same name already exists."
-msgstr "동일한 이름의 필터가 이미 존재합니다."
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -384,7 +374,7 @@ msgstr "동일한 이름의 필터가 이미 존재합니다."
 #: code:addons/web/static/src/search/favorite_menu/custom_favorite_item.js:0
 #, python-format
 msgid "A name for your favorite filter is required."
-msgstr "즐겨찾기할 필터의 이름이 필요합니다."
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -567,7 +557,7 @@ msgstr "노드 추가"
 #: code:addons/web/static/src/core/debug/profiling/profiling_item.xml:0
 #, python-format
 msgid "Add qweb directive context"
-msgstr "qweb 지시 내용 추가"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -1138,7 +1128,7 @@ msgstr "회사"
 #: model:ir.model.fields,field_description:web.field_base_document_layout__company_details
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
 msgid "Company Details"
-msgstr "회사 상세 정보"
+msgstr ""
 
 #. module: web
 #: model:ir.model,name:web.model_base_document_layout
@@ -1690,7 +1680,7 @@ msgstr "다운로드"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
 msgid "Download PDF Preview"
-msgstr "PDF 미리보기 다운로드"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -2255,7 +2245,7 @@ msgstr ""
 #: code:addons/web/static/src/legacy/js/widgets/attach_document.js:0
 #, python-format
 msgid "Invalid fields:"
-msgstr "필드 입력 오류:"
+msgstr ""
 
 #. module: web
 #: code:addons/web/controllers/main.py:0
@@ -2287,14 +2277,14 @@ msgstr "칸반"
 #: code:addons/web/static/src/legacy/js/views/kanban/kanban_column_quick_create.js:0
 #, python-format
 msgid "Kanban Examples"
-msgstr "칸반 예시"
+msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/legacy/js/views/kanban/kanban_record.js:0
 #, python-format
 msgid "Kanban: no action for type: "
-msgstr "칸반: 다음 유형에 대한 조치 없음:"
+msgstr ""
 
 #. module: web
 #: code:addons/web/controllers/main.py:0
@@ -2680,7 +2670,7 @@ msgstr "신규"
 #: code:addons/web/static/src/legacy/js/fields/relational_fields.js:0
 #, python-format
 msgid "New %s"
-msgstr "신규 %s"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -2901,7 +2891,7 @@ msgstr "Odoo 앱이 곧 사용가능해 질 것입니다"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Client Error"
+msgid "ERP Client Error"
 msgstr "Odoo 클라이언트 오류"
 
 #. module: web
@@ -2915,7 +2905,7 @@ msgstr "Odoo 유료버전"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Error"
+msgid "ERP Error"
 msgstr "Odoo 오류"
 
 #. module: web
@@ -2923,22 +2913,22 @@ msgstr "Odoo 오류"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Network Error"
-msgstr "Odoo 네트워크 에러"
+msgid "ERP Network Error"
+msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Server Error"
-msgstr "Odoo 서버 에러"
+msgid "ERP Server Error"
+msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Odoo Session Expired"
+msgid "ERP Session Expired"
 msgstr "Odoo 세션 만료"
 
 #. module: web
@@ -2946,7 +2936,7 @@ msgstr "Odoo 세션 만료"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Warning"
+msgid "ERP Warning"
 msgstr "Odoo 경고"
 
 #. module: web
@@ -3253,7 +3243,7 @@ msgstr "피벗 설정"
 #: code:addons/web/static/src/core/ui/block_ui.js:0
 #, python-format
 msgid "Please be patient."
-msgstr "조금만 기다려주시기 바랍니다."
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -3521,14 +3511,14 @@ msgstr "Qweb 이미지 필드"
 #: code:addons/web/static/src/legacy/xml/colorpicker.xml:0
 #, python-format
 msgid "RGB"
-msgstr "RGB"
+msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/legacy/xml/colorpicker.xml:0
 #, python-format
 msgid "RGBA"
-msgstr "RGBA"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -4098,7 +4088,7 @@ msgstr "쌓였음"
 #: code:addons/web/static/src/legacy/js/fields/relational_fields.js:0
 #, python-format
 msgid "Start typing..."
-msgstr "입력하기..."
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -4424,8 +4414,6 @@ msgid ""
 "Try to add some records, or make sure that there is no\n"
 "                    active filter in the search bar."
 msgstr ""
-"레코드를 추가하시거나, 검색창에 활성화된 필터가 있는지\n"
-"              다시 확인하시기 바랍니다."
 
 #. module: web
 #. openerp-web
@@ -4931,7 +4919,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your ERP session expired. The current page is about to be refreshed."
 msgstr ""
 
 #. module: web
@@ -5083,7 +5071,7 @@ msgstr "포함하지 않습니다"
 #: code:addons/web/static/src/core/network/download.js:0
 #, python-format
 msgid "downloading..."
-msgstr "다운로드 중입니다"
+msgstr ""
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
@@ -5340,7 +5328,7 @@ msgstr "메시지 : %s"
 #: code:addons/web/static/src/core/debug/profiling/profiling_qweb.xml:0
 #, python-format
 msgid "ms"
-msgstr "ms"
+msgstr ""
 
 #. module: web
 #. openerp-web

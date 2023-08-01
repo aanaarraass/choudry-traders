@@ -2289,7 +2289,7 @@ msgstr ""
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:209
 #: code:addons/web/static/src/js/services/crash_manager.js:153
 #, python-format
-msgid "Odoo Client Error"
+msgid "ERP Client Error"
 msgstr "Odoo klijentska greška"
 
 #. module: web
@@ -2303,14 +2303,14 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:115
 #, python-format
-msgid "Odoo Error"
+msgid "ERP Error"
 msgstr "Odoo greška"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:212
 #, python-format
-msgid "Odoo Session Expired"
+msgid "ERP Session Expired"
 msgstr "Odoo sesija je istekla"
 
 #. module: web
@@ -2318,7 +2318,7 @@ msgstr "Odoo sesija je istekla"
 #: code:addons/web/static/src/js/services/crash_manager.js:105
 #: code:addons/web/static/src/js/services/crash_manager.js:194
 #, python-format
-msgid "Odoo Warning"
+msgid "ERP Warning"
 msgstr "Odoo upozorenje"
 
 #. module: web
@@ -3735,7 +3735,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:212
 #, python-format
-msgid "Your Odoo session expired. Please refresh the current web page."
+msgid "Your ERP session expired. Please refresh the current web page."
 msgstr ""
 "Vaša Odoo sesija je istekla. Molimo vas da osvježite trenutnu web stranicu "
 "(F5 ili Ctrl+R)."

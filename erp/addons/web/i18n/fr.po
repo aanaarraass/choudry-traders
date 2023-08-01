@@ -11,9 +11,7 @@
 # Martin Trigaux, 2022
 # Xavier Belmere <Info@cartmeleon.com>, 2022
 # Cécile Collart <cco@odoo.com>, 2022
-# Moka Tourisme <hello@mokatourisme.fr>, 2023
 # Jolien De Paepe, 2023
-# Grégory Schreiner <gregory@mokatourisme.fr>, 2023
 # 
 msgid ""
 msgstr ""
@@ -21,8 +19,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
-"Last-Translator: Grégory Schreiner <gregory@mokatourisme.fr>, 2023\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Last-Translator: Jolien De Paepe, 2023\n"
+"Language-Team: French (https://www.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -1618,7 +1616,7 @@ msgstr "Ignorer l'enregistrement"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__display_name
 msgid "Display Name"
-msgstr "Nom d'affichage"
+msgstr "Nom affiché"
 
 #. module: web
 #. openerp-web
@@ -1991,7 +1989,7 @@ msgstr "Filtres"
 #: code:addons/web/static/src/views/pivot/pivot_view.xml:0
 #, python-format
 msgid "Flip axis"
-msgstr "Inverser les axes"
+msgstr "Intervertir les axes"
 
 #. module: web
 #. openerp-web
@@ -2011,7 +2009,7 @@ msgstr "Suivi par"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__font
 msgid "Font"
-msgstr "Police"
+msgstr "Fonte"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
@@ -2547,14 +2545,14 @@ msgstr "Many2one"
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 #, python-format
 msgid "Match"
-msgstr "Faire correspondre"
+msgstr "Associer"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 #, python-format
 msgid "Match records with"
-msgstr "Faire correspondre les enregistrements avec"
+msgstr "Associer les enregistrements avec"
 
 #. module: web
 #. openerp-web
@@ -2931,7 +2929,7 @@ msgstr "Les applications Odoo seront bientôt disponibles"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Client Error"
+msgid "ERP Client Error"
 msgstr "Erreur client Odoo"
 
 #. module: web
@@ -2945,7 +2943,7 @@ msgstr "Entreprise Odoo"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Error"
+msgid "ERP Error"
 msgstr "Erreur Odoo"
 
 #. module: web
@@ -2953,14 +2951,14 @@ msgstr "Erreur Odoo"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Network Error"
+msgid "ERP Network Error"
 msgstr "Erreur réseau Odoo"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Server Error"
+msgid "ERP Server Error"
 msgstr "Erreur du serveur Odoo"
 
 #. module: web
@@ -2968,7 +2966,7 @@ msgstr "Erreur du serveur Odoo"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Odoo Session Expired"
+msgid "ERP Session Expired"
 msgstr "Session Odoo Expirée"
 
 #. module: web
@@ -2976,7 +2974,7 @@ msgstr "Session Odoo Expirée"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "Odoo Warning"
+msgid "ERP Warning"
 msgstr "Avertissement Odoo"
 
 #. module: web
@@ -3568,14 +3566,14 @@ msgstr "Champ Qweb image"
 #: code:addons/web/static/src/legacy/xml/colorpicker.xml:0
 #, python-format
 msgid "RGB"
-msgstr "RVB"
+msgstr "RGB"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/legacy/xml/colorpicker.xml:0
 #, python-format
 msgid "RGBA"
-msgstr "RVBA"
+msgstr "RGBA"
 
 #. module: web
 #. openerp-web
@@ -5014,7 +5012,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your Odoo session expired. The current page is about to be refreshed."
+msgid "Your ERP session expired. The current page is about to be refreshed."
 msgstr "Votre session Odoo a expiré. La page va s'actualiser."
 
 #. module: web

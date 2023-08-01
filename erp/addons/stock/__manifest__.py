@@ -6,7 +6,7 @@
     'version': '1.1',
     'summary': 'Manage your stock and logistics activities',
     'description': "",
-    'website': 'https://www.odoo.com/app/inventory',
+    'website': 'https://www.jtstorm.com/app/inventory',
     'depends': ['product', 'barcodes', 'digest'],
     'category': 'Inventory/Inventory',
     'sequence': 25,
@@ -133,7 +133,6 @@
             'stock/static/tests/popover_widget_tests.js',
             'stock/static/tests/lazy_column_list_tests.js',
             'stock/static/tests/stock_traceability_report_backend_tests.js',
-            'stock/static/tests/stock_orderpoint_tests.js',
         ],
         'web.assets_qweb': [
             'stock/static/src/xml/inventory_report.xml',

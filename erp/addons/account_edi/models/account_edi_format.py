@@ -39,28 +39,14 @@ class AccountEdiFormat(models.Model):
         edi_formats = super().create(vals_list)
 
         # activate by default on journal
-        if not self.pool.loaded:
-            # The registry is not totally loaded. We cannot yet recompute the field on jourals as
-            # The helper methods aren't yet overwritten by all installed `l10n_` modules.
-            # Delay it in the register hook
-            self.pool._delay_compute_edi_format_ids = True
-        else:
-            journals = self.env['account.journal'].search([])
-            journals._compute_edi_format_ids()
+        journals = self.env['account.journal'].search([])
+        journals._compute_edi_format_ids()
 
         # activate cron
         if any(edi_format._needs_web_services() for edi_format in edi_formats):
             self.env.ref('account_edi.ir_cron_edi_network').active = True
 
         return edi_formats
-
-    def _register_hook(self):
-        if hasattr(self.pool, "_delay_compute_edi_format_ids"):
-            del self.pool._delay_compute_edi_format_ids
-            journals = self.env['account.journal'].search([])
-            journals._compute_edi_format_ids()
-
-        return super()._register_hook()
 
     ####################################################
     # Export method to override based on EDI Format
@@ -485,7 +471,7 @@ class AccountEdiFormat(models.Model):
                 except RedirectWarning as rw:
                     raise rw
                 except Exception as e:
-                    _logger.exception("Error importing attachment \"%s\" as invoice with format \"%s\"", file_data['filename'], edi_format.name, exc_info=True)
+                    _logger.exception("Error importing attachment \"%s\" as invoice with format \"%s\"", file_data['filename'], edi_format.name, str(e))
                 if res:
                     return res
         return self.env['account.move']
@@ -508,7 +494,7 @@ class AccountEdiFormat(models.Model):
                     else:  # file_data['type'] == 'binary'
                         res = edi_format._update_invoice_from_binary(file_data['filename'], file_data['content'], file_data['extension'], invoice)
                 except Exception as e:
-                    _logger.exception("Error importing attachment \"%s\" as invoice with format \"%s\"", file_data['filename'], edi_format.name, exc_info=True)
+                    _logger.exception("Error importing attachment \"%s\" as invoice with format \"%s\"", file_data['filename'], edi_format.name, str(e))
                 if res:
                     return res
         return self.env['account.move']

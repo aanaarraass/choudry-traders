@@ -277,7 +277,7 @@ class AccountEdiXmlCII(models.AbstractModel):
         # ==== invoice_date_due ====
 
         invoice_date_due_node = tree.find('.//{*}SpecifiedTradePaymentTerms/{*}DueDateDateTime/{*}DateTimeString')
-        if invoice_date_due_node is not None and invoice_date_due_node.text:
+        if invoice_date_due_node is not None and invoice_date_node.text:
             date_str = invoice_date_due_node.text
             date_obj = datetime.strptime(date_str, DEFAULT_FACTURX_DATE_FORMAT)
             invoice_form.invoice_date_due = date_obj.strftime(DEFAULT_SERVER_DATE_FORMAT)
@@ -286,11 +286,11 @@ class AccountEdiXmlCII(models.AbstractModel):
 
         logs += self._import_fill_invoice_allowance_charge(tree, invoice_form, journal, qty_factor)
 
-        # ==== Prepaid amount ====
+        # ==== Down Payment (prepaid amount) ====
 
         prepaid_node = tree.find('.//{*}ApplicableHeaderTradeSettlement/'
                                  '{*}SpecifiedTradeSettlementHeaderMonetarySummation/{*}TotalPrepaidAmount')
-        logs += self._import_log_prepaid_amount(invoice_form, prepaid_node, qty_factor)
+        self._import_fill_invoice_down_payment(invoice_form, prepaid_node, qty_factor)
 
         # ==== invoice_line_ids ====
 

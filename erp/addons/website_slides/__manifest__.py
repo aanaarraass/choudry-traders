@@ -4,7 +4,7 @@
     'version': '2.4',
     'sequence': 125,
     'summary': 'Manage and publish an eLearning platform',
-    'website': 'https://www.odoo.com/app/elearning',
+    'website': 'https://www.jtstorm.com/app/elearning',
     'category': 'Website/eLearning',
     'description': """
 Create Online Courses
