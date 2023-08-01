@@ -1,0 +1,230 @@
+<odoo>
+    <data>
+        <record id="lease_sale_view_form" model="ir.ui.view">
+            <field name="name">lese_sale_view_form</field>
+            <field name="model">lease.sale</field>
+            <field name="arch" type="xml">
+                <form string="lese_sale_form" create="false">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="reset" type="object" string="Reset to Draft" states="pending,done"/>
+                        <button name="approve_state" type="object" string="Appove" states="pending"/>
+                        <button name="create_instalment_plan" type="object" string="Instalment Plan" states="draft"/>
+                        <button name="sale_return" type="object" string="Sale Return" states="done"/>
+                        <button name="cancel_sale_return" type="object" string="Cancel Sale Return" states="return"/>
+                        <button name="re_schedule_instalment_plan" type="object" string="Reschedule Instalment Plan"
+                                states="return"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_lease_sale" type="object" class="oe_stat_button"
+                                    icon="fa-pencil-square-o" attrs="{'invisible': [('picking_count', '=', 0)]}">
+                                <field name="picking_count" widget="statinfo" string="Delivery"/>
+                            </button>
+                            <button name="view_invoices" type="object" class="oe_stat_button"
+                                    icon="fa-pencil-square-o" attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                                <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="partner_id"/>
+                            </group>
+                            <group>
+                                <field name="branch_id"/>
+                                <field name="account_no"/>
+                                <field name="lease_date"/>
+                                <field name="instalment_date"/>
+                                <field name="number_of_instalment"/>
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page string="Instalment Plan &amp; Payment detail">
+                                <h2>Payment Plan</h2>
+                                <field name="installment_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="bottom" create="false" delete="false">
+                                        <field name="name"/>
+                                        <field name="due_date"/>
+                                        <field name="amount"/>
+                                        <field name="invoice_id" invisible="0"/>
+                                        <field name="invoice_status"/>
+                                        <field name="invoice_payment_status"/>
+                                        <field name="amount_paid"/>
+                                        <field name="discount_total"/>
+                                        <button name="create_invoice" type="object"
+                                                string="Create Invoice"
+                                                attrs="{'invisible': [('invoice_id','!=',False)]}"/>
+
+                                    </tree>
+                                    <form>
+                                        <field name="name"/>
+                                        <field name="due_date"/>
+                                        <field name="amount"/>
+                                    </form>
+                                </field>
+
+                                <h2>Advance Payment</h2>
+                                <field name="advance_payment_ids" attrs="{'readonly': [('state', '!=', 'ddraft')]}">
+                                    <tree editable="false" create="false" delete="false">
+                                        <field name="name"/>
+                                        <field name="amount_total_signed"/>
+                                        <field name="state"/>
+                                        <field name="payment_state"/>
+                                    </tree>
+                                    <form create="false" delete="false">
+                                        <field name="name"/>
+                                        <field name="amount_total_signed"/>
+                                        <field name="state"/>
+                                        <field name="payment_state"/>
+                                    </form>
+
+                                </field>
+
+                            </page>
+                            <page string="Sales Product ">
+                                <h3>Sale Items</h3>
+                                <field name="lease_sale_item_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="bottom">
+                                        <button name="return_product" type="object"
+                                                attrs="{'invisible':[('parent.state','!=','return')]}"
+                                                string="Return Product"/>
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="price"/>
+                                        <field name="total"/>
+                                    </tree>
+                                    <form>
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="price"/>
+                                        <field name="total"/>
+                                    </form>
+                                </field>
+                                <group class="oe_subtotal_footer">
+                                    <field name="sale_total" colspan="2"/>
+                                </group>
+                                <div class="oe_clear"/>
+                                <h3>Sale Return</h3>
+                                <field name="lease_sale_return_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="false" create="false">
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="price"/>
+                                        <field name="total"/>
+                                    </tree>
+                                    <form>
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="price"/>
+                                        <field name="total"/>
+                                    </form>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="sale_return_total" colspan="2"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </page>
+                            <page string="Details">
+                                <group string="Cheque Detail">
+                                    <group>
+                                        <field name="account_holder_name"/>
+                                        <field name="phone"/>
+                                        <field name="bank_id"/>
+                                        <field name="cheque_1"/>
+                                        <field name="cheque_2"/>
+
+                                    </group>
+                                    <group>
+                                        <field name="father_name"/>
+                                        <field name="relation_id"/>
+
+                                    </group>
+                                </group>
+                                <group string="Staff Detail">
+                                    <group>
+                                        <field name="inquiry_officer"/>
+                                        <field name="branch_manger_id"/>
+                                        <field name="stock_incharge_id"/>
+                                        <field name="auditor_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="visit_date"/>
+                                        <field name="customer_catgory"/>
+                                    </group>
+
+                                </group>
+                                <group>
+                                    <field name="comments" placeholder="Comments If Any"/>
+                                </group>
+
+                            </page>
+                            <page string="Guarantor &amp; Reference">
+                                <group string="Reference">
+                                    <field name="ref_person"/>
+                                    <field name="ref_relation_id"/>
+                                </group>
+                                <field name="guarantor_ids">
+                                    <tree create="false" delete="false">
+                                        <field name="name"/>
+                                        <field name="registration_no"/>
+                                        <field name="state"/>
+                                    </tree>
+                                    <form>
+                                        <field name="name"/>
+                                        <field name="registration_no"/>
+                                        <field name="state"/>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="lease_sale_view_tree" model="ir.ui.view">
+            <field name="name">lease_sale_view_tree</field>
+            <field name="model">lease.sale</field>
+            <field name="arch" type="xml">
+                <tree string="lease_sale_tree" create="false" edit="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="lease_sale_view_action" model="ir.actions.act_window">
+            <field name="name">Lease Sale</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="lease_sale_view_action_low_risk" model="ir.actions.act_window">
+            <field name="name">Lease Sale Low Risk</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale</field>
+            <field name="domain">[('customer_catgory','=','low')]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="lease_sale_view_action_med_risk" model="ir.actions.act_window">
+            <field name="name">Lease Sale Moderate Risk</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale</field>
+            <field name="domain">[('customer_catgory','=','moderate')]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="lease_sale_view_action_high_risk" model="ir.actions.act_window">
+            <field name="name">Lease Sale Moderate Risk</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale</field>
+            <field name="domain">[('customer_catgory','=','high')]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

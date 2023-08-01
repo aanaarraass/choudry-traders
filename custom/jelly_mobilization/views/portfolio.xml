@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="portfolio_view_tree" model="ir.ui.view">
+            <field name="name">portfolio_view_tree</field>
+            <field name="model">branch.portfolio</field>
+            <field name="arch" type="xml">
+                <tree string="portfolio_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="portfolio_view_form" model="ir.ui.view">
+            <field name="name">portfolio_view_form</field>
+            <field name="model">branch.portfolio</field>
+            <field name="arch" type="xml">
+                <form string="portfolio_form">
+                    <sheet>
+                        <group>
+                           <group>
+                                <field name="name"/>
+                               <field name="area_ids"/>
+                           </group>
+                            <group>
+                                <field name="branch_id"/>
+                                <field name="recovery_id"/>
+                                <field name="branch_manager_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="portfolio_action" model="ir.actions.act_window">
+            <field name="name">Portfolio</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">branch.portfolio</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

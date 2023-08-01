@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="lease_sale_return_wizard_view_form" model="ir.ui.view">
+            <field name="name">lease_sale_return_wizard_view_form</field>
+            <field name="model">lease.sale.return.wizard</field>
+            <field name="arch" type="xml">
+                <form string="lease_sale_return_wizard_form">
+                    <sheet>
+                        <group>
+                            <field name="product_id" readonly="1"/>
+                            <field name="qty"/>
+                            <field name="price"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="return_product" type="object" string="Return Product"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="lease_sale_return_wizard_action" model="ir.actions.act_window">
+            <field name="name">Sale Return</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale.return.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

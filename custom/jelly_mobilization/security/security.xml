@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="access_admin_profile_group" model="res.groups">
+        <field name="name">Moblizaion Admin</field>
+    </record>
+
+    <record id="access_user_profile_group" model="res.groups">
+        <field name="name">Moblizaion User</field>
+    </record>
+
+<!--    <record model="ir.rule" id="rule_restrict_own_records">-->
+<!--        <field name="name">Restrict access to own records</field>-->
+<!--        <field name="model_id" ref="jelly_mobilization.model_moblization"/>-->
+<!--        <field name="groups" eval="[(4, ref('jelly_mobilization.access_user_profile_group'))]"/>-->
+<!--        <field name="domain_force">[('branch_id', '=', user.branch_id.id)]</field>-->
+<!--    </record>-->
+
+<!--    <record model="ir.rule" id="rule_restrict_admin_records">-->
+<!--        <field name="name">Restrict access to admin records</field>-->
+<!--        <field name="model_id" ref="jelly_mobilization.model_moblization"/>-->
+<!--        <field name="groups" eval="[(4, ref('jelly_mobilization.access_admin_profile_group'))]"/>-->
+<!--        <field name="domain_force">[('branch_id', '=', user.branch_id.id)]</field>-->
+<!--    </record>-->
+
+</odoo>

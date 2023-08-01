@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lease_sale,lease_sale,model_lease_sale,,1,1,1,1
+access_lease_sale_item,lease_sale_item,model_lease_sale_item,,1,1,1,1
+access_lease_sale_return,lease_sale_return,model_lease_sale_return,,1,1,1,1
+access_lease_sale_return_wizard,lease_sale_return_wizard,model_lease_sale_return_wizard,,1,1,1,1
+access_lease_sale_instalment,lease_sale_instalment,model_lease_sale_instalment,,1,1,1,1
+access_relation,relation,model_relation,,1,1,1,1
+access_cast_cast,cast_cast,model_cast_cast,,1,1,1,1
+access_marital_status,marital_status,model_marital_status,,1,1,1,1
+access_residential_status,residential_status,model_residential_status,,1,1,1,1
+access_guarantor,guarantor,model_guarantor,,1,1,1,1
+access_reject_reason,reject_reason,model_reject_reason,,1,1,1,1
+access_lease_sale_advance_payment,lease_sale_advance_payment,model_lease_sale_advance_payment,,1,1,1,1

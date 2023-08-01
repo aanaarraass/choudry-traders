@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="area_view_form" model="ir.ui.view">
+            <field name="name">area_view_form</field>
+            <field name="model">area.area</field>
+            <field name="arch" type="xml">
+                <form string="area_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="branch_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="area_view_tree" model="ir.ui.view">
+            <field name="name">area_view_tree</field>
+            <field name="model">area.area</field>
+            <field name="arch" type="xml">
+                <tree string="area_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="area_action" model="ir.actions.act_window">
+            <field name="name">Area Configaration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">area.area</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="send_message_wizard_id" model="ir.ui.view">
+        <field name="name">send_message_wizard_form</field>
+        <field name="model">send.message</field>
+        <field name="arch" type="xml">
+            <form string="wizard form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="branch_id"/>
+                            <field name="date_from"/>
+                            <field name="staff_id"/>
+                            <field name="message_id"/>
+                        </group>
+                        <group>
+                            <field name="area_id"/>
+                            <field name="date_to"/>
+                            <field name="message_body"/>
+                        </group>
+
+                    </group>
+                    <group>
+                        <field name="moblization_contact_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="post_message" string="Send" type="object"
+                            class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_message_send_id" model="ir.actions.act_window">
+        <field name="name">Send Message</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">send.message</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

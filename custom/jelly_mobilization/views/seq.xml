@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+          <record id="moblization_sr_sequance" model="ir.sequence">
+            <field name="name">Moblization Serial</field>
+            <field name="code">mobilization.serial</field>
+            <field name="prefix">MS/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    <data noupdate="1">
+          <record id="moblization_contact_sequance" model="ir.sequence">
+            <field name="name">Moblization Contact Serial</field>
+            <field name="code">mobilization.contact</field>
+            <field name="prefix">MC/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

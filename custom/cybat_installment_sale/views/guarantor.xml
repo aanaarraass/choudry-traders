@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="guarantor_view_tree" model="ir.ui.view">
+            <field name="name">guarantor_view_tree</field>
+            <field name="model">guarantor</field>
+            <field name="arch" type="xml">
+                <tree string="guarantor_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="guarantor_view_form" model="ir.ui.view">
+            <field name="name">guarantor_view_form</field>
+            <field name="model">guarantor</field>
+            <field name="arch" type="xml">
+                <form string="guarantor_form">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="approved" type="object" string="Select" states="draft"/>
+                        <button name="reject" type="object" string="Reject" states="draft"/>
+                        <button name="reset_draft" type="object" string="Reset To Draft" states="select,reject"/>
+                    </header>
+                    <sheet>
+                        <h2>Personal Information</h2>
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="registration_no"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="reg_date"/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="reg_status"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <field name="registration_no" readonly="1"/>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <field name="reg_date"/>
+
+                                    </div>
+                                    <div class="col-3">
+                                        <field name="reg_status"/>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-9">
+                                        <label for="approved_by_id"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <field name="approved_by_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="row">
+                                    <field name="image_1920" widget="image"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="comment"/>
+                                <field name="comment"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="name"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="nick_name"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="cnic"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <field name="name"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="nick_name"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="cnic"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="son_off"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="cast_id"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="marital_status_id"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <field name="son_off"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="cast_id"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="marital_status_id"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="address_status" string="Residential Status"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="home_since"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="area_since"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <field name="address_status"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="home_since"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="area_since"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="contact_address" string="Current Address"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <field name="contact_address"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="near_by"/>
+                            </div>
+                            <div class="col-3">
+                                <label for="area"/>
+                            </div>
+                            <div class="col-3">
+                                <label for="road"/>
+                            </div>
+                            <div class="col-3">
+                                <label for="city"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <field name="near_by"/>
+                            </div>
+                            <div class="col-3">
+                                <field name="area"/>
+                            </div>
+                            <div class="col-3">
+                                <field name="road"/>
+                            </div>
+                            <div class="col-3">
+                                <field name="city"/>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12">
+                                <label for="parmanent_address"/>
+                                <field name="parmanent_address"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="phone_number"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="relation_id"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <field name="phone_number"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="relation_id"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>Employement Details</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="emp_type"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="function"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="business_type"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <field name="emp_type"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="function"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="business_type"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="working_since"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="income"/>
+                            </div>
+                            <div class="col-4">
+                                <label for="office_phone"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <field name="working_since"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="income"/>
+                            </div>
+                            <div class="col-4">
+                                <field name="office_phone"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="business_address"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <field name="business_address"/>
+                            </div>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="guarantor_search_View" model="ir.ui.view">
+            <field name="name">Guarantor Search</field>
+            <field name="model">guarantor</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name" string="Name"/>
+                    <field name="cnic" string="Cnic"/>
+                    <field name="phone_number" string="Phone Number"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="guarantor_sd_action" model="ir.actions.act_window">
+            <field name="name">Guarantor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">guarantor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

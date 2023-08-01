@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+          <record id="lease_sale_sequance" model="ir.sequence">
+            <field name="name">Lease Sale</field>
+            <field name="code">lease.sale</field>
+            <field name="prefix">LS/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="customer_registration_sequance" model="ir.sequence">
+            <field name="name">Customer Registration</field>
+            <field name="code">lease.customer</field>
+            <field name="prefix">LC/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="guarantor_registration_sequance" model="ir.sequence">
+            <field name="name">Guarantor Registration</field>
+            <field name="code">guarantor.seq</field>
+            <field name="prefix">G/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

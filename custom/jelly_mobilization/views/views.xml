@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="moblization_line_tree_id" model="ir.ui.view">
+            <field name="name">Moblization Lines tree</field>
+            <field name="model">moblization.line</field>
+            <field name="arch" type="xml">
+                <tree string="moblization_tree">
+                    <field name="name"/>
+                    <field name="son_of"/>
+                    <field name="area_id"/>
+                    <field name="cell_no" widget="phone"/>
+                    <field name="staff_id" invisible="1"/>
+                    <field name="sr_no" invisible="1"/>
+                    <field name="date" invisible="1"/>
+                    <field name="branch_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="moblization_line_form_id" model="ir.ui.view">
+            <field name="name">Moblization Lines form</field>
+            <field name="model">moblization.line</field>
+            <field name="arch" type="xml">
+                <form string="moblization_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="sr_no" invisible="0"/>
+                                <field name="name"/>
+                                <field name="son_of" string="S/O ,W/O, D/O"/>
+                                <field name="cell_no" widget="phone" placeholder="+923001111111"/>
+                            </group>
+                            <group>
+                                <field name="area_id"/>
+                                <field name="staff_id" invisible="0"/>
+                                <field name="superviosr_id" invisible="0"/>
+
+                                <field name="date" invisible="0"/>
+                                <field name="branch_id" invisible="0"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="moblization_line_view_search_id" model="ir.ui.view">
+            <field name="name">moblization_line_view_search</field>
+            <field name="model">moblization.line</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="son_of"/>
+                    <field name="area_id"/>
+                    <field name="cell_no"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="moblization_line_action" model="ir.actions.act_window">
+            <field name="name">Moblization Lines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">moblization.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

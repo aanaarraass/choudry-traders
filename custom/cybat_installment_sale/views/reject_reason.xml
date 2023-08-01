@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="reject_reason_view_form" model="ir.ui.view">
+            <field name="name">reject_reason_view_form</field>
+            <field name="model">reject.reason</field>
+            <field name="arch" type="xml">
+                <form string="reject_reason_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="mark_reject" type="object" string="Reject"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="lease_sale_advance_payment_view_form" model="ir.ui.view">
+            <field name="name">Lease Sale Advance Payment</field>
+            <field name="model">lease.sale.advance.payment</field>
+            <field name="arch" type="xml">
+                <form string="reject_reason_form">
+                    <sheet>
+                        <group>
+                            <field name="amount"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="register_payment" type="object" string="Register Payment"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="reject_reason_wizard_action" model="ir.actions.act_window">
+            <field name="name">Reject Reason</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.reason</field>
+            <field name="view_mode">form</field>
+             <field name="target">new</field>
+        </record>
+
+             <record id="advance_payment_wizard_action" model="ir.actions.act_window">
+            <field name="name">Register Advance Payment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.sale.advance.payment</field>
+            <field name="view_mode">form</field>
+             <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

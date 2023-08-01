@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+        <record id="paperformat_mobilization_report" model="report.paperformat">
+            <field name="name">mobilization.paperformat</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">9</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">8</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="mobilization_report"
+                model="mobilization.report.wizard"
+                report_type="qweb-pdf"
+                string="Mobilization Report"
+                name="jelly_mobilization.mobilization_template"
+                file="jelly_mobilization.mobilization_template"
+                paperformat="paperformat_mobilization_report"/>
+
+
+        <template id="jelly_mobilization.mobilization_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page mt-4">
+                        <div class="oe_structure"/>
+                        <br/>
+                        <br/>
+                        <div class="row mt-5">
+                            <div class="col-4">
+                                <h3>Branch:
+                               <t t-if="form_data['branch_id']">
+                                    <t t-esc="form_data['branch_id'][1]"/>
+                               </t></h3>
+                            </div>
+                            <div class="col-4">
+                                Area:
+                                <t t-if="form_data['area_id']">
+                                    <t t-esc="form_data['area_id'][1]"/>
+                                </t>
+                            </div>
+                            <div class="col-4">
+                                Staff:
+                               <t t-if="form_data['staff_id']">
+                                    <t t-esc="form_data['staff_id'][1]"/>
+                               </t>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                From Date:
+                                <t t-if="form_data['date_from']">
+                                    <t t-esc="form_data['date_from']"/>
+                                </t>
+                            </div>
+                            <div class="col-4">
+                                To Date:
+                                <t t-if="form_data['date_to']">
+                                    <t t-esc="form_data['date_to']"/>
+                                </t>
+                            </div>
+                            <div class="col-4">
+
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">SR#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Area</th>
+                                    <th scope="col">PH#</th>
+                                    <th scope="col">R.O</th>
+                                </tr>
+                            </thead>
+                            <t t-set="records" t-value="env['moblization.line'].search(domain)"/>
+                            <tbody>
+                                <t t-set="serial" t-value="0"/>
+                               <t t-foreach="records" t-as="line">
+
+                                   <t t-set="serial" t-value="serial+1"/>
+                                <tr>
+                                    <td><t t-esc="serial"/> </td>
+                                    <td><t t-esc="line.name"/></td>
+                                    <td><t t-esc="line.area_id.name"/></td>
+                                    <td><t t-esc="line.cell_no"/></td>
+                                    <td><t t-esc="line.staff_id.name"/></td>
+                                </tr>
+                               </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="moblization_root" name="Moblization"
+                   web_icon="jelly_mobilization,static/description/icon.png"
+                  sequence="5"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="configarion_categ" name="Configuration"
+                  parent="moblization_root"
+                  sequence="10"/>
+
+
+        <menuitem id="moblization_action_id" name="Mobilization Form"
+                  action="moblization_action"
+                  parent="moblization_root"
+                  sequence="5"/>
+
+        <menuitem id="moblization_message_send_id" name="Send Message"
+                  parent="moblization_root"
+                  action="action_message_send_id"
+                  sequence="5"/>
+        <menuitem id="moblization_report_wizard_id" name="Print Report"
+                  parent="moblization_root"
+                  action="action_report_wizard_id"
+                  sequence="7"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="area_action_id" name="Area"
+                  parent="configarion_categ"
+                  action="area_action"
+                  sequence="5"/>
+        <menuitem id="sms_template_action_id" name="SMS Template"
+                  parent="configarion_categ"
+                  action="sms_template_action"
+                  sequence="15"/>
+        <menuitem id="sms_history_action_id" name="SMS History"
+                  parent="configarion_categ"
+                  action="sms_history_action"
+                  sequence="20"/>
+
+        <menuitem id="moblization_line_action_menu_id"
+                  name="Moblization Contacts"
+                  parent="configarion_categ"
+                  action="moblization_line_action"
+                  sequence="10"/>
+
+         <menuitem id="portfolio_menu_id"
+                  name="Portfolio"
+                  parent="configarion_categ"
+                  action="portfolio_action"
+                  sequence="30"/>
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="lease_sale_root" name="Lease Sale"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="lease_sale_categ" name="Lease Sales" parent="lease_sale_root" sequence="5"/>
+        <menuitem id="lease_sale_customer_categ" name="Customer" parent="lease_sale_root" sequence="10"/>
+
+
+         <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="lease_sale_action" parent="lease_sale_categ" name="Lease Sales" action="lease_sale_view_action"/>
+        <menuitem id="lease_sale_low_action" parent="lease_sale_categ" name="Lease Sales Low Risk" action="lease_sale_view_action_low_risk"/>
+        <menuitem id="lease_sale_med_action" parent="lease_sale_categ" name="Lease Sales Moderate Risk" action="lease_sale_view_action_med_risk"/>
+        <menuitem id="lease_sale_high_action" parent="lease_sale_categ" name="Lease Sales High Risk" action="lease_sale_view_action_high_risk"/>
+        <menuitem id="lease_sale_customer_action" parent="lease_sale_customer_categ" name="Lease Sale Customer" action="lease_customer_action"/>
+        <menuitem id="lease_sale_guarantor_action" parent="lease_sale_customer_categ" name="Guarantor" action="guarantor_sd_action"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_moblization,moblization,model_moblization,base.group_user,1,1,1,1
+access_moblization_line,moblization_line,model_moblization_line,base.group_user,1,1,1,1
+access_area_area,area_area,model_area_area,base.group_user,1,1,1,1
+access_branch_portfolio,branch_portfolio,model_branch_portfolio,base.group_user,1,1,1,1
+access_sms_mobilization_template,sms_mobilization_template,model_sms_mobilization_template,base.group_user,1,1,1,1
+access_sms_history,sms_history,model_sms_history,base.group_user,1,1,1,0
+access_send_message,send_message,model_send_message,base.group_user,1,1,1,1
+access_mobilization_report_wizard,mobilization_report_wizard,model_mobilization_report_wizard,base.group_user,1,1,1,1
