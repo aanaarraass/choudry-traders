@@ -3010,7 +3010,7 @@ msgstr ""
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "Handle In ERP"
+msgid "Handle in Odoo"
 msgstr ""
 
 #. module: mail
@@ -4781,7 +4781,7 @@ msgstr "ওডু"
 #: code:addons/mail/static/src/components/notification_alert/notification_alert.xml:0
 #, python-format
 msgid ""
-"ERP Push notifications have been blocked. Go to your browser settings to "
+"Odoo Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
 
@@ -5240,7 +5240,7 @@ msgstr ""
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle In ERP: notifications appear in your Inbox"
+"- Handle in Odoo: notifications appear in your Odoo Inbox"
 msgstr ""
 
 #. module: mail

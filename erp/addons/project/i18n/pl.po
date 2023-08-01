@@ -43,7 +43,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:25+0000\n"
 "Last-Translator: Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023\n"
-"Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
+"Language-Team: Polish (https://app.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -2130,12 +2130,6 @@ msgid "How’s this project going?"
 msgstr "Jak przebiega ten projekt?"
 
 #. module: project
-#: code:addons/project/models/project.py:0
-#, python-format
-msgid "I take it"
-msgstr "Wezmę to"
-
-#. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator__id
 #: model:ir.model.fields,field_description:project.field_project_delete_wizard__id
 #: model:ir.model.fields,field_description:project.field_project_milestone__id
@@ -3161,7 +3155,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:project.selection__project_project__last_update_status__on_hold
 #: model:ir.model.fields.selection,name:project.selection__project_update__status__on_hold
 msgid "On Hold"
-msgstr ""
+msgstr "On Hold (na żądanie)"
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__last_update_status__on_track
@@ -3557,7 +3551,7 @@ msgstr "Zadania projektu"
 #: model:ir.model,name:project.model_project_update
 #: model_terms:ir.ui.view,arch_db:project.project_update_view_form
 msgid "Project Update"
-msgstr ""
+msgstr "Aktualizacja projektu"
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_update_all_action
@@ -3967,7 +3961,7 @@ msgstr "Badania"
 #. module: project
 #: model:project.project,name:project.project_project_2
 msgid "Research & Development"
-msgstr ""
+msgstr "Badania i rozwój"
 
 #. module: project
 #. openerp-web
@@ -4474,7 +4468,7 @@ msgstr "Zadanie gotowe"
 #. module: project
 #: model:ir.model,name:project.model_project_task_recurrence
 msgid "Task Recurrence"
-msgstr ""
+msgstr "Powtarzalność zadań"
 
 #. module: project
 #: model:ir.model,name:project.model_project_task_type

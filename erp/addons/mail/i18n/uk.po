@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Martin Trigaux, 2022
-# Alina Lisnenko <alinasemeniuk1@gmail.com>, 2022
+# Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:23+0000\n"
-"Last-Translator: Alina Lisnenko <alinasemeniuk1@gmail.com>, 2022\n"
-"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
+"Last-Translator: Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2022\n"
+"Language-Team: Ukrainian (https://app.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -3130,7 +3130,7 @@ msgstr "Сповіщення через пошту"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "Handle In ERP"
+msgid "Handle in Odoo"
 msgstr "Через Odoo"
 
 #. module: mail
@@ -4963,7 +4963,7 @@ msgstr "Odoo"
 #: code:addons/mail/static/src/components/notification_alert/notification_alert.xml:0
 #, python-format
 msgid ""
-"ERP Push notifications have been blocked. Go to your browser settings to "
+"Odoo Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
 "Спливаючі сповіщення Odoo заблоковано. Перейдіть у налаштування вашого "
@@ -5456,7 +5456,7 @@ msgstr "Будь ласка, зачекайте..."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle In ERP: notifications appear in your Inbox"
+"- Handle in Odoo: notifications appear in your Odoo Inbox"
 msgstr ""
 "Правила щодо обробки повідомлень Чату:\n"
 "- Обробляйте електронною поштою: сповіщення надсилаються на вашу адресу електронної пошти\n"

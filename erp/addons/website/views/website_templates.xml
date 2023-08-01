@@ -205,7 +205,7 @@
     <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
         <t t-call="web.brand_promotion_message">
             <t t-set="_message">
-                Create a <a target="_blank" href="http://www.jtstorm.com/app/website?utm_source=db&amp;utm_medium=website">free website</a>
+                Create a <a target="_blank" href="http://www.odoo.com/app/website?utm_source=db&amp;utm_medium=website">free website</a>
             </t>
             <t t-set="_utm_medium" t-valuef="website"/>
         </t>
@@ -1209,7 +1209,7 @@
 <template id="template_header_magazine_oe_structure_header_magazine_1" inherit_id="website.template_header_magazine" name="Template Header Magazine (oe_structure_header_magazine_1)">
     <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_header_magazine_1']" position="replace">
         <div class="oe_structure oe_structure_solo" id="oe_structure_header_magazine_1">
-            <section class="s_text_block" data-snippet="s_text_block" data-name="Text">
+            <section class="s_text_block o_cc o_cc1" data-snippet="s_text_block" data-name="Text">
                 <div class="container">
                     <div class="row align-items-center text-center text-md-left">
                         <div class="col-lg-8 pt16">
@@ -2078,7 +2078,7 @@
                     <small>Odoo Version <t t-out="version.get('server_version')"/></small>
                 </h1>
                 <p>
-                    Information about the <t t-esc="res_company.name"/> instance of Odoo, the <a target="_blank" href="https://www.jtstorm.com">Open Source ERP</a>.
+                    Information about the <t t-esc="res_company.name"/> instance of Odoo, the <a target="_blank" href="https://www.odoo.com">Open Source ERP</a>.
                 </p>
 
                 <div class="alert alert-warning alert-dismissable mt16" groups="website.group_website_publisher" role="status">
@@ -2106,7 +2106,7 @@
                     <h2 class='mt32'>Installed Localizations / Account Charts</h2>
                     <dl class="dl-horizontal" t-foreach="l10n" t-as="app">
                         <dt>
-                            <a t-attf-href="https://www.jtstorm.com/app/accounting/#{app.name}">
+                            <a t-attf-href="https://www.odoo.com/app/accounting/#{app.name}">
                                 <t t-out="app.shortdesc"/>
                             </a>
                         </dt>

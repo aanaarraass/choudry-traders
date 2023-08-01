@@ -73,7 +73,7 @@ QUOTE_BLOCKQUOTE = u"""<html>
     </div>
     <blockquote
 cite="mid:CAEJSRZvWvud8c6Qp=wfNG6O1+wK3i_jb33qVrF7XyrgPNjnyUA@mail.gmail.com"
-      type="cite"><base href="https://www.jtstorm.com">
+      type="cite"><base href="https://www.odoo.com">
       <div dir="ltr">Yep Dominique that is true, as Postgres was the
         base of all same as Odoo and MySQL etc came much later.Â 
         <div><br>
@@ -584,7 +584,7 @@ REMOVE_CLASS = u"""
         <div class="modal-dialog modal-lg">
             <div class="modal-content openerp">
                 <div class="modal-header"> 
-                    <h4 class="modal-title">ERP Error<span class="o_subtitle text-muted"></span></h4>
+                    <h4 class="modal-title">Odoo Error<span class="o_subtitle text-muted"></span></h4>
                 </div>
                 <div class="o_error_detail modal-body">
                     <pre>An error occurred in a modal and I will send you back the html to try opening one on your end</pre>

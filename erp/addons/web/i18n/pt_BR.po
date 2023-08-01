@@ -6,6 +6,8 @@
 # Luiz Carlos de Lima <luiz.carlos@akretion.com.br>, 2021
 # grazziano <gra.negocia@gmail.com>, 2021
 # Martin Trigaux, 2022
+# Richard Imgärtchen, 2023
+# Kevilyn Rosa, 2023
 # 
 msgid ""
 msgstr ""
@@ -13,8 +15,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
-"Last-Translator: Martin Trigaux, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/odoo/teams/41243/pt_BR/)\n"
+"Last-Translator: Kevilyn Rosa, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/odoo/teams/41243/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -230,6 +232,8 @@ msgid ""
 "<span class=\"text-nowrap\">$ <span "
 "class=\"oe_currency_value\">11,750.00</span></span>"
 msgstr ""
+"<span class=\"text-nowrap\">$ <span "
+"class=\"oe_currency_value\">11.750,00</span></span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -248,7 +252,7 @@ msgstr "<span class=\"text-nowrap\">1.500,00</span>"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
 msgid "<span class=\"text-nowrap\">2,350.00</span>"
-msgstr ""
+msgstr "<span class=\"text-nowrap\">2.350,00</span>"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.report_invoice_wizard_preview
@@ -1136,7 +1140,7 @@ msgstr "Empresa"
 #: model:ir.model.fields,field_description:web.field_base_document_layout__company_details
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
 msgid "Company Details"
-msgstr ""
+msgstr "Detalhes da Empresa"
 
 #. module: web
 #: model:ir.model,name:web.model_base_document_layout
@@ -2908,7 +2912,7 @@ msgstr "Odoo Apps estará disponível em breve"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Client Error"
+msgid "Odoo Client Error"
 msgstr "Erro de Cliente Odoo"
 
 #. module: web
@@ -2922,7 +2926,7 @@ msgstr "Odoo Enterprise"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Error"
+msgid "Odoo Error"
 msgstr "Erro Odoo"
 
 #. module: web
@@ -2930,14 +2934,14 @@ msgstr "Erro Odoo"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Network Error"
+msgid "Odoo Network Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Server Error"
+msgid "Odoo Server Error"
 msgstr ""
 
 #. module: web
@@ -2945,7 +2949,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "ERP Session Expired"
+msgid "Odoo Session Expired"
 msgstr "Sessão do Odoo Expirada"
 
 #. module: web
@@ -2953,7 +2957,7 @@ msgstr "Sessão do Odoo Expirada"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Warning"
+msgid "Odoo Warning"
 msgstr "Aviso do Odoo"
 
 #. module: web
@@ -4967,7 +4971,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your ERP session expired. The current page is about to be refreshed."
+msgid "Your Odoo session expired. The current page is about to be refreshed."
 msgstr ""
 "Sua sessão Odoo expirou. A página atual está prestes a ser atualizada."
 

@@ -26,7 +26,7 @@ class TestMassMailCommon(MassMailCommon, TestMailCommon):
             # `+ ""` is for insuring that _prepend_preview rule out that case
             'preview': 'Hi {{ object.name + "" }} :)',
             'body_html': """<div><p>Hello <t t-out="object.name"/></p>,
-<t t-set="url" t-value="'www.jtstorm.com'"/>
+<t t-set="url" t-value="'www.odoo.com'"/>
 <t t-set="httpurl" t-value="'https://www.odoo.eu'"/>f
 <span>Website0: <a id="url0" t-attf-href="https://www.odoo.tz/my/{{object.name}}">https://www.odoo.tz/my/<t t-out="object.name"/></a></span>
 <span>Website1: <a id="url1" href="https://www.odoo.be">https://www.odoo.be</a></span>

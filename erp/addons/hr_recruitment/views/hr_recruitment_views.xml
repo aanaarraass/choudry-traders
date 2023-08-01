@@ -400,7 +400,7 @@
               <p class="o_view_nocontent_empty_folder">
                 No applications yet
               </p><p>
-                ERP helps you track applicants in the recruitment
+                Odoo helps you track applicants in the recruitment
                 process and follow up all operations: meetings, interviews, etc.
               </p><p>
                 Applicants and their attached CV are created automatically when an email is sent.
@@ -451,7 +451,7 @@
                         <div name="alias_def" attrs="{'invisible': [('alias_domain', '=', False)]}">
                             <field name="alias_id" class="oe_read_only" string="Email Alias" required="0"/>
                             <div class="oe_edit_only" name="edit_alias">
-                                <field name="alias_name" class="oe_inline o_job_alias" . sales-manager"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
+                                <field name="alias_name" class="oe_inline o_job_alias" placeholder="e.g. sales-manager"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
                             </div>
                             <div class="text-muted" attrs="{'invisible': [('alias_domain', '=', False)]}">Applicants can send resume to this email address,<br/>it will create an application automatically</div>
                         </div>
@@ -591,7 +591,7 @@
           <p class="o_view_nocontent_empty_folder">
             No applications yet
           </p><p>
-            ERP helps you track applicants in the recruitment
+            Odoo helps you track applicants in the recruitment
             process and follow up all operations: meetings, interviews, etc.
           </p><p>
             Applicants and their attached CV are created automatically when an email is sent.

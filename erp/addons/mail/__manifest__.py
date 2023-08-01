@@ -7,7 +7,7 @@
     'sequence': 145,
     'summary': 'Chat, mail gateway and private channels',
     'description': "",
-    'website': 'https://www.jtstorm.com/app/discuss',
+    'website': 'https://www.odoo.com/app/discuss',
     'depends': ['base', 'base_setup', 'bus', 'web_tour'],
     'data': [
         'data/mail_groups.xml',

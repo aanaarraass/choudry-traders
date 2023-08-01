@@ -907,7 +907,7 @@ QUnit.test('<br/> tags in message body preview are transformed in spaces', async
     );
 });
 
-QUnit.test('rendering with ERPBot has a request (default)', async function (assert) {
+QUnit.test('rendering with OdooBot has a request (default)', async function (assert) {
     assert.expect(4);
 
     const { createMessagingMenuComponent } = await this.start({
@@ -923,7 +923,7 @@ QUnit.test('rendering with ERPBot has a request (default)', async function (asse
 
     assert.ok(
         document.querySelector('.o_MessagingMenu_counter'),
-        "should display a notification counter next to the messaging menu for ERPBot request"
+        "should display a notification counter next to the messaging menu for OdooBot request"
     );
     assert.strictEqual(
         document.querySelector('.o_MessagingMenu_counter').textContent,
@@ -941,12 +941,12 @@ QUnit.test('rendering with ERPBot has a request (default)', async function (asse
     );
     assert.strictEqual(
         document.querySelector('.o_NotificationRequest_name').textContent.trim(),
-        'ERPBot has a request',
-        "notification should display that ERPBot has a request"
+        'OdooBot has a request',
+        "notification should display that OdooBot has a request"
     );
 });
 
-QUnit.test('rendering without ERPBot has a request (denied)', async function (assert) {
+QUnit.test('rendering without OdooBot has a request (denied)', async function (assert) {
     assert.expect(2);
 
     const { createMessagingMenuComponent } = await this.start({
@@ -976,7 +976,7 @@ QUnit.test('rendering without ERPBot has a request (denied)', async function (as
     );
 });
 
-QUnit.test('rendering without ERPBot has a request (accepted)', async function (assert) {
+QUnit.test('rendering without OdooBot has a request (accepted)', async function (assert) {
     assert.expect(2);
 
     const { createMessagingMenuComponent } = await this.start({

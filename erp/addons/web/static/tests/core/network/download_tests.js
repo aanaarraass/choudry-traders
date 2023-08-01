@@ -79,7 +79,7 @@ QUnit.module("download", hooks => {
                 arguments: ["Business Error Message", "someArg"],
                 message: "Business Error Message",
             },
-            message: "ERP Server Error",
+            message: "Odoo Server Error",
         };
 
         async function send() {

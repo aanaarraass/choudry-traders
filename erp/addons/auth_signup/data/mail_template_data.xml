@@ -37,7 +37,7 @@
                 <tr><td valign="top" style="font-size: 13px;">
                     <div>
                         Dear <t t-out="object.name or ''">Marc Demo</t>,<br/><br/>
-                        A password reset was requested for the ERP account linked to this email.
+                        A password reset was requested for the Odoo account linked to this email.
                         You may change your password by following this link which will remain valid during 24 hours:<br/>
                         <div style="margin: 16px 0px 16px 0px;">
                             <a t-att-href="object.signup_url"
@@ -86,7 +86,7 @@
 <tr><td align="center" style="min-width: 590px;">
     <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
       <tr><td style="text-align: center; font-size: 13px;">
-        Powered by <a target="_blank" href="https://www.jtstorm.com?utm_source=db&amp;utm_medium=auth" style="color: #C8080B;">Jtstorm</a>
+        Powered by <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color: #875A7B;">Odoo</a>
       </td></tr>
     </table>
 </td></tr>
@@ -98,9 +98,9 @@
 
         <!-- Email template for new users -->
         <record id="set_password_email" model="mail.template">
-            <field name="name">Auth Signup: Connection</field>
+            <field name="name">Auth Signup: Odoo Connection</field>
             <field name="model_id" ref="base.model_res_users"/>
-            <field name="subject">{{ object.create_uid.name }} from {{ object.company_id.name }} invites you to connect to ERP</field>
+            <field name="subject">{{ object.create_uid.name }} from {{ object.company_id.name }} invites you to connect to Odoo</field>
             <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
             <field name="email_to">{{ object.email_formatted }}</field>
             <field name="body_html" type="html">
@@ -112,9 +112,9 @@
         <td align="center" style="min-width: 590px;">
             <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
                 <tr><td valign="middle">
-                    <span style="font-size: 10px;">Welcome to ERP</span><br/>
+                    <span style="font-size: 10px;">Welcome to Odoo</span><br/>
                     <span style="font-size: 20px; font-weight: bold;">
-                        <t t-out="object.name or ''">Muhammad Ahmed</t>
+                        <t t-out="object.name or ''">Marc Demo</t>
                     </span>
                 </td><td valign="middle" align="right">
                     <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" t-att-alt="object.company_id.name"/>
@@ -132,21 +132,21 @@
                 <tr><td valign="top" style="font-size: 13px;">
                     <div>
                         Dear <t t-out="object.name or ''">Marc Demo</t>,<br /><br />
-                        You have been invited by <t t-out="object.create_uid.name or ''">ERPBot</t> of <t t-out="object.company_id.name or ''">YourCompany</t> to connect on ERP.
+                        You have been invited by <t t-out="object.create_uid.name or ''">OdooBot</t> of <t t-out="object.company_id.name or ''">YourCompany</t> to connect on Odoo.
                         <div style="margin: 16px 0px 16px 0px;">
                             <a t-att-href="object.signup_url"
-                                style="background-color: #C8080B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
                                 Accept invitation
                             </a>
                         </div>
                         <t t-set="website_url" t-value="object.get_base_url()"></t>
-                        Your ERP domain is: <b><a t-att-href='website_url' t-out="website_url or ''">http://yourcompany.jtstorm.com</a></b><br />
+                        Your Odoo domain is: <b><a t-att-href='website_url' t-out="website_url or ''">http://yourcompany.odoo.com</a></b><br />
                         Your sign in email is: <b><a t-attf-href="/web/login?login={{ object.email }}" target="_blank" t-out="object.email or ''">mark.brown23@example.com</a></b><br /><br />
-                        Never heard of ERP? It’s an all-in-one business software loved by 7+ million users. It will considerably improve your experience at work and increase your productivity.
+                        Never heard of Odoo? It’s an all-in-one business software loved by 7+ million users. It will considerably improve your experience at work and increase your productivity.
                         <br /><br />
-                        Have a look at the <a href="https://www.jtstorm.com/page/tour?utm_source=db&amp;utm_medium=auth" style="color: #C8080B;">Jtorm Tour</a> to discover the tool.
+                        Have a look at the <a href="https://www.odoo.com/page/tour?utm_source=db&amp;utm_medium=auth" style="color: #875A7B;">Odoo Tour</a> to discover the tool.
                         <br /><br />
-                        Enjoy ERP!<br />
+                        Enjoy Odoo!<br />
                         --<br/>The <t t-out="object.company_id.name or ''">YourCompany</t> Team
                     </div>
                 </td></tr>
@@ -182,7 +182,7 @@
 <tr><td align="center" style="min-width: 590px;">
     <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
       <tr><td style="text-align: center; font-size: 13px;">
-        Powered by <a target="_blank" href="https://www.jtstorm.com?utm_source=db&amp;utm_medium=auth" style="color: #C8080B;">Jtstorm</a>
+        Powered by <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color: #875A7B;">Odoo</a>
       </td></tr>
     </table>
 </td></tr>
@@ -244,7 +244,7 @@
 
         <!-- Email template for new users that used a signup token -->
         <record id="mail_template_user_signup_account_created" model="mail.template">
-            <field name="name">Auth Signup: Account Created</field>
+            <field name="name">Auth Signup: Odoo Account Created</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="subject">Welcome to {{ object.company_id.name }}!</field>
             <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
@@ -328,7 +328,7 @@
 <tr><td align="center" style="min-width: 590px;">
     <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
       <tr><td style="text-align: center; font-size: 13px;">
-        Powered by <a target="_blank" href="https://www.jtstorm.com?utm_source=db&amp;utm_medium=auth" style="color: #C8080B;">Jtstorm</a>
+        Powered by <a target="_blank" href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" style="color: #875A7B;">Odoo</a>
       </td></tr>
     </table>
 </td></tr>

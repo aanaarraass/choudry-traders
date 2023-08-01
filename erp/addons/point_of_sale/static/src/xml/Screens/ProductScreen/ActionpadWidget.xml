@@ -3,7 +3,7 @@
 
     <t t-name="ActionpadWidget" owl="1">
         <div class="actionpad">
-            <button class="button set-customer"  id="testingclick"  t-att-class="{'decentered': isLongName}"
+            <button class="button set-customer" t-att-class="{'decentered': isLongName}"
                     t-on-click="trigger('click-customer')">
                 <t t-if="!env.isMobile"><i class="fa fa-user" role="img" aria-label="Customer" title="Customer" /></t>
                 <t t-if="client">
@@ -13,7 +13,7 @@
                     Customer
                 </t>
             </button>
-            <button class="button pay" id="payclick" t-on-click="trigger(props.actionToTrigger or 'click-pay')">
+            <button class="button pay" t-on-click="trigger(props.actionToTrigger or 'click-pay')">
                 <div class="pay-circle" t-att-class="{ 'highlight': props.isActionButtonHighlighted }">
                     <i class="fa fa-chevron-right" role="img" aria-label="Pay" title="Pay" />
                 </div>

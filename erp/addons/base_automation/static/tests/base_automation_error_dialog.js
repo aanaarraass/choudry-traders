@@ -61,7 +61,7 @@ QUnit.module("base_automation", {}, function () {
             },
         };
         Object.assign(error, {
-            subType: "Client Error",
+            subType: "Odoo Client Error",
             message: "Message",
             data: {
                 debug: "Traceback",
@@ -98,7 +98,7 @@ QUnit.module("base_automation", {}, function () {
 
         const error = new RPCError();
         Object.assign(error, {
-            subType: "Client Error",
+            subType: "Odoo Client Error",
             message: "Message",
             data: {
                 debug: "Traceback",

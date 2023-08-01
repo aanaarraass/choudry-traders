@@ -214,6 +214,39 @@ Content-Type: text/html;
 --Apple-Mail=_9331E12B-8BD2-4EC7-B53E-01F3FBEC9227--
 """
 
+MAIL_FILE_ENCODING = """MIME-Version: 1.0
+Date: Sun, 26 Mar 2023 05:23:22 +0200
+Message-ID: {msg_id}
+Subject: {subject}
+From: "Sylvie Lelitre" <test.sylvie.lelitre@agrolait.com>
+To: groups@test.com
+Content-Type: multipart/mixed; boundary="000000000000b951de05f7c47a9e"
+
+--000000000000b951de05f7c47a9e
+Content-Type: multipart/alternative; boundary="000000000000b951da05f7c47a9c"
+
+--000000000000b951da05f7c47a9c
+Content-Type: text/plain; charset="UTF-8"
+
+Test Body
+
+--000000000000b951da05f7c47a9c
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Test Body</div>
+
+--000000000000b951da05f7c47a9c--
+--000000000000b951de05f7c47a9e
+Content-Type: text/plain; name="test.txt"{charset}
+Content-Disposition: attachment; filename="test.txt"
+Content-Transfer-Encoding: base64
+X-Attachment-Id: f_lfosfm0l0
+Content-ID: <f_lfosfm0l0>
+
+{content}
+
+--000000000000b951de05f7c47a9e--
+"""
 
 MAIL_MULTIPART_BINARY_OCTET_STREAM = """X-Original-To: raoul@grosbedon.fr
 Delivered-To: raoul@grosbedon.fr
@@ -510,7 +543,7 @@ Soup
 Odoo S.A.
 Chaussée de Namur, 40
 B-1367 Grand Rosière
-Web: http://www.jtstorm.com
+Web: http://www.odoo.com
 
 
 --------------1F2D18B1129FC2F0B9EECF50
@@ -533,7 +566,7 @@ Soup
 Odoo S.A.
 Chaussée de Namur, 40
 B-1367 Grand Rosière
-Web: <a class="moz-txt-link-freetext" href="http://www.jtstorm.com">http://www.jtstorm.com</a> </pre>
+Web: <a class="moz-txt-link-freetext" href="http://www.odoo.com">http://www.odoo.com</a> </pre>
   </body>
 </html>
 
@@ -826,7 +859,7 @@ aa.com" style=3D"text-decoration:none; color: white;">info@aust-mfg.com</a>=
                       </tr>
                       <tr>
                         <td align=3D"center">
-                            Powered by <a href=3D"https://www.jtstorm.com">Odo=
+                            Powered by <a href=3D"https://www.odoo.com">Odo=
 o</a>.
                         </td>
                       </tr>

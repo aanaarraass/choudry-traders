@@ -19,7 +19,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:23+0000\n"
 "Last-Translator: Dorin Hongu <dhongu@gmail.com>, 2023\n"
-"Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
+"Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -3143,7 +3143,7 @@ msgstr "Gestionat prin Email"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__res_users__notification_type__inbox
-msgid "Handle In ERP"
+msgid "Handle in Odoo"
 msgstr "Gestionat în Odoo"
 
 #. module: mail
@@ -4975,10 +4975,10 @@ msgstr "Odoo"
 #: code:addons/mail/static/src/components/notification_alert/notification_alert.xml:0
 #, python-format
 msgid ""
-"ERP Push notifications have been blocked. Go to your browser settings to "
+"Odoo Push notifications have been blocked. Go to your browser settings to "
 "allow them."
 msgstr ""
-"Notificările ERP Push au fost blocate. Accesați setările browserului pentru"
+"Notificările Odoo Push au fost blocate. Accesați setările browserului pentru"
 " a le permite."
 
 #. module: mail
@@ -5471,7 +5471,7 @@ msgstr "Te rog așteaptă ..."
 msgid ""
 "Policy on how to handle Chatter notifications:\n"
 "- Handle by Emails: notifications are sent to your email address\n"
-"- Handle In ERP: notifications appear in your Inbox"
+"- Handle in Odoo: notifications appear in your Odoo Inbox"
 msgstr ""
 "Politica privind modul de gestionare a notificărilor pentru chat:\n"
 "- Gestionați prin e-mailuri: notificările sunt trimise la adresa dvs. de e-mail\n"

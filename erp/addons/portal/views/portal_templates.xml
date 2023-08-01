@@ -201,7 +201,7 @@
                 </div>
                 <t t-if="entries" t-out="entries"/>
                 <div class="card-footer small text-center text-muted border-top-0 pt-1 pb-1 d-none d-lg-block">
-                    Powered by <a target="_blank" href="http://www.jtstorm.com?utm_source=db&amp;utm_medium=portal" title="jtstorm"><img src="/web/static/img/logo.png" alt="jtstorm Logo" height="15"/></a>
+                    Powered by <a target="_blank" href="http://www.odoo.com?utm_source=db&amp;utm_medium=portal" title="odoo"><img src="/web/static/img/logo.png" alt="Odoo Logo" height="15"/></a>
                 </div>
             </div>
         </div>
@@ -506,7 +506,7 @@
             <section t-if="debug and allow_api_keys">
                 <h3>
                 Developer API Keys
-                    <a href="https://www.jtstorm.com/documentation/15.0/developer/misc/api/external_api.html#api-keys" target="_blank">
+                    <a href="https://www.odoo.com/documentation/15.0/developer/misc/api/external_api.html#api-keys" target="_blank">
                         <i title="Documentation" class="fa fa-fw o_button_icon fa-info-circle"></i>
                     </a>
                 </h3>

@@ -14,7 +14,7 @@
     'category': 'Accounting/Localizations/Account Charts',
     'description': 'Colombian Accounting and Tax Preconfiguration',
     'author': 'David Arnold (XOE Solutions)',
-    'website': 'https://www.jtstorm.com/colombia',
+    'website': 'https://www.odoo.com/colombia',
     'depends': [
         'account',
         'base_address_city',

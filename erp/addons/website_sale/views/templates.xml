@@ -1735,7 +1735,7 @@
                                     <tbody>
                                         <tr>
                                             <td colspan="2">
-                                                <t t-esc="payment_tx_id.acquirer_id.sudo().name" />
+                                                <t t-esc="payment_tx_id.acquirer_id.display_as or payment_tx_id.acquirer_id.name" />
                                             </td>
                                             <td class="text-right" width="100">
                                                 <strong>Total:</strong>
@@ -1874,7 +1874,7 @@
         <xpath expr="//t[@t-call='web.brand_promotion_message']" position="replace">
             <t t-call="web.brand_promotion_message">
                 <t t-set="_message">
-                    The #1 <a target="_blank" href="http://www.jtstorm.com/app/ecommerce?utm_source=db&amp;utm_medium=website">Open Source eCommerce</a>
+                    The #1 <a target="_blank" href="http://www.odoo.com/app/ecommerce?utm_source=db&amp;utm_medium=website">Open Source eCommerce</a>
                 </t>
                 <t t-set="_utm_medium" t-valuef="website"/>
             </t>

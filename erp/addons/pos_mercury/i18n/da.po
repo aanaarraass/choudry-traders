@@ -12,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2021-11-16 13:18+0000\n"
 "PO-Revision-Date: 2021-09-14 12:25+0000\n"
 "Last-Translator: Martin Trigaux, 2021\n"
-"Language-Team: Danish (https://www.transifex.com/odoo/teams/41243/da/)\n"
+"Language-Team: Danish (https://app.transifex.com/odoo/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -266,7 +266,7 @@ msgstr "Intet svar fra server (forbundet til netværk?)"
 #: code:addons/pos_mercury/static/src/js/PaymentScreen.js:0
 #: code:addons/pos_mercury/static/src/js/PaymentScreen.js:0
 #, python-format
-msgid "ERP Error while processing transaction."
+msgid "Odoo error while processing transaction."
 msgstr "Odoo fejl under behandling af transaktion."
 
 #. module: pos_mercury

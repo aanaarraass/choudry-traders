@@ -560,14 +560,14 @@ msgstr ""
 msgid ""
 "Discover how you can integrate MRP, PLM, Quality and Maintenance in a single application to maximize the efficiency of your manufacturing operations.\n"
 "\n"
-"Read more about the features at: https://www.jtstorm.com/page/manufacturing-features\n"
+"Read more about the features at: https://www.odoo.com/page/manufacturing-features\n"
 "\n"
-"Discover Odoo MRP: https://www.jtstorm.com/page/manufacturing"
+"Discover Odoo MRP: https://www.odoo.com/page/manufacturing"
 msgstr ""
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_1
-msgid "Discover the CRM sales people love https://www.jtstorm.com/page/crm"
+msgid "Discover the CRM sales people love https://www.odoo.com/page/crm"
 msgstr ""
 
 #. module: website_slides
@@ -896,7 +896,7 @@ msgstr "ចេញផ្សាយចុងក្រោយ"
 
 #. module: website_slides
 #: model:slide.slide,description:website_slides.slide_8
-msgid "Learn more at https://www.jtstorm.com/page/sales"
+msgid "Learn more at https://www.odoo.com/page/sales"
 msgstr ""
 
 #. module: website_slides
@@ -1419,10 +1419,10 @@ msgstr "សូមអភ័យទោស មិនមានអ្វីផ្គ�
 msgid ""
 "Stop doing manual printing and scanning. Move to electronic signature with Odoo Sign!\n"
 "\n"
-"Discover more at https://www.jtstorm.com/page/sign"
+"Discover more at https://www.odoo.com/page/sign"
 msgstr ""
 "ឈប់ធ្វើការបោះពុម្ពនិងស្កេនដោយដៃ។ ផ្លាស់ទៅហត្ថលេខាអេឡិចត្រូនិកជាមួយអូឌូ! \n"
-"ស្វែងយល់បន្ថែមនៅ https://www.jtstorm.com/page/sign"
+"ស្វែងយល់បន្ថែមនៅ https://www.odoo.com/page/sign"
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_tag_form
@@ -1646,7 +1646,7 @@ msgstr "កំពុងរង់ចាំការផ្ទៀងផ្ទាត
 msgid ""
 "Warehouse management software for the 21st century.\n"
 "\n"
-"Discover Odoo Inventory: https://www.jtstorm.com/page/warehouse"
+"Discover Odoo Inventory: https://www.odoo.com/page/warehouse"
 msgstr ""
 
 #. module: website_slides

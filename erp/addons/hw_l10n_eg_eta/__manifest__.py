@@ -4,7 +4,7 @@
 {
     'name': 'Egypt ETA Hardware Driver',
     'category': 'Accounting/Accounting',
-    'website': 'https://www.jtstorm.com',
+    'website': 'https://www.odoo.com',
     'summary': 'Egypt ETA Hardware Driver',
     'description': """
 Egypt ETA Hardware Driver

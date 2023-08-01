@@ -9,7 +9,7 @@
        Special thanks to Plementus <info@plementus.com> for their help in developing this module.
     """,
     'author': 'odoo',
-    'website': 'https://www.jtstorm.com',
+    'website': 'https://www.odoo.com',
     'category': 'account',
     'version': '0.2',
     'license': 'LGPL-3',

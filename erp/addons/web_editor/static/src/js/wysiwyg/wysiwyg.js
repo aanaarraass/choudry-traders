@@ -888,7 +888,7 @@ const Wysiwyg = Widget.extend({
                 // it was modified previously, as the other modified image may be used
                 // elsewhere if the snippet was duplicated or was saved as a custom one.
                 const newAttachmentSrc = await this._rpc({
-                    route: `/web_editor/modify_image/${el.dataset.originalId}`,
+                    route: `/web_editor/modify_image/${encodeURIComponent(el.dataset.originalId)}`,
                     params: {
                         res_model: resModel,
                         res_id: parseInt(resId),
@@ -1156,6 +1156,7 @@ const Wysiwyg = Widget.extend({
             const linkDialog = new weWidgets.LinkDialog(this, {
                 forceNewWindow: this.options.linkForceNewWindow,
                 wysiwyg: this,
+                focusField: link.innerHTML ? 'url' : '',
             }, this.$editable[0], {
                 needLabel: true
             }, undefined, link);

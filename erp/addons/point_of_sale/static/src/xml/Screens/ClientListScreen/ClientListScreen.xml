@@ -5,12 +5,12 @@
         <div class="clientlist-screen screen" t-on-activate-edit-mode="activateEditMode">
             <div class="screen-content">
                 <div class="top-content">
-                    <div class="button back" t-on-click="back" id="discardclick">
+                    <div class="button back" t-on-click="back">
                         <i class="fa fa-angle-double-left"/>
                         <t t-if="!env.isMobile"> Discard</t>
                     </div>
                     <div t-if="!state.detailIsShown &amp;&amp; !state.selectedClient" class="button new-customer" role="img" aria-label="Add a customer"
-                            t-on-click="trigger('activate-edit-mode', { isNewClient: true })" id="newcustomerclick"
+                            t-on-click="trigger('activate-edit-mode', { isNewClient: true })"
                             title="Add a customer">
                         <i class="fa fa-plus"/>
                         <t t-if="!env.isMobile"> Create</t>
@@ -32,10 +32,10 @@
                         </t>
                     </div>
                     <div t-if="!state.detailIsShown" class="searchbox-client top-content-center">
-                        <input placeholder="Search Customers" id="searchcustomer" size="1" t-on-keyup="updateClientList" />
+                        <input placeholder="Search Customers" size="1" t-on-keyup="updateClientList" />
                         <span class="search-clear-client"></span>
                     </div>
-                    <div class="button back" t-on-click="searchClient()" t-if="!state.detailIsShown" id="customerloadclick">
+                    <div class="button back" t-on-click="searchClient()" t-if="!state.detailIsShown">
                         <span class="database-icon">
                             <i class="fa fa-database"/>
                         </span>

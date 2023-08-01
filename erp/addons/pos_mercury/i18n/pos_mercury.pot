@@ -249,7 +249,7 @@ msgstr ""
 #: code:addons/pos_mercury/static/src/js/PaymentScreen.js:0
 #: code:addons/pos_mercury/static/src/js/PaymentScreen.js:0
 #, python-format
-msgid "ERP Error while processing transaction."
+msgid "Odoo error while processing transaction."
 msgstr ""
 
 #. module: pos_mercury

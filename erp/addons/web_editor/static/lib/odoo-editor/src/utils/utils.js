@@ -1585,7 +1585,7 @@ export function isEmptyBlock(blockEl) {
     for (const node of nodes) {
         // There is no text and no double BR, the only thing that could make
         // this visible is a "visible empty" node like an image.
-        if (node.nodeName != 'BR' && isVisibleEmpty(node)) {
+        if (node.nodeName != 'BR' && (isVisibleEmpty(node) || isFontAwesome(node))) {
             return false;
         }
     }
@@ -1769,12 +1769,7 @@ export function fillEmpty(el) {
         blockEl.appendChild(br);
         fillers.br = br;
     }
-    if (
-        !el.textContent.length &&
-        !isBlock(el) &&
-        el.nodeName !== 'BR' &&
-        !el.hasAttribute("oe-zws-empty-inline")
-    ) {
+    if (!isVisible(el) && !el.hasAttribute('oe-zws-empty-inline')) {
         // As soon as there is actual content in the node, the zero-width space
         // is removed by the sanitize function.
         const zws = document.createTextNode('\u200B');

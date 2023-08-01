@@ -240,7 +240,7 @@ function beforeEach(self) {
     data.partnerRootId = 2;
     data['res.partner'].records.push({
         active: false,
-        display_name: "ERPBot",
+        display_name: "OdooBot",
         id: data.partnerRootId,
     });
 
