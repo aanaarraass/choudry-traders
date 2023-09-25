@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_purchase_order_inherit_form" model="ir.ui.view">
+            <field name="name">purchase order inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="%(custom_purchase_order.action_purchase_order_wizard_wizard)d" type="action" string="Product History" class="btn-primary"/>
+<!--                    <button name="action_get_history_product" type="object" string="Get history" class="btn-danger"/>-->
+                </xpath>
+
+            </field>
+
+        </record>
+
+
+
+    </data>
+
+</odoo>

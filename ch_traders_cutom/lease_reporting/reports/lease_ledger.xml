@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+        <record id="paperformat_lease_ledger_report" model="report.paperformat">
+            <field name="name">lease.ledger.paperformat</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="mobilization_customer_ledger"
+                model="lease.sale"
+                report_type="qweb-pdf"
+                string="Customer Lease Ledger"
+                name="lease_reporting.lease_ledger_template"
+                file="lease_reporting.lease_ledger_template"
+                paperformat="paperformat_lease_ledger_report"
+        />
+
+
+        <template id="lease_reporting.lease_ledger_template">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <span style="font-weight: bold; font-size: 32px;">CUSTOMER LEDGER</span>
+                                </div>
+                            </div>
+
+                            <style>
+
+                                .table-bordered th,
+                                .table-bordered td {
+                                border: 1px solid black;
+                                padding: 3px;
+                                text-align: center;
+                                }
+                            </style>
+
+                            <div class="row">
+                                <div class="col-3">
+
+
+                                    <table class="table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th colspan="2" style="background-color:#dddddd">Leasing Profile</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Lease Date</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.lease_date"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">A/C Code</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.account_no"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Lease No</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Form No</td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Book No</td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Verified By</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.approved_by_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">R. Officer</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.recovery_officer_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">User Name</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.env.user.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Remarks</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.ref_person"/>
+                                                <t t-esc="o.ref_relation_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-6">
+                                    <table class="table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th colspan="5" style="background-color:#dddddd">CUSTOMER</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Branch</td>
+                                            <td colspan="3">
+                                                <t t-esc="o.branch_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Name</td>
+                                            <td colspan="3">
+                                                <t t-esc="o.partner_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Nick Name</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.nick_name"/>
+                                            </td>
+                                            <td colspan="1">Cast</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.cast_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Job</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.function"/>
+                                            </td>
+                                            <td colspan="1">House</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.address_status.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">M.Income</td>
+                                            <td colspan="1">
+                                                <t t-ese="o.partner_id.icome"/>
+                                            </td>
+                                            <td colspan="1">Res.Years</td>
+                                            <td colspan="1">2 Years</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Phone</td>
+                                            <td colspan="3">
+                                                <t t-esc="o.partner_id.phone_number"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Friend Phone</td>
+                                            <td colspan="3">dont know field</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">House Address</td>
+                                            <td colspan="3">
+                                                <t t-esc="o.partner_id.contact_address"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Bussiness</td>
+                                            <td colspan="3">
+                                                <t t-esc="o.partner_id.business_type"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">Area</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.customer_address_area_id.name"/>
+                                            </td>
+                                            <td colspan="1">City</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.customer_address_city_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">CNIC</td>
+                                            <td colspan="1">
+                                                <t t-esc="o.partner_id.cnic"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="col-3">
+                                    <div style="border: 1px solid black; width: 200px; height: 200px;">
+                                        <img t-if="o.partner_id.image_1920"
+                                             t-att-src="image_data_uri(o.partner_id.image_1920)"
+                                             style="border: 1px solid black; width: 200px; height: 200px;"/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mt-2">
+                                <t t-set="guarantor" t-value="o.guarantor_ids"/>
+                                <t t-set="seq" t-value="1"/>
+                                <div class="col-6" t-foreach="guarantor" t-as="g">
+
+                                    <table class="table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th colspan="5" style="background-color:#dddddd">GUARANTER NO.
+                                                <t t-esc="seq"/>
+                                                <t t-set="seq" t-value="seq+1"/>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">Name</td>
+                                            <td colspan="4">
+                                                <t t-esc="g.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Nick Name</td>
+                                            <td colspan="1">
+                                                <t t-esc="g.nick_name"/>
+                                            </td>
+                                            <td colspan="1">Cast</td>
+                                            <td colspan="2">
+                                                <t t-esc="g.cast_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Job</td>
+                                            <td colspan="2">
+                                                <t t-esc="g.function"/>
+                                            </td>
+                                            <td colspan="1">House</td>
+                                            <td colspan="1">
+                                                <t t-ese="g.address_status"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">M.Income</td>
+                                            <td colspan="2">
+                                                <t t-esc="g.income"/>
+                                            </td>
+                                            <td colspan="1">Res.Years</td>
+                                            <td colspan="1">
+                                                <t t-esc="g.home_since"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Phone</td>
+                                            <td colspan="3">
+                                                <t t-esc="g.phone_number"/>
+                                            </td>
+                                            <td rowspan="3" colspan="1">
+                                                <img t-if="g.image_1920" t-att-src="image_data_uri(g.image_1920)"
+                                                     style="border: 1px solid black; width: 150px; height: 150px;"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Friend Ph.</td>
+                                            <td colspan="3">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Address</td>
+                                            <td colspan="3">
+                                                <t t-esc="g.contact_address"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">Area</td>
+                                            <td colspan="2">
+                                                <t t-esc="g.customer_address_area_id.name"/>
+                                            </td>
+                                            <td colspan="1">City</td>
+                                            <td colspan="1">
+                                                <t t-esc="g.customer_address_city_id.name"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="1">CNIC</td>
+                                            <td colspan="2">
+                                                <t t-esc="g.cnic"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+
+                                <div class="col-12">
+                                    <table class="table-bordered" style="width: 100%;">
+                                        <tr>
+                                            <th colspan="10" style="background-color:#dddddd">SALE ITEMS</th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="1">SR#</th>
+                                            <th colspan="2">Product Name</th>
+                                            <th colspan="1">Brand Name</th>
+                                            <th colspan="1">Catagory</th>
+                                            <th colspan="1">Model</th>
+                                            <th colspan="1">Color</th>
+                                            <th colspan="1">Qty</th>
+                                            <th colspan="1">Rate</th>
+                                            <th colspan="1">Amount</th>
+                                        </tr>
+                                        <t t-set="sale_item_details" t-value="o.lease_sale_item_ids"/>
+                                        <t t-set="sale_seq" t-value="1"/>
+                                        <tr t-foreach="sale_item_details" t-as="sale">
+                                            <td colspan="1">
+                                                <t t-esc="sale_seq"/>
+                                                <t t-set="sale_seq" t-value="sale_seq+1"/>
+                                            </td>
+                                            <td colspan="2">
+                                                <t t-esc="sale.product_id.name"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="sale.qty"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="sale.price"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="sale.total"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="10"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="2">Installment Amount</th>
+                                            <th colspan="1">NOI</th>
+                                            <th colspan="1">First Due Date</th>
+                                            <th colspan="2">Total Amount</th>
+                                            <th colspan="3">Down Payment</th>
+                                            <th colspan="1">Remaining Balance</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="2">
+                                                <t t-esc="o.amount_of_instalment"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="o.number_of_instalment"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-esc="o.instalment_date"/>
+                                            </td>
+                                            <td colspan="2">
+                                                <t t-set="total_sale" t-value="o.sale_total - o.sale_return_total"/>
+                                                <t t-esc="total_sale"/>
+                                            </td>
+                                            <!--                                            t-value="sum([x.discount for x in doc.order_line])"-->
+                                            <td colspan="3">
+                                                <t t-set="advance"
+                                                   t-value="sum([adv.amount_total_signed for adv in o.advance_payment_ids])"/>
+                                                <t t-esc="advance"/>
+                                            </td>
+                                            <td colspan="1">
+                                                <t t-set="remaining" t-value="total_sale - advance"/>
+                                                <t t-esc="remaining"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="10" style="background-color:#dddddd">INSTALMENT RECEIVED</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="3">Recipt No</th>
+                                            <th colspan="1">Date</th>
+                                            <th colspan="2">User</th>
+                                            <th colspan="3">Received</th>
+                                            <th colspan="1">Balance</th>
+                                        </tr>
+
+
+                                        <t t-set="paid_instalment"
+                                           t-value="o.installment_ids.filtered(lambda x:x.invoice_payment_status == 'paid')"/>
+                                        <t t-set="remaing_bal" t-value="remaining"/>
+                                        <t t-set="reved_total" t-value="0"/>
+
+                                        <t t-foreach="paid_instalment" t-as="paid">
+                                            <h1></h1>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <t t-esc="paid.invoice_id.name"/>
+                                                </td>
+                                                <td colspan="1">
+                                                    <t t-esc="paid.invoice_id.invoice_date"/>
+                                                </td>
+                                                <td colspan="2">
+                                                    <t t-esc="paid.invoice_id.invoice_user_id.name"/>
+                                                </td>
+                                                <td colspan="3">
+                                                    <t t-esc="paid.invoice_id.amount_total_signed"/>
+                                                    <t t-set="reved_total"
+                                                       t-value="reved_total+paid.invoice_id.amount_total_signed"/>
+                                                </td>
+                                                <t t-set="remaing_bal"
+                                                   t-value="remaing_bal - paid.invoice_id.amount_total_signed"/>
+                                                <td colspan="1">
+                                                    <t t-esc="remaing_bal"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+
+                                        <tr>
+                                            <td colspan="4"
+                                                style="border-left: 1px solid white; border-right: 1px solid white; border-bottom: 1px solid white;"><t t-esc="''"/></td>
+                                            <th colspan="2"
+                                                style="border-left: 1px solid white; border-bottom: 1px solid white;">
+                                                Total
+                                                :
+                                            </th>
+                                            <td colspan="3">
+                                                <t t-esc="reved_total"/>
+                                            </td>
+
+                                            <td colspan="1"
+                                                style="border-top: 1px solid white; border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;"><t t-esc="''"/></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td rowspan="1"
+                                                style="border-left: 1px solid white; border-right: 1px solid white;"><t t-esc="''"/> </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="10" style="background-color:#dddddd">SALE RETURN</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="1">SR#</th>
+                                            <th colspan="1">Date</th>
+                                            <th colspan="1">Product</th>
+                                            <th colspan="1">Brand</th>
+                                            <th colspan="1">Catagory</th>
+                                            <th colspan="1">Model</th>
+                                            <th colspan="1">Color</th>
+                                            <th colspan="1">Qty</th>
+                                            <th colspan="1">Rate</th>
+                                            <th colspan="1">Amount</th>
+                                        </tr>
+                                        <t t-set="sale_return" t-value="o.lease_sale_return_ids"/>
+                                        <t t-set="sale_r_seq" t-value="1"/>
+                                        <t t-foreach="sale_return" t-as="sl">
+                                            <tr>
+                                                <th colspan="1">
+                                                    <t t-esc="sale_r_seq"/>
+                                                    <t t-set="sale_r_seq" t-value="sale_r_seq +1"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="sl.create_date"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="sl.product_id.name"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="''"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="''"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="''"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="''"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="sl.qty"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="sl.price"/>
+                                                </th>
+                                                <th colspan="1">
+                                                    <t t-esc="sl.total"/>
+                                                </th>
+                                            </tr>
+                                        </t>
+
+                                        <tr>
+                                            <th colspan="8"
+                                                style="border-left: 1px solid white; border-bottom: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </th>
+                                            <th colspan="1">Total:</th>
+                                            <th colspan="1">
+                                                <t t-esc="o.sale_return_total"/>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td rowspan="1"
+                                                style="border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <th colspan="10" style="background-color:#dddddd">PAYMENT</th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="3">Payment No</th>
+                                            <th colspan="1">Date</th>
+                                            <th colspan="2">User</th>
+                                            <th colspan="3">Payment Description</th>
+                                            <th colspan="1">Amount</th>
+                                        </tr>
+                                        <!--                                        <t t-foreach="paid_instalment" t-as="p">-->
+                                        <!--                                            <tr>-->
+                                        <!--                                                <th colspan="3"><t t-esc="p.invoice_id.payment_id"/> </th>-->
+                                        <!--                                                <th colspan="1">Date</th>-->
+                                        <!--                                                <th colspan="2">User</th>-->
+                                        <!--                                                <th colspan="3">Payment Description</th>-->
+                                        <!--                                                <th colspan="1">Amount</th>-->
+                                        <!--                                            </tr>-->
+                                        <!--                                        </t>-->
+
+
+                                        <tr>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+
+                                            </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </th>
+                                            <th colspan="1">Total:</th>
+                                            <th colspan="1">
+                                                <t t-esc="''"/>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td rowspan="1"
+                                                style="border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="10" style="background-color:#dddddd">DISCOUNT</th>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="2">Lease No</th>
+                                            <th colspan="3">Installment Date</th>
+                                            <th colspan="1">Inst.Amount</th>
+                                            <th colspan="3">Discount Date</th>
+                                            <th colspan="1">Discount</th>
+                                        </tr>
+                                        <t t-set="discount_total" t-value="0"/>
+                                        <t t-foreach="paid_instalment" t-as="dis">
+                                            <t t-if="dis.discount_amount">
+                                                <tr>
+                                                    <th colspan="2">
+                                                        <t t-esc="o.name"/>
+                                                    </th>
+                                                    <th colspan="3">
+                                                        <t t-esc="dis.due_date"/>
+                                                    </th>
+                                                    <th colspan="1">
+                                                        <t t-esc="dis.amount"/>
+                                                    </th>
+                                                    <th colspan="3">
+                                                        <t t-esc="''"/>
+                                                    </th>
+                                                    <th colspan="1">
+                                                        <t t-esc="dis.discount_amount"/>
+                                                        <t t-set="discount_total"
+                                                           t-value="discount_total+dis.discount_amount"/>
+                                                    </th>
+                                                </tr>
+                                            </t>
+                                        </t>
+
+                                        <tr>
+                                            <td colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+
+                                            </td>
+                                            <td colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <td colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                            <th colspan="1">Total:</th>
+                                            <td colspan="1">
+                                                <t t-esc="discount_total"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td rowspan="1"
+                                                style="border-left: 1px solid white; border-right: 1px solid white; border-top: 1px solid white; border-bottom: 1px solid white;">
+                                                <t t-esc="''"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th colspan="1"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white; border-top: 1px solid white;"><t t-esc="''"/> </th>
+                                            <th colspan="1"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white; border-top: 1px solid white;"><t t-esc="''"/> </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-right: 1px solid white; border-top: 1px solid white;"><t t-esc="''"/> </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-left: 1px solid white; border-top: 1px solid white; ">
+                                                Short Amount:
+                                            </th>
+                                            <th colspan="1"><t t-esc="''"/> </th>
+                                            <th colspan="2"
+                                                style="border-bottom: 1px solid white; border-top: 1px solid white;">
+                                                Net Balance:
+                                            </th>
+                                            <th colspan="1"><t t-esc="remaing_bal"/> </th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

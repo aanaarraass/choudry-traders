@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+      <!-- Inherit Form View to Modify it -->
+      <record id="is_instalmet_price_list_inherit" model="ir.ui.view">
+          <field name="name">product.pricelist.inherit</field>
+          <field name="model">product.pricelist</field>
+          <field name="inherit_id" ref="product.product_pricelist_view"/>
+          <field name="arch" type="xml">
+              <xpath expr="//group[@name='pricelist_settings']" position="inside">
+                  <field name="is_instalment_price_list"/>
+              </xpath>
+          </field>
+      </record>
+  </data>
+</odoo>

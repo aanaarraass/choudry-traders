@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models,customer,guarantor,reject_wizard
+from . import models,customer_area,customer,guarantor,reject_wizard,price_list

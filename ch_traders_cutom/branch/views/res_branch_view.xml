@@ -14,12 +14,18 @@
                                 <field name="name"/>
                                 <field name="company_id"/>
                                 <field name="telephone"/>
+                                <field name="branch_manager_id"/>
                             </group>
                             <group>
                                 <field name="address"/>
                             </group>
                         </group>
                     </sheet>
+                     <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
             </field>
         </record>

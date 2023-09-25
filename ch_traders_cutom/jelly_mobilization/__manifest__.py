@@ -37,6 +37,7 @@
         'views/sms_body.xml',
         'views/templates.xml',
         'views/views.xml',
+        'views/res_branch.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

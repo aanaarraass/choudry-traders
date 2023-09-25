@@ -17,17 +17,41 @@
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <form string="lease_customer_form">
+                    <!--                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>-->
+                    <script src="/cybat_installment_sale/static/input_mask.js"/>
+                    <script>
+                        console.log('start')
+                        $(document).ready(function() {
+                        setTimeout(function() {
+                        if ($('input[name="cnic"]').length > 0) {
+                        function apply_mask_cnic() {
+                        $('input[name="cnic"]').inputmask('99999-9999999-9');
+                        }
+                        apply_mask_cnic();
+                        }
+
+                        if ($('input[name="phone_number"]').length > 0) {
+                        function apply_mask_phone() {
+                        $('input[name="phone_number"]').inputmask('+99-999-9999999');
+                        }
+                        apply_mask_phone();
+                        }
+                        }, 3000); // 3000 milliseconds (3 seconds) delay
+                        });
+                        console.log('end')
+                    </script>
                     <header>
                         <field name="advance_paymeny_id" invisible="1"/>
                         <field name="state" widget="statusbar"/>
-                        <button name="advance_payment" type="object" string="Advance Payment"
-                                attrs="{'invisible': ['|',('advance_paymeny_id', '!=', False),('state', '=', 'reject')]}"/>
+                        <!--                        <button name="advance_payment" type="object" string="Advance Payment"-->
+                        <!--                                attrs="{'invisible': ['|',('advance_paymeny_id', '!=', False),('state', '=', 'reject')]}"/>-->
                         <button name="approved" type="object" string="Select" states="draft"/>
                         <button name="reject" type="object" string="Reject" states="draft"/>
                         <button name="reset_draft" type="object" string="Reset To Draft" states="select,reject"/>
-                        <button name="create_lease_sale" type="object" string="Create Lease" states="select"/>
+                        <button name="create_lease_sale" type="object" string="Create Lease" states="draft,select"/>
                         <button name="mark_deceased_customer" type="object" string="Mark Customer Deceased"/>
                         <button name="mark_defaulter_customer" type="object" string="Mark Customer Defaulter"/>
+                        <button name="deceased_and_defaulter_reset" type="object" string="Reset Defaulter/Deceased"/>
                     </header>
                     <sheet>
                         <field name="advance_paymeny_id" invisible="1"/>
@@ -67,8 +91,10 @@
                                 </div>
                             </button>
                         </div>
-                        <widget name="web_ribbon" title="Deceased Customer" bg_color="bg-danger" attrs="{'invisible': [('is_decesced', '!=', True)]}"/>
-                        <widget name="web_ribbon" title="Defaulter Customer" bg_color="bg-danger" attrs="{'invisible': [('is_defaulter', '!=', True)]}"/>
+                        <widget name="web_ribbon" title="Deceased Customer" bg_color="bg-danger"
+                                attrs="{'invisible': [('is_decesced', '!=', True)]}"/>
+                        <widget name="web_ribbon" title="Defaulter Customer" bg_color="bg-danger"
+                                attrs="{'invisible': [('is_defaulter', '!=', True)]}"/>
                         <field name="is_lease_customer" invisible="1"/>
                         <h2>Personal Information</h2>
                         <div class="row">
@@ -102,6 +128,9 @@
                                         <label for="recovery_officer_id"/>
                                     </div>
                                     <div class="col-3">
+                                        <label for="portfolio_id"/>
+                                    </div>
+                                    <div class="col-3">
                                         <label for="salesman_id"/>
                                     </div>
                                     <div class="col-3">
@@ -111,6 +140,9 @@
                                 <div class="row">
                                     <div class="col-3">
                                         <field name="recovery_officer_id"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <field name="portfolio_id"/>
                                     </div>
                                     <div class="col-3">
                                         <field name="salesman_id"/>
@@ -151,7 +183,8 @@
                                 <field name="nick_name"/>
                             </div>
                             <div class="col-4">
-                                <field name="cnic"/>
+                                <field name="cnic"
+                                       attrs="{'invisible': [('is_lease_customer', '!=', True)],'required': [('is_lease_customer', '=', True)]}"/>
                             </div>
                         </div>
                         <div class="row">
@@ -181,10 +214,10 @@
                                 <label for="address_status" string="Residential Status"/>
                             </div>
                             <div class="col-4">
-                                <label for="home_since"/>
+                                <label for="living_year" string="Living At Home Since"/>
                             </div>
                             <div class="col-4">
-                                <label for="area_since"/>
+                                <label for="area_living_year" string="Living At Area Since"/>
                             </div>
                         </div>
                         <div class="row">
@@ -192,20 +225,28 @@
                                 <field name="address_status"/>
                             </div>
                             <div class="col-4">
-                                <field name="home_since"/>
+                                <!--                                <field name="home_since"/>-->
+                                <field name="living_year" placeholder="2023"/>
+                                <field name="living_month" placeholder="12"/>
+                                <field name="living_days" placeholder="31"/>
                             </div>
                             <div class="col-4">
-                                <field name="area_since"/>
+                                <field name="area_living_year" placeholder="2023"/>
+                                <field name="area_living_month" placeholder="12"/>
+                                <field name="area_living_days" placeholder="31"/>
                             </div>
                         </div>
+                        <!--                        <div class="row">-->
+                        <!--                            <div class="col-12">-->
+                        <!--                                <label for="contact_address" string="Current Address"/>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <div class="row">
-                            <div class="col-12">
-                                <label for="contact_address" string="Current Address"/>
+                            <div class="col-1">
+                                <label for="current_address" string="Current Address"/>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <field name="contact_address"/>
+                            <div class="col-11">
+                                <field name="current_address"/>
                             </div>
                         </div>
                         <div class="row">
@@ -213,13 +254,13 @@
                                 <label for="near_by"/>
                             </div>
                             <div class="col-3">
-                                <label for="area"/>
+                                <label for="customer_address_area_id"/>
                             </div>
                             <div class="col-3">
-                                <label for="road"/>
+                                <label for="customer_address_road_id"/>
                             </div>
                             <div class="col-3">
-                                <label for="city"/>
+                                <label for="customer_address_city_id"/>
                             </div>
                         </div>
                         <div class="row">
@@ -227,13 +268,13 @@
                                 <field name="near_by"/>
                             </div>
                             <div class="col-3">
-                                <field name="area"/>
+                                <field name="customer_address_area_id"/>
                             </div>
                             <div class="col-3">
-                                <field name="road"/>
+                                <field name="customer_address_road_id"/>
                             </div>
                             <div class="col-3">
-                                <field name="city"/>
+                                <field name="customer_address_city_id"/>
                             </div>
                         </div>
                         <div class="row">
@@ -248,7 +289,7 @@
                                 <label for="phone_number"/>
                             </div>
                             <div class="col-4">
-                                <label for="relation_id"/>
+                                <!--                                <label for="relation_id"/>-->
                             </div>
                         </div>
                         <div class="row">
@@ -256,7 +297,7 @@
                                 <field name="phone_number"/>
                             </div>
                             <div class="col-4">
-                                <field name="relation_id"/>
+                                <!--                                <field name="relation_id"/>-->
                             </div>
                         </div>
                         <div class="row">
@@ -327,6 +368,27 @@
                                         <field name="state"/>
                                     </tree>
                                     <form string="guarantor_form">
+                                        <!--                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>-->
+                                        <script src="/cybat_installment_sale/static/input_mask.js"/>
+                                        console.log('start')
+                                        $(document).ready(function() {
+                                        setTimeout(function() {
+                                        if ($('input[name="cnic"]').length > 0) {
+                                        function apply_mask_cnic() {
+                                        $('input[name="cnic"]').inputmask('99999-9999999-9');
+                                        }
+                                        apply_mask_cnic();
+                                        }
+
+                                        if ($('input[name="phone_number"]').length > 0) {
+                                        function apply_mask_phone() {
+                                        $('input[name="phone_number"]').inputmask('+99-999-9999999');
+                                        }
+                                        apply_mask_phone();
+                                        }
+                                        }, 3000); // 3000 milliseconds (3 seconds) delay
+                                        });
+                                        console.log('end')
                                         <header>
                                             <field name="state" widget="statusbar"/>
                                             <button name="approved" type="object" string="Select" states="draft"/>
@@ -436,10 +498,10 @@
                                                     <label for="address_status" string="Residential Status"/>
                                                 </div>
                                                 <div class="col-4">
-                                                    <label for="home_since"/>
+                                                    <label for="living_year" string="Living At Home Since"/>
                                                 </div>
                                                 <div class="col-4">
-                                                    <label for="area_since"/>
+                                                    <label for="area_living_year" string="Living At Area Since"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -447,10 +509,14 @@
                                                     <field name="address_status"/>
                                                 </div>
                                                 <div class="col-4">
-                                                    <field name="home_since"/>
+                                                    <field name="living_year" placeholder="2023"/>
+                                                    <field name="living_month" placeholder="12"/>
+                                                    <field name="living_days" placeholder="31"/>
                                                 </div>
                                                 <div class="col-4">
-                                                    <field name="area_since"/>
+                                                    <field name="area_living_year" placeholder="2023"/>
+                                                    <field name="area_living_month" placeholder="12"/>
+                                                    <field name="area_living_days" placeholder="31"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -468,13 +534,13 @@
                                                     <label for="near_by"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <label for="area"/>
+                                                    <label for="customer_address_area_id"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <label for="road"/>
+                                                    <label for="customer_address_road_id"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <label for="city"/>
+                                                    <label for="customer_address_city_id"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -482,13 +548,13 @@
                                                     <field name="near_by"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <field name="area"/>
+                                                    <field name="customer_address_area_id"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <field name="road"/>
+                                                    <field name="customer_address_road_id"/>
                                                 </div>
                                                 <div class="col-3">
-                                                    <field name="city"/>
+                                                    <field name="customer_address_city_id"/>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -576,6 +642,11 @@
                                                 </div>
                                             </div>
                                         </sheet>
+                                        <div class="oe_chatter">
+                                            <field name="message_follower_ids"/>
+                                            <field name="activity_ids"/>
+                                            <field name="message_ids"/>
+                                        </div>
                                     </form>
                                 </field>
                             </page>
@@ -590,27 +661,38 @@
                                 </group>
 
                             </page>
+                            <page string="History">
+                                <field name="previous_address_ids" readonly="1">
+                                    <tree create="0" delete="0" editable="0">
+                                        <field name="name" string="Previous Address"/>
+                                    </tree>
+                                    <form>
+                                        <field name="name"/>
+                                    </form>
+                                </field>
+                            </page>
                         </notebook>
                     </sheet>
-                     <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </form>
+
             </field>
         </record>
 
         <record id="lease_customer_serach_view" model="ir.ui.view">
-           <field name="name">Lease Customer Search</field>
-           <field name="model">res.partner</field>
+            <field name="name">Lease Customer Search</field>
+            <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <search string="Customer Search">
-              <field name="name" string="name"/>
-              <field name="cnic" string="Cnic"/>
-              <field name="phone_number" string="Phone Number"/>
-            </search>
-           </field>
+                    <field name="name" string="name"/>
+                    <field name="cnic" string="Cnic"/>
+                    <field name="phone_number" string="Phone Number"/>
+                </search>
+            </field>
         </record>
 
         <record id="lease_customer_action" model="ir.actions.act_window">

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="cast_action" model="ir.actions.act_window">
+        <field name="name">Cast</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cast.cast</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="marital_status_action" model="ir.actions.act_window">
+        <field name="name">Martial Status</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">marital.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="residantal_statis_action" model="ir.actions.act_window">
+        <field name="name">Residential Status</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">residential.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="relation_action" model="ir.actions.act_window">
+        <field name="name">Relation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">relation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

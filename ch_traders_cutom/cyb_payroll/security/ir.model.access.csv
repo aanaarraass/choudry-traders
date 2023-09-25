@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_late_attendances_line,late_ attendances_ line,cyb_payroll.model_late_attendances_line,base.group_user,1,1,1,1
+access_late_leave_attendances_line,late_leaveattendances_ line,cyb_payroll.model_late_leave_attendances_line,base.group_user,1,1,1,1
+access_hr_payslip_wizard,hr_payslip_wizard,cyb_payroll.model_hr_payslip_wizard,base.group_user,1,1,1,1
+access_hr_payslip_wizard_line,hr_payslip_wizard_line,cyb_payroll.model_hr_payslip_wizard_line,base.group_user,1,1,1,1
+access_payslip_leave_date,payslip_leave_date,cyb_payroll.model_payslip_leave_date,base.group_user,1,1,1,1
+access_absent_line,access_absent_line,cyb_payroll.model_absent_line,base.group_user,1,1,1,1

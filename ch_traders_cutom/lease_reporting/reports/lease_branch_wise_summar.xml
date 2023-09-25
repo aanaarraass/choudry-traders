@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+        <record id="paperformat_lease_summary_report" model="report.paperformat">
+            <field name="name">mobilization.paperformat</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <template id="lease_reporting.lease_summary">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <span style="font-weight: bold; font-size: 32px;">CHOUDHARY TRADERS</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-6 text-center">
+                                <span style="font-weight: bold; font-size: 24px;">Lease Summary Report (Date Wise)
+                                </span>
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4 m-3">
+                                <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                    <t t-esc="date_from"/>
+                                </span>
+                                <span style="font-weight: bold; padding: 4px;">To</span>
+                                <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                    <t t-esc="date_to"/>
+                                </span>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Recovery Officer:</span>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Area Name:</span>
+                            </div>
+                        </div>
+
+                        <style>
+                            table {
+                            width: 100%;
+                            table-layout: fixed;
+                            }
+
+                            th, td {
+                            border: 1px solid black;
+                            padding: 4px;
+                            text-align: center;
+                            }
+                        </style>
+
+                        <t t-set="selected_branch" t-value="env['lease.sale'].search(domain)"/>
+                        <t t-set="branches" t-value="selected_branch.mapped('branch_id')"/>
+                        <t t-set="branch_total_sale_qty" t-value="0"/>
+                        <t t-set="branch_total_sale" t-value="0"/>
+                        <t t-set="branch_total_sale_down_payment" t-value="0"/>
+                        <t t-set="branch_total_sale_receivable" t-value="0"/>
+                        <t t-foreach="branches" t-as="ba">
+                            <table>
+                                <tr>
+                                    <th colspan="5">
+                                        <t t-raw="ba.name"/>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Lease Date</th>
+                                    <th>Sate Items Qty</th>
+                                    <th>Sale Amount</th>
+                                    <th>Down Payment</th>
+                                    <th>Receivable Amount</th>
+                                </tr>
+
+                                <t t-set="branch_wise"
+                                   t-value="selected_branch.filtered(lambda x:x.branch_id.id == ba.id)"/>
+                                <t t-foreach="date_range" t-as="date">
+                                    <t t-set="today_lease"
+                                       t-value="branch_wise.filtered(lambda x: str(x.lease_date) == str(date))"/>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="date"/>
+                                        </td>
+                                        <td>
+                                            <t t-set="item_qty" t-value="0"/>
+                                            <t t-set="sale_amount" t-value="0"/>
+                                            <t t-set="advance" t-value="0"/>
+
+                                            <t t-foreach="today_lease" t-as="lease">
+                                                <t t-set="sale_line" t-value="lease.lease_sale_item_ids"/>
+                                                <t t-set="advance_line" t-value="lease.advance_payment_ids"/>
+                                                <t t-foreach="sale_line" t-as="sl">
+                                                    <t t-set="item_qty" t-value="item_qty+sl.qty"/>
+                                                </t>
+                                                <t t-set="sale_amount" t-value="sale_amount+(lease.sale_total-lease.sale_return_total)"/>
+                                                <t t-foreach="advance_line" t-as="ad">
+                                                    <t t-set="advance" t-value="advance+ad.amount_total_signed"/>
+                                                </t>
+                                            </t>
+                                            <t t-esc="item_qty"/>
+                                            <t t-set="branch_total_sale_qty" t-value="branch_total_sale_qty+item_qty"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="sale_amount"/>
+                                            <t t-set="branch_total_sale" t-value="branch_total_sale+sale_amount"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="advance"/>
+                                            <t t-set="branch_total_sale_down_payment" t-value="branch_total_sale_down_payment+advance"/>
+                                        </td>
+                                        <td>
+                                            <t t-set="receivable" t-value="sale_amount-advance"/>
+                                            <t t-esc="receivable"/>
+                                             <t t-set="branch_total_sale_receivable" t-value="branch_total_sale_receivable+receivable"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <th>Branch Total</th>
+                                    <th><t t-esc="branch_total_sale_qty"/> </th>
+                                    <th><t t-esc="branch_total_sale"/> </th>
+                                    <th><t t-esc="branch_total_sale_down_payment"/> </th>
+                                    <th><t t-esc="branch_total_sale_receivable"/> </th>
+                                </tr>
+
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="lease_branch_wise_report"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="Choudhary Traders Lease Summary Report"
+                name="lease_reporting.lease_summary"
+                file="lease_reporting.lease_summary"
+                paperformat="paperformat_lease_summary_report"
+        />
+
+
+    </data>
+</odoo>

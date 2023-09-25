@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="paperformat_lease_report_installment_receipts" model="report.paperformat">
+            <field name="name">installment_receipts_details</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <template id="lease_reporting.report_installment_receipts">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <style>
+
+                            .table-bordered th,
+                            .table-bordered td {
+                            border: 1px solid black;
+                            padding: 3px;
+                            text-align: center;
+                            }
+                            td {
+                            font-size: 12px;
+                            }
+                        </style>
+
+
+                        <div style="width: 100%; border: 1px solid black; text-align: center; font-weight: bold; font-size: 25px;">
+                            CHAUDHARY TRADERS
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-4"></div>
+                            <div class="col-4"
+                                 style="color: white; background-color: black; text-align: center; font-weight: bold; font-size: 25px;">
+                                Activity Report
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 mt-3 mb-3">
+                            </div>
+                            <div class="col-4 mt-3 mb-3">
+                                <span style="border: 1px solid black; font-weight: bold; margin-right: 8px;" class="p-2 bold-text">
+                                    <t t-esc="date_from"/>
+                                </span>
+                                <span class="ml-2 mr-2" style="font-weight: bold; padding: 7px;">To</span>
+                                <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                    <t t-esc="date_to"/>
+                                </span>
+                            </div>
+                            <div class="col-4 mt-3 mb-3" style="text-align: right; width: 400px;">
+                            </div>
+                        </div>
+
+
+                        <div style="text-align: center; font-weight: bold;">
+                            <b style="text-align: center; font-weight: bold; font-size: 25px;">
+                                Installments Receipts
+                            </b>
+                        </div>
+                        <table class="table-bordered" style="width: 100%;">
+                            <tr>
+                                <th>Date</th>
+                                <th>Br.#</th>
+                                <th>Book No</th>
+                                <th>Form No</th>
+                                <th>Lease No</th>
+                                <th>Customer Name</th>
+                                <th>Area Name</th>
+                                <th>Recipts No</th>
+                                <th>User Name</th>
+                                <th>Amount</th>
+                            </tr>
+                            <t t-set="installments_recipts" t-value="request.env['account.payment'].search(
+                            [('payment_type', '=', 'inbound'),('is_instalment', '=', 1),
+                            ('date', '&gt;=', date_from),('date', '&lt;=', date_to)])"/>
+                            <t t-foreach="installments_recipts" t-as="ir">
+
+                                <tr>
+                                    <td>
+                                        <t t-esc="ir.date"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ir.branch_id.name"/>
+                                    </td>
+                                    <td><t t-esc="ir.instalment_id.lease_sale_id.book_no"/> </td>
+                                    <td><t t-esc="ir.instalment_id.lease_sale_id.form_no"/></td>
+                                    <td><t t-esc="ir.instalment_id.lease_sale_id.name"/></td>
+                                    <th>
+                                        <t t-esc="ir.partner_id.name"/>
+                                    </th>
+                                    <td>
+                                        <t t-esc="ir.partner_id.customer_address_area_id.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ir.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ir.env.user[0].name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ir.amount"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="installment_receipts_details_reports_ids"
+                model="installment.receipts.details"
+                string="Installment Receipts Detail Report"
+                report_type="qweb-pdf"
+                name="lease_reporting.report_installment_receipts"
+                file="lease_reporting.report_installment_receipts"
+                attachment_use="False"
+                paperformat="paperformat_lease_report_installment_receipts"
+        />
+
+    </data>
+</odoo>

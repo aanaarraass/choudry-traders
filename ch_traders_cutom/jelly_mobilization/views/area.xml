@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="area_ids_inherit" model="ir.ui.view">
+            <field name="name">area.inherit</field>
+            <field name="model">res.branch</field>
+            <field name="inherit_id" ref="branch.branch_res_branch_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='address']" position="after">
+                    <field name="area_ids"/>
+                </xpath>
+
+            </field>
+        </record>
+
         <record id="area_view_form" model="ir.ui.view">
             <field name="name">area_view_form</field>
             <field name="model">area.area</field>
@@ -13,6 +27,8 @@
                             </group>
                             <group>
                                 <field name="branch_id"/>
+                                <field name="area_supervisor_id"/>
+                                <field name="portfolio_id"/>
                             </group>
                         </group>
                     </sheet>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="installments_Receipts_wisard_form_id" model="ir.ui.view">
+        <field name="name">Installments receipts details</field>
+        <field name="model">installment.receipts.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button string="Lease Transaction Print" name="installment_receipts" type="object"
+                            class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="pdf_installments_receipts_action_view_id" model="ir.actions.act_window">
+        <field name="name">Installments Receipts Details</field>
+        <field name="res_model">installment.receipts.details</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="installments_Receipts_wisard_form_id"/>
+        <field name="target">new</field>
+    </record>
+
+<!--     <menuitem id="lease_sale_reporting_categ" name="Reporting" parent="cybat_installment_sale.lease_sale_root" sequence="25"/>-->
+
+    <menuitem id="installments_receipts_menu_item_ids" parent="lease_sale_reporting_categ" name="Installment Receipts"
+              action="pdf_installments_receipts_action_view_id"/>
+
+
+</odoo>

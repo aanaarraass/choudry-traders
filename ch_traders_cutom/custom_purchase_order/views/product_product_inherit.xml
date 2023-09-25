@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_latest_price_form_view" model="ir.ui.view">
+        <field name="name">product.template.common.form.commission</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="standard_price" position="after">
+                <label for="last_purchase_price" string="Last Purchase Price"/>
+                    <field name="last_purchase_price" widget="monetary"/>
+
+            </field>
+        </field>
+    </record>
+</odoo>

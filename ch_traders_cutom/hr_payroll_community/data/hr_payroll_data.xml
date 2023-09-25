@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="contrib_register_employees" model="hr.contribution.register">
+            <field name="name">Employees</field>
+            <field name="partner_id" eval="False"/>
+        </record>
+
+        <record id="BASIC" model="hr.salary.rule.category">
+            <field name="name">Basic</field>
+            <field name="code">BASIC</field>
+        </record>
+
+        <record id="ALW" model="hr.salary.rule.category">
+            <field name="name">Allowance</field>
+            <field name="code">ALW</field>
+        </record>
+
+        <record id="GROSS" model="hr.salary.rule.category">
+            <field name="name">Gross</field>
+            <field name="code">GROSS</field>
+        </record>
+
+        <record id="DED" model="hr.salary.rule.category">
+            <field name="name">Deduction</field>
+            <field name="code">DED</field>
+        </record>
+
+        <record id="NET" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">NET</field>
+        </record>
+
+        <record id="hr_rule_basic" model="hr.salary.rule">
+            <field name="name">Salary</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">BASIC</field>
+            <field name="category_id" ref="hr_payroll_community.BASIC"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage</field>
+        </record>
+
+        <record id="hr_rule_paid_leaves" model="hr.salary.rule">
+            <field name="name">Paid Leaves</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">PAID</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+day_rate = contract.wage / 30
+try:
+    paid_leaves = (worked_days.PAID.number_of_days)
+except:
+    paid_leaves = 0
+result = day_rate * paid_leaves
+            </field>
+        </record>
+
+        <record id="hr_rule_late" model="hr.salary.rule">
+            <field name="name">Late Attendance Deduction</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">LATE</field>
+            <field name="category_id" ref="hr_payroll_community.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+day_rate = contract.wage / 30
+try:
+    late_days = (worked_days.LATE.number_of_days)
+except:
+    late_days = 0
+result = -(day_rate * late_days)
+
+            </field>
+        </record>
+
+        <record id="hr_rule_absent" model="hr.salary.rule">
+            <field name="name">Absent Days Deduction</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">ABSENT</field>
+            <field name="category_id" ref="hr_payroll_community.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+day_rate = contract.wage / 30
+try:
+    absent_days = (worked_days.ABSENT.number_of_days)
+except:
+    absent_days = 0
+result = -(day_rate * absent_days)
+
+            </field>
+        </record>
+
+        <record id="hr_rule_input_cash_sale_incentive" model="hr.salary.rule">
+            <field name="name">Cash Sale Incentive</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">CSI</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.CSI.amount if inputs.CSI else 0</field>
+        </record>
+
+        <record id="hr_rule_input_lease_sale_incentive" model="hr.salary.rule">
+            <field name="name">Lease Sale Incentive</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">LSI</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.LSI.amount if inputs.LSI else 0</field>
+        </record>
+
+        <record id="hr_rule_input_recovery" model="hr.salary.rule">
+            <field name="name">Recovery Sale Incentive</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">RSI</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.RSI.amount if inputs.RSI else 0</field>
+        </record>
+
+        <record id="hr_rule_net" model="hr.salary.rule">
+            <field name="name">Net Salary</field>
+            <field name="sequence" eval="200"/>
+            <field name="code">NET</field>
+            <field name="category_id" ref="hr_payroll_community.NET"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.BASIC + categories.ALW + categories.DED</field>
+            <field name="register_id" ref="contrib_register_employees"/>
+        </record>
+
+        <!-- Salary Structure -->
+
+         <record id="structure_base" model="hr.payroll.structure">
+            <field name="code">CHTR</field>
+            <field name="name">CH Traders Employee</field>
+            <field eval="[(6, 0, [ref('hr_rule_basic'), ref('hr_rule_paid_leaves'),ref('hr_rule_late'),ref('hr_rule_absent'),ref('hr_rule_input_cash_sale_incentive'),ref('hr_rule_input_lease_sale_incentive'),ref('hr_rule_input_recovery'),ref('hr_rule_net')])]" name="rule_ids"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <!-- Decimal Precision -->
+
+        <record forcecreate="True" id="decimal_payroll" model="decimal.precision">
+            <field name="name">Payroll</field>
+            <field name="digits">2</field>
+        </record>
+
+        <record forcecreate="True" id="decimal_payroll_rate" model="decimal.precision">
+            <field name="name">Payroll Rate</field>
+            <field name="digits">4</field>
+        </record>
+
+
+    </data>
+</odoo>

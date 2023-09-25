@@ -1,0 +1,365 @@
+<odoo>
+    <data>
+        <record id="monthly_target_view_tree" model="ir.ui.view">
+            <field name="name">monthly_target_view_tree</field>
+            <field name="model">monthly.target</field>
+            <field name="arch" type="xml">
+                <tree string="monthly_target_tree">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+        <record id="monthly_target_view_form" model="ir.ui.view">
+            <field name="name">monthly_target_view_form</field>
+            <field name="model">monthly.target</field>
+            <field name="arch" type="xml">
+                <form string="monthly_target_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <h3>
+                                    <field name="name" placeholder="e.g April 2023" required="1"/>
+                                </h3>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="date_from" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date_to" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Branch Target">
+                                <field name="branch_target_ids">
+                                    <tree editable="bottom">
+                                        <field name="branch_id" string="Branch"/>
+                                        <field name="sale_target" string="Sale Target"/>
+                                        <field name="recovery_target" string="Recovery Target"/>
+                                        <field name="name" invisible="1"/>
+                                        <field name="date_from" invisible="1"/>
+                                        <field name="date_to" invisible="1"/>
+                                    </tree>
+                                    <form>
+                                        <field name="branch_id"/>
+                                        <field name="sale_target"/>
+                                        <field name="recovery_target"/>
+                                        <field name="name" invisible="1"/>
+                                        <field name="date_from" invisible="1"/>
+                                        <field name="date_to" invisible="1"/>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="branch_target_view_tree" model="ir.ui.view">
+            <field name="name">branch_target_view_tree</field>
+            <field name="model">branch.target</field>
+            <field name="arch" type="xml">
+                <tree string="branch_target_tree">
+                    <field name="name"/>
+                    <field name="branch_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+        <record id="branch_target_view_form" model="ir.ui.view">
+            <field name="name">branch_target_view_form</field>
+            <field name="model">branch.target</field>
+            <field name="arch" type="xml">
+                <form string="branch_target_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <h3>
+                                    <field name="name" placeholder="e.g April 2023" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <h3>
+                                    <field name="branch_id" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <h3>
+                                    <label for="date_from" string="Date From"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <h3>
+                                    <label for="date_to" string="Date To"/>
+                                </h3>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <h3>
+                                    <field name="date_from" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <h3>
+                                    <field name="date_to" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <h3>
+                                    <label for="sale_target" string="Sale Target"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <h3>
+                                    <label for="recovery_target" string="Recovery Target"/>
+                                </h3>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <h3>
+                                    <field name="sale_target" string="Sale Target" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                            <group>
+                                <h3>
+                                    <field name="recovery_target" string="Recovery Target" readonly="1" force_save="1"/>
+                                </h3>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="sale_target_achieved"/>
+                            </group>
+                            <group>
+                                <field name="recovery_target_achieved"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Recovery Officer Targets">
+                                <field name="recover_officer_target_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" invisible="1"/>
+                                        <field name="date_from" invisible="1"/>
+                                        <field name="recovery_officer_id"/>
+                                        <field name="recovery_target"/>
+                                        <field name="branch_id" invisible="1"/>
+                                        <field name="date_to" invisible="1"/>
+                                    </tree>
+                                    <form>
+                                        <field name="name" invisible="1"/>
+                                        <field name="date_from" invisible="1"/>
+                                        <field name="recovery_officer_id"/>
+                                        <field name="recovery_target"/>
+                                        <field name="branch_id" invisible="1"/>
+                                        <field name="date_to" invisible="1"/>
+                                    </form>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="recovery_officer_target_view_form" model="ir.ui.view">
+            <field name="name">_view_form</field>
+            <field name="model">recovery.officer.target</field>
+            <field name="arch" type="xml">
+                <form string="_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="date_from" readonly="1"/>
+                                <field name="recovery_officer_id" readonly="1"/>
+                                <field name="recovery_target" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="branch_id" readonly="1"/>
+                                <field name="date_to" readonly="1"/>
+                                <field name="target_achived" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="recovery_officer_target_view_tree" model="ir.ui.view">
+            <field name="name">recovery_officer_target_view_tree</field>
+            <field name="model">recovery.officer.target</field>
+            <field name="arch" type="xml">
+                <tree string="recovery_officer_target_tree">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="recovery_officer_id"/>
+                    <field name="recovery_target"/>
+                    <field name="branch_id"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_incentive_view_tree" model="ir.ui.view">
+            <field name="name">product_incentive_view_tree</field>
+            <field name="model">product.incentive</field>
+            <field name="arch" type="xml">
+                <tree string="product_incentive_tree">
+                    <field name="product_id"/>
+                    <field name="sale_type"/>
+                    <field name="incentive_amount"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_inventive_view_form" model="ir.ui.view">
+            <field name="name">product_inventive_view_form</field>
+            <field name="model">product.incentive</field>
+            <field name="arch" type="xml">
+                <form string="product_inventive_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id" required="1"/>
+                                <field name="incentive_amount" required="1"/>
+                            </group>
+                            <group>
+                                <field name="sale_type" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_incentive_view_tree" model="ir.ui.view">
+            <field name="name">product_incentive_view_tree</field>
+            <field name="model">sale.incentive</field>
+            <field name="arch" type="xml">
+                <tree string="product_incentive_tree">
+                    <field name="date"/>
+                    <field name="salesman_id"/>
+                    <field name="product_id"/>
+                    <field name="product_qty"/>
+                    <field name="commission_amount"/>
+                </tree>
+            </field>
+        </record>
+        <record id="recovery_incentive_table_view_tree" model="ir.ui.view">
+            <field name="name">recovery_incentive_table_view_tree</field>
+            <field name="model">lease.incentive.table</field>
+            <field name="arch" type="xml">
+                <tree string="recovery_incentive_table_tree"  editable="top"  default_order="recovery_percentage asc">
+                    <field name="sequence" widget="handle"/>
+                    <field name="reward"/>
+                    <field name="incentive_percentage"/>
+                    <field name="recovery_percentage"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="recovery_percentage_action" model="ir.actions.act_window">
+            <field name="name">Recovery Incentive Percentage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lease.incentive.table</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="product_earned_incentive_action" model="ir.actions.act_window">
+            <field name="name">Incentive On Sale</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.incentive</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <record id="monthly_target_action" model="ir.actions.act_window">
+            <field name="name">Monthly Target</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monthly.target</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="branch_target_action" model="ir.actions.act_window">
+            <field name="name">Branch Target</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">branch.target</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="recovery_officer_target_action" model="ir.actions.act_window">
+            <field name="name">Recovery Officer Targets</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">recovery.officer.target</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="product_incentive_action" model="ir.actions.act_window">
+            <field name="name">Product Sale Incentive</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.incentive</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="ch_target_procedure_root" name="Monthly Target"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="sale_target_categ" name="Sale &amp; Recovery Target" parent="ch_target_procedure_root"/>
+        <menuitem id="branch_target_categ" name="Branch Sale &amp; Recovery Target" parent="ch_target_procedure_root"/>
+        <menuitem id="product_sale_categ" name="Sale Inventive" parent="ch_target_procedure_root"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="sale_recovery_action_menu" name="Monthly Sale &amp; Recovery Target" parent="sale_target_categ"
+                  action="monthly_target_action"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="branch_target_action_menu" name="Branch Sale &amp; Recovery Target" parent="branch_target_categ"
+                  action="branch_target_action"/>
+        <menuitem id="recovery_officer_target_action_menu" name="Recovery Officer Target" parent="branch_target_categ"
+                  action="recovery_officer_target_action"/>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="cash_sale_inventive" name="Cash/Lease Sale" parent="product_sale_categ"
+                  action="product_incentive_action"/>
+        <menuitem id="product_incetive_line" name="Commission Earned on Sale" parent="product_sale_categ"
+                  action="product_earned_incentive_action"/>
+        <menuitem id="recovery_incetive_tablee" name="Recovery Incentive Table" parent="product_sale_categ"
+                  action="recovery_percentage_action"/>
+
+    </data>
+</odoo>

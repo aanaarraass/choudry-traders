@@ -1,0 +1,85 @@
+<odoo>
+
+    <record id="view_hr_payslip_inherit_form" model="ir.ui.view">
+        <field name="name">hr.payslip.inherit.view</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll_community.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="make_leaves" string="Make Leaves" type="object"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Late Attendances">
+                    <field name="late_attendances_ids">
+                        <tree>
+                            <field name="date" widget="date"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="hours" widget="float_time"/>
+                            <field name="payslip_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Late Short Leave Attendances">
+                    <field name="late_leave_attendances_ids">
+                        <tree>
+                            <field name="date" widget="date"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="hours" widget="float_time"/>
+                            <field name="payslip_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Absent Days">
+                    <field name="absent_line_ids">
+                        <tree>
+                            <field name="absent_date" widget="date"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="date line" invisible="1">
+                    <field name="payslip_date_line">
+                        <tree editable="bottom">
+                            <field name="date_from"/>
+                        <field name="date_to"/>
+                            <field name="payslip_id"/>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="hr leaves">
+                    <field name="hr_leave_ids">
+                        <tree>
+                            <field name="employee_id"/>
+                            <field name="holiday_type"/>
+                            <field name="holiday_status_id"/>
+                            <field name="name"/>
+                            <field name="request_date_from"/>
+                            <field name="request_date_to"/>
+                            <field name="number_of_days"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="contract_view_form" model="ir.ui.view">
+        <field name="name">hr.contract</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='salary']" position="after">
+                <group>
+                    <field name="recovery_incentive"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

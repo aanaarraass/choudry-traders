@@ -22,10 +22,20 @@
             <field name="model">moblization.line</field>
             <field name="arch" type="xml">
                 <form string="moblization_form">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>
+                        <script>
+                            if($('input[name="cell_no"]').length&gt;0){
+                            function apply_mask_origin(){
+                            $('input[name="cell_no"]').inputmask('+99-999-9999999');
+                            }
+                            apply_mask_origin()
+                            }
+                        </script>
                     <sheet>
                         <group>
                             <group>
                                 <field name="sr_no" invisible="0"/>
+                                <field name="moblization_id" invisible="0"/>
                                 <field name="name"/>
                                 <field name="son_of" string="S/O ,W/O, D/O"/>
                                 <field name="cell_no" widget="phone" placeholder="+923001111111"/>

@@ -20,20 +20,28 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','stock','branch','account'],
+    'depends': ['base','stock','branch','account','jelly_mobilization'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'views/other_views.xml',
+        'views/instalment.xml',
         'views/lease_sale_return_wizard.xml',
+        'views/bad_debts_wizard.xml',
         'views/templates.xml',
         'views/sequance.xml',
         'views/customer.xml',
-        # 'views/account_move.xml',
+        'views/customer_area.xml',
+        'views/res_config.xml',
         'views/guarantor.xml',
         'views/reject_reason.xml',
         'views/menu.xml',
+        'views/price_list.xml',
+        'views/cron_job.xml',
+        # 'reports/lease_ledger.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -33,7 +33,7 @@ class AdvancePayment(models.TransientModel):
 
     def register_payment(self):
         active_id = self.env.context.get("active_id")
-        partner = self.env['res.partner'].browse(active_id)
+        lease_id = self.env['lease.sale'].browse(active_id)
         product = self.env['product.product'].search([('name', '=', 'Advance Payment')], limit=1)
         if product:
             product_id = product
@@ -43,13 +43,13 @@ class AdvancePayment(models.TransientModel):
                                                              'taxes_id':False,
                                                              })
         invoice_vals = {
-            'ref': '%s %s' % (partner.name, 'Advance Payment'),
+            'ref': '%s %s' % (lease_id.name, 'Advance Payment'),
             'move_type': 'out_invoice',
             'invoice_user_id': self.env.user.id,
             'invoice_date_due': fields.date.today(),
             'invoice_date': fields.date.today(),
-            'partner_id': partner.id,
-            'payment_reference': '%s %s' % (partner.name, 'Advance Payment'),
+            'partner_id': lease_id.partner_id.id,
+            'payment_reference': '%s %s' % (lease_id.partner_id.name, 'Advance Payment'),
             'invoice_line_ids': [(0, 0, {
                 'name': product_id.name,
                 'price_unit': self.amount,
@@ -59,4 +59,8 @@ class AdvancePayment(models.TransientModel):
         }
         invoice_id = self.env['account.move'].create(invoice_vals)
         invoice_id.action_post()
-        partner.advance_paymeny_id = invoice_id.id
+        advance_payment_ids =[]
+        for id in lease_id.advance_payment_ids:
+            advance_payment_ids.append(id.id)
+        advance_payment_ids.append(invoice_id.id)
+        lease_id.advance_payment_ids =[(6,0,advance_payment_ids)]

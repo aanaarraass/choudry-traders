@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lease_transaction,lease_transaction,model_lease_transaction,,1,1,1,1
+access_cnic_wise_report,cnic_wise_report,model_cnic_wise_report,,1,1,1,1
+access_installment_receipts_details,installment_receipts_details,model_installment_receipts_details,,1,1,1,1
+

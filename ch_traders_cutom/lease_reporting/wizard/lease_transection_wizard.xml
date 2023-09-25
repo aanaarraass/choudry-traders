@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="pdf_lease_transection_form" model="ir.ui.view">
+        <field name="name">Lease Transection Report Form</field>
+        <field name="model">lease.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="branch_id" widget="many2many_tags" required="1"/>
+                        <field name="date_from" required="1"/>
+                        <field name="date_to" required="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Lease Transaction Print" name="print_lease_trancation" type="object"
+                            class="oe_highlight"/>
+                    <button string="Lease Summary Report Date wise Print" name="print_lease_summary" type="object"
+                            class="oe_highlight"/>
+                    <button string="R/Officer Wise Sale Summary Print" name="print_lease_officer_wise" type="object"
+                            class="oe_highlight"/>
+                    <button string="R/Officer Wise Over Due Summary" name="print_officer_wise_over_due" type="object"
+                            class="oe_highlight"/>
+                    <button string="Lease Summary Report (Month Wise)" name="print_lease_month_wise_summary"
+                            type="object"
+                            class="oe_highlight"/>
+                    <button string="Lease Summary Report (Year Wise)" name="print_lease_year_wise_summary" type="object"
+                            class="oe_highlight"/>
+
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="pdf_lease_ledger_cnic_wise_form" model="ir.ui.view">
+        <field name="name">CNIC WISE REPORT</field>
+        <field name="model">cnic.wise.report</field>
+        <field name="arch" type="xml">
+            <form>
+<!--                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>-->
+                <script src="/lease_reporting/static/input_mask.js"/>
+                <script>
+                    console.log('start')
+                    $(document).ready(function() {
+                    setTimeout(function() {
+                    if ($('input[name="cnic"]').length > 0) {
+                    function apply_mask_cnic() {
+                    $('input[name="cnic"]').inputmask('99999-9999999-9');
+                    }
+                    apply_mask_cnic();
+                    }
+
+                    if ($('input[name="phone_number"]').length > 0) {
+                    function apply_mask_phone() {
+                    $('input[name="phone_number"]').inputmask('+99-999-9999999');
+                    }
+                    apply_mask_phone();
+                    }
+                    }, 3000); // 3000 milliseconds (3 seconds) delay
+                    });
+                    console.log('end')
+                </script>
+                <sheet>
+                    <group>
+                        <field name="partner_id" domain="[('is_lease_customer','=', 1)]"/>
+                        <field name="cnic"/>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button string="CNIC Wise Search" name="get_cnic_through_qty" type="object"
+                            class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="lease_ledger_cnic_wise_action_view_id" model="ir.actions.act_window">
+        <field name="name">Lease Transaction Report</field>
+        <field name="res_model">cnic.wise.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pdf_lease_ledger_cnic_wise_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+    <record id="pdf_lease_transection_action_view_id" model="ir.actions.act_window">
+        <field name="name">Lease Transaction Report</field>
+        <field name="res_model">lease.transaction</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pdf_lease_transection_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="lease_sale_reporting_categ" name="Reporting" parent="cybat_installment_sale.lease_sale_root"/>
+
+    <menuitem id="lease_sale_wizard_action" parent="lease_reporting.lease_sale_reporting_categ" name="Reporting"
+              action="pdf_lease_transection_action_view_id"/>
+
+    <menuitem id="cnic_wizard_actiofn_menu_sid" parent="lease_reporting.lease_sale_reporting_categ"
+              name="CNIC Wise Customer Ledger"
+              action="lease_ledger_cnic_wise_action_view_id"/>
+
+
+</odoo>

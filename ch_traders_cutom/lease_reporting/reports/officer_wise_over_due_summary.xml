@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <template id="lease_reporting.recovery_officer_wise_over_due">
+            <t t-call="web.html_container">
+                <t t-call="web.html_container">
+                    <t t-call="web.basic_layout">
+                        <div class="page">
+                            <style>
+                                .table-bordered th,
+                                .table-bordered td {
+                                border: 1px solid black;
+                                padding: 3px;
+                                text-align: center;
+                                }
+                            </style>
+                            <div style="text-align: center; font-weight: bold;">
+                                <b style="text-align: center; font-weight: bold; font-size: 25px;">R/Officer Wise
+                                    Over Due Summary
+                                </b>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 m-3">
+                                </div>
+                                <div class="col-4 m-3">
+                                    <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                        <t t-esc="date_from"/>
+                                    </span>
+                                    <span class="ml-3 mr-3" style="font-weight: bold; padding: 4px;">To</span>
+                                    <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                        <t t-esc="date_to"/>
+                                    </span>
+                                </div>
+                                <div class="col-4 mt-4 mb-2" style="text-align: right; width: 400px;">
+                                </div>
+                            </div>
+                            <table class="table-bordered" style="width: 100%;">
+                                <t t-raw="html"/>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="officer_over_due_summary_report_id"
+                model="lease.transaction"
+                string="R/Officer Wise Over Due Summary"
+                report_type="qweb-pdf"
+                name="lease_reporting.recovery_officer_wise_over_due"
+                file="lease_reporting.recovery_officer_wise_over_due"
+                attachment_use="False"
+        />
+
+
+    </data>
+</odoo>

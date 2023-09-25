@@ -1,0 +1,170 @@
+<odoo>
+    <data>
+        <record id="motorbike_record_view_form" model="ir.ui.view">
+            <field name="name">motorbike_recored_view_form</field>
+            <field name="model">motorbike.record</field>
+            <field name="arch" type="xml">
+                <form string="motorbike_recored_form">
+                    <header>
+                        <button name="document_received" type="object" string="Document Received" states="draft"/>
+                        <button name="document_delivered" type="object" string="Document Delivered" states="received"/>
+                        <button name="reset_draft" type="object" string="Draft" states="received,delivered"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="sale_type" required="1"/>
+                            </group>
+                            <group>
+                                <field name="invoice_id" domain="[('is_instalment','=',0)]" attrs="{'invisible': [('sale_type', '=', 'lease')]}"
+                                       options="{'no_create': True}"/>
+                                <field name="lease_id" attrs="{'invisible': [('sale_type', '=', 'cash')]}"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="branch_id"/>
+                                <field name="product_id" options="{'no_create': True}"/>
+                                <field name="vendor_id" options="{'no_create': True}"/>
+                                <field name="letter_received_date"/>
+                                <field name="letter_status"/>
+                                <field name="letter_name" attrs="{'invisible': [('letter_status', '!=', 'name')]}"/>
+                            </group>
+                            <group>
+                                <field name="engine_number" required="1"/>
+                                <field name="chasis_number" required="1"/>
+                                <field name="model_name"/>
+                                <field name="colour"/>
+                                <field name="vehicle_name"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Registration Detail">
+                                <group string="Registration">
+                                    <group>
+                                        <field name="agent_id" options="{'no_create': True}"/>
+                                        <field name="registration_date"/>
+                                        <field name="registration_person"/>
+                                    </group>
+                                    <group>
+                                        <field name="registration_no"/>
+                                        <field name="registration_person_cnic"/>
+                                        <field name="registration_phone"/>
+                                    </group>
+                                </group>
+                                <group string="Document Received">
+                                    <group>
+                                        <field name="registration_slip_received_date"/>
+                                        <field name="number_plate_received_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="smart_card_received_date"/>
+                                        <field name="file_received_date"/>
+                                    </group>
+                                </group>
+                                <group string="Document Delivery">
+                                    <group>
+                                        <field name="number_plate_delivered_to"/>
+                                        <field name="smart_card_delivered_to"/>
+                                        <field name="file_delivered_to"/>
+                                        <field name="delivered_by"/>
+                                    </group>
+                                    <group>
+                                        <field name="number_plate_delivered_date"/>
+                                        <field name="smart_card_delivered_date"/>
+                                        <field name="file_delivered_date"/>
+                                        <field name="delivered_by_date"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Lease Sale" attrs="{'invisible': [('sale_type', '=', 'cash')]}">
+                                <group>
+                                    <group>
+                                        <field name="account_no"/>
+                                        <field name="customer_id" options="{'no_create': True}"/>
+                                        <field name="father_name"/>
+                                        <field name="address"/>
+                                    </group>
+                                    <group>
+
+                                        <field name="area_id" options="{'no_create': True}"/>
+                                        <field name="phone_number"/>
+                                        <field name="cnic_no"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Cash Sale" attrs="{'invisible': [('sale_type', '=', 'lease')]}">
+                                <group>
+                                    <group>
+                                        <field name="customer_id" options="{'no_create': True}"/>
+                                        <field name="father_name"/>
+                                        <field name="address"/>
+                                    </group>
+                                    <group>
+                                        <field name="area_id" options="{'no_create': True}"/>
+                                        <field name="phone_number"/>
+                                        <field name="cnic_no"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="motorbike_view_tree" model="ir.ui.view">
+            <field name="name">motorbike_view_tree</field>
+            <field name="model">motorbike.record</field>
+            <field name="arch" type="xml">
+                <tree string="motorbike_tree" default_order="date desc">
+                    <field name="date"/>
+                    <field name="branch_id" string="Branch"/>
+                    <field name="customer_id" string="Customer"/>
+                    <field name="lease_id" string="Lease"/>
+                    <field name="invoice_id" string="Invoice"/>
+                    <field name="engine_number" string="Engine No"/>
+                    <field name="chasis_number" string="Chassis No"/>
+                    <field name="registration_no" string="Invoice"/>
+                    <field name="sale_type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="motorbike_search_view" model="ir.ui.view">
+           <field name="name">Motorbike Search</field>
+           <field name="model">motorbike.record</field>
+            <field name="arch" type="xml">
+               <search string="Motorbike">
+                    <field name="branch_id" string="Branch"/>
+                    <field name="customer_id" string="Customer"/>
+                    <field name="lease_id" string="Lease"/>
+                    <field name="invoice_id" string="Invoice"/>
+                    <field name="engine_number" string="Engine No"/>
+                    <field name="chasis_number" string="Chassis No"/>
+                    <field name="registration_no" string="Invoice"/>
+                    <searchpanel>
+                        <field name="branch_id" icon="fa-building" enable_counters="1"/>
+                        <field name="state" string="Status" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+           </field>
+        </record>
+
+        <record id="motorbike_record_action" model="ir.actions.act_window">
+            <field name="name">Motorbike Record</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">motorbike.record</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="motorbike_record_categ" name="Motorbike Record" action="motorbike_record_action"/>
+    </data>
+</odoo>

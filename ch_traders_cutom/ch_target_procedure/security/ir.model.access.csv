@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_monthly_target,monthly_target,model_monthly_target,base.group_user,1,1,1,1
+access_branch_target,branch_target,model_branch_target,base.group_user,1,1,1,1
+access_recovery_officer_target,recovery_officer_target,model_recovery_officer_target,base.group_user,1,1,1,1
+access_product_incentive,product_incentive,model_product_incentive,base.group_user,1,1,1,1
+access_sale_incentive,sale_incentive,model_sale_incentive,base.group_user,1,1,1,1
+access_lease_incentive_table,lease_incentive_table,model_lease_incentive_table,base.group_user,1,1,1,1

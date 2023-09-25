@@ -22,7 +22,7 @@ class Guarantor(models.Model):
     salesman_id = fields.Many2one('res.users',tracking=True,)
     approved_by_id = fields.Many2one('res.users',tracking=True,)
     nick_name = fields.Char('Nick Name',tracking=True,)
-    cnic = fields.Integer('CNIC',tracking=True,)
+    cnic = fields.Char('CNIC',tracking=True,)
     son_off = fields.Char(string='S/O,W/O,D/O',tracking=True,)
     cast_id = fields.Many2one('cast.cast', string='Cast',tracking=True,)
     age = fields.Integer(string='Age',tracking=True,)
@@ -31,11 +31,11 @@ class Guarantor(models.Model):
     address_status = fields.Many2one('residential.status',tracking=True,)
     area_since = fields.Date('Living At Area Since',tracking=True,)
     near_by = fields.Char('Near By',tracking=True,)
-    area = fields.Char('Area',tracking=True,)
-    road = fields.Char('Road',tracking=True,)
-    city = fields.Char(tracking=True,)
+    customer_address_area_id = fields.Many2one('customer.area',tracking=True,)
+    customer_address_road_id = fields.Many2one('customer.road',tracking=True,)
+    customer_address_city_id = fields.Many2one('customer.city',string='City',tracking=True,)
     parmanent_address = fields.Char('Permanent Address',tracking=True,)
-    phone_number = fields.Char('Phone',tracking=True,)
+    phone_number = fields.Char('Phone',tracking=True,default='+92')
     relation_id = fields.Many2one('relation',tracking=True,)
 
     emp_type = fields.Selection([('self', 'Self Employed'), ('Salary', 'Salary Person')], string='Employment Type',tracking=True,)
@@ -46,6 +46,14 @@ class Guarantor(models.Model):
     business_address = fields.Text('Business Address',tracking=True,)
 
     customer_id = fields.Many2one('res.partner',tracking=True,)
+
+    living_year = fields.Char()
+    living_month = fields.Char()
+    living_days = fields.Char()
+
+    area_living_year = fields.Char()
+    area_living_month = fields.Char()
+    area_living_days = fields.Char()
 
     _sql_constraints = [
         ('cnic_uniq', 'unique (cnic)',

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="res_config_instalment_account_view_form" model="ir.ui.view">
+            <field name="name">instalment.discount.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <!-- add before the Access Rights section -->
+                <xpath expr="//div[@id='analytic']" position="after">
+                    <h2>Lease Sale</h2>
+                    <div class="row mt16 o_settings_container" id="lease_sale">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div>
+                                        <span class="o_form_label">Set Journal For Discount:</span>
+                                    </div>
+                                    <div class="row mt8">
+                                        <label for="instalment_discount_account_id" class="col-lg-4 o_light_label"
+                                               string="Discount Allowed on Instalment Account"/>
+                                        <field name="instalment_discount_account_id"/>
+
+                                        <label for="bad_debts_account_id" class="col-lg-4 o_light_label"
+                                               string="Bed Debts Account"/>
+                                        <field name="bad_debts_account_id"/>
+
+                                    </div>
+                                     <div class="row mt8">
+                                        <label for="sale_discount_allowed_account_exp_id" class="col-lg-4 o_light_label"
+                                               string="Discount Allowed on Sale Account(Debit)"/>
+                                        <field name="sale_discount_allowed_account_exp_id"/>
+                                        <label for="sale_discount_allowed_account_id" class="col-lg-4 o_light_label"
+                                               string="Discount Allowed on Sale Account(Credit)"/>
+                                        <field name="sale_discount_allowed_account_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

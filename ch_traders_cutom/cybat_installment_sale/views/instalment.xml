@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="instalment_view_tree" model="ir.ui.view">
+        <field name="name">instalment_view_tree</field>
+        <field name="model">lease.sale.instalment</field>
+        <field name="arch" type="xml">
+            <tree string="instalment_tree" create="0" delete="0">
+                 <field name="lease_sale_id"/>
+                <field name="name"/>
+                <field name="due_date"/>
+                <field name="amount"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="instalment_view_form" model="ir.ui.view">
+        <field name="name">instalment_view_form</field>
+        <field name="model">lease.sale.instalment</field>
+        <field name="arch" type="xml">
+            <form string="instalment_form" create="false" edit="false">
+                <header>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="lease_sale_id"/>
+                            <field name="invoice_status"/>
+                            <field name="invoice_payment_status"/>
+                            <field name="amount_paid"/>
+                            <field name="discount_type"/>
+                            <field name="discount_amount"/>
+                            <field name="percent_discount"/>
+                        </group>
+                        <group>
+                            <field name="due_date"/>
+                            <field name="amount"/>
+                            <field name="invoice_id"/>
+                            <field name="is_full_settlement"/>
+                            <field name="is_full_bad_debts"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="instalment_view_search" model="ir.ui.view">
+        <field name="name">Instalment Search</field>
+        <field name="model">lease.sale.instalment</field>
+        <field name="arch" type="xml">
+            <search string="Instalment">
+                <field name="lease_sale_id" string="Lease Number"/>
+                <group expand="1" string="Group By">
+                    <filter name="lease_sale_id" string="Lease Number" domain="[]" context="{'group_by': 'lease_sale_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="instalment_action" model="ir.actions.act_window">
+        <field name="name">Instalments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lease.sale.instalment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

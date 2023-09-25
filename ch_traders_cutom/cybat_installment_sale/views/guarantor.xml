@@ -15,6 +15,21 @@
             <field name="model">guarantor</field>
             <field name="arch" type="xml">
                 <form string="guarantor_form">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>
+                        <script>
+                            if($('input[name="cnic"]').length&gt;0){
+                            function apply_mask_origin(){
+                            $('input[name="cnic"]').inputmask('99999-9999999-9');
+                            }
+                            apply_mask_origin()
+                            }
+                            if($('input[name="phone_number"]').length&gt;0){
+                            function apply_mask_origin(){
+                            $('input[name="phone_number"]').inputmask('+99-999-9999999');
+                            }
+                            apply_mask_origin()
+                            }
+                        </script>
                     <header>
                         <field name="state" widget="statusbar"/>
                         <button name="approved" type="object" string="Select" states="draft"/>
@@ -123,10 +138,10 @@
                                 <label for="address_status" string="Residential Status"/>
                             </div>
                             <div class="col-4">
-                                <label for="home_since"/>
+                                <label for="living_year" string="Living At Home Since"/>
                             </div>
                             <div class="col-4">
-                                <label for="area_since"/>
+                                <label for="area_living_year" string="Living At Area Since"/>
                             </div>
                         </div>
                         <div class="row">
@@ -134,10 +149,14 @@
                                 <field name="address_status"/>
                             </div>
                             <div class="col-4">
-                                <field name="home_since"/>
+                                <field name="living_year" placeholder="2023"/>
+                                <field name="living_month" placeholder="12"/>
+                                <field name="living_days" placeholder="31"/>
                             </div>
                             <div class="col-4">
-                                <field name="area_since"/>
+                               <field name="area_living_year" placeholder="2023"/>
+                                <field name="area_living_month" placeholder="12"/>
+                                 <field name="area_living_days" placeholder="31"/>
                             </div>
                         </div>
                         <div class="row">
@@ -155,13 +174,13 @@
                                 <label for="near_by"/>
                             </div>
                             <div class="col-3">
-                                <label for="area"/>
+                                <label for="customer_address_area_id"/>
                             </div>
                             <div class="col-3">
-                                <label for="road"/>
+                                <label for="customer_address_road_id"/>
                             </div>
                             <div class="col-3">
-                                <label for="city"/>
+                                <label for="customer_address_city_id"/>
                             </div>
                         </div>
                         <div class="row">
@@ -169,13 +188,13 @@
                                 <field name="near_by"/>
                             </div>
                             <div class="col-3">
-                                <field name="area"/>
+                                <field name="customer_address_area_id"/>
                             </div>
                             <div class="col-3">
-                                <field name="road"/>
+                                <field name="customer_address_road_id"/>
                             </div>
                             <div class="col-3">
-                                <field name="city"/>
+                                <field name="customer_address_city_id"/>
                             </div>
                         </div>
                         <div class="row">

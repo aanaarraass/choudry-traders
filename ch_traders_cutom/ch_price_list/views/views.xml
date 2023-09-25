@@ -1,0 +1,127 @@
+<odoo>
+    <data>
+        <record id="price_list_item_view_form" model="ir.ui.view">
+            <field name="name">price_list_item_view_form</field>
+            <field name="model">product.pricelist.item.history</field>
+            <field name="arch" type="xml">
+                <form string="price_list_item_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="price_list_item_view_tree" model="ir.ui.view">
+            <field name="name">price_list_item_view_tree</field>
+            <field name="model">product.pricelist.item.history</field>
+            <field name="arch" type="xml">
+                <tree string="price_list_item_form">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="price_list_view_form" model="ir.ui.view">
+            <field name="name">price_list_view_form</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="arch" type="xml">
+                <form string="price_list_form" create="false">>
+                    <sheet>
+                        <group>
+                            <field name="pricelist_id" string="Pricelist" attrs="{'readonly': [(1, '=', 1)]}" options="{'no_create_edit':1, 'no_open': 1}"/>
+                            <field name="name" string="Applied On" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="categ_id" invisible="1"/>
+                            <field name="product_tmpl_id" invisible="context.get('active_model')!='product.category'"
+                                   attrs="{'required': [('applied_on', '=', '1_product')],'readonly': [(1, '=', 1)]}"
+                                   domain="[('categ_id', '=', context.get('default_categ_id', True)), '|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                                   options="{'no_create_edit':1, 'no_open': 1}"/>
+                            <field name="product_id" groups="product.group_product_variant"
+                                   invisible="context.get('product_without_variants', False)"
+                                   readonly="context.get('active_model')=='product.product'"
+                                   attrs="{'required': [('applied_on', '=', '0_product_variant')],'readonly': [(1, '=', 1)]}"
+                                   domain="['|', '|',                         ('id', '=', context.get('default_product_id', 0)),                         ('product_tmpl_id', '=', context.get('default_product_tmpl_id', 0)),                         ('categ_id', '=', context.get('default_categ_id', 0)), '|', ('company_id', '=', company_id), ('company_id', '=', False)                       ]"
+                                   options="{'no_create_edit':1, 'no_open': 1}"/>
+                            <field name="min_quantity" colspan="4" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="currency_id" invisible="1" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="fixed_price" string="Price" required="1" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="date_start" optional="show" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="date_end" optional="show" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="applied_on" invisible="1" attrs="{'readonly': [(1, '=', 1)]}"/>
+                            <field name="company_id" groups="base.group_multi_company" optional="show"
+                                   options="{'no_create':1, 'no_open': 1}" attrs="{'readonly': [(1, '=', 1)]}"/>
+
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="price_list_item_view_tree" model="ir.ui.view">
+            <field name="name">price_list_item_view_tree</field>
+            <field name="model">product.pricelist.item</field>
+            <field name="arch" type="xml">
+                <tree string="price_list_item_tree">
+                    <field name="pricelist_id" string="Pricelist" options="{'no_create_edit':1, 'no_open': 1}"/>
+                    <field name="name" string="Applied On"/>
+                    <field name="categ_id" invisible="1"/>
+                    <field name="product_tmpl_id" invisible="context.get('active_model')!='product.category'"
+                           attrs="{'required': [('applied_on', '=', '1_product')]}"
+                           domain="[('categ_id', '=', context.get('default_categ_id', True)), '|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                           options="{'no_create_edit':1, 'no_open': 1}"/>
+                    <field name="product_id" groups="product.group_product_variant"
+                           invisible="context.get('product_without_variants', False)"
+                           readonly="context.get('active_model')=='product.product'"
+                           attrs="{'required': [('applied_on', '=', '0_product_variant')]}"
+                           domain="['|', '|',                         ('id', '=', context.get('default_product_id', 0)),                         ('product_tmpl_id', '=', context.get('default_product_tmpl_id', 0)),                         ('categ_id', '=', context.get('default_categ_id', 0)), '|', ('company_id', '=', company_id), ('company_id', '=', False)                       ]"
+                           options="{'no_create_edit':1, 'no_open': 1}"/>
+                    <field name="min_quantity" colspan="4"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="fixed_price" string="Price" required="1"/>
+                    <field name="date_start" optional="show"/>
+                    <field name="date_end" optional="show"/>
+                    <field name="applied_on" invisible="1"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="show"
+                           options="{'no_create':1, 'no_open': 1}"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="price_list_item_action_chatter" model="ir.actions.act_window">
+            <field name="name">Pricelist Itesam</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.pricelist.item</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="price_list_item_action" model="ir.actions.act_window">
+            <field name="name">Price List Products History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.pricelist.item.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="price_list_item_history_categ" name="Price List History"
+                  parent="cybat_installment_sale.lease_sale_customer_configuration" action="price_list_item_action"/>
+        <menuitem id="price_list_item_history_categ_chatter" name="Price Item History"
+                  parent="cybat_installment_sale.lease_sale_customer_configuration"
+                  action="price_list_item_action_chatter"/>
+    </data>
+</odoo>

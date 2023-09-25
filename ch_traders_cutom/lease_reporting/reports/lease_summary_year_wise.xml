@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="paperformat_lease_summary_year_wise_report" model="report.paperformat">
+            <field name="name">lease.summary.year_wise.paperformat</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">4</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <template id="lease_reporting.lease_summary_year_wise">
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+
+                    <div class="page">
+                        <style>
+                            table {
+                            width: 100%;
+                            table-layout: fixed;
+                            }
+
+                            th, td {
+                            border: 1px solid black;
+                            padding: 4px;
+                            text-align: center;
+                            }
+                        </style>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <span style="font-weight: bold; font-size: 32px;">CHOUDHARY TRADERS</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-6 text-center">
+                                <span style="font-weight: bold; font-size: 24px;">Lease Summary Report (Year Wise)
+                                </span>
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4 m-3">
+                                <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                    <t t-esc="date_from"/>
+                                </span>
+                                <span style="font-weight: bold; padding: 4px;">To</span>
+                                <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                    <t t-esc="date_to"/>
+                                </span>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Recovery Officer:</span>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4">
+                                <span style="font-weight: bold;">Area Name:</span>
+                            </div>
+                        </div>
+                        <t t-set="gt_sale_total" t-value="0"/>
+                        <t t-set="gt_sale_amount" t-value="0"/>
+                        <t t-set="gt_advance" t-value="0"/>
+                        <t t-set="gt_receivable" t-value="0"/>
+                        <t t-set="selected_branch" t-value="env['lease.sale'].search(domain)"/>
+                        <t t-set="branches" t-value="selected_branch.mapped('branch_id')"/>
+
+
+                        <table>
+                            <t t-foreach="branches" t-as="ba">
+                                <tr>
+                                    <th colspan="5">
+                                        <t t-raw="ba.name"/>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Lease Year</th>
+                                    <th>Sale Items Qty</th>
+                                    <th>Sale Amount</th>
+                                    <th>Down Payment</th>
+                                    <th>Receivable Amount</th>
+                                </tr>
+                                <t t-set="g_item_qty" t-value="0"/>
+                                <t t-set="g_sale_Amount" t-value="0"/>
+                                <t t-set="g_advance" t-value="0"/>
+                                <t t-set="g_receivable" t-value="0"/>
+
+                                <t t-set="branch_wise"
+                                   t-value="selected_branch.filtered(lambda x:x.branch_id.id == ba.id)"/>
+                                <t t-foreach="year_range" t-as="year">
+                                    <t t-set="year_wise_lease"
+                                       t-value="branch_wise.filtered(lambda h: str(h.lease_date.year) == str(year))"/>
+                                    <t t-set="item_qty" t-value="0"/>
+                                    <t t-set="sale_Amount" t-value="0"/>
+                                    <t t-set="advance" t-value="0"/>
+
+                                    <t t-foreach="year_wise_lease" t-as="lease">
+                                        <t t-set="sale_line" t-value="lease.lease_sale_item_ids"/>
+                                        <t t-set="advance_line" t-value="lease.advance_payment_ids"/>
+                                        <t t-foreach="sale_line" t-as="sl">
+                                            <t t-set="item_qty" t-value="item_qty+sl.qty"/>
+                                        </t>
+
+                                        <t t-set="sale_Amount"
+                                           t-value="sale_Amount+(lease.sale_total-lease.sale_return_total)"/>
+
+                                        <t t-foreach="advance_line" t-as="ad">
+                                            <t t-set="advance" t-value="advance+ad.amount_total_signed"/>
+                                        </t>
+                                    </t>
+
+                                    <tr>
+                                        <td>
+                                            <t t-esc="year"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item_qty"/>
+                                            <t t-set="g_item_qty" t-value="g_item_qty+item_qty"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="sale_Amount"/>
+                                            <t t-set="g_sale_Amount" t-value="g_sale_Amount+sale_Amount"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="advance"/>
+                                            <t t-set="g_advance" t-value="g_advance+advance"/>
+                                        </td>
+                                        <td>
+                                            <t t-set="receivable" t-value="sale_Amount-advance"/>
+                                            <t t-esc="'{:.2f}%'.format(receivable)"/>
+                                            <t t-set="g_receivable" t-value="g_receivable+receivable"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>
+                                        <t t-esc="g_item_qty"/>
+                                        <t t-set="gt_sale_total" t-value="gt_sale_total+g_item_qty"/>
+                                    </th>
+                                    <th>
+                                        <t t-esc="g_sale_Amount"/>
+                                        <t t-set="gt_sale_amount" t-value="gt_sale_amount+g_sale_Amount"/>
+                                    </th>
+                                    <th>
+                                        <t t-esc="g_advance"/>
+                                        <t t-set="gt_advance" t-value="gt_advance+g_advance"/>
+                                    </th>
+                                    <th>
+                                        <t t-esc="g_receivable"/>
+                                        <t t-set="gt_receivable" t-value="gt_receivable+g_receivable"/>
+                                    </th>
+                                </tr>
+                            </t>
+                            <tr>
+                                <th>Grand Total</th>
+                                <th><t t-esc="gt_sale_total"/> </th>
+                                <th><t t-esc="gt_sale_amount"/> </th>
+                                <th><t t-esc="gt_advance" /></th>
+                                <th><t t-esc="gt_receivable"/> </th>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="lease_summary_year_wise_report"
+                model="lease.transaction"
+                report_type="qweb-pdf"
+                string="Choudhary Traders Lease Summary Report Year Wise"
+                name="lease_reporting.lease_summary_year_wise"
+                file="lease_reporting.lease_summary_year_wise"
+                paperformat="paperformat_lease_summary_year_wise_report"
+        />
+
+
+    </data>
+</odoo>
