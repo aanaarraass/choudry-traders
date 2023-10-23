@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_size_search_form_view" model="ir.ui.view">
+        <field name="name">product.size.search.form</field>
+        <field name="model">product.size</field>
+        <field name="arch" type="xml">
+            <search string="Product size">
+                <field name="name" />
+                <field name="partner_id" />
+            </search>
+        </field>
+    </record>
+    <record id="action_open_size_products" model="ir.actions.act_window">
+        <field name="name">size Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="domain">[('product_size_id', '=', active_id)]</field>
+    </record>
+    <record id="action_open_single_product_size" model="ir.actions.act_window">
+        <field name="name">Product size</field>
+        <field name="res_model">product.size</field>
+        <field name="view_mode">kanban,form,tree</field>
+        <field name="target">current</field>
+        <field name="domain">[('product_ids', 'in', active_id)]</field>
+    </record>
+    <record id="view_product_size_form" model="ir.ui.view">
+        <field name="name">product.size.form</field>
+        <field name="model">product.size</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(action_open_size_products)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="products_count"
+                                widget="statinfo"
+                                string="Products"
+                                context="{'default_product_size_id': active_id}"
+                            />
+                        </button>
+                    </div>
+                    <field name="logo" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <label for="name" string="size Name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group name="main">
+                        <group name="partner">
+                            <field name="partner_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Description">
+                            <field name="description" nolabel="1" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_size_tree" model="ir.ui.view">
+        <field name="name">product.size.tree</field>
+        <field name="model">product.size</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="partner_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_product_size_kanban" model="ir.ui.view">
+        <field name="name">product.size.kanban</field>
+        <field name="model">product.size</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id" />
+                <field name="logo" />
+                <field name="products_count" />
+                <field name="description" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img
+                                    t-att-src="kanban_image('product.size', 'logo', record.id.raw_value)"
+                                    alt="Logo"
+                                />
+                            </div>
+                            <div class="oe_kanban_details">
+                                <h4>
+                                    <field name="name" />
+                                </h4>
+                                <div>
+                                    <a
+                                        name="%(product_size.action_open_size_products)d"
+                                        type="action"
+                                    >
+                                        <t t-esc="record.products_count.value" />
+                                        Products
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_product_template_search_size" model="ir.ui.view">
+        <field name="name">product.template.search.size</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="product_size_id" />
+                <filter
+                    string="size"
+                    name="groupby_size"
+                    domain="[]"
+                    context="{'group_by' : 'product_size_id'}"
+                />
+                <separator />
+            </field>
+        </field>
+    </record>
+    <record id="product_template_form_size_add" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="before">
+                <field name="product_size_id" placeholder="size" />
+                <div />
+            </field>
+        </field>
+    </record>
+    <record id="view_product_template_kanban_size" model="ir.ui.view">
+        <field name="name">product kanban view: add size</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="after">
+                <div>
+                    <a
+                        t-if="record.product_size_id"
+                        type="action"
+                        name="%(action_open_single_product_size)d"
+                    >
+                        <field name="product_size_id" />
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_product_variant_kanban_size" model="ir.ui.view">
+        <field name="name">product variant kanban view: add size</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[hasclass('oe_kanban_details')]/strong[1]"
+                position="after"
+            >
+                <div>
+                    <a t-if="record.product_size_id" type="open">
+                        <field name="product_size_id" />
+                    </a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_product_template_tree_size" model="ir.ui.view">
+        <field name="name">product tree view: add size</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <!-- <field name="name" position="after">
+                <field name="product_size_id" />
+            </field> -->
+
+            <field name="name" position="after">
+                <field name="product_size_id" />
+            </field>
+        </field>
+    </record>
+    <record id="view_product_variant_tree_size" model="ir.ui.view">
+        <field name="name">product variant tree view: add size</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view" />
+        <field name="arch" type="xml">
+            <!-- <field name="name" position="after">
+                <field name="product_size_id" />
+            </field> -->
+
+            <field name="name" position="after">
+                <field name="product_size_id" />
+            </field>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_product_size">
+        <field name="name">size</field>
+        <field name="res_model">product.size</field>
+        <field name="view_mode">kanban,form,tree</field>
+    </record>
+    <menuitem
+        name="Product sizes"
+        id="menu_product_size"
+        action="action_product_size"
+        parent="sale.prod_config_main"
+    />
+</odoo>
