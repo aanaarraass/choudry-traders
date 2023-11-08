@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom_pricelist_manager,manager_custom_pricelist,model_custom_pricelist,cybat_pricelist_ch.update_pricelist_admin,1,1,1,1
+access_custom_pricelist_user,user_custom_pricelist,model_custom_pricelist,cybat_pricelist_ch.update_pricelist_user,1,1,1,1
+access_custom_pricelist_base,base_custom_pricelist,model_custom_pricelist,,1,0,0,0
+access_update_pricelist_manager,manager_update_pricelist,model_update_pricelist,cybat_pricelist_ch.update_pricelist_admin,1,1,1,1
+access_update_pricelist_user,user_update_pricelist,model_update_pricelist,cybat_pricelist_ch.update_pricelist_user,1,1,1,0
+access_update_pricelist_base,base_update_pricelist,model_update_pricelist,,1,0,0,0

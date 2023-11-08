@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="update_pricelist_view_form" model="ir.ui.view">
+        <field name="name">update_pricelist_view_form</field>
+        <field name="model">update.pricelist</field>
+        <field name="arch" type="xml">
+            <form string="update_pricelist_form">
+                <header>
+                    <button name="get_products" type="object" string="Get Products" states="draft"/>
+                    <button name="update_prices_in_pricelist" type="object" string="Update Price list" states="draft"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="date" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                            <field name="update_price" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                            <field name="brand_id"
+                                   attrs="{'invisible': [('update_price', '!=', 'brand')],'required': [('update_price', '=', 'brand')]}"/>
+                        </group>
+                        <group>
+                            <field name="wholesale_percentage" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                            <field name="retail_percentage" attrs="{'readonly':[('state', '=', 'done')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Product Price">
+                            <field name="custome_pricelist_ids" attrs="{'readonly':[('state', '=', 'done')]}">
+                                <tree editable="bottom">
+                                    <field name="item"/>
+                                    <field name="purchase_rate"/>
+                                    <field name="market_rate"/>
+                                    <field name="whole_sale_percentage"/>
+                                    <field name="whole_sale_rate"/>
+                                    <field name="retail_sale_percentage"/>
+                                    <field name="retail_sale"/>
+                                    <field name="package_1"/>
+                                    <field name="package_2"/>
+                                    <field name="package_3"/>
+                                    <field name="package_4"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="update_view_tree" model="ir.ui.view">
+        <field name="name">update_view_tree</field>
+        <field name="model">update.pricelist</field>
+        <field name="arch" type="xml">
+            <tree string="update_tree">
+                <field name="name"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_cybat_pricelist_tree" model="ir.ui.view">
+        <field name="name">cybat.pricelist.tree</field>
+        <field name="model">custom.pricelist</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="item"/>
+                <field name="purchase_rate"/>
+                <field name="market_rate"/>
+                <field name="whole_sale_rate"/>
+                <field name="whole_sale_percentage"/>
+                <field name="retail_sale"/>
+                <field name="retail_sale_percentage"/>
+                <field name="package_1"/>
+                <field name="package_2"/>
+                <field name="package_3"/>
+                <field name="package_4"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="pricelist_type_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.type</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='pricelist_settings']" position="inside">
+                <field name="pricelist_type"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_cybat_pricelist" model="ir.actions.act_window">
+        <field name="name">price list</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">custom.pricelist</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <P class="o_view_nocontent_smiling_face">
+                create of your first person !
+            </P>
+        </field>
+    </record>
+
+    <record id="update_pricelist_action" model="ir.actions.act_window">
+        <field name="name">Update Price List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">update.pricelist</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--    <menuitem id="menu_pricelist_rosdot"-->
+    <!--              name="Pricelist"-->
+    <!--              action="action_cybat_pricelist"/>-->
+    <menuitem id="menu_update_pricelist_rosdot"
+              name="Pricelist Update"
+              action="update_pricelist_action"/>
+
+</odoo>

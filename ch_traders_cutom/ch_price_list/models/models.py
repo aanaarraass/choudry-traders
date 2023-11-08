@@ -29,8 +29,6 @@ class PricelistItem(models.Model):
 
 
 
-
-
     def write(self, vals):
         name = ''
         for key, value in vals.items():
