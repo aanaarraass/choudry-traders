@@ -17,7 +17,7 @@
             <field name="model">res.partner</field>
             <field name="arch" type="xml">
                 <form string="lease_customer_form">
-<!--                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>-->
+                    <!--                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"/>-->
                     <script src="/cybat_installment_sale/static/input_mask.js"/>
                     <script>
                         console.log('start')

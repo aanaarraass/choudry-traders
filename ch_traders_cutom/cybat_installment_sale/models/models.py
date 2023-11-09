@@ -91,6 +91,8 @@ class LeaseSale(models.Model):
 
     @api.onchange('price_list_id','lease_sale_item_ids')
     def update_rate_in_sale_line(self):
+        self.instalment_selection = 'number'
+        self.number_of_instalment = self.price_list_id.no_of_installment
         for rec in self.lease_sale_item_ids:
             if rec.lease_sale_id.price_list_id:
                 product_price = rec.lease_sale_id.price_list_id.item_ids.filtered(lambda x:x.product_id.id == rec.product_id.id)

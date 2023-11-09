@@ -9,6 +9,8 @@ class Pricelist(models.Model):
                                        ('retail', 'Retail'), ('p1', 'Package 1'), ('p2', 'Package 2'),
                                        ('p3', 'Package 3'), ('p4', 'Package 4')])
 
+    no_of_installment = fields.Integer(string='Number Of Installment')
+
 
 class UpdatePricelist(models.Model):
     _name = 'update.pricelist'
