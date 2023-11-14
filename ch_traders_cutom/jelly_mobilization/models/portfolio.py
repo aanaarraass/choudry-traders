@@ -7,5 +7,5 @@ class Area(models.Model):
     _description = 'Portfolio '
 
     name = fields.Char(track_visibility= "Always")
-    area_id = fields.Many2one('area.area')
+    area_id = fields.Many2many('area.area')
     recovery_id = fields.Many2one('hr.employee',string='Recovery Officer')
