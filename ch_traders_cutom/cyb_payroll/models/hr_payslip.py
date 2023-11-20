@@ -519,11 +519,11 @@ class HrPayslip(models.Model):
         cash_type = sum(sales_incentive.filtered(lambda x:x.sale_type=='cash').mapped('commission_amount'))
         lease_type = sum(sales_incentive.filtered(lambda x:x.sale_type=='lease').mapped('commission_amount'))
         recovery_incentive = 0
-        if self.contract_id.recovery_incentive>0:
+        if self.contract_id.recovery_incentive_id.recovery_incentive>0:
             lease_sale = self.env['lease.sale'].search([('recovery_officer_id','=',self.employee_id.id),
                                                                  ('lease_date','>=',self.date_from),('lease_date','<=',self.date_to),('state','=','done')])
             lease_sale_amount = sum(lease_sale.mapped('sale_total'))
-            recovery_incentive = round(self.contract_id.recovery_incentive/100 *lease_sale_amount,2)
+            recovery_incentive = round(self.contract_id.recovery_incentive_id.recovery_incentive/100 *lease_sale_amount,2)
         input_line_ids = [
             (0, 0, {
                 'name': 'Cash Sale Incentive',
@@ -625,4 +625,14 @@ class AbsentLine(models.Model):
 class HRContract(models.Model):
     _inherit = 'hr.contract'
 
+    # recovery_incentive = fields.Float('Recovery Office Sale Incentive(%)')
+    recovery_incentive_id = fields.Many2one('recovery.incentive',string='Recovery Office Sale Incentive(%)')
+
+
+
+class RecoveryIncentive(models.Model):
+    _name = 'recovery.incentive'
+
+    name = fields.Char(string='Incentive Name')
     recovery_incentive = fields.Float('Recovery Office Sale Incentive(%)')
+

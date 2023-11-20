@@ -5,3 +5,4 @@ access_hr_payslip_wizard,hr_payslip_wizard,cyb_payroll.model_hr_payslip_wizard,b
 access_hr_payslip_wizard_line,hr_payslip_wizard_line,cyb_payroll.model_hr_payslip_wizard_line,base.group_user,1,1,1,1
 access_payslip_leave_date,payslip_leave_date,cyb_payroll.model_payslip_leave_date,base.group_user,1,1,1,1
 access_absent_line,access_absent_line,cyb_payroll.model_absent_line,base.group_user,1,1,1,1
+access_recovery_incentive,recovery_incentive,cyb_payroll.model_recovery_incentive,base.group_user,1,1,1,1

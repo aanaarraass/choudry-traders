@@ -90,6 +90,11 @@ class ResPartner(models.Model):
          'Customer Registration Already Exists !'),
     ]
 
+
+    @api.onchange('portfolio_id')
+    def update_recovery_officer(self):
+        self.recovery_officer_id = self.portfolio_id.recovery_id.id
+
     def lease_sale_count(self):
         self.lease_count = self.env['lease.sale'].search_count([('partner_id', '=', self.id)])
 

@@ -75,7 +75,7 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='salary']" position="after">
                 <group>
-                    <field name="recovery_incentive"/>
+                    <field name="recovery_incentive_id"/>
                 </group>
             </xpath>
         </field>

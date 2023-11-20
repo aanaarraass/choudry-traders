@@ -29,6 +29,7 @@
         'wizard/hr_payslip_wizard.xml',
 
         'views/views.xml',
+        'views/incentive_view.xml',
         'views/hr_payslip.xml',
         'views/resource_calendar_inherit.xml',
         'views/templates.xml',
