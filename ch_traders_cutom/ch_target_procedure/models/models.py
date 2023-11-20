@@ -22,6 +22,19 @@ class MonthlyTarget(models.Model):
                 line.date_from = rec.date_from
                 line.date_to = rec.date_to
                 line.name = rec.name
+
+
+    def update_branches(self):
+        branches = self.env['res.branch'].search([])
+        for branch in branches:
+            branch_target = self.env['branch.target'].create({
+                'name' : self.name,
+                'date_from':self.date_from,
+                'date_to':self.date_to,
+                'monthly_target_id':self.id,
+                'branch_id':branch.id,
+            })
+            branch_target.update_branch_staff()
             
       
 
@@ -77,6 +90,17 @@ class BranchTarget(models.Model):
                 total+=br.amount_total
             rec.recovery_target_achieved = total
 
+    def update_branch_staff(self):
+        branch_employees = self.env['hr.employee'].search([('branch_id','=',self.branch_id.id)])
+        for employee in branch_employees:
+            recover_officer_target = self.env['recovery.officer.target'].create({
+                'name' : self.name,
+                'date_from':self.date_from,
+                'date_to':self.date_to,
+                'branch_id':self.branch_id.id,
+                'recovery_officer_id':employee.id
+            })
+
 
 
 class RecoveryOfficerTarget(models.Model):
@@ -89,7 +113,9 @@ class RecoveryOfficerTarget(models.Model):
     date_from = fields.Date(tracking=True)
     date_to = fields.Date(tracking=True)
     recovery_officer_id = fields.Many2one('hr.employee',tracking=True)
+    job_position_id = fields.Many2one(related='recovery_officer_id.job_id')
     recovery_target = fields.Float(tracking=True)
+    sale_target = fields.Float(tracking=True)
     target_achived = fields.Float(compute='compute_officer_recovery')
     branch_target_id = fields.Many2one('branch.target',tracking=True)
 
@@ -228,3 +254,10 @@ class LeaseIncentiveTable(models.Model):
     reward = fields.Float()
     recovery_percentage = fields.Float()
     incentive_percentage = fields.Float()
+
+
+class HrEmployee(models.Model):
+    _inherit = 'hr.employee'
+
+
+    branch_id = fields.Many2one('res.branch')

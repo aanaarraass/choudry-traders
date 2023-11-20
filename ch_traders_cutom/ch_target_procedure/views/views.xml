@@ -16,6 +16,9 @@
             <field name="model">monthly.target</field>
             <field name="arch" type="xml">
                 <form string="monthly_target_form">
+                    <header>
+                        <button name="update_branches" type="object" string="Update Branches" attrs="{'invisible': [('branch_target_ids','!=',[])]}"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
@@ -162,6 +165,8 @@
                                         <field name="name" invisible="1"/>
                                         <field name="date_from" invisible="1"/>
                                         <field name="recovery_officer_id"/>
+                                        <field name="job_position_id"/>
+                                        <field name="sale_target"/>
                                         <field name="recovery_target"/>
                                         <field name="branch_id" invisible="1"/>
                                         <field name="date_to" invisible="1"/>
@@ -171,11 +176,11 @@
                                         <field name="date_from" invisible="1"/>
                                         <field name="recovery_officer_id"/>
                                         <field name="recovery_target"/>
+                                         <field name="sale_target"/>
                                         <field name="branch_id" invisible="1"/>
                                         <field name="date_to" invisible="1"/>
                                     </form>
                                 </field>
-
                             </page>
                         </notebook>
                     </sheet>
@@ -199,6 +204,8 @@
                                 <field name="name" readonly="1"/>
                                 <field name="date_from" readonly="1"/>
                                 <field name="recovery_officer_id" readonly="1"/>
+                                <field name="job_position_id"/>
+                                <field name="sale_target" readonly="1"/>
                                 <field name="recovery_target" readonly="1"/>
                             </group>
                             <group>
@@ -228,6 +235,20 @@
                     <field name="branch_id"/>
                     <field name="date_to"/>
                 </tree>
+            </field>
+        </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="branch_id_inherit_in_employee" model="ir.ui.view">
+            <field name="name">branch.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='department_id']" position="before">
+                    <field name="branch_id"/>
+                </xpath>
+
             </field>
         </record>
 
@@ -284,7 +305,7 @@
             <field name="name">recovery_incentive_table_view_tree</field>
             <field name="model">lease.incentive.table</field>
             <field name="arch" type="xml">
-                <tree string="recovery_incentive_table_tree"  editable="top"  default_order="recovery_percentage asc">
+                <tree string="recovery_incentive_table_tree" editable="top" default_order="recovery_percentage asc">
                     <field name="sequence" widget="handle"/>
                     <field name="reward"/>
                     <field name="incentive_percentage"/>
