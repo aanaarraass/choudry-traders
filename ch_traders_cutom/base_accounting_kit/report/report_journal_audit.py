@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,6 +19,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
+
 import time
 
 from odoo import api, models, _
@@ -132,13 +133,17 @@ class ReportJournal(models.AbstractModel):
         if not data.get('form'):
             raise UserError(
                 _("Form content is missing, this report cannot be printed."))
+
         target_move = data['form'].get('target_move', 'all')
         sort_selection = data['form'].get('sort_selection', 'date')
+
         res = {}
         for journal in data['form']['journal_ids']:
             res[journal] = self.with_context(
-                data['form'].get('used_context', {})).lines(
-                target_move, journal, sort_selection, data)
+                data['form'].get('used_context', {})).lines(target_move,
+                                                            journal,
+                                                            sort_selection,
+                                                            data)
         return {
             'doc_ids': data['form']['journal_ids'],
             'doc_model': self.env['account.journal'],

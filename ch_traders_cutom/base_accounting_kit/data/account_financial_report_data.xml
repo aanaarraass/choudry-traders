@@ -29,8 +29,7 @@
                    ref="account_financial_report_income0"/>
             <field name="display_detail">detail_with_hierarchy</field>
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_other_income'))]"/>
+            <field name="account_type_ids">income_other</field>
         </record>
 
         <record id="financial_report_gross_profit"
@@ -52,8 +51,8 @@
                    ref="financial_report_gross_profit"/>
             <field name="display_detail">detail_with_hierarchy</field>
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_direct_costs'))]"/>
+            <field name="account_type_ids">expense_direct_cost</field>
+
         </record>
 
         <record id="account_financial_report_operating_income0"
@@ -64,8 +63,8 @@
                    ref="financial_report_gross_profit"/>
             <field name="display_detail">detail_with_hierarchy</field>
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_revenue'))]"/>
+            <field name="account_type_ids">income</field>
+
         </record>
 
         <record id="account_financial_report_expense0"
@@ -77,8 +76,8 @@
                    ref="account_financial_report_profitandloss0"/>
             <field name="display_detail">detail_with_hierarchy</field>
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_expenses')), (4,ref('account.data_account_type_depreciation'))]"/>
+            <field name="account_type_ids">expense</field>
+
         </record>
 
         <record id="account_financial_report_balancesheet0"
@@ -93,9 +92,11 @@
             <field name="parent_id"
                    ref="account_financial_report_balancesheet0"/>
             <field name="display_detail">detail_with_hierarchy</field>
+
+
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_receivable')), (4,ref('account.data_account_type_liquidity')), (4,ref('account.data_account_type_current_assets')), (4,ref('account.data_account_type_non_current_assets'), (4,ref('account.data_account_type_prepayments'))), (4,ref('account.data_account_type_fixed_assets'))]"/>
+            <field name="account_type_ids">income_other</field>
+
         </record>
 
         <record id="account_financial_report_liabilitysum0"
@@ -115,8 +116,8 @@
                    ref="account_financial_report_liabilitysum0"/>
             <field name="display_detail">detail_with_hierarchy</field>
             <field name="type">account_type</field>
-            <field name="account_type_ids"
-                   eval="[(4,ref('account.data_account_type_payable')), (4,ref('account.data_account_type_equity')), (4,ref('account.data_account_type_current_liabilities')), (4,ref('account.data_account_type_non_current_liabilities'))]"/>
+            <field name="account_type_ids">income_other</field>
+
         </record>
 
         <record id="account_financial_report_profitloss_toreport0"
@@ -128,6 +129,29 @@
             <field name="type">account_report</field>
             <field name="account_report_id"
                    ref="account_financial_report_profitandloss0"/>
+        </record>
+
+        <record id="account_common_report_view" model="ir.ui.view">
+            <field name="name">Common Report</field>
+            <field name="model">account.report</field>
+            <field name="arch" type="xml">
+                <form string="Report Options">
+                    <group col="4">
+                        <field name="target_move" widget="radio"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="journal_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight"
+                                data-hotkey="q"/>
+                        <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="z"/>
+                    </footer>
+                </form>
+            </field>
         </record>
 
     </data>

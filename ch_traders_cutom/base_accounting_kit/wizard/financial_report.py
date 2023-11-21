@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -21,17 +21,37 @@
 #############################################################################
 import re
 
-from odoo import api, fields, models
+from odoo import api, models, fields
 
 
 class FinancialReport(models.TransientModel):
     _name = "financial.report"
-    _inherit = "account.common.report"
+    _inherit = "account.report"
     _description = "Financial Reports"
 
-    view_format = fields.Selection([('vertical', 'Vertical'),
-                                    ('horizontal', 'Horizontal')],
-                                   default='vertical', string="Format")
+    name = fields.Char(string="Financial Report", default="Financial Report", required=True, translate=True)
+
+    target_move = fields.Selection([('posted', 'All Posted Entries'),
+                                    ('all', 'All Entries'),
+                                    ], string='Target Moves', required=True, default='posted')
+
+    view_format = fields.Selection([
+        ('vertical', 'Vertical'),
+        ('horizontal', 'Horizontal')],
+        default='vertical',
+        string="Format")
+
+
+    def _build_contexts(self, data):
+        result = {}
+        result['journal_ids'] = 'journal_ids' in data['form'] and data['form'][
+            'journal_ids'] or False
+        result['state'] = 'target_move' in data['form'] and data['form'][
+            'target_move'] or ''
+        result['date_from'] = data['form']['date_from'] or False
+        result['date_to'] = data['form']['date_to'] or False
+        result['strict_range'] = True if result['date_from'] else False
+        return result
 
     @api.model
     def _get_account_report(self):
@@ -43,18 +63,29 @@ class FinancialReport(models.TransientModel):
                 ('name', 'ilike', menu)])
         return reports and reports[0] or False
 
-    enable_filter = fields.Boolean(string='Enable Comparison', default=False)
+    enable_filter = fields.Boolean(
+        string='Enable Comparison',
+        default=False)
     account_report_id = fields.Many2one(
-        'account.financial.report', string='Account Reports', required=True)
+        'account.financial.report',
+        string='Account Reports',
+        required=True)
+
     date_from = fields.Date(string='Start Date')
     date_to = fields.Date(string='End Date')
     debit_credit = fields.Boolean(
-        string='Display Debit/Credit Columns', default=True,
-        help="This option allows you to get more details about the  way your "
-             "balances are computed. Because it is space consuming, we do not "
-             "allow to use it while doing a comparison.")
+        string='Display Debit/Credit Columns',
+        default=True,
+        help="This option allows you to"
+             " get more details about the "
+             "way your balances are computed."
+             " Because it is space consuming,"
+             " we do not allow to use it "
+             "while doing a comparison.")
     company_id = fields.Many2one(
-        'res.company', string='Company', index=True,
+        'res.company',
+        string='Company',
+        index=True,
         default=lambda self: self.env.company.id)
 
     def view_report_pdf(self):
@@ -62,17 +93,18 @@ class FinancialReport(models.TransientModel):
         from the wizard. Based on the values provided in the wizard, this
         function will print pdf report"""
         self.ensure_one()
-        data = {
-            'ids': self.env.context.get('active_ids', []),
-            'model': self.env.context.get('active_model', 'ir.ui.menu'),
-            'form': self.read(
-                ['date_from', 'enable_filter', 'debit_credit', 'date_to',
-                 'account_report_id', 'target_move', 'view_format',
-                 'company_id'])[0]
-        }
+        data = dict()
+        data['ids'] = self.env.context.get('active_ids', [])
+        data['model'] = self.env.context.get('active_model', 'ir.ui.menu')
+        data['form'] = self.read(
+            ['date_from', 'enable_filter', 'debit_credit', 'date_to',
+             'account_report_id', 'target_move', 'view_format',
+             'company_id'])[0]
         used_context = self._build_contexts(data)
         data['form']['used_context'] = dict(
-            used_context, lang=self.env.context.get('lang') or 'en_US')
+            used_context,
+            lang=self.env.context.get('lang') or 'en_US')
+
         report_lines = self.get_account_lines(data['form'])
         # find the journal items of these accounts
         journal_items = self.find_journal_items(report_lines, data['form'])
@@ -123,7 +155,8 @@ class FinancialReport(models.TransientModel):
 
         res = {}
         for account in accounts:
-            res[account.id] = dict((fn, 0.0) for fn in mapping.keys())
+            res[account.id] = dict((fn, 0.0)
+                                   for fn in mapping.keys())
         if accounts:
             tables, where_clause, where_params = (
                 self.env['account.move.line']._query_get())
@@ -135,8 +168,10 @@ class FinancialReport(models.TransientModel):
             filters = " AND ".join(wheres)
             request = ("SELECT account_id as id, " +
                        ', '.join(mapping.values()) +
-                       " FROM " + tables + " WHERE account_id IN %s " +
-                       filters + " GROUP BY account_id")
+                       " FROM " + tables +
+                       " WHERE account_id IN %s " +
+                       filters +
+                       " GROUP BY account_id")
             params = (tuple(accounts._ids),) + tuple(where_params)
             self.env.cr.execute(request, params)
             for row in self.env.cr.dictfetchall():
@@ -164,16 +199,32 @@ class FinancialReport(models.TransientModel):
                 res[report.id]['account'] = self._compute_account_balance(
                     report.account_ids
                 )
-                for value in res[report.id]['account'].values():
+                for value in \
+                        res[report.id]['account'].values():
                     for field in fields:
                         res[report.id][field] += value.get(field)
             elif report.type == 'account_type':
                 # it's the sum the leaf accounts
                 #  with such an account type
                 accounts = self.env['account.account'].search([
-                    ('user_type_id', 'in', report.account_type_ids.ids)])
+                    ('account_type', '=', report.account_type_ids)
+                ])
+                if report.name == "Expenses":
+                    accounts = self.env['account.account'].search([
+                        ('account_type', 'in', ["expense","expense_depreciation","expense_direct_cost"])
+                    ])
+                if report.name == "Liability":
+                    accounts = self.env['account.account'].search([
+                        ('account_type', 'in', ["liability_payable","equity","liability_current","liability_non_current"])
+                    ])
+                if report.name == "Assets":
+                    accounts = self.env['account.account'].search([
+                        ('account_type', 'in', ["asset_receivable","asset_cash","asset_current","asset_non_current","asset_prepayments","asset_fixed"])
+                    ])
+
                 res[report.id]['account'] = self._compute_account_balance(
                     accounts)
+
                 for value in res[report.id]['account'].values():
                     for field in fields:
                         res[report.id][field] += value.get(field)
@@ -205,17 +256,20 @@ class FinancialReport(models.TransientModel):
                 res[report_id]['comp_bal'] = value['balance']
                 report_acc = res[report_id].get('account')
                 if report_acc:
-                    for account_id, val in comparison_res[report_id].get(
-                            'account').items():
+                    for account_id, val in \
+                            comparison_res[report_id].get('account').items():
                         report_acc[account_id]['comp_bal'] = val['balance']
 
         for report in child_reports:
             r_name = str(report.name)
+            # r_name = r_name.replace(" ", "-") + "-"
             r_name = re.sub('[^0-9a-zA-Z]+', '', r_name)
             if report.parent_id:
                 p_name = str(report.parent_id.name)
                 p_name = re.sub('[^0-9a-zA-Z]+', '', p_name) + str(
                     report.parent_id.id)
+                # p_name = p_name.replace(" ", "-") +
+                #  "-" + str(report.parent_id.id)
             else:
                 p_name = False
             vals = {
@@ -246,11 +300,11 @@ class FinancialReport(models.TransientModel):
                 # used to display the details of the
                 #  financial report, so it's not needed here.
                 continue
+
             if res[report.id].get('account'):
                 sub_lines = []
                 for account_id, value \
                         in res[report.id]['account'].items():
-
                     # if there are accounts to display,
                     #  we add them to the lines with a level equals
                     #  to their level in
@@ -259,6 +313,8 @@ class FinancialReport(models.TransientModel):
                     # financial reports for Assets, liabilities...)
                     flag = False
                     account = self.env['account.account'].browse(account_id)
+                    # new_r_name = str(report.name)
+                    # new_r_name = new_r_name.replace(" ", "-") + "-"
                     vals = {
                         'account': account.id,
                         'a_id': account.code + re.sub('[^0-9a-zA-Z]+', 'acnt',
@@ -271,7 +327,7 @@ class FinancialReport(models.TransientModel):
                         'level': (
                                 report.display_detail == 'detail_with_hierarchy' and
                                 4),
-                        'account_type': account.internal_type,
+                        'account_type': account.account_type,
                     }
                     if data['debit_credit']:
                         vals['debit'] = value['debit']

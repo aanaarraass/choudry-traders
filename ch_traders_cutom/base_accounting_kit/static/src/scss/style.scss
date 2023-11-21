@@ -143,7 +143,6 @@
 .col-xl-9,
 .col-xl-auto {
     position: relative;
-    width: 100%;
     padding-right: 7.5px;
     padding-left: 7.5px;
 }
@@ -1162,3 +1161,19 @@ progress::-moz-progress-bar {
 html .o_web_client>.o_action_manager {
     overflow: auto !important;
 }
+/*@media (min-width: 992px) {
+.col-lg-12 {
+width: 100%;
+width: 100% !important;
+}
+}
+@media (min-width: 768px) {
+.col-md-3 {
+width: 25%;
+width: 25% !important;
+}
+.col-md-4 {
+width: 33.33333333%;
+width: 33.33333333% !important;
+}
+}*/

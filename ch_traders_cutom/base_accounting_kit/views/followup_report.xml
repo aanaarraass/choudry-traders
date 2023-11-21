@@ -13,7 +13,7 @@
                          style="font-size: 15px;display: inline-block; margin-top:10px;margin-left: 201px;">
                         <span>Wonder how to Send Followup mails and Print Followup Reports ? Download our
                             <a target="_blank"
-                               href="https://apps.odoo.com/apps/modules/14.0/customer_followup_community">
+                               href="https://apps.odoo.com/apps/modules/16.0/customer_followup_community">
                                 <b>Customer Followup</b>
                             </a>
                             Module !
@@ -51,12 +51,16 @@
                         </div>
                         <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
                             <field name="total_due" class="oe_subtotal_footer_separator" widget="monetary"
-                                   options="{'currency_field': 'currency_id'}"/>
+                                   />
+<!--                             <field name="total_due" class="oe_subtotal_footer_separator" widget="monetary"-->
+<!--                                   options="{'currency_field': 'currency_id'}"/>-->
                             <div class="oe_subtotal_footer_separator oe_inline o_td_label">
                                 <label for="total_overdue"/>
                             </div>
                             <field name="total_overdue" nolabel="1" class="oe_subtotal_footer_separator"
-                                   widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                   widget="monetary"/>
+<!--                              <field name="total_overdue" nolabel="1" class="oe_subtotal_footer_separator"-->
+<!--                                   widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
                         </group>
                     </sheet>
                     <div class="oe_chatter">

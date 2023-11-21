@@ -1,4 +1,4 @@
-odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
+odoo.define('base_accounting_kit.AccountingDashboard', function(require) {
     'use strict';
     var AbstractAction = require('web.AbstractAction');
     var ajax = require('web.ajax');
@@ -8,6 +8,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
     var _t = core._t;
     var QWeb = core.qweb;
     var self = this;
+    const { loadBundle } = require("@web/core/assets");
     var currency;
     var ActionMenu = AbstractAction.extend({
         contentTemplate: 'Invoicedashboard',
@@ -64,6 +65,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
                 else{
                     this.onclick_invoice_this_month(this.$('#invoice_values').val());
                 }
+//                this.$('.invoice_this_year').empty();
             },
             'change #income_expense_values': function(e) {
                 e.stopPropagation();
@@ -537,6 +539,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
         },
 
         onclick_income_last_year: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.income');
             var data = $(selected[0]).data();
             var posted = false;
@@ -612,6 +615,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
         },
 
         onclick_income_last_month: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.income');
             var data = $(selected[0]).data();
             var posted = false;
@@ -685,6 +689,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
             })
         },
         onclick_income_this_year: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.income');
             var data = $(selected[0]).data();
             var posted = false;
@@ -756,6 +761,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
 
 
         onclick_invoice_this_year: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.selected');
             var data = $(selected[0]).data();
             var posted = false;
@@ -837,6 +843,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
             })
         },
         onclick_invoice_this_month: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.selected');
             var data = $(selected[0]).data();
             var posted = false;
@@ -915,6 +922,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
         },
 
         onclick_income_this_month: function(ev) {
+//            ev.preventDefault();
             var selected = $('.btn.btn-tool.income');
             var data = $(selected[0]).data();
             var posted = false;
@@ -1433,7 +1441,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
 
                         $('#current_bank_balance').append('<li><div val="' + bnk_ids[k] + '"id="b_' + bnk_ids[k] + '">' + banks[k] + '</div><div>' + amount + '</div></li>');
                         //                                $('#current_bank_balance').append('<li>' + banks[k] +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ balance[k] +  '</li>' );
-                        $('#drop_charts_balance').append('<li>' + balance[k].toFixed(2) + '</li>');
+                        $('#drop_charts_balance').append('<li>' + balance[k] + '</li>');
                         $('#b_' + bnk_ids[k]).on("click", function(ev) {
                             self.do_action({
                                 res_model: 'account.account',
@@ -1717,7 +1725,7 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
             if (typeof(amount) != 'number') {
                 amount = parseFloat(amount);
             }
-            var formatted_value = (parseInt(amount)).toLocaleString(currency.language, {
+            var formatted_value = (amount).toLocaleString(currency.language, {
                 minimumFractionDigits: 2
             })
             if (currency.position === "after") {
@@ -1730,8 +1738,12 @@ odoo.define('AccountingDashboard.AccountingDashboard', function(require) {
         willStart: function() {
             var self = this;
             self.drpdn_show = false;
-            return Promise.all([ajax.loadLibs(this), this._super()]);
+            return Promise.all([loadBundle(this), this._super()]);
         },
     });
+
     core.action_registry.add('invoice_dashboard', ActionMenu);
+
+return ActionMenu;
+
 });

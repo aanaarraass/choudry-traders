@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,6 +19,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
+
 from datetime import date, timedelta
 
 from odoo import fields, models
@@ -27,11 +28,12 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    invoice_list = fields.One2many(
-        'account.move', 'partner_id', string="Invoice Details",
-        readonly=True, domain=(
-            [('payment_state', '=', 'not_paid'),
-             ('move_type', '=', 'out_invoice')]))
+    invoice_list = fields.One2many('account.move', 'partner_id',
+                                   string="Invoice Details",
+                                   readonly=True,
+                                   domain=(
+                                   [('payment_state', '=', 'not_paid'),
+                                    ('move_type', '=', 'out_invoice')]))
     total_due = fields.Monetary(compute='_compute_for_followup', store=False,
                                 readonly=True)
     next_reminder_date = fields.Date(compute='_compute_for_followup',
@@ -42,7 +44,8 @@ class ResPartner(models.Model):
         [('in_need_of_action', 'In need of action'),
          ('with_overdue_invoices', 'With overdue invoices'),
          ('no_action_needed', 'No action needed')],
-        string='Followup status')
+        string='Followup status',
+        )
 
     def _compute_for_followup(self):
         """
@@ -96,11 +99,14 @@ class ResPartner(models.Model):
          order by delay limit 1"""
         self._cr.execute(delay, [self.env.company.id])
         record = self._cr.dictfetchall()
+
         return record
+
 
     def action_after(self):
         lines = self.env['followup.line'].search([(
             'followup_id.company_id', '=', self.env.company.id)])
+
         if lines:
             record = self.get_delay()
             for i in record:

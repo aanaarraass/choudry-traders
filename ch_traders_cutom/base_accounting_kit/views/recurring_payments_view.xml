@@ -9,7 +9,7 @@
             <field name="arch" type="xml">
                 <form string="Recurring Template">
                     <header>
-                        <field name="state" widget="statusbar" clickable="1"/>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
                     </header>
                     <sheet>
                         <group>

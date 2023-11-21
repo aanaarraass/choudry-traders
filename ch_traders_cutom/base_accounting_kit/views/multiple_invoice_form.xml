@@ -16,16 +16,18 @@
                         <button name="%(base_accounting_kit.action_multiple_invoice_layout_configurator)d" string="Configure Copy Layout" type="action" class="oe_link" icon="fa-arrow-right"/>
                     </div>
                 </group>
+                <group>
+                    <group attrs="{'invisible': [('type', 'not in',['sale', 'purchase'])]}">
+                        <div>
+                            <field name="multiple_invoice_ids" widget="one2many" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="copy_name" style="width: 75"/>
+                                </tree>
+                             </field>
+                        </div>
+                    </group>
 
-                <group attrs="{'invisible': [('type', 'not in',['sale', 'purchase'])]}">
-                    <div>
-                        <field name="multiple_invoice_ids" widget="one2many" nolabel="1">
-                            <tree editable="bottom">
-                                <field name="sequence" widget="handle"/>
-                                <field name="copy_name" style="width: 75"/>
-                            </tree>
-                         </field>
-                    </div>
                 </group>
             </page>
         </field>
