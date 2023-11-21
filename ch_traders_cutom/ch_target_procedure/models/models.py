@@ -98,7 +98,8 @@ class BranchTarget(models.Model):
                 'date_from':self.date_from,
                 'date_to':self.date_to,
                 'branch_id':self.branch_id.id,
-                'recovery_officer_id':employee.id
+                'recovery_officer_id':employee.id,
+                'branch_target_id':self.id
             })
 
 
