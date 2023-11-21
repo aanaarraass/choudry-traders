@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,10 +19,8 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-
 import time
 from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, models, _
@@ -81,10 +79,8 @@ class ReportAgedPartnerBalance(models.AbstractModel):
             'SELECT debit_move_id, credit_move_id FROM account_partial_reconcile where max_date > %s',
             (date_from,))
         reconciled_after_date = []
-
         for row in cr.fetchall():
             reconciled_after_date += [row[0], row[1]]
-
         if reconciled_after_date:
             reconciliation_clause = '(l.reconciled IS FALSE OR l.id IN %s)'
             arg_list += (tuple(reconciled_after_date),)
@@ -95,7 +91,7 @@ class ReportAgedPartnerBalance(models.AbstractModel):
             WHERE (l.account_id = account_account.id)
                 AND (l.move_id = am.id)
                 AND (am.state IN %s)
-                AND (account_account.account_type IN %s)
+                AND (account_account.internal_type IN %s)
                 AND ''' + reconciliation_clause + '''
                 AND (l.date <= %s)
                 AND l.company_id IN %s
@@ -121,7 +117,7 @@ class ReportAgedPartnerBalance(models.AbstractModel):
                 FROM account_move_line AS l, account_account, account_move am
                 WHERE (l.account_id = account_account.id) AND (l.move_id = am.id)
                     AND (am.state IN %s)
-                    AND (account_account.account_type IN %s)
+                    AND (account_account.internal_type IN %s)
                     AND (COALESCE(l.date_maturity,l.date) >= %s)\
                     AND ((l.partner_id IN %s) OR (l.partner_id IS NULL))
                 AND (l.date <= %s)
@@ -181,7 +177,7 @@ class ReportAgedPartnerBalance(models.AbstractModel):
                     FROM account_move_line AS l, account_account, account_move am
                     WHERE (l.account_id = account_account.id) AND (l.move_id = am.id)
                         AND (am.state IN %s)
-                        AND (account_account.account_type IN %s)
+                        AND (account_account.internal_type IN %s)
                         AND ((l.partner_id IN %s) OR (l.partner_id IS NULL))
                         AND ''' + dates_query + '''
                     AND (l.date <= %s)
@@ -283,23 +279,21 @@ class ReportAgedPartnerBalance(models.AbstractModel):
         date_from = data['form'].get('date_from', time.strftime('%Y-%m-%d'))
 
         if data['form']['result_selection'] == 'customer':
-            account_type = ['asset_receivable']
+            account_type = ['receivable']
         elif data['form']['result_selection'] == 'supplier':
-            account_type = ['liability_payable']
+            account_type = ['payable']
         else:
-            account_type = ['liability_payable', 'asset_receivable']
+            account_type = ['payable', 'receivable']
 
-        movelines, total, dummy = self._get_partner_move_lines(account_type,
-                                                               date_from,
-                                                               target_move,
-                                                               data['form'][
-                                                                   'period_length'])
+        move_lines, total, dummy = self._get_partner_move_lines(
+            account_type, date_from, target_move,
+            data['form']['period_length'])
         return {
             'doc_ids': self.ids,
             'doc_model': model,
             'data': data['form'],
             'docs': docs,
             'time': time,
-            'get_partner_lines': movelines,
+            'get_partner_lines': move_lines,
             'get_direction': total,
         }

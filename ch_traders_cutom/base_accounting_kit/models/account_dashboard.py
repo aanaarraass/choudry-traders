@@ -1,12 +1,30 @@
 # -*- coding: utf-8 -*-
-
+#############################################################################
+#
+#    Cybrosys Technologies Pvt. Ltd.
+#
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+#############################################################################
 import calendar
 import datetime
 from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 
-from odoo import models, api
+from odoo import api, models
 from odoo.http import request
 
 
@@ -43,6 +61,7 @@ class DashBoard(models.Model):
                              group by internal_group,month                  
                         ''') % (states_arg))
         record = self._cr.dictfetchall()
+
         self._cr.execute(('''select sum(debit)-sum(credit) as expense ,to_char(account_move_line.date, 'Month')  as month ,
                             internal_group from account_move_line ,account_account where 
                             account_move_line.account_id=account_account.id AND internal_group = 'expense' 
@@ -123,7 +142,6 @@ class DashBoard(models.Model):
             l_month = datetime.now() - relativedelta(months=i)
             text = format(l_month, '%B')
             month_list.append(text)
-
         states_arg = ""
         if post != ('posted',):
             states_arg = """ parent_state in ('posted', 'draft')"""
@@ -225,7 +243,6 @@ class DashBoard(models.Model):
             day_list.append(x)
 
         one_month_ago = (datetime.now() - relativedelta(months=1)).month
-
         states_arg = ""
         if post != ('posted',):
             states_arg = """ parent_state in ('posted', 'draft')"""
@@ -233,23 +250,24 @@ class DashBoard(models.Model):
             states_arg = """ parent_state = 'posted'"""
 
         self._cr.execute(('''select sum(debit)-sum(credit) as income ,cast(to_char(account_move_line.date, 'DD')as int)
-                            as date , internal_group from account_move_line , account_account where   
-                            Extract(month FROM account_move_line.date) in ''' + str(tuple(company_id)) + ''' 
-                            AND %s
-                            AND account_move_line.company_id in ''' + str(tuple(company_id)) + ''' 
-                            AND account_move_line.account_id=account_account.id AND internal_group='income'   
-                            group by internal_group,date                 
-                             ''') % (states_arg))
+                                    as date , internal_group from account_move_line , account_account
+                                    where   Extract(month FROM account_move_line.date) = '''+str((datetime.now() - relativedelta(months=1)).month)+'''
+                                    AND Extract(YEAR FROM account_move_line.date) = '''+str((datetime.now() - relativedelta(months=1)).year)+'''  
+                                    AND %s
+                                    AND account_move_line.company_id in ''' + str(tuple(company_id)) + ''' 
+                                    AND account_move_line.account_id=account_account.id AND internal_group='income'
+                                    group by internal_group,date                 
+                                ''') % (states_arg))
 
         record = self._cr.dictfetchall()
-
         self._cr.execute(('''select sum(debit)-sum(credit) as expense ,cast(to_char(account_move_line.date, 'DD')as int)
-                            as date ,internal_group from account_move_line ,account_account where  
-                            Extract(month FROM account_move_line.date) in ''' + str(tuple(company_id)) + ''' 
-                            AND %s
-                            AND account_move_line.company_id in ''' + str(tuple(company_id)) + ''' 
-                            AND account_move_line.account_id=account_account.id AND internal_group='expense'
-                            group by internal_group,date                 
+                                    as date , internal_group from account_move_line , account_account where  
+                                    Extract(month FROM account_move_line.date) = '''+str((datetime.now() - relativedelta(months=1)).month)+''' 
+                                    AND Extract(YEAR FROM account_move_line.date) = '''+str((datetime.now() - relativedelta(months=1)).year)+''' 
+                                    AND %s
+                                    AND account_move_line.company_id in ''' + str(tuple(company_id)) + ''' 
+                                    AND account_move_line.account_id=account_account.id AND internal_group='expense'
+                                    group by internal_group,date                 
                                  ''') % (states_arg))
         result = self._cr.dictfetchall()
         records = []
@@ -480,7 +498,7 @@ class DashBoard(models.Model):
                             AND payment_state = 'not_paid' 
                             AND %s
                             AND account_move.company_id in ''' + str(tuple(company_id)) + '''
-                            AND account_account.account_type = 'payable'
+                            AND account_account.internal_type = 'payable'
                             AND account_move.commercial_partner_id=res_partner.commercial_partner_id 
                             group by parent,partner,res
                             order by amount desc
@@ -955,7 +973,6 @@ class DashBoard(models.Model):
                               where Extract(month FROM l.date) = Extract(month FROM DATE(NOW())) AND
                               Extract(YEAR FROM l.date) = Extract(YEAR FROM DATE(NOW())) AND
                               L.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                              l.product_id IS NULL AND
                               l.balance != 0 AND a.reconcile IS F 
                               AND l.''' + states_arg + '''
                               AND  l.company_id in ''' + str(tuple(company_id)) + '''                              
@@ -965,7 +982,6 @@ class DashBoard(models.Model):
                               where Extract(month FROM l.date) = Extract(month FROM DATE(NOW())) AND
                               Extract(YEAR FROM l.date) = Extract(YEAR FROM DATE(NOW())) AND
                               L.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                              l.product_id IS NULL AND
                               l.balance != 0 AND a.reconcile IS TRUE 
                               AND l.%s
                               AND  l.company_id in ''' + str(tuple(company_id)) + '''                              
@@ -1002,7 +1018,6 @@ class DashBoard(models.Model):
         self._cr.execute(('''  select count(*) FROM account_move_line l,account_account a
                                   where Extract(year FROM l.date) = Extract(year FROM DATE(NOW())) AND
                                   l.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                                  l.product_id IS NULL AND
                                   l.balance != 0 AND a.reconcile IS TRUE  
                                   AND l.%s
                                   AND  l.company_id in ''' + str(tuple(company_id)) + '''       
@@ -1278,7 +1293,6 @@ class DashBoard(models.Model):
                               where Extract(month FROM l.date) = Extract(month FROM DATE(NOW())) AND
                               Extract(YEAR FROM l.date) = Extract(YEAR FROM DATE(NOW())) AND
                               L.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                              l.product_id IS NULL AND
                               l.balance != 0 AND a.reconcile IS F 
                               AND l.''' + states_arg + '''
                               AND  l.company_id in ''' + str(tuple(company_id)) + '''                              
@@ -1288,7 +1302,6 @@ class DashBoard(models.Model):
                               where Extract(month FROM l.date) = Extract(month FROM DATE(NOW())) AND
                               Extract(YEAR FROM l.date) = Extract(YEAR FROM DATE(NOW())) AND
                               L.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                              l.product_id IS NULL AND
                               l.balance != 0 AND a.reconcile IS TRUE 
                               AND l.%s
                               AND  l.company_id in ''' + str(tuple(company_id)) + '''                              
@@ -1307,7 +1320,6 @@ class DashBoard(models.Model):
         self._cr.execute(('''  select l.id FROM account_move_line l,account_account a
                                   where Extract(year FROM l.date) = Extract(year FROM DATE(NOW())) AND
                                   L.account_id=a.id AND l.full_reconcile_id IS NULL AND 
-                                  l.product_id IS NULL AND
                                   l.balance != 0 AND a.reconcile IS TRUE  
                                   AND l.%s
                                   AND  l.company_id in ''' + str(tuple(company_id)) + '''       
@@ -1601,8 +1613,9 @@ class DashBoard(models.Model):
 
         self._cr.execute((''' select account_account.name as name, sum(balance) as balance,
                             min(account_account.id) as id from account_move_line left join
-                            account_account on account_account.id = account_move_line.account_id where
-                            account_account.account_type = 'asset_cash'
+                            account_account on account_account.id = account_move_line.account_id join
+                            account_account_type on account_account_type.id = account_account.user_type_id
+                            where account_account_type.name = 'Bank and Cash'
                             AND %s
                             AND account_move_line.company_id in ''' + str(tuple(company_id)) + '''
                             group by account_account.name
@@ -1610,8 +1623,9 @@ class DashBoard(models.Model):
                             ''') % (states_arg))
 
         record = self._cr.dictfetchall()
+
         banks = [item['name'] for item in record]
-        # bank_name = [rec['en_US'] for rec in banks]
+
         banking = [item['balance'] for item in record]
 
         bank_ids = [item['id'] for item in record]
@@ -1620,5 +1634,6 @@ class DashBoard(models.Model):
             'banks': banks,
             'banking': banking,
             'bank_ids': bank_ids
+
         }
         return records

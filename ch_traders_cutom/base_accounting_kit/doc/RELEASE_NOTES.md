@@ -1,65 +1,31 @@
 ## Module <base_accounting_kit>
 
-#### 14.10.2022
-
-#### Version 16.0.1.0.0
-
+#### 06.10.2021
+#### Version 15.0.1.0.0
 #### ADD
+- Initial commit for Odoo 15 Full Accounting Kit
 
-- Initial commit for Odoo 16 accounting
+#### 20.11.2021
+#### Version 15.0.2.0.1
+#### ADD
+- Added specific user group for Accounting Dashboard view.
 
-#### 08.03.2023
+#### 14.01.2022
+#### Version 15.0.2.0.2
+#### FIX
+- Dashboard cash and bank balance issue fix
 
-#### Version 16.0.2.0.0
+#### 11.04.2023
+#### Version 15.0.2.2.3
+#### FIX
+- Profit and Loss report issue fix
 
-#### IMP
+#### 28.04.2023
+#### Version 15.0.2.2.4
+#### FIX
+- asset closing issue is fixed
 
-- Added Anglo Saxon Accounting Feature
-
-#### 09.06.2023
-
-#### Version 16.0.2.0.3
-
-#### UPDT
-
-- Bug Fix
-
-#### 15.06.2023
-
-#### Version 16.0.2.0.4
-
-#### UPDT
-
-- Bug Fix
-
-#### 11.07.2023
-
-#### Version 16.0.2.0.5
-
-#### UPDT
-
-- Cash journal Bug Fix
-
-#### 17.08.2023
-
-#### Version 16.0.2.0.7
-
-#### UPDT
-
-- Asset type Bug Fix
-
-### 02.11.2023
-
-### Version 16.0.2.0.10
-
-### UPDT
-
-- Payment Register Bank and Cheque References Bug Fix
-
-### 08.11.2023
-
-### Version 16.0.2.0.11
-
-### UPDT
-
-- Payment Receipt  Bank and Cheque reference Report Bug Fix
+#### 27.06.2023
+#### Version 15.0.2.2.5
+#### REF
+- Refactor code and remove unused files

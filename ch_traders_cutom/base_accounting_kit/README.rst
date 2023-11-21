@@ -1,6 +1,10 @@
-Accounting Kit V16
-==================
-* Full accounting kit for Odoo 16 community editions
+.. image:: https://img.shields.io/badge/licence-LGPL--3-green.svg
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+
+Odoo 15 Full Accounting Kit
+===========================
+* Full accounting kit for Odoo 15 community editions
 
 Installation
 ============
@@ -10,7 +14,7 @@ Installation
 License
 -------
 General Public License, Version 3 (LGPL v3).
-(https://www.odoo.com/documentation/user/13.0/legal/licenses/licenses.html)
+(https://www.gnu.org/licenses/lgpl-3.0-standalone.html)
 
 Company
 -------
@@ -25,7 +29,6 @@ Credits
 (v13) Varsha Vivek @ Cybrosys
 (v14) Risha @ Cybrosys
 (V15) Mehjabin @ Cybrosys
-(V16) Aiswarya JP, Noorjahan NA, Neethu UM
 
 Contacts
 --------
@@ -37,6 +40,9 @@ Bugs are tracked on GitHub Issues. In case of trouble, please check there if you
 
 Maintainer
 ==========
+.. image:: https://cybrosys.com/images/logo.png
+   :target: https://cybrosys.com
+
 This module is maintained by Cybrosys Technologies.
 
 For support and more information, please visit https://www.cybrosys.com
@@ -44,4 +50,3 @@ For support and more information, please visit https://www.cybrosys.com
 Further information
 ===================
 HTML Description: `<static/description/index.html>`__
-

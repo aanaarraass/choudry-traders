@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,7 +19,6 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-
 import time
 
 from odoo import api, models, _
@@ -113,16 +112,16 @@ class ReportPartnerLedger(models.AbstractModel):
             data['computed']['move_state'] = ['posted']
         result_selection = data['form'].get('result_selection', 'customer')
         if result_selection == 'supplier':
-            data['computed']['ACCOUNT_TYPE'] = ['liability_payable']
+            data['computed']['ACCOUNT_TYPE'] = ['payable']
         elif result_selection == 'customer':
-            data['computed']['ACCOUNT_TYPE'] = ['asset_receivable']
+            data['computed']['ACCOUNT_TYPE'] = ['receivable']
         else:
-            data['computed']['ACCOUNT_TYPE'] = ['liability_payable', 'asset_receivable']
+            data['computed']['ACCOUNT_TYPE'] = ['payable', 'receivable']
 
         self.env.cr.execute("""
             SELECT a.id
             FROM account_account a
-            WHERE a.account_type IN %s
+            WHERE a.internal_type IN %s
             AND NOT a.deprecated""",
                             (tuple(data['computed']['ACCOUNT_TYPE']),))
         data['computed']['account_ids'] = [a for (a,) in

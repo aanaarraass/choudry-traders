@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,9 +19,7 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-
 import time
-
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models, _
@@ -32,8 +30,6 @@ class AccountAgedTrialBalance(models.TransientModel):
     _name = 'account.aged.trial.balance'
     _inherit = 'account.common.partner.report'
     _description = 'Account Aged Trial balance Report'
-
-    name = fields.Char(string="Account Aged Trial balance Report", default="Account Aged Trial balance Report", required=True, translate=True)
 
     journal_ids = fields.Many2many('account.journal', string='Journals',
                                    required=True)
@@ -50,9 +46,7 @@ class AccountAgedTrialBalance(models.TransientModel):
             raise UserError(_('You must set a period length greater than 0.'))
         if not data['form']['date_from']:
             raise UserError(_('You must set a start date.'))
-
         start = data['form']['date_from']
-
         for i in range(5)[::-1]:
             stop = start - relativedelta(days=period_length - 1)
             res[str(i)] = {

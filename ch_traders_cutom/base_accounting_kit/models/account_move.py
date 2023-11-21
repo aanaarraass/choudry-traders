@@ -3,7 +3,7 @@
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -19,13 +19,10 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-
 from datetime import datetime
-import ast
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
-from odoo.addons.base.models import decimal_precision as dp
 from odoo.exceptions import UserError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
@@ -33,9 +30,9 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    asset_depreciation_ids = fields.One2many('account.asset.depreciation.line',
-                                             'move_id',
-                                             string='Assets Depreciation Lines')
+    asset_depreciation_ids = fields.One2many(
+        'account.asset.depreciation.line', 'move_id',
+        string='Assets Depreciation Lines')
 
     def button_cancel(self):
         for move in self:
@@ -44,9 +41,8 @@ class AccountMove(models.Model):
         return super(AccountMove, self).button_cancel()
 
     def post(self):
-
         self.mapped('asset_depreciation_ids').post_lines_and_close_asset()
-        return super(AccountMove, self).action_post()
+        return super(AccountMove, self).post()
 
     @api.model
     def _refund_cleanup_lines(self, lines):
@@ -65,8 +61,8 @@ class AccountMove(models.Model):
         return res
 
     def action_post(self):
+        self.mapped('asset_depreciation_ids').post_lines_and_close_asset()
         result = super(AccountMove, self).action_post()
-
         for inv in self:
             context = dict(self.env.context)
             # Within the context of an invoice,
@@ -139,26 +135,26 @@ class AccountInvoiceLine(models.Model):
                     asset.validate()
         return True
 
-    @api.depends('asset_category_id')
+    @api.onchange('asset_category_id')
     def onchange_asset_category_id(self):
-        if self.move_id.move_type == 'out_invoice' and self.asset_category_id:
+        if self.move_id == 'out_invoice' and self.asset_category_id:
             self.account_id = self.asset_category_id.account_asset_id.id
-        elif self.move_id.move_type == 'in_invoice' and self.asset_category_id:
+        elif self.move_id == 'in_invoice' and self.asset_category_id:
             self.account_id = self.asset_category_id.account_asset_id.id
 
-    @api.onchange('product_id')
+    @api.onchange('product_uom_id')
     def _onchange_uom_id(self):
-        result = super(AccountInvoiceLine, self)._compute_product_uom_id()
+        result = super(AccountInvoiceLine, self)._onchange_uom_id()
         self.onchange_asset_category_id()
         return result
 
-    @api.depends('product_id')
+    @api.onchange('product_id')
     def _onchange_product_id(self):
-        vals = super(AccountInvoiceLine, self)._compute_price_unit()
+        vals = super(AccountInvoiceLine, self)._onchange_product_id()
         if self.product_id:
-            if self.move_id.move_type == 'out_invoice':
+            if self.move_id == 'out_invoice':
                 self.asset_category_id = self.product_id.product_tmpl_id.deferred_revenue_category_id
-            elif self.move_id.move_type == 'in_invoice':
+            elif self.move_id == 'in_invoice':
                 self.asset_category_id = self.product_id.product_tmpl_id.asset_category_id
         return vals
 
@@ -175,78 +171,3 @@ class AccountInvoiceLine(models.Model):
         return product.asset_category_id.account_asset_id or super(
             AccountInvoiceLine, self).get_invoice_line_account(type, product,
                                                                fpos, company)
-
-    @api.model
-    def _query_get(self, domain=None):
-        self.check_access_rights('read')
-
-        context = dict(self._context or {})
-        domain = domain or []
-        if not isinstance(domain, (list, tuple)):
-            domain = ast.literal_eval(domain)
-
-        date_field = 'date'
-        if context.get('aged_balance'):
-            date_field = 'date_maturity'
-        if context.get('date_to'):
-            domain += [(date_field, '<=', context['date_to'])]
-        if context.get('date_from'):
-            if not context.get('strict_range'):
-                domain += ['|', (date_field, '>=', context['date_from']),
-                           ('account_id.include_initial_balance', '=', True)]
-            elif context.get('initial_bal'):
-                domain += [(date_field, '<', context['date_from'])]
-            else:
-                domain += [(date_field, '>=', context['date_from'])]
-
-        if context.get('journal_ids'):
-            domain += [('journal_id', 'in', context['journal_ids'])]
-
-        state = context.get('state')
-        if state and state.lower() != 'all':
-            domain += [('parent_state', '=', state)]
-
-        if context.get('company_id'):
-            domain += [('company_id', '=', context['company_id'])]
-        elif context.get('allowed_company_ids'):
-            domain += [('company_id', 'in', self.env.companies.ids)]
-        else:
-            domain += [('company_id', '=', self.env.company.id)]
-
-        if context.get('reconcile_date'):
-            domain += ['|', ('reconciled', '=', False), '|',
-                       ('matched_debit_ids.max_date', '>', context['reconcile_date']),
-                       ('matched_credit_ids.max_date', '>', context['reconcile_date'])]
-
-        if context.get('account_tag_ids'):
-            domain += [('account_id.tag_ids', 'in', context['account_tag_ids'].ids)]
-
-        if context.get('account_ids'):
-            domain += [('account_id', 'in', context['account_ids'].ids)]
-
-        if context.get('analytic_tag_ids'):
-            domain += [('analytic_tag_ids', 'in', context['analytic_tag_ids'].ids)]
-
-        if context.get('analytic_account_ids'):
-            domain += [('analytic_account_id', 'in', context['analytic_account_ids'].ids)]
-
-        if context.get('partner_ids'):
-            domain += [('partner_id', 'in', context['partner_ids'].ids)]
-
-        if context.get('partner_categories'):
-            domain += [('partner_id.category_id', 'in', context['partner_categories'].ids)]
-
-        where_clause = ""
-        where_clause_params = []
-        tables = ''
-        if domain:
-            domain.append(('display_type', 'not in', ('line_section', 'line_note')))
-            domain.append(('parent_state', '!=', 'cancel'))
-
-            query = self._where_calc(domain)
-
-            # Wrap the query with 'company_id IN (...)' to avoid bypassing company access rights.
-            self._apply_ir_rules(query)
-
-            tables, where_clause, where_clause_params = query.get_sql()
-        return tables, where_clause, where_clause_params

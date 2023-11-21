@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 #############################################################################
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2022-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Copyright (C) 2019-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
 #    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
 #
 #    You can modify it under the terms of the GNU LESSER
@@ -23,6 +22,8 @@
 from . import account_bank_book_wizard
 from . import account_cash_book_wizard
 from . import account_day_book_wizard
+from . import account_lock_date
+from . import account_payment_register
 from . import account_report_common_partner
 from . import aged_partner
 from . import asset_depreciation_confirmation_wizard
@@ -34,5 +35,3 @@ from . import journal_audit
 from . import partner_ledger
 from . import tax_report
 from . import trial_balance
-
-from . import account_lock_date
