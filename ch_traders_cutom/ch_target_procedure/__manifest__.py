@@ -28,7 +28,7 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/incentive_data.xml',
+        # 'views/incentive_data.xml',
 
     ],
     # only loaded in demonstration mode

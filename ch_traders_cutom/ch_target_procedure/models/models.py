@@ -245,6 +245,33 @@ class leaseSaleItem(models.Model):
                 self.sale_incentive_id = sale_incentive_id.id
 
 
+class LeaseIncentive(models.Model):
+    _name = 'lease.incentive'
+    _description = 'Lease Incentive'
+
+    name = fields.Char()
+    date = fields.Date()
+    recovery_start = fields.Integer(string='Recovery Percentage Start From')
+    base_reward = fields.Integer()
+
+    incentive_table_ids = fields.One2many('lease.incentive.table','lease_incentive_id')
+
+    def create_table(self):
+        b = self.incentive_table_ids.unlink()
+        table = []
+        recovery_diff = 101 - self.recovery_start
+        change_in_profit =self.base_reward/recovery_diff
+        a = 1
+        for r in range(self.recovery_start,101,1):
+            table.append( (0,0, {
+                    'recovery_percentage': r,
+                    'reward':(self.base_reward/recovery_diff)*a,
+                    'base_reward': self.base_reward,
+                    'incentive_percentage': ((change_in_profit/self.base_reward)*100)*a,
+                }))
+            a+=1
+        self.incentive_table_ids = table
+
 
 class LeaseIncentiveTable(models.Model):
     _name = 'lease.incentive.table'
@@ -255,6 +282,9 @@ class LeaseIncentiveTable(models.Model):
     reward = fields.Float()
     recovery_percentage = fields.Float()
     incentive_percentage = fields.Float()
+    base_reward = fields.Float()
+
+    lease_incentive_id = fields.Many2one('lease.incentive')
 
 
 class HrEmployee(models.Model):

@@ -5,3 +5,4 @@ access_recovery_officer_target,recovery_officer_target,model_recovery_officer_ta
 access_product_incentive,product_incentive,model_product_incentive,base.group_user,1,1,1,1
 access_sale_incentive,sale_incentive,model_sale_incentive,base.group_user,1,1,1,1
 access_lease_incentive_table,lease_incentive_table,model_lease_incentive_table,base.group_user,1,1,1,1
+access_lease_incentive,lease_incentive,model_lease_incentive,base.group_user,1,1,1,1

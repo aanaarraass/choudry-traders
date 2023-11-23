@@ -17,7 +17,8 @@
             <field name="arch" type="xml">
                 <form string="monthly_target_form">
                     <header>
-                        <button name="update_branches" type="object" string="Update Branches" attrs="{'invisible': [('branch_target_ids','!=',[])]}"/>
+                        <button name="update_branches" type="object" string="Update Branches"
+                                attrs="{'invisible': [('branch_target_ids','!=',[])]}"/>
                     </header>
                     <sheet>
                         <group>
@@ -176,7 +177,7 @@
                                         <field name="date_from" invisible="1"/>
                                         <field name="recovery_officer_id"/>
                                         <field name="recovery_target"/>
-                                         <field name="sale_target"/>
+                                        <field name="sale_target"/>
                                         <field name="branch_id" invisible="1"/>
                                         <field name="date_to" invisible="1"/>
                                     </form>
@@ -315,12 +316,58 @@
         </record>
 
 
+        <record id="lease_incentive_view_form" model="ir.ui.view">
+            <field name="name">lease_incentive_view_form</field>
+            <field name="model">lease.incentive</field>
+            <field name="arch" type="xml">
+                <form string="lease_incentive_form">
+                    <header>
+                        <button name="create_table" type="object" string="Create Incentive Table"/>
+                    </header>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                            </group>
+                            <group>
+                                <field name="date" required="1"/>
+                                <field name="recovery_start" required="1"/>
+                                <field name="base_reward" required="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Incentive Percentage">
+                                <field name="incentive_table_ids">
+                                    <tree editable="bottom">
+                                        <field name="reward"/>
+                                        <field name="incentive_percentage"/>
+                                        <field name="recovery_percentage"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="lease_incentove_view_tree" model="ir.ui.view">
+            <field name="name">lease_incentove_view_tree</field>
+            <field name="model">lease.incentive</field>
+            <field name="arch" type="xml">
+                <tree string="lease_incentove_tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
         <record id="recovery_percentage_action" model="ir.actions.act_window">
             <field name="name">Recovery Incentive Percentage</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">lease.incentive.table</field>
-            <field name="view_mode">tree</field>
+            <field name="res_model">lease.incentive</field>
+            <field name="view_mode">tree,form</field>
         </record>
+
 
         <record id="product_earned_incentive_action" model="ir.actions.act_window">
             <field name="name">Incentive On Sale</field>
