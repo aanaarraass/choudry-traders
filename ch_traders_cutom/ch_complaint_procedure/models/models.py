@@ -51,10 +51,10 @@ class ProductComplaint(models.Model):
             rec.ac = rec.lease_id.account_no
             rec.Lease_date = rec.lease_id.lease_date
             rec.partner_id = rec.lease_id.partner_id.id
-            rec.area = rec.lease_id.partner_id.area
-            rec.road = rec.lease_id.partner_id.road
+            # rec.area = rec.lease_id.partner_id.area
+            # rec.road = rec.lease_id.partner_id.road
             rec.address = rec.lease_id.partner_id.contact_address
-            rec.recover_officer_id = rec.lease_id.recovery_officer_id
+            rec.recover_officer_id = rec.lease_id.recovery_officer_id.id
             rec.product_ids = rec.lease_id.lease_sale_item_ids.product_id.mapped(lambda x:x.id)
 
 

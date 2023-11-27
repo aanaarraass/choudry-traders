@@ -627,6 +627,7 @@ class HRContract(models.Model):
 
     # recovery_incentive = fields.Float('Recovery Office Sale Incentive(%)')
     recovery_incentive_id = fields.Many2one('recovery.incentive',string='Recovery Office Sale Incentive(%)')
+    sale_incentive_id = fields.Many2one('lease.incentive',string="Recovery Incentive Table")
 
 
 
