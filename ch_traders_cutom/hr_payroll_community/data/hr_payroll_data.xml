@@ -123,6 +123,15 @@ result = -(day_rate * absent_days)
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result = inputs.RSI.amount if inputs.RSI else 0</field>
         </record>
+        <record id="hr_rule_input_rti_recovery" model="hr.salary.rule">
+            <field name="name">Recovery Target Incentive</field>
+            <field name="sequence" eval="110"/>
+            <field name="code">RTI</field>
+            <field name="category_id" ref="hr_payroll_community.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = inputs.RTI.amount if inputs.RTI else 0</field>
+        </record>
 
         <record id="hr_rule_net" model="hr.salary.rule">
             <field name="name">Net Salary</field>

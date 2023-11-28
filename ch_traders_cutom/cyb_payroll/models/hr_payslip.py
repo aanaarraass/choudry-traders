@@ -524,6 +524,20 @@ class HrPayslip(models.Model):
                                                                  ('lease_date','>=',self.date_from),('lease_date','<=',self.date_to),('state','=','done')])
             lease_sale_amount = sum(lease_sale.mapped('sale_total'))
             recovery_incentive = round(self.contract_id.recovery_incentive_id.recovery_incentive/100 *lease_sale_amount,2)
+        recovery_target_amount = 0
+        if self.contract_id.sale_incentive_id:
+            this_month_target = self.env['recovery.officer.target'].search([('date_from','>=',self.date_from),('date_to','<=',self.date_to),('recovery_officer_id','=',self.employee_id.id)])
+            target_for_this_month = sum(this_month_target.mapped('recovery_target'))
+            achived_for_this_month = sum(this_month_target.mapped('target_achived'))
+            if target_for_this_month > 0 and achived_for_this_month > 0:
+                target_achive_percentage = (achived_for_this_month/target_for_this_month)*100
+                if target_achive_percentage > 100:
+                    target_achive_percentage = 100
+                recover_percentage =self.contract_id.sale_incentive_id.incentive_table_ids.filtered(lambda x:x.incentive_percentage >= target_achive_percentage and x.incentive_percentage <= target_achive_percentage)
+                recovery_target_amount = recover_percentage.reward
+
+
+
         input_line_ids = [
             (0, 0, {
                 'name': 'Cash Sale Incentive',
@@ -542,6 +556,12 @@ class HrPayslip(models.Model):
                 'amount': recovery_incentive,
                 'contract_id': self.contract_id.id,
                 'code': 'RSI',
+            }),
+            (0, 0, {
+                'name': 'Recovery Target Incentive',
+                'amount': recovery_target_amount,
+                'contract_id': self.contract_id.id,
+                'code': 'RTI',
             })
         ]
         self.update({
