@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="recovery_report_view_form" model="ir.ui.view">
+            <field name="name">Recovery Report Form</field>
+            <field name="model">recovery.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="portfolio_id" widget="many2one_tags" required="1"/>
+                            <field name="date_from" required="1"/>
+                            <field name="date_to" required="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Recovery Report Print" name="recovery_report_print" type="object"
+                                class="oe_highlight"/>
+
+                        <button string="Cancel" special="cancel"/>
+
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="recovery_report_action_view" model="ir.actions.act_window">
+            <field name="name">Recovery Report</field>
+            <field name="res_model">recovery.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="recovery_report_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem id="recovery_report_menu" action="recovery_report_action_view" name="Recovery Reporting"/>
+
+    </data>
+</odoo>

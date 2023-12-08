@@ -138,7 +138,8 @@ class LeaseTransaction(models.TransientModel):
                     lease_sum+=lease.sale_total-lease.sale_return_total
                     lease_recived_amount+=lease.total_paid
                     lease_recivable_amount+=lease.total_receivable
-                    per_month_instalment+=lease.installment_ids[0].amount
+                    if lease.installment_ids:
+                        per_month_instalment+=lease.installment_ids[0].amount
                 short_amount = lease_sum-lease_recived_amount
                 html+='<td>'
                 html+=str(lease_sum)
