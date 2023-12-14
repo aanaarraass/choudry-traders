@@ -9,7 +9,7 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="portfolio_id" widget="many2one_tags" required="1"/>
+                            <field name="branch_id" required="1"/>
                             <field name="date_from" required="1"/>
                             <field name="date_to" required="1"/>
                         </group>
@@ -17,6 +17,10 @@
                     <footer>
                         <button string="Recovery Report Print" name="recovery_report_print" type="object"
                                 class="oe_highlight"/>
+                        <button string="Installment Receipt Summary" name="installment_receipt_summary" type="object"
+                                class="oe_highlight"/>
+<!--                        <button string="Recovery Report Print" name="recovery_report_print" type="object"-->
+<!--                                class="oe_highlight"/>-->
 
                         <button string="Cancel" special="cancel"/>
 

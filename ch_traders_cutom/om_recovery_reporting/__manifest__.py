@@ -26,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'reports/recovery_report_print_pdf.xml',
+        'reports/installment_receipt_print_pdf.xml',
         'views/views.xml',
         'views/templates.xml',
         'wizard/recovery_report_wizard.xml',

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="paperformat_recover_resdf" model="report.paperformat">
+            <field name="name">Recovery Overdue Paper format</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <template id="om_recovery_reporting.installment_receipt_pdf_action_temp">
+            <t t-call="web.html_container">
+                <t t-call="web.html_container">
+                    <t t-call="web.basic_layout">
+                        <div class="page" style="padding:10px">
+                            <style>
+                                .table-bordered th,
+                                .table-bordered td {
+                                border: 1px solid black;
+                                padding: 3px;
+                                text-align: center;
+                                }
+                            </style>
+
+                            <div style="text-align: center; font-weight: bold;">
+                                <b style="text-align: center; font-weight: bold; font-size: 25px;">
+                                    Installment Receipt Summary
+                                </b>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                </div>
+
+                                <div class="col-4" style="text-align: center;font-weight: bold; font-size: 20px;">
+                                    <t t-set="obj_port_branch" t-value="env['res.branch'].browse(branch_id)"/>
+                                    <t t-as="branch" t-foreach="obj_port_branch">
+                                        <span t-esc="branch.name"/>
+                                        Branch
+                                    </t>
+                                </div>
+                                <div class="col-4"/>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 m-3">
+                                    <center>
+                                        <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                            <t t-esc="date_from"/>
+                                        </span>
+                                        <span class="ml-3 mr-3" style="font-weight: bold; padding: 4px;">To</span>
+                                        <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                            <t t-esc="date_to"/>
+                                        </span>
+                                    </center>
+                                </div>
+                            </div>
+
+
+                            <table class="table-bordered" style="width: 100%;">
+                                <thead>
+                                    <tr style="page-break-inside: avoid;">
+                                        <th>Recovery Officer</th>
+                                        <th>Advance</th>
+                                        <th>Due</th>
+                                        <th>Overdue</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+<!--                                    <t t-set="recovery_summary" t-value="{}"/>-->
+                                    <t t-set="account_payments"
+                                       t-value="env['account.payment'].search([('branch_id','=',branch_id),('date','&gt;=',date_from),('date','&lt;=',date_to)])"/>
+                                    <t t-set="portfilio_ids" t-value="account_payments.mapped('portfolio_id')"/>
+                                    <t t-foreach="portfilio_ids" t-as="port">
+                                        <t t-set="portfilio_paymets"
+                                           t-value="account_payments.filtered(lambda y:y.portfolio_id.id == port.id)"/>
+
+                                        <t t-set="over_due"
+                                           t-value="portfilio_paymets.filtered(lambda z:z.instalment_id.due_date &lt; z.date)"/>
+                                        <t t-set="overdue_total" t-value="sum(over_due.mapped('amount'))"/>
+
+                                        <t t-set="advance_due"
+                                           t-value="portfilio_paymets.filtered(lambda z:z.instalment_id.due_date &gt; z.date)"/>
+                                        <t t-set="advance_total" t-value="sum(advance_due.mapped('amount'))"/>
+
+                                        <t t-set="ontime_payments"
+                                           t-value="portfilio_paymets.filtered(lambda z:z.instalment_id.due_date &lt;= z.date and z.instalment_id.due_date &gt;= z.date)"/>
+                                        <t t-set="ontime_total" t-value="sum(ontime_payments.mapped('amount'))"/>
+
+                                        <tr>
+                                            <td>
+                                                <span t-esc="portfilio_paymets.portfolio_id.recovery_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="advance_total"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="ontime_total"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="overdue_total"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="advance_total + ontime_total + overdue_total"/>
+                                            </td>
+                                        </tr>
+
+                                    </t>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="installment_receipt_pdf_action"
+                model="recovery.report"
+                string="Recovery Report Pdf"
+                report_type="qweb-pdf"
+                name="om_recovery_reporting.installment_receipt_pdf_action_temp"
+                file="om_recovery_reporting.installment_receipt_pdf_action_temp"
+                paperformat="paperformat_recover_resdf"
+                attachment_use="False"
+
+        />
+
+
+    </data>
+</odoo>

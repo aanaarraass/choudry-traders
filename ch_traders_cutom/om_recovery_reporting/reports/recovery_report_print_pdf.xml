@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+        <record id="paperformat_recover_resdf" model="report.paperformat">
+            <field name="name">Recovery Overdue Paper format</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">80</field>
+        </record>
 
         <template id="om_recovery_reporting.recovery_report_pdf_action_temp">
             <t t-call="web.html_container">
                 <t t-call="web.html_container">
-                    <t t-call="web.external_layout">
-                        <div class="page">
+                    <t t-call="web.basic_layout">
+                        <div class="page" style="padding:10px">
                             <style>
                                 .table-bordered th,
                                 .table-bordered td {
@@ -15,11 +30,27 @@
                                 text-align: center;
                                 }
                             </style>
+                            <div class="row">
+                                <div class="col-4">
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                                </div>
+                                <div class="col-4" style="text-align: center;font-weight: bold; font-size: 30px;">
+                                    <t t-set="obj_port_branch" t-value="env['res.branch'].browse(branch_id)"/>
+                                    <t t-as="branch" t-foreach="obj_port_branch">
+                                        <span t-esc="branch.name"/>
+                                        Branch
+                                    </t>
+                                </div>
+                                <div class="col-4"/>
+                            </div>
+
                             <div style="text-align: center; font-weight: bold;">
                                 <b style="text-align: center; font-weight: bold; font-size: 25px;">
                                     Overdue Recovery Report
                                 </b>
                             </div>
+                            <t t-set="lease_sales"
+                               t-value="env['lease.sale'].search([('branch_id','=',branch_id),('lease_date','&gt;=',date_from),('lease_date','&lt;=',date_to)])"/>
 
                             <div class="row">
                                 <div class="col-12 m-3">
@@ -34,119 +65,246 @@
                                     </center>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-10"/>
+                                <div class="col-2 align-right">
+                                    Branch Clients
+                                    <t t-esc="len(lease_sales)"/>
+                                </div>
+                            </div>
 
-                            <table class="table-bordered" style="width: 100%;">
-                                <thead>
-                                    <tr>
-                                        <th colspan="4">Area Name</th>
-                                        <th colspan="4">
-                                            <t t-set="obj_port" t-value="env['branch.portfolio'].browse(portfolio_id)"/>
-                                            <t t-as="portfolio" t-foreach="obj_port">
-                                                <span t-esc="portfolio.area_id.name"/>
-                                            </t>
-                                        </th>
-                                        <th colspan="4">Total Clients</th>
-                                        <th colspan="4">
-                                            <t t-esc="lease_total"/>
-                                        </th>
-                                    </tr>
+                            <t t-set="portfolios" t-value="lease_sales.mapped('portfolio_id')"/>
+                            <t t-foreach="portfolios" t-as="port">
+                                <table class="table-bordered" style="width: 100%;">
+                                    <thead>
+                                        <t t-set="portfolio_leases"
+                                           t-value="lease_sales.filtered(lambda x :x.portfolio_id.id == port.id)"/>
+                                        <tr style="page-break-inside: avoid;">
+                                            <th colspan="4">Portfolio Name</th>
+                                            <th colspan="4">
+                                                <span t-esc="port.name"/>
+                                                <t t-esc="''"/>
+                                                <t t-esc="port.recovery_id.name"/>
+                                            </th>
+                                            <th colspan="4">Total Clients</th>
+                                            <th colspan="4">
+                                                <t t-esc="len(portfolio_leases)"/>
+                                            </th>
+                                        </tr>
 
-                                    <tr>
-                                        <th rowspan="2">Lease No.</th>
-                                        <th rowspan="2">Form No</th>
-                                        <th rowspan="2">Bkno</th>
-                                        <th rowspan="2">Customer Code</th>
-                                        <th rowspan="2">Phone</th>
-                                        <th rowspan="2">Remarks</th>
-                                        <th rowspan="2">Pic</th>
-                                        <th rowspan="2">Lease Amount</th>
-                                        <th rowspan="2">Received Amount</th>
-                                        <th rowspan="2">Receivable Amount</th>
-                                        <th rowspan="2">Per Month Inst.</th>
-                                        <th colspan="2">Last Recovered</th>
-                                        <th rowspan="2">Due Date</th>
-                                        <th rowspan="2">Short Amount</th>
-                                        <th rowspan="2">Verified By</th>
-                                    </tr>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Amount</th>
-                                    </tr>
-                                </thead>
-
-
-                                <tbody>
-                                    <t t-set="lease_sale_fields"
-                                       t-value="env['lease.sale'].search([('portfolio_id','=',portfolio_id),('lease_date','&gt;=',date_from),('lease_date','&lt;=',date_to)])"/>
-                                    <t t-as="val" t-foreach="lease_sale_fields">
-                                        <tr>
-                                            <td>
-                                                <span t-esc="val.name"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="val.form_no"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="val.book_no"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="val.partner_id.registration_no"/>
-                                            </td>
-                                            <td>
-                                                <span t-esc="val.phone"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.comments"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                x
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.sale_total"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.total_paid"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.total_receivable"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.amount_of_instalment"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <t t-set="latest_installment"
-                                                   t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
-                                                <span t-if="latest_installment" t-esc="latest_installment[0].due_date"/>
-                                            </td>
-
-                                            <td rowspan="2">
-                                                <t t-set="latest_installment"
-                                                   t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
-                                                <span t-if="latest_installment" t-esc="latest_installment[0].amount"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <t t-set="due_date"
-                                                   t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status).sorted(key=lambda r: r.due_date, reverse=True)"/>
-                                                <span t-if="due_date" t-esc="due_date[0].due_date"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.sale_total - val.total_paid"/>
-                                            </td>
-                                            <td rowspan="2">
-                                                <span t-esc="val.inquiry_officer.name"/>
-                                            </td>
+                                        <tr style="page-break-inside: avoid;">
+                                            <th rowspan="2">Lease No.</th>
+                                            <th rowspan="2">Form No</th>
+                                            <th rowspan="2">Bkno</th>
+                                            <th rowspan="2">Customer Code</th>
+                                            <th rowspan="2">Phone</th>
+                                            <th rowspan="2">Remarks</th>
+                                            <th rowspan="2">Pic</th>
+                                            <th rowspan="2">Lease Amount</th>
+                                            <th rowspan="2">Received Amount</th>
+                                            <th rowspan="2">Receivable Amount</th>
+                                            <th rowspan="2">Per Month Inst.</th>
+                                            <th colspan="2">Last Recovered</th>
+                                            <th rowspan="2">Due Date</th>
+                                            <th rowspan="2">Short Amount</th>
+                                            <th rowspan="2">Verified By</th>
                                         </tr>
                                         <tr>
-                                            <td colspan="4">
-                                                <span t-esc="val.partner_id.name"/>
-                                                <br></br>
-                                                <span t-esc="val.partner_id.parmanent_address"/>
-                                            </td>
+                                            <th>Date</th>
+                                            <th>Amount</th>
                                         </tr>
-                                    </t>
+                                    </thead>
 
-                                </tbody>
-                            </table>
+
+                                    <tbody>
+                                        <t t-as="val" t-foreach="portfolio_leases">
+                                            <tr style="page-break-inside: avoid;">
+                                                <td>
+                                                    <span t-esc="val.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.form_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.book_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.partner_id.registration_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.phone"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.comments"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <img style="height:50px" t-if="val.partner_id.image_1920"
+                                                         t-att-src="image_data_uri(val.partner_id.image_1920)"
+                                                         alt="Logo"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.sale_total"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.total_paid"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.total_receivable"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.amount_of_instalment"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <t t-set="latest_installment"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="latest_installment"
+                                                          t-esc="latest_installment[0].due_date"/>
+                                                </td>
+
+                                                <td rowspan="2">
+                                                    <t t-set="latest_installment"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="latest_installment"
+                                                          t-esc="latest_installment[0].amount"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <t t-set="due_date"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status).sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="due_date" t-esc="due_date[0].due_date"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.sale_total - val.total_paid"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.inquiry_officer.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="page-break-inside: avoid;">
+                                                <td colspan="4">
+                                                    <span t-esc="val.partner_id.name"/>
+                                                    <br></br>
+                                                    <span t-esc="val.partner_id.parmanent_address"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-set="without_portfolio_lease"
+                               t-value="lease_sales.filtered(lambda w:not w.portfolio_id)"/>
+                            <t t-if="without_portfolio_lease">
+                                <table class="table-bordered" style="width: 100%;">
+                                    <thead>
+                                        <tr style="page-break-inside: avoid;">
+                                            <th colspan="4">Portfolio Name</th>
+                                            <th colspan="4">
+                                                <span t-esc="'N/A'"/>
+                                                <t t-esc="''"/>
+                                            </th>
+                                            <th colspan="4">Total Clients</th>
+                                            <th colspan="4">
+                                                <t t-esc="len(without_portfolio_lease)"/>
+                                            </th>
+                                        </tr>
+
+                                        <tr style="page-break-inside: avoid;">
+                                            <th rowspan="2">Lease No.</th>
+                                            <th rowspan="2">Form No</th>
+                                            <th rowspan="2">Bkno</th>
+                                            <th rowspan="2">Customer Code</th>
+                                            <th rowspan="2">Phone</th>
+                                            <th rowspan="2">Remarks</th>
+                                            <th rowspan="2">Pic</th>
+                                            <th rowspan="2">Lease Amount</th>
+                                            <th rowspan="2">Received Amount</th>
+                                            <th rowspan="2">Receivable Amount</th>
+                                            <th rowspan="2">Per Month Inst.</th>
+                                            <th colspan="2">Last Recovered</th>
+                                            <th rowspan="2">Due Date</th>
+                                            <th rowspan="2">Short Amount</th>
+                                            <th rowspan="2">Verified By</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        <t t-as="val" t-foreach="without_portfolio_lease">
+                                            <tr style="page-break-inside: avoid;">
+                                                <td>
+                                                    <span t-esc="val.name"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.form_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.book_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.partner_id.registration_no"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="val.phone"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.comments"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <img style="height:50px" t-if="val.partner_id.image_1920"
+                                                         t-att-src="image_data_uri(val.partner_id.image_1920)"
+                                                         alt="Logo"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.sale_total"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.total_paid"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.total_receivable"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.amount_of_instalment"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <t t-set="latest_installment"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="latest_installment"
+                                                          t-esc="latest_installment[0].due_date"/>
+                                                </td>
+
+                                                <td rowspan="2">
+                                                    <t t-set="latest_installment"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status == 'paid').sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="latest_installment"
+                                                          t-esc="latest_installment[0].amount"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <t t-set="due_date"
+                                                       t-value="val.installment_ids.filtered(lambda r: r.invoice_payment_status).sorted(key=lambda r: r.due_date, reverse=True)"/>
+                                                    <span t-if="due_date" t-esc="due_date[0].due_date"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.sale_total - val.total_paid"/>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <span t-esc="val.inquiry_officer.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="page-break-inside: avoid;">
+                                                <td colspan="4">
+                                                    <span t-esc="val.partner_id.name"/>
+                                                    <br></br>
+                                                    <span t-esc="val.partner_id.parmanent_address"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </t>
                         </div>
                     </t>
                 </t>
@@ -160,6 +318,7 @@
                 report_type="qweb-pdf"
                 name="om_recovery_reporting.recovery_report_pdf_action_temp"
                 file="om_recovery_reporting.recovery_report_pdf_action_temp"
+                paperformat="paperformat_recover_resdf"
                 attachment_use="False"
 
         />
