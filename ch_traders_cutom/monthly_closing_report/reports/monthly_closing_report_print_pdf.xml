@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="paperformat_recover_resdf" model="report.paperformat">
+            <field name="name">Recovery Overdue Paper format</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <template id="monthly_closing_report.monthly_closing_report_pdf_action_temp">
+            <t t-call="web.html_container">
+                <t t-call="web.html_container">
+                    <t t-call="web.basic_layout">
+                        <div class="page" style="padding:10px">
+                            <!-- style-->
+                            <style>
+                                .table-bordered th,
+                                .table-bordered td {
+                                border: 1px solid black;
+                                padding: 3px;
+                                text-align: center;
+                                }
+                            </style>
+
+                            <!-- header-->
+
+                            <div style="text-align: center; font-weight: bold;">
+                                <b style="text-align: center; font-weight: bold; font-size: 25px;">
+                                    Month Wise Closing Report
+                                </b>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-4">
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                                </div>
+                                <div class="col-4 m-3">
+                                    <center>
+                                        <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                            <t t-esc="date_from"/>
+                                        </span>
+                                        <span class="ml-3 mr-3" style="font-weight: bold; padding: 4px;">To</span>
+                                        <span style="border: 1px solid black; font-weight: bold;" class="p-2 bold-text">
+                                            <t t-esc="date_to"/>
+                                        </span>
+                                    </center>
+                                </div>
+                                <div class="col-4"/>
+                            </div>
+
+                            <!-- Table-->
+                            <table class="table-bordered" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Branch Name
+                                        </th>
+                                        <t t-foreach="next_12_months" t-as="month">
+                                            <th>
+                                                <t t-esc="month"/>
+                                            </th>
+                                        </t>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <t t-set="lease_sales" t-value="env['lease.sale'].search([])"/>
+                                    <t t-set="branches" t-value="lease_sales.mapped('branch_id')"/>
+                                    <t t-foreach="branches" t-as="branch">
+
+                                        <!--                                    <t t-esc="lease_sales"/>-->
+                                        <tr>
+                                            <td>
+                                                <span t-esc="branch.name"/>
+                                            </td>
+                                            <span>
+                                                <t t-foreach="next_12_months" t-as="month">
+                                                    <t t-set="month_start"
+                                                       t-value="datetime.datetime.strptime(month, '%b %Y').replace(day=1).date()"/>
+                                                    <t t-set="month_end_a"
+                                                       t-value="datetime.datetime.strptime(month, '%b %Y').replace(day=1) + relativedelta(months=1, days=-1)"/>
+                                                    <t t-set="month_end" t-value="month_end_a.date()"/>
+                                                    <t t-set="sale_amount_eval"
+                                                       t-value="env['lease.sale'].search([('branch_id', '=', branch.id),('lease_date', '&gt;=', month_start),('lease_date', '&lt;=', month_end)])"/>
+                                                    <t t-set="sale_amount"
+                                                       t-value="sum(sale_amount_eval.mapped('sale_total'))"/>
+                                                    <td>
+                                                        <t t-esc="sale_amount"/>
+<!--                                                        <br/>-->
+<!--                                                        <t t-esc="month_start"/>-->
+<!--                                                        <br/>-->
+<!--                                                        <t t-esc="month_end"/>-->
+
+                                                    </td>
+                                                </t>
+
+                                            </span>
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                                <!-- (lambda x: x.branch_id == branch.id and x.lease_date &gt;= date_from and x.lease_date &lt;= date_to and x.lease_date.month.strftime('%b %Y') == month)-->
+
+                            </table>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="monthly_closing_report_pdf_action"
+                model="recovery.report"
+                string="Monthly Closing Report Pdf"
+                report_type="qweb-pdf"
+                name="monthly_closing_report.monthly_closing_report_pdf_action_temp"
+                file="monthly_closing_report.monthly_closing_report_pdf_action_temp"
+                paperformat="paperformat_recover_resdf"
+                attachment_use="False"
+
+        />
+
+
+    </data>
+</odoo>
