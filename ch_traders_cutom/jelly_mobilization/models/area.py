@@ -9,7 +9,7 @@ class Area(models.Model):
     name = fields.Char(string='Area Name',tracking=True)
     branch_id = fields.Many2one('res.branch',tracking=True)
     area_supervisor_id = fields.Many2one('hr.employee',tracking=True)
-    portfolio_id = fields.One2many('branch.portfolio','area_id',tracking=True)
+    
 
 
 class ResBranch(models.Model):

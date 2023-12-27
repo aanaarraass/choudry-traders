@@ -28,7 +28,7 @@
                             <group>
                                 <field name="branch_id"/>
                                 <field name="area_supervisor_id"/>
-                                <field name="portfolio_id"/>
+<!--                                <field name="portfolio_id"/>-->
                             </group>
                         </group>
                     </sheet>
