@@ -2277,7 +2277,7 @@ msgstr ""
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:209
 #: code:addons/web/static/src/js/services/crash_manager.js:153
 #, python-format
-msgid "ERP Client Error"
+msgid "Odoo Client Error"
 msgstr ""
 
 #. module: web
@@ -2291,14 +2291,14 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:115
 #, python-format
-msgid "ERP Error"
+msgid "Odoo Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:212
 #, python-format
-msgid "ERP Session Expired"
+msgid "Odoo Session Expired"
 msgstr ""
 
 #. module: web
@@ -2306,7 +2306,7 @@ msgstr ""
 #: code:addons/web/static/src/js/services/crash_manager.js:105
 #: code:addons/web/static/src/js/services/crash_manager.js:194
 #, python-format
-msgid "ERP Warning"
+msgid "Odoo Warning"
 msgstr ""
 
 #. module: web
@@ -3713,7 +3713,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:212
 #, python-format
-msgid "Your ERP session expired. Please refresh the current web page."
+msgid "Your Odoo session expired. Please refresh the current web page."
 msgstr ""
 
 #. module: web

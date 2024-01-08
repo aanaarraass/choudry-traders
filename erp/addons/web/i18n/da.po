@@ -17,7 +17,7 @@ msgstr ""
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
 "Last-Translator: Mads Søndergaard, 2022\n"
-"Language-Team: Danish (https://www.transifex.com/odoo/teams/41243/da/)\n"
+"Language-Team: Danish (https://app.transifex.com/odoo/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -2914,7 +2914,7 @@ msgstr "Odoo apps vil snart være tilgængelig"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Client Error"
+msgid "Odoo Client Error"
 msgstr "Odoo klient-fejl"
 
 #. module: web
@@ -2928,7 +2928,7 @@ msgstr "Odoo Enterprise"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Error"
+msgid "Odoo Error"
 msgstr "Odoo fejl"
 
 #. module: web
@@ -2936,14 +2936,14 @@ msgstr "Odoo fejl"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Network Error"
+msgid "Odoo Network Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Server Error"
+msgid "Odoo Server Error"
 msgstr ""
 
 #. module: web
@@ -2951,7 +2951,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "ERP Session Expired"
+msgid "Odoo Session Expired"
 msgstr "Odoo session udløb"
 
 #. module: web
@@ -2959,7 +2959,7 @@ msgstr "Odoo session udløb"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Warning"
+msgid "Odoo Warning"
 msgstr "Odoo advarsel"
 
 #. module: web
@@ -4965,7 +4965,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your ERP session expired. The current page is about to be refreshed."
+msgid "Your Odoo session expired. The current page is about to be refreshed."
 msgstr ""
 "Din Odoo session udløb. Den nuværende side skal til at blive genindlæst."
 

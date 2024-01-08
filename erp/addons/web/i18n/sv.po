@@ -21,6 +21,7 @@
 # Simon S, 2022
 # Martin Trigaux, 2022
 # Kristoffer Grundström <lovaren@gmail.com>, 2022
+# Mikael Åkerberg <mikael.akerberg@mariaakerberg.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -28,8 +29,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:20+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
-"Last-Translator: Kristoffer Grundström <lovaren@gmail.com>, 2022\n"
-"Language-Team: Swedish (https://www.transifex.com/odoo/teams/41243/sv/)\n"
+"Last-Translator: Mikael Åkerberg <mikael.akerberg@mariaakerberg.com>, 2023\n"
+"Language-Team: Swedish (https://app.transifex.com/odoo/teams/41243/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -1362,7 +1363,7 @@ msgstr "Land"
 #: code:addons/web/static/src/legacy/xml/web_calendar.xml:0
 #, python-format
 msgid "Create"
-msgstr "Skapa"
+msgstr "Skapa "
 
 #. module: web
 #. openerp-web
@@ -1370,7 +1371,7 @@ msgstr "Skapa"
 #: code:addons/web/static/src/legacy/js/views/view_dialogs.js:0
 #, python-format
 msgid "Create "
-msgstr "Skapa"
+msgstr "Skapa "
 
 #. module: web
 #. openerp-web
@@ -2926,7 +2927,7 @@ msgstr "Odoo Appar är snart tillgängliga"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Client Error"
+msgid "Odoo Client Error"
 msgstr "Odoo Klient Fel"
 
 #. module: web
@@ -2940,7 +2941,7 @@ msgstr "Odoo Enterprise"
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Error"
+msgid "Odoo Error"
 msgstr "Odoo Fel"
 
 #. module: web
@@ -2948,14 +2949,14 @@ msgstr "Odoo Fel"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Network Error"
+msgid "Odoo Network Error"
 msgstr "Odoo Nätverks Fel"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Server Error"
+msgid "Odoo Server Error"
 msgstr "Odoo Server Fel"
 
 #. module: web
@@ -2963,7 +2964,7 @@ msgstr "Odoo Server Fel"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "ERP Session Expired"
+msgid "Odoo Session Expired"
 msgstr "Odoo Sessionen Förfallen"
 
 #. module: web
@@ -2971,7 +2972,7 @@ msgstr "Odoo Sessionen Förfallen"
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #: code:addons/web/static/src/core/errors/error_dialogs.js:0
 #, python-format
-msgid "ERP Warning"
+msgid "Odoo Warning"
 msgstr "Odoo Varning"
 
 #. module: web
@@ -4993,7 +4994,7 @@ msgstr ""
 #: code:addons/web/static/src/core/errors/error_dialogs.xml:0
 #: code:addons/web/static/src/public/error_notifications.js:0
 #, python-format
-msgid "Your ERP session expired. The current page is about to be refreshed."
+msgid "Your Odoo session expired. The current page is about to be refreshed."
 msgstr ""
 "Din Odoo -session har löpt ut. Den aktuella sidan kommer att uppdateras."
 
