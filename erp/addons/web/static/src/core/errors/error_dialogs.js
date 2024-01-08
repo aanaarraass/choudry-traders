@@ -42,7 +42,7 @@ export class ErrorDialog extends Dialog {
 }
 ErrorDialog.contentClass = "o_dialog_error";
 ErrorDialog.bodyTemplate = "web.ErrorDialogBody";
-ErrorDialog.title = _lt("Odoo Error");
+ErrorDialog.title = _lt("Web Error");
 
 // -----------------------------------------------------------------------------
 // Client Error Dialog
@@ -78,13 +78,13 @@ export class RPCErrorDialog extends ErrorDialog {
         if (!this.props.type) return;
         switch (this.props.type) {
             case "server":
-                this.title = this.env._t("Odoo Server Error");
+                this.title = this.env._t("Server Error");
                 break;
             case "script":
-                this.title = this.env._t("Odoo Client Error");
+                this.title = this.env._t("Client Error");
                 break;
             case "network":
-                this.title = this.env._t("Odoo Network Error");
+                this.title = this.env._t("Network Error");
                 break;
         }
     }
@@ -166,7 +166,7 @@ export class SessionExpiredDialog extends Dialog {
 }
 SessionExpiredDialog.bodyTemplate = "web.SessionExpiredDialogBody";
 SessionExpiredDialog.footerTemplate = "web.SessionExpiredDialogFooter";
-SessionExpiredDialog.title = _lt("Odoo Session Expired");
+SessionExpiredDialog.title = _lt("Session Expired");
 
 registry
     .category("error_dialogs")

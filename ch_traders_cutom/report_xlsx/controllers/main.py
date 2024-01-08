@@ -100,5 +100,5 @@ class ReportController(report.ReportController):
         except Exception as e:
             _logger.exception("Error while generating report %s", reportname)
             se = _serialize_exception(e)
-            error = {"code": 200, "message": "Odoo Server Error", "data": se}
+            error = {"code": 200, "message": "Server Error", "data": se}
             return request.make_response(html_escape(json.dumps(error)))

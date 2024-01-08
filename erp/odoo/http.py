@@ -661,7 +661,7 @@ class JsonRequest(WebRequest):
                 error['message'] = "404: Not Found"
             if isinstance(exception, AuthenticationError):
                 error['code'] = 100
-                error['message'] = "Odoo Session Invalid"
+                error['message'] = "Session Invalid"
             if isinstance(exception, SessionExpiredException):
                 error['code'] = 100
                 error['message'] = "ERP Session Expired"

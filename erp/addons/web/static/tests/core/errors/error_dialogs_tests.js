@@ -52,7 +52,7 @@ QUnit.test("ErrorDialog with traceback", async (assert) => {
     env = await makeTestEnv();
     parent = await mount(Parent, { env, target });
     assert.containsOnce(target, ".o_dialog");
-    assert.strictEqual(target.querySelector("header .modal-title").textContent, "Odoo Error");
+    assert.strictEqual(target.querySelector("header .modal-title").textContent, "Web Error");
     const mainButtons = target.querySelectorAll("main button");
     assert.deepEqual(
         [...mainButtons].map((el) => el.textContent),
@@ -286,11 +286,11 @@ QUnit.test("SessionExpiredDialog", async (assert) => {
     assert.containsOnce(target, ".o_dialog");
     assert.strictEqual(
         target.querySelector("header .modal-title").textContent,
-        "Odoo Session Expired"
+        "Session Expired"
     );
     assert.strictEqual(
         target.querySelector("main p").textContent,
-        " Your Odoo session expired. The current page is about to be refreshed. "
+        " Your session expired. The current page is about to be refreshed. "
     );
     const footerButton = target.querySelector(".o_dialog footer button");
     assert.strictEqual(footerButton.textContent, "Ok");

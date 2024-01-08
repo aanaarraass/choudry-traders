@@ -594,7 +594,7 @@ QUnit.module('Views', {
                         message: {
                             code: 200,
                             data: {},
-                            message: "Odoo server error",
+                            message: "server error",
                         },
                         event: event
                     });
